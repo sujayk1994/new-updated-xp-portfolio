@@ -14,6 +14,7 @@ declare module '$env/static/private' {
 	export const DATABASE_URL: string;
 	export const REPLIT_GITSAFE_NEW_REPLS_ENABLED: string;
 	export const NIXPKGS_ALLOW_UNFREE: string;
+	export const PKG_CONFIG_PATH: string;
 	export const HOSTNAME: string;
 	export const __EGL_VENDOR_LIBRARY_FILENAMES: string;
 	export const NODE: string;
@@ -27,6 +28,7 @@ declare module '$env/static/private' {
 	export const XDG_CONFIG_HOME: string;
 	export const REPLIT_LD_AUDIT: string;
 	export const COLOR: string;
+	export const PKG_CONFIG_PATH_FOR_TARGET: string;
 	export const npm_config_local_prefix: string;
 	export const REPLIT_CLI: string;
 	export const npm_config_globalconfig: string;
@@ -38,6 +40,8 @@ declare module '$env/static/private' {
 	export const NIX_PATH: string;
 	export const npm_config_init_module: string;
 	export const REPL_ID: string;
+	export const GI_TYPELIB_PATH: string;
+	export const LDFLAGS: string;
 	export const HOME: string;
 	export const LANG: string;
 	export const CONNECTORS_HOSTNAME: string;
@@ -71,6 +75,7 @@ declare module '$env/static/private' {
 	export const SHLVL: string;
 	export const REPLIT_NIX_CHANNEL: string;
 	export const GIT_EDITOR: string;
+	export const NIX_CFLAGS_COMPILE: string;
 	export const PGDATABASE: string;
 	export const PROMPT_DIRTRIM: string;
 	export const LIBGL_DRIVERS_PATH: string;
@@ -91,9 +96,11 @@ declare module '$env/static/private' {
 	export const PATH: string;
 	export const npm_config_node_gyp: string;
 	export const DOCKER_CONFIG: string;
+	export const CFLAGS: string;
 	export const npm_config_global_prefix: string;
 	export const GLIBC_TUNABLES: string;
 	export const REPL_PUBKEYS: string;
 	export const npm_node_execpath: string;
 	export const REPL_SLUG: string;
+	export const NIX_LDFLAGS: string;
 }

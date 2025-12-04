@@ -21,11 +21,19 @@
         welcome_audio.addEventListener("ended", (e) => {
             console.log("xp_startup audio ended");
             clearTimeout(fallback_timer);
-            self.destroy();
+            if (self && self.destroy) {
+                self.destroy();
+            } else {
+                destroyed = true;
+            }
         });
 
         fallback_timer = setTimeout(() => {
-            self.destroy();
+            if (self && self.destroy) {
+                self.destroy();
+            } else {
+                destroyed = true;
+            }
         }, 7000)
 
     })

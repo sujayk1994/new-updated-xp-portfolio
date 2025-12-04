@@ -23,6 +23,9 @@ export const REPLIT_GITSAFE_NEW_REPLS_ENABLED = "true";
 /** @type {import('$env/static/private').NIXPKGS_ALLOW_UNFREE} */
 export const NIXPKGS_ALLOW_UNFREE = "1";
 
+/** @type {import('$env/static/private').PKG_CONFIG_PATH} */
+export const PKG_CONFIG_PATH = "";
+
 /** @type {import('$env/static/private').HOSTNAME} */
 export const HOSTNAME = "7b815b6dabe0";
 
@@ -62,6 +65,9 @@ export const REPLIT_LD_AUDIT = "/nix/store/6y0zqxaf220r36b74hwsq9m2b2av3lw7-repl
 /** @type {import('$env/static/private').COLOR} */
 export const COLOR = "1";
 
+/** @type {import('$env/static/private').PKG_CONFIG_PATH_FOR_TARGET} */
+export const PKG_CONFIG_PATH_FOR_TARGET = "";
+
 /** @type {import('$env/static/private').npm_config_local_prefix} */
 export const npm_config_local_prefix = "/home/runner/workspace";
 
@@ -94,6 +100,12 @@ export const npm_config_init_module = "/home/runner/.npm-init.js";
 
 /** @type {import('$env/static/private').REPL_ID} */
 export const REPL_ID = "2d87f7d4-a7b9-4d77-8e3f-2295b124ddae";
+
+/** @type {import('$env/static/private').GI_TYPELIB_PATH} */
+export const GI_TYPELIB_PATH = "";
+
+/** @type {import('$env/static/private').LDFLAGS} */
+export const LDFLAGS = "";
 
 /** @type {import('$env/static/private').HOME} */
 export const HOME = "/home/runner";
@@ -194,6 +206,9 @@ export const REPLIT_NIX_CHANNEL = "stable-25_05";
 /** @type {import('$env/static/private').GIT_EDITOR} */
 export const GIT_EDITOR = "replit-git-editor";
 
+/** @type {import('$env/static/private').NIX_CFLAGS_COMPILE} */
+export const NIX_CFLAGS_COMPILE = "";
+
 /** @type {import('$env/static/private').PGDATABASE} */
 export const PGDATABASE = "heliumdb";
 
@@ -234,7 +249,7 @@ export const PGHOST = "helium";
 export const npm_package_json = "/home/runner/workspace/package.json";
 
 /** @type {import('$env/static/private').XDG_DATA_DIRS} */
-export const XDG_DATA_DIRS = "/nix/store/1dyk2gadghrim582jhij2pgmnglpkcpz-replit-runtime-path/share";
+export const XDG_DATA_DIRS = "/nix/store/n3fwf368m4bpdjkw4lm38ylkxk2vmsqi-git-lfs-3.6.1/share:/nix/store/1dyk2gadghrim582jhij2pgmnglpkcpz-replit-runtime-path/share";
 
 /** @type {import('$env/static/private').REPL_IDENTITY_KEY} */
 export const REPL_IDENTITY_KEY = "k2.secret.pIPKJRBgycwvVwJhlJ8gVUuaTmU8N76wU3S4IVyg5gwVqMwMxUiQJkoG7dgRc-PqRhUj5keUHtMYLoG2HB_g7g";
@@ -246,13 +261,16 @@ export const REPLIT_HELIUM_ENABLED = "true";
 export const npm_config_noproxy = "";
 
 /** @type {import('$env/static/private').PATH} */
-export const PATH = "/home/runner/workspace/node_modules/.bin:/home/runner/node_modules/.bin:/home/node_modules/.bin:/node_modules/.bin:/nix/store/lz7iav1hd92jbv44zf2rdd7b2mj23536-nodejs-20.19.3/lib/node_modules/npm/node_modules/@npmcli/run-script/lib/node-gyp-bin:/nix/store/djy8g4cghlw19fmy6zblim1waxkr7mf2-npx/bin:/home/runner/workspace/.config/npm/node_global/bin:/home/runner/workspace/node_modules/.bin:/nix/store/8y4ls7z2sfxbq6ch3yp45l28p29qswvx-nodejs-20.19.3-wrapped/bin:/nix/store/nj22dzxzzx4m80lfa91fzqh8k9lvwigw-bun-1.2.16/bin:/nix/store/pciji08qkvcg3191yykpfipdcbbic9k5-pnpm-10.12.4/bin:/nix/store/6mzbvyzh4dfgfab6lciclji7awp9w3c4-yarn-1.22.22/bin:/nix/store/gvg9vrp821nmnyf9pxig6pss1sjywd5w-prettier-3.5.3/bin:/nix/store/i6s3f204qgqwlsw2j0ag1hvh8af32yjk-pid1/bin:/nix/store/1dyk2gadghrim582jhij2pgmnglpkcpz-replit-runtime-path/bin:/home/runner/.nix-profile/bin:/home/runner/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin";
+export const PATH = "/home/runner/workspace/node_modules/.bin:/home/runner/node_modules/.bin:/home/node_modules/.bin:/node_modules/.bin:/nix/store/lz7iav1hd92jbv44zf2rdd7b2mj23536-nodejs-20.19.3/lib/node_modules/npm/node_modules/@npmcli/run-script/lib/node-gyp-bin:/nix/store/n3fwf368m4bpdjkw4lm38ylkxk2vmsqi-git-lfs-3.6.1/bin:/nix/store/djy8g4cghlw19fmy6zblim1waxkr7mf2-npx/bin:/home/runner/workspace/.config/npm/node_global/bin:/home/runner/workspace/node_modules/.bin:/nix/store/8y4ls7z2sfxbq6ch3yp45l28p29qswvx-nodejs-20.19.3-wrapped/bin:/nix/store/nj22dzxzzx4m80lfa91fzqh8k9lvwigw-bun-1.2.16/bin:/nix/store/pciji08qkvcg3191yykpfipdcbbic9k5-pnpm-10.12.4/bin:/nix/store/6mzbvyzh4dfgfab6lciclji7awp9w3c4-yarn-1.22.22/bin:/nix/store/gvg9vrp821nmnyf9pxig6pss1sjywd5w-prettier-3.5.3/bin:/nix/store/i6s3f204qgqwlsw2j0ag1hvh8af32yjk-pid1/bin:/nix/store/1dyk2gadghrim582jhij2pgmnglpkcpz-replit-runtime-path/bin:/home/runner/.nix-profile/bin:/home/runner/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin";
 
 /** @type {import('$env/static/private').npm_config_node_gyp} */
 export const npm_config_node_gyp = "/nix/store/lz7iav1hd92jbv44zf2rdd7b2mj23536-nodejs-20.19.3/lib/node_modules/npm/node_modules/node-gyp/bin/node-gyp.js";
 
 /** @type {import('$env/static/private').DOCKER_CONFIG} */
 export const DOCKER_CONFIG = "/home/runner/workspace/.config/docker";
+
+/** @type {import('$env/static/private').CFLAGS} */
+export const CFLAGS = "";
 
 /** @type {import('$env/static/private').npm_config_global_prefix} */
 export const npm_config_global_prefix = "/home/runner/workspace/.config/npm/node_global";
@@ -268,3 +286,6 @@ export const npm_node_execpath = "/nix/store/lz7iav1hd92jbv44zf2rdd7b2mj23536-no
 
 /** @type {import('$env/static/private').REPL_SLUG} */
 export const REPL_SLUG = "workspace";
+
+/** @type {import('$env/static/private').NIX_LDFLAGS} */
+export const NIX_LDFLAGS = "";

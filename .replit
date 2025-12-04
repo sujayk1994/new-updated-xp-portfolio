@@ -4,6 +4,7 @@ expertMode = true
 
 [nix]
 channel = "stable-25_05"
+packages = ["git-lfs"]
 
 [workflows]
 runButton = "Project"
@@ -34,8 +35,8 @@ localPort = 5000
 externalPort = 80
 
 [[ports]]
-localPort = 35793
-externalPort = 3001
+localPort = 33745
+externalPort = 3002
 
 [[ports]]
 localPort = 40967
