@@ -99,6 +99,7 @@ declare module '$env/static/private' {
 	export const CFLAGS: string;
 	export const npm_config_global_prefix: string;
 	export const GLIBC_TUNABLES: string;
+	export const JWT_SECRET: string;
 	export const REPL_PUBKEYS: string;
 	export const npm_node_execpath: string;
 	export const REPL_SLUG: string;

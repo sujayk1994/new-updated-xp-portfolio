@@ -53,12 +53,21 @@ export async function del_fs(id){
         return;
     }
     let obj = get(hardDrive)[id];
+    if (!obj) return;
+    
     const isAdminMode = get(isAdmin);
     const isAdminItem = obj.is_admin || obj.storage_type === 'admin';
 
-    let child_ids = [
-        ...obj.children
-    ]
+    let child_ids = [...obj.children];
+
+    for(let child_id of child_ids){
+        await del_fs(child_id);
+    }
+
+    if (isAdminMode && isAdminItem) {
+        await deleteAdminFile(id);
+    }
+
     if(get(hardDrive)[obj.parent] != null){
         console.log('delete from parent', obj.parent)
         
@@ -70,7 +79,7 @@ export async function del_fs(id){
 
         if (isAdminMode && isAdminItem) {
             const parentItem = get(hardDrive)[obj.parent];
-            if (parentItem.is_admin) {
+            if (parentItem && parentItem.is_admin) {
                 await updateAdminChildren(obj.parent, parentItem.children);
             }
         }
@@ -80,14 +89,6 @@ export async function del_fs(id){
         delete data[id];
         return data;
     })
-
-    if (isAdminMode && isAdminItem) {
-        await deleteAdminFile(id);
-    }
-
-    for(let child_id of child_ids){
-        await del_fs(child_id);
-    }
 }
 
 function dir_contains_dir(a, b){

@@ -278,6 +278,9 @@ export const npm_config_global_prefix = "/home/runner/workspace/.config/npm/node
 /** @type {import('$env/static/private').GLIBC_TUNABLES} */
 export const GLIBC_TUNABLES = "glibc.rtld.optional_static_tls=10000";
 
+/** @type {import('$env/static/private').JWT_SECRET} */
+export const JWT_SECRET = "085c993c3f782b6af71df1ff4777458eeac5c14f435aab881707bf23ad0fea5f";
+
 /** @type {import('$env/static/private').REPL_PUBKEYS} */
 export const REPL_PUBKEYS = "{\"crosis-ci\":\"7YlpcYh82oR9NSTtSYtR5jDL4onNzCGJGq6b+9CuZII=\",\"crosis-ci:1\":\"7YlpcYh82oR9NSTtSYtR5jDL4onNzCGJGq6b+9CuZII=\",\"crosis-ci:latest\":\"7YlpcYh82oR9NSTtSYtR5jDL4onNzCGJGq6b+9CuZII=\",\"prod\":\"tGsjlu/BJvWTgvMaX7acuUb7AO1dXOrRiuk7y083RFE=\",\"prod:1\":\"tGsjlu/BJvWTgvMaX7acuUb7AO1dXOrRiuk7y083RFE=\",\"prod:3\":\"9+MCOSHQSQlcodXoot8dC8NLhc862nLkx1/VMsbY2h8=\",\"prod:4\":\"8uGN+vfszlnV93/HCSHlVLG0xddMlPkir1Ni4JKT4+w=\",\"prod:5\":\"9+MCOSHQSQlcodXoot8dC8NLhc862nLkx1/VMsbY2h8=\",\"prod:latest\":\"tGsjlu/BJvWTgvMaX7acuUb7AO1dXOrRiuk7y083RFE=\",\"vault-goval-token\":\"D5jJoMx1Ml54HM92NLgXl+MzptwDqbSsfyFG6f52g9E=\",\"vault-goval-token:1\":\"D5jJoMx1Ml54HM92NLgXl+MzptwDqbSsfyFG6f52g9E=\",\"vault-goval-token:latest\":\"D5jJoMx1Ml54HM92NLgXl+MzptwDqbSsfyFG6f52g9E=\"}";
 

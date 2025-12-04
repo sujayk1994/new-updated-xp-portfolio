@@ -1,9 +1,14 @@
 import bcrypt from 'bcrypt';
 import jwt from 'jsonwebtoken';
+import crypto from 'crypto';
 import { query } from './db.js';
 
-const JWT_SECRET = process.env.JWT_SECRET || 'xp-portfolio-admin-secret-key-2024';
+const JWT_SECRET = process.env.JWT_SECRET || crypto.randomBytes(64).toString('hex');
 const SALT_ROUNDS = 10;
+
+if (!process.env.JWT_SECRET) {
+    console.warn('WARNING: JWT_SECRET not set in environment. Using randomly generated secret. Sessions will be invalidated on server restart.');
+}
 
 export async function createAdmin(username, password) {
     const passwordHash = await bcrypt.hash(password, SALT_ROUNDS);
