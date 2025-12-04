@@ -1,0 +1,99 @@
+// this file is generated — do not edit it
+/// <reference types="@sveltejs/kit" />
+
+declare module '$env/static/public' {
+
+}
+
+declare module '$env/static/private' {
+	export const npm_command: string;
+	export const npm_config_userconfig: string;
+	export const COLORTERM: string;
+	export const npm_config_cache: string;
+	export const REPL_OWNER: string;
+	export const DATABASE_URL: string;
+	export const REPLIT_GITSAFE_NEW_REPLS_ENABLED: string;
+	export const NIXPKGS_ALLOW_UNFREE: string;
+	export const HOSTNAME: string;
+	export const __EGL_VENDOR_LIBRARY_FILENAMES: string;
+	export const NODE: string;
+	export const REPLIT_DOMAINS: string;
+	export const LD_AUDIT: string;
+	export const PGPORT: string;
+	export const XDG_DATA_HOME: string;
+	export const REPLIT_PID1_FLAG_PREEVALED_SYSPKGS: string;
+	export const REPL_OWNER_ID: string;
+	export const PGPASSWORD: string;
+	export const XDG_CONFIG_HOME: string;
+	export const REPLIT_LD_AUDIT: string;
+	export const COLOR: string;
+	export const npm_config_local_prefix: string;
+	export const REPLIT_CLI: string;
+	export const npm_config_globalconfig: string;
+	export const EDITOR: string;
+	export const REPLIT_SUBCLUSTER: string;
+	export const PWD: string;
+	export const NIX_PROFILES: string;
+	export const REPLIT_DB_URL: string;
+	export const NIX_PATH: string;
+	export const npm_config_init_module: string;
+	export const REPL_ID: string;
+	export const HOME: string;
+	export const LANG: string;
+	export const CONNECTORS_HOSTNAME: string;
+	export const REPL_IDENTITY: string;
+	export const LS_COLORS: string;
+	export const REPLIT_RIPPKGS_INDICES: string;
+	export const npm_package_version: string;
+	export const GIT_ASKPASS: string;
+	export const PGUSER: string;
+	export const REPL_IMAGE: string;
+	export const REPLIT_GITSAFE_EXISTING_REPLS_ENABLED: string;
+	export const REPLIT_CONTAINER: string;
+	export const INIT_CWD: string;
+	export const XDG_CACHE_HOME: string;
+	export const npm_lifecycle_script: string;
+	export const REPLIT_RTLD_LOADER: string;
+	export const npm_config_npm_version: string;
+	export const REPLIT_DEV_DOMAIN: string;
+	export const TERM: string;
+	export const npm_package_name: string;
+	export const REPLIT_CLUSTER: string;
+	export const REPLIT_BASHRC: string;
+	export const npm_config_prefix: string;
+	export const REPL_LANGUAGE: string;
+	export const USER: string;
+	export const SESSION_SECRET: string;
+	export const REPL_HOME: string;
+	export const REPLIT_PID1_VERSION: string;
+	export const DISPLAY: string;
+	export const npm_lifecycle_event: string;
+	export const SHLVL: string;
+	export const REPLIT_NIX_CHANNEL: string;
+	export const GIT_EDITOR: string;
+	export const PGDATABASE: string;
+	export const PROMPT_DIRTRIM: string;
+	export const LIBGL_DRIVERS_PATH: string;
+	export const REPLIT_MODE: string;
+	export const LOCALE_ARCHIVE: string;
+	export const REPLIT_GITSAFE_ENABLED: string;
+	export const npm_config_user_agent: string;
+	export const REPLIT_CONNECTORS_HOSTNAME: string;
+	export const npm_execpath: string;
+	export const REPLIT_PID2: string;
+	export const REPLIT_ENVIRONMENT: string;
+	export const PGHOST: string;
+	export const npm_package_json: string;
+	export const XDG_DATA_DIRS: string;
+	export const REPL_IDENTITY_KEY: string;
+	export const REPLIT_HELIUM_ENABLED: string;
+	export const npm_config_noproxy: string;
+	export const PATH: string;
+	export const npm_config_node_gyp: string;
+	export const DOCKER_CONFIG: string;
+	export const npm_config_global_prefix: string;
+	export const GLIBC_TUNABLES: string;
+	export const REPL_PUBKEYS: string;
+	export const npm_node_execpath: string;
+	export const REPL_SLUG: string;
+}
