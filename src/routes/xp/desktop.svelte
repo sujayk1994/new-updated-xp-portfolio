@@ -14,6 +14,7 @@
     import StartMenu from "./start_menu.svelte";
     import Welcome from "./welcome.svelte";
     import * as utils from "../../lib/utils";
+    import { checkAdminStatus, loadAdminFiles } from "../../lib/admin";
     let dispatcher = createEventDispatcher();
 
     let io_worker;
@@ -65,6 +66,24 @@
 
         welcome_scene.self = welcome_scene;
 
+        checkAdminStatus();
+
+        setTimeout(async () => {
+            const adminFiles = await loadAdminFiles();
+            if (Object.keys(adminFiles).length > 0) {
+                hardDrive.update(data => {
+                    for (const [id, file] of Object.entries(adminFiles)) {
+                        if (!data[id]) {
+                            data[id] = file;
+                            if (file.parent && data[file.parent] && !data[file.parent].children.includes(id)) {
+                                data[file.parent].children.push(id);
+                            }
+                        }
+                    }
+                    return data;
+                });
+            }
+        }, 500);
     });
 
     onDestroy(() => {

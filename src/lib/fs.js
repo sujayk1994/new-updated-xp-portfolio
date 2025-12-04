@@ -7,6 +7,7 @@ import * as util from './utils';
 import * as idb from 'idb-keyval';
 import * as finder from './finder';
 import {Buffer} from 'buffer';
+import { isAdmin, saveAdminFile, deleteAdminFile, uploadAdminFile, updateAdminChildren } from './admin';
 
 export function copy(){
     clipboard_op.set('copy');
@@ -46,12 +47,14 @@ export function paste(id, new_id=null){
     // clipboard.set([]);
 }
 
-export function del_fs(id){
+export async function del_fs(id){
     if(protected_items.includes(id)){
         console.log(id, 'is protected');
         return;
     }
     let obj = get(hardDrive)[id];
+    const isAdminMode = get(isAdmin);
+    const isAdminItem = obj.is_admin || obj.storage_type === 'admin';
 
     let child_ids = [
         ...obj.children
@@ -64,6 +67,13 @@ export function del_fs(id){
             data[obj.parent].date_modified = (new Date()).getTime();
             return data;
         })
+
+        if (isAdminMode && isAdminItem) {
+            const parentItem = get(hardDrive)[obj.parent];
+            if (parentItem.is_admin) {
+                await updateAdminChildren(obj.parent, parentItem.children);
+            }
+        }
     }
     
     hardDrive.update(data => {
@@ -71,8 +81,12 @@ export function del_fs(id){
         return data;
     })
 
+    if (isAdminMode && isAdminItem) {
+        await deleteAdminFile(id);
+    }
+
     for(let child_id of child_ids){
-        del_fs(child_id);
+        await del_fs(child_id);
     }
 }
 
@@ -149,13 +163,14 @@ export async function new_fs_item(type, ext, seedname, parent_id, file=null){
         return;
     }
 
+    const isAdminMode = get(isAdmin);
     let now = (new Date()).getTime();
     let item = {
         "id": short.generate(),
         "type": type,
         "path": "",
         "name": "",
-        "storage_type": "local",
+        "storage_type": isAdminMode ? "admin" : "local",
         "url": short.generate(),
         "ext": ext,
         "level": 0,
@@ -166,7 +181,8 @@ export async function new_fs_item(type, ext, seedname, parent_id, file=null){
         date_created: now,
         date_modified: now,
         sort_option: SortOptions.NONE,
-        sort_order: SortOrders.ASCENDING
+        sort_order: SortOrders.ASCENDING,
+        is_admin: isAdminMode
     }
 
     let children = get(hardDrive)[parent_id].children.map(el => get(hardDrive)[el]);
@@ -186,14 +202,32 @@ export async function new_fs_item(type, ext, seedname, parent_id, file=null){
     item.name = basename + item.ext;
 
     if(file != null){
-        await idb.set(item.url, file);
-        item.size = Math.ceil(file.size/1024);
+        if (isAdminMode) {
+            const uploadResult = await uploadAdminFile(file, item.id);
+            if (uploadResult.success) {
+                item.url = uploadResult.url;
+                item.size = uploadResult.size;
+                item.storage_type = 'remote';
+            }
+        } else {
+            await idb.set(item.url, file);
+            item.size = Math.ceil(file.size/1024);
+        }
 
     } else if(type == 'file'){
         console.log('fetch empty file')
         file = await file_from_url(`/empty/empty${item.ext}`, item.name);
-        await idb.set(item.url, file);
-        item.size = Math.ceil(file.size/1024);
+        if (isAdminMode) {
+            const uploadResult = await uploadAdminFile(file, item.id);
+            if (uploadResult.success) {
+                item.url = uploadResult.url;
+                item.size = uploadResult.size;
+                item.storage_type = 'remote';
+            }
+        } else {
+            await idb.set(item.url, file);
+            item.size = Math.ceil(file.size/1024);
+        }
 
     } else {
         item.url = '';
@@ -209,6 +243,14 @@ export async function new_fs_item(type, ext, seedname, parent_id, file=null){
         data[parent_id].date_modified = now;
         return data;
     })
+
+    if (isAdminMode) {
+        await saveAdminFile(item);
+        const parentItem = get(hardDrive)[parent_id];
+        if (parentItem.is_admin) {
+            await updateAdminChildren(parent_id, parentItem.children);
+        }
+    }
 
     return item.id;
 }

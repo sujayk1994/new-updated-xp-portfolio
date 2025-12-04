@@ -15,7 +15,7 @@ export const npm_config_cache = "/home/runner/.npm";
 export const REPL_OWNER = "konietzkokevin0";
 
 /** @type {import('$env/static/private').DATABASE_URL} */
-export const DATABASE_URL = "postgresql://postgres:password@helium/heliumdb?sslmode=disable";
+export const DATABASE_URL = "postgresql://neondb_owner:npg_6sWoPx2gnfIc@ep-cold-term-agdo7w1f.c-2.eu-central-1.aws.neon.tech/neondb?sslmode=require";
 
 /** @type {import('$env/static/private').REPLIT_GITSAFE_NEW_REPLS_ENABLED} */
 export const REPLIT_GITSAFE_NEW_REPLS_ENABLED = "true";
@@ -54,7 +54,7 @@ export const REPLIT_PID1_FLAG_PREEVALED_SYSPKGS = "1";
 export const REPL_OWNER_ID = "50734358";
 
 /** @type {import('$env/static/private').PGPASSWORD} */
-export const PGPASSWORD = "password";
+export const PGPASSWORD = "npg_6sWoPx2gnfIc";
 
 /** @type {import('$env/static/private').XDG_CONFIG_HOME} */
 export const XDG_CONFIG_HOME = "/home/runner/workspace/.config";
@@ -132,7 +132,7 @@ export const npm_package_version = "0.0.1";
 export const GIT_ASKPASS = "replit-git-askpass";
 
 /** @type {import('$env/static/private').PGUSER} */
-export const PGUSER = "postgres";
+export const PGUSER = "neondb_owner";
 
 /** @type {import('$env/static/private').REPL_IMAGE} */
 export const REPL_IMAGE = "gcr.io/marine-cycle-160323/nix:bf8590a3e2f0a8b70b7ca175eeed9074dffbfca9";
@@ -210,7 +210,7 @@ export const GIT_EDITOR = "replit-git-editor";
 export const NIX_CFLAGS_COMPILE = "";
 
 /** @type {import('$env/static/private').PGDATABASE} */
-export const PGDATABASE = "heliumdb";
+export const PGDATABASE = "neondb";
 
 /** @type {import('$env/static/private').PROMPT_DIRTRIM} */
 export const PROMPT_DIRTRIM = "2";
@@ -243,7 +243,7 @@ export const REPLIT_PID2 = "true";
 export const REPLIT_ENVIRONMENT = "production";
 
 /** @type {import('$env/static/private').PGHOST} */
-export const PGHOST = "helium";
+export const PGHOST = "ep-cold-term-agdo7w1f.c-2.eu-central-1.aws.neon.tech";
 
 /** @type {import('$env/static/private').npm_package_json} */
 export const npm_package_json = "/home/runner/workspace/package.json";
