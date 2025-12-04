@@ -7,6 +7,19 @@
     let fallback_timer;
     let destroyed = false;
 
+    function cleanup() {
+        if (destroyed) return;
+        destroyed = true;
+        clearTimeout(fallback_timer);
+        if (self && typeof self.$destroy === 'function') {
+            try {
+                self.$destroy();
+            } catch (e) {
+                console.log('Welcome component cleanup');
+            }
+        }
+    }
+
     onMount(() => {
         
         let welcome_audio = new Audio("/audio/xp_startup.mp3");
@@ -20,27 +33,17 @@
 
         welcome_audio.addEventListener("ended", (e) => {
             console.log("xp_startup audio ended");
-            clearTimeout(fallback_timer);
-            if (self && self.destroy) {
-                self.destroy();
-            } else {
-                destroyed = true;
-            }
+            cleanup();
         });
 
         fallback_timer = setTimeout(() => {
-            if (self && self.destroy) {
-                self.destroy();
-            } else {
-                destroyed = true;
-            }
+            cleanup();
         }, 7000)
 
     })
 
     export function destroy(){
-        destroyed = true;
-        self.$destroy();
+        cleanup();
     }
     
 </script>

@@ -48,8 +48,9 @@ if [ ! -d "node_modules" ]; then
     echo ""
 fi
 
-test_file="static/images/xp_loading_logo.jpg"
-if [ -f "$test_file" ] && [ $(stat -c%s "$test_file" 2>/dev/null || stat -f%z "$test_file" 2>/dev/null) -lt 200 ]; then
+lfs_count=$(find static -type f \( -name "*.jpg" -o -name "*.png" -o -name "*.gif" -o -name "*.mp3" -o -name "*.mp4" -o -name "*.pdf" -o -name "*.zip" -o -name "*.wasm" \) -size -200c 2>/dev/null | wc -l)
+if [ "$lfs_count" -gt 0 ]; then
+    echo "Found $lfs_count Git LFS placeholder files that need to be downloaded..."
     download_lfs_files
 fi
 
