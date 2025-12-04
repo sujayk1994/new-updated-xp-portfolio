@@ -49,6 +49,7 @@ declare module '$env/static/private' {
 	export const LS_COLORS: string;
 	export const REPLIT_RIPPKGS_INDICES: string;
 	export const npm_package_version: string;
+	export const ADMIN_PASSWORD: string;
 	export const GIT_ASKPASS: string;
 	export const PGUSER: string;
 	export const REPL_IMAGE: string;

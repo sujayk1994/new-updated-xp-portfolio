@@ -128,6 +128,9 @@ export const REPLIT_RIPPKGS_INDICES = "/nix/store/cg6q7dm7h9jp20vwj79ahnbsd9cs6i
 /** @type {import('$env/static/private').npm_package_version} */
 export const npm_package_version = "0.0.1";
 
+/** @type {import('$env/static/private').ADMIN_PASSWORD} */
+export const ADMIN_PASSWORD = "admin123";
+
 /** @type {import('$env/static/private').GIT_ASKPASS} */
 export const GIT_ASKPASS = "replit-git-askpass";
 
