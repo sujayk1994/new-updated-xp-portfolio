@@ -37,6 +37,20 @@ download_lfs_files() {
     fi
 }
 
+setup_database() {
+    if [ -n "$DATABASE_URL" ]; then
+        echo "Setting up database..."
+        node scripts/setup-db.js
+        if [ $? -ne 0 ]; then
+            echo "Warning: Database setup encountered issues."
+        fi
+        echo ""
+    else
+        echo "No DATABASE_URL found, skipping database setup."
+        echo ""
+    fi
+}
+
 if [ ! -d "node_modules" ]; then
     echo "Installing dependencies..."
     npm install
@@ -53,6 +67,8 @@ if [ "$lfs_count" -gt 0 ]; then
     echo "Found $lfs_count Git LFS placeholder files that need to be downloaded..."
     download_lfs_files
 fi
+
+setup_database
 
 echo "Starting development server on port 5000..."
 echo ""
