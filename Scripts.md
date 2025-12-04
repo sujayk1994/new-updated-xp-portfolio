@@ -18,3 +18,8 @@ Next time you want to run the app, simply use one of these:
 ./init.sh
 # Option 2: NPM command
 npm run start
+
+Your one-command scripts are now:
+
+./init.sh - Start the app (installs everything needed)
+./push.sh - Push changes to GitHub
