@@ -40,6 +40,7 @@ npm run dev
 | `./init.sh` | One-command setup and run |
 | `./setup.sh` | Install dependencies only |
 | `./start.sh` | Start dev server (auto-installs if needed) |
+| `./push.sh` | Push changes to GitHub |
 
 ## Project Structure
 
