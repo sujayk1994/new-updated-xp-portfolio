@@ -12,7 +12,7 @@ export const COLORTERM = "truecolor";
 export const npm_config_cache = "/home/runner/.npm";
 
 /** @type {import('$env/static/private').REPL_OWNER} */
-export const REPL_OWNER = "konietzkokevin0";
+export const REPL_OWNER = "grutznerariane6";
 
 /** @type {import('$env/static/private').DATABASE_URL} */
 export const DATABASE_URL = "postgresql://postgres:password@helium/heliumdb?sslmode=disable";
@@ -27,7 +27,7 @@ export const NIXPKGS_ALLOW_UNFREE = "1";
 export const PKG_CONFIG_PATH = "";
 
 /** @type {import('$env/static/private').HOSTNAME} */
-export const HOSTNAME = "acd992f1c842";
+export const HOSTNAME = "adac52221f8c";
 
 /** @type {import('$env/static/private').__EGL_VENDOR_LIBRARY_FILENAMES} */
 export const __EGL_VENDOR_LIBRARY_FILENAMES = "/nix/store/l4myp7qn0q9bqgmkqq4vnnii22ql1r68-mesa-25.0.7/share/glvnd/egl_vendor.d/50_mesa.json";
@@ -36,7 +36,7 @@ export const __EGL_VENDOR_LIBRARY_FILENAMES = "/nix/store/l4myp7qn0q9bqgmkqq4vnn
 export const NODE = "/nix/store/lz7iav1hd92jbv44zf2rdd7b2mj23536-nodejs-20.19.3/bin/node";
 
 /** @type {import('$env/static/private').REPLIT_DOMAINS} */
-export const REPLIT_DOMAINS = "b34e0c32-9413-4f54-8d13-fa8d7f60b65c-00-j8z4j2ziegdk.kirk.replit.dev";
+export const REPLIT_DOMAINS = "28a3909b-6566-4130-b3b1-f50a98270c8c-00-172oa3fur6lcy.picard.replit.dev";
 
 /** @type {import('$env/static/private').LD_AUDIT} */
 export const LD_AUDIT = "/nix/store/6y0zqxaf220r36b74hwsq9m2b2av3lw7-replit_rtld_loader-1/rtld_loader.so";
@@ -51,7 +51,7 @@ export const XDG_DATA_HOME = "/home/runner/workspace/.local/share";
 export const REPLIT_PID1_FLAG_PREEVALED_SYSPKGS = "1";
 
 /** @type {import('$env/static/private').REPL_OWNER_ID} */
-export const REPL_OWNER_ID = "50793611";
+export const REPL_OWNER_ID = "50798173";
 
 /** @type {import('$env/static/private').PGPASSWORD} */
 export const PGPASSWORD = "password";
@@ -90,7 +90,7 @@ export const PWD = "/home/runner/workspace";
 export const NIX_PROFILES = "/nix/var/nix/profiles/default /home/runner/.nix-profile";
 
 /** @type {import('$env/static/private').REPLIT_DB_URL} */
-export const REPLIT_DB_URL = "https://kv.replit.com/v0/eyJhbGciOiJIUzUxMiIsImlzcyI6ImNvbm1hbiIsImtpZCI6InByb2Q6MSIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJjb25tYW4iLCJleHAiOjE3NjUwMjk4NTAsImlhdCI6MTc2NDkxODI1MCwiZGF0YWJhc2VfaWQiOiJiMzRlMGMzMi05NDEzLTRmNTQtOGQxMy1mYThkN2Y2MGI2NWMifQ.7tUWO34od4RKFm0BYjslUhiqZp4g9vtIvmvprXg_Cjoo4YzKXrcFFpFYUk0WdRK-MK18iTTsE-IhPseg8IljwQ";
+export const REPLIT_DB_URL = "https://kv.replit.com/v0/eyJhbGciOiJIUzUxMiIsImlzcyI6ImNvbm1hbiIsImtpZCI6InByb2Q6MSIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJjb25tYW4iLCJleHAiOjE3NjUwMzc3NDMsImlhdCI6MTc2NDkyNjE0MywiZGF0YWJhc2VfaWQiOiIyOGEzOTA5Yi02NTY2LTQxMzAtYjNiMS1mNTBhOTgyNzBjOGMifQ.pXexZvP4uT3sc24Yr5Ryd_1XwKmUxX_Eq3pePJdj6NMCHKVdGXw_XggCjyviwH3fXfu_WpBhowQ7Bk-MZgJo8g";
 
 /** @type {import('$env/static/private').NIX_PATH} */
 export const NIX_PATH = "nixpkgs=/home/runner/.nix-defexpr/channels/nixpkgs-stable-25_05:/home/runner/.nix-defexpr/channels";
@@ -99,7 +99,7 @@ export const NIX_PATH = "nixpkgs=/home/runner/.nix-defexpr/channels/nixpkgs-stab
 export const npm_config_init_module = "/home/runner/.npm-init.js";
 
 /** @type {import('$env/static/private').REPL_ID} */
-export const REPL_ID = "b34e0c32-9413-4f54-8d13-fa8d7f60b65c";
+export const REPL_ID = "28a3909b-6566-4130-b3b1-f50a98270c8c";
 
 /** @type {import('$env/static/private').GI_TYPELIB_PATH} */
 export const GI_TYPELIB_PATH = "";
@@ -117,7 +117,7 @@ export const LANG = "en_US.UTF-8";
 export const CONNECTORS_HOSTNAME = "connectors.replit.com";
 
 /** @type {import('$env/static/private').REPL_IDENTITY} */
-export const REPL_IDENTITY = "v2.public.Q2lSaU16UmxNR016TWkwNU5ERXpMVFJtTlRRdE9HUXhNeTFtWVRoa04yWTJNR0kyTldNU0QydHZibWxsZEhwcmIydGxkbWx1TUJvWWJtVjNMWFZ3WkdGMFpXUXRlSEF0Y0c5eWRHWnZiR2x2SWlSaU16UmxNR016TWkwNU5ERXpMVFJtTlRRdE9HUXhNeTFtWVRoa04yWTJNR0kyTldNNGk1bWNHRm9UQ2dScmFYSnJFZ3RwYm5SbGNtRmpkR2wyWlE9PdPclR4SUMoKZimqVYNbm-d51YvgbMaIazVj642CQZc3A8bj6i0Ry7mGsOL_0lfl7Rh3-eTsv2wwrth3S-HrhAM.R0FFaUJtTnZibTFoYmhLYkNIWXlMbkIxWW14cFl5NVJNbVF6VTFSSk1GcHJkRFZWVm14U1RETk9SVk5YWkROU1ZrNUZVVmR3ZUUxSFVqSlRhMHB2VVRCT05WUlhiRVZSVmtwMlVUQmtRbFpYUmt0YU1qbHlWMWR3VGsxR2NGVlJiWEJPWld0c01GUXhVbEpsUlRFMVRVUkNZV0ZzVlhkVVJsSnZZVEF4VlZSWVVtRmlWVlV3VjJ0U2EySlZOWEZSYld4UFlXeGFjVkl5YUVaVk1GRjVaRWhhYVdKWGVITmFSV2gzWTIxSmVXUkhlR3RpVjNneFZGVktkbEpyT1Vwa1ZuQjFVVzFrYUZGdGJFcFNWMFY1WWtoc2FHVkhPVTlUTW1Rd1kwZEtkVlZ0ZUdwaVZWcHhXa1ZrYzAxc2NGUlRWRVpvWld0c01Wa3dhRmRoVjBwSVlrZHdUV0ZzY0ZoVU1HUktUbFY0VjA5VlpHeFdiWGN5VlRGa01GWkhTa2RVYkZaWVVsZE9ObFJ0ZEdwa01WSTJVbXhvYTFKWGVHRlpWVlV4Vkd4YWNWTnVWbXBpUm5CVldWWmFUMk5HVm5SWmVqQjFURkJqZG1oUWNFRlJRMUZIVTBoZlZrZG5ibFZLT0ZRM2FsWndOemxZZGpkcU5EaHFSM0IyZUV0eGJGUlNWRE4wTXpGbWVVTnVUVXhZVjFJdFNGQldjVmwwWjJONWVHMHRZek14TWxWUk5EaHZXbGxCTGxJd1JrWmhWVXAwVkc1YWFXSlVSbTlaYldoTldXdEdkVmRZYkUxaWEwbDRWMWN4TkdOR2JEVk9Wa3BPWWxaSk1sWlVSbXROUjFaMFUyeGFWR0p1UWxkV2JURTBWVEZTY2xWdFJrNVdia0pYVlRKMFQxWkdXbGxoUlZaV1pXdEtjbFZxUVRGVFZrWnlVMnhhVGxKc2NGTldiWEJQV1ZkU1YySXphRk5pVjJoVFZtcEtiMlJXVmxoa1IzUnBZa1UxV0ZsclZrOVdiVXBWWWtWV1ZtRnJTa2hhUjNoelZteEtkVkpzU2xkV1dFSktWakp3UTJNeFpITlNiR2hvVTBad1UxUlZaRk5STVZwSFdrVmtVbUpWV2tsWGExVjRWVEF4ZEZWcmRGZE5WbHBVVlZSS1NtUXhVbkpoUmtwWFlURndkbFpXV210aU1rcHpWRzVLYVZORldsaFpiWFIzVkRGc1YxVnNaRTVOV0VKSVYydFdNR0ZyTVhKWGJHeFhVbTFvV0ZaRVJtRmtSMVpKWTBaa1YySldTa2xXUmxKTFZESk5lVk5xV2xaaGVteFlWRmQ0UzJJeFdYbE5WRkpVVFd0YVIxUldWbXRXUjBwR1YyeGFXbFo2UlRCWFZscHpUbXhHVlZKdGNHbFNXRUkyVmtSR1YxbFhSWGxUYkd4V1ZrVmFWMWxyV21GamJIQklaVVZhYkZKdVFrWldNakYzWVVkRmVHTkhPVmRoYTFwVVZYcEdUbVZHV25OVGJFWlhVa1ZLTTFZeWRHRlhiVTUwWTBVeFVGZEZOSHBhUlZaYVRsWndSVkpZVW1saVZGWlJWREJrWVZWdFNsaGhSRXBVVWxad2VGWnJWbkprUjFKRllVVndhV0pXY0ZGWFJFbDRWbFV4ZEZsNlVtcFhTRUpHVld0a1ZrNUdXa1ZpUmxKb1RWWktObGR0ZUc5aVYxWnlZbnBDV0ZaVk1UWlhiWE4zWld4a1ZrNVlTbFJXUjFKWlYxZHJkMDVXU25KVmJUbFBZVlJHVEZScVNUVlNSWGh6VTFoa1UyRXhjRzlXYkZaM1RVWmFTRTVYUm1oV01IQldWVzB3TlZkdFNsaFZha3BXWVd0d1VGVXhXazlrVm1SMFVteE9VMlZ0WnpBPQ";
+export const REPL_IDENTITY = "v2.public.Q2lReU9HRXpPVEE1WWkwMk5UWTJMVFF4TXpBdFlqTmlNUzFtTlRCaE9UZ3lOekJqT0dNU0QyZHlkWFI2Ym1WeVlYSnBZVzVsTmhvWWJtVjNMWFZ3WkdGMFpXUXRlSEF0Y0c5eWRHWnZiR2x2SWlReU9HRXpPVEE1WWkwMk5UWTJMVFF4TXpBdFlqTmlNUzFtTlRCaE9UZ3lOekJqT0dNNDNieWNHRm9WQ2dad2FXTmhjbVFTQzJsdWRHVnlZV04wYVhabCGvvHBippXK9349wJmBDbzAjN8ydvffDphiYGPCsdtYd2IL0n9OYhybHqN6przUL0mYc1aJhrcro7J_s7-Eugo.R0FFaUJtTnZibTFoYmhLaENIWXlMbkIxWW14cFl5NVJNbVF6VTFoT1RsZEZkRFZWVm14U1RtNU9NVTlZWkc1VVZrNUZVVmRyZG1GcWJEWlRhMHB2VVRKa05tTnFUa1JSV0doMlVUQmtRbFpYUmt0YU1qbHlWRmR3YjJGRk1UWmhNMlJRVmpCc01GUnRjRlpOYXpWd1RVUkNUbFpGTVROVVJtUktaV3hzY1ZKWVVtRmhiRll6VjFaU2NrNUZNWEZaTTJSYVpXMW9jVkl5YUVaVk1GRjVXa2hzYTFkR1NUSlpiVEZYWlZac1dWTnVRbHBXZWxaelZHMW9kbEpyT1U5TmFtaDFVVzFrYUZFd1RrcFNNazVJWWtkd1dsZEZjSEpTTW1OM1kxVk5lV0pJVm10U01WbzFWMVprVDAxSFJsbFhiWGhLWVd4YWVWUlhhekZrTWxKWVUyNU9hRll3TVRGVmExSlRUVWRTU1ZGdFJsTk5TRkY1Vmtaa2QxUnNUa2xXYWxKVFVsZFNSVlpVUWs5amJWSkhZa2M1V2sxVVozcFZhMmhUWXpGT1NFNVhPVTlUUjNoeldrUktUMUpHYkZsYVJVNVRWVlF3T1V3MmNqUm5ZWGQ0VTJKWFpsOVNZM05FVlc5aVRIQk9jekZCYWtkbFZVTk5aM2xaTkRKeVRFUnVOSGx5Tm5SWmNWSk1iWEpXUjNsU1gzUkVZMHBaZW1KQ2JIcHdWRWh2YWt4MlF6SjZVelUzYm05cFRVTlJMbEl3UmtaaFZVcDBWRzVhYVdKVVJtOVpiV2hOV1d0R2RWZFliRTFpYTBsNFYxY3hOR05HYkRWT1ZrcE9ZbFpKTWxaVVJtdE5SMVowVTJ4YVZHSnVRbGRXYlRFMFZURlNjbFZ0Ums1V2JrSlhWVEowVDFaR1dsbGhSVlpXWld0S2NsVnFRVEZUVmtaeVUyeGFUbEpzY0ZOV2JYQlBXVmRTVjJJemFGTmlWMmhUVm1wS2IyUldWbGhrUjNScFlrVTFXRmxyVms5V2JVcFZZa1ZXVm1GclNraGFSM2h6Vm14S2RWSnNTbGRXV0VKS1ZqSndRMk14WkhOU2JHaG9VMFp3VTFSVlpGTlJNVnBIV2tWa1VtSlZXa2xYYTFWNFZUQXhkRlZyZEZkTlZscFVWVlJLU21ReFVuSmhSa3BYWVRGd2RsWldXbXRpTWtwelZHNUthVk5GV2xoWmJYUjNWREZzVjFWc1pFNU5XRUpJVjJ0V01HRnJNWEpYYkd4WFVtMW9XRlpFUm1Ga1IxWkpZMFprVjJKV1NrbFdSbEpMVkRKTmVWTnFXbFpoZW14WVZGZDRTMkl4V1hsTlZGSlVUV3RhUjFSV1ZtdFdSMHBHVjJ4YVdsWjZSVEJYVmxwelRteEdWVkp0Y0dsU1dFSTJWa1JHVjFsWFJYbFRiR3hXVmtWYVYxbHJXbUZqYkhCSVpVVmFiRkp1UWtaV01qRjNZVWRGZUdOSE9WZGhhMXBVVlhwR1RtVkdXbk5UYkVaWFVrVktNMVl5ZEdGWGJVNTBZMFV4VUZkRk5IcGFSVlphVGxad1JWSllVbWxpVkZaUlZEQmtZVlZ0U2xoaFJFcFVVbFp3ZUZaclZuSmtSMUpGWVVWd2FXSldjRkZYUkVsNFZsVXhkRmw2VW1wWFNFSkdWV3RrVms1R1drVmlSbEpvVFZaS05sZHRlRzlpVjFaeVlucENXRlpWTVRaWGJYTjNaV3hrVms1WVNsUldSMUpaVjFkcmQwNVdTbkpWYlRsUFlWUkdURlJxU1RWU1JYaHpVMWhrVTJFeGNHOVdiRlozVFVaYVNFNVhSbWhXTUhCV1ZXMHdOVmR0U2xoVmFrcFdZV3R3VUZVeFdrOWtWbVIwVW14T1UyVnRaekE9";
 
 /** @type {import('$env/static/private').LS_COLORS} */
 export const LS_COLORS = "rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=00:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.7z=01;31:*.ace=01;31:*.alz=01;31:*.apk=01;31:*.arc=01;31:*.arj=01;31:*.bz=01;31:*.bz2=01;31:*.cab=01;31:*.cpio=01;31:*.crate=01;31:*.deb=01;31:*.drpm=01;31:*.dwm=01;31:*.dz=01;31:*.ear=01;31:*.egg=01;31:*.esd=01;31:*.gz=01;31:*.jar=01;31:*.lha=01;31:*.lrz=01;31:*.lz=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.lzo=01;31:*.pyz=01;31:*.rar=01;31:*.rpm=01;31:*.rz=01;31:*.sar=01;31:*.swm=01;31:*.t7z=01;31:*.tar=01;31:*.taz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tgz=01;31:*.tlz=01;31:*.txz=01;31:*.tz=01;31:*.tzo=01;31:*.tzst=01;31:*.udeb=01;31:*.war=01;31:*.whl=01;31:*.wim=01;31:*.xz=01;31:*.z=01;31:*.zip=01;31:*.zoo=01;31:*.zst=01;31:*.avif=01;35:*.jpg=01;35:*.jpeg=01;35:*.jxl=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:*~=00;90:*#=00;90:*.bak=00;90:*.crdownload=00;90:*.dpkg-dist=00;90:*.dpkg-new=00;90:*.dpkg-old=00;90:*.dpkg-tmp=00;90:*.old=00;90:*.orig=00;90:*.part=00;90:*.rej=00;90:*.rpmnew=00;90:*.rpmorig=00;90:*.rpmsave=00;90:*.swp=00;90:*.tmp=00;90:*.ucf-dist=00;90:*.ucf-new=00;90:*.ucf-old=00;90:";
@@ -159,7 +159,7 @@ export const REPLIT_RTLD_LOADER = "1";
 export const npm_config_npm_version = "10.8.2";
 
 /** @type {import('$env/static/private').REPLIT_DEV_DOMAIN} */
-export const REPLIT_DEV_DOMAIN = "b34e0c32-9413-4f54-8d13-fa8d7f60b65c-00-j8z4j2ziegdk.kirk.replit.dev";
+export const REPLIT_DEV_DOMAIN = "28a3909b-6566-4130-b3b1-f50a98270c8c-00-172oa3fur6lcy.picard.replit.dev";
 
 /** @type {import('$env/static/private').TERM} */
 export const TERM = "xterm-256color";
@@ -168,7 +168,7 @@ export const TERM = "xterm-256color";
 export const npm_package_name = "web-svelte";
 
 /** @type {import('$env/static/private').REPLIT_CLUSTER} */
-export const REPLIT_CLUSTER = "kirk";
+export const REPLIT_CLUSTER = "picard";
 
 /** @type {import('$env/static/private').REPLIT_BASHRC} */
 export const REPLIT_BASHRC = "/nix/store/lsgsb0ar7rdwa09d1z2dnfjh4188pddk-replit-bashrc/bashrc";
@@ -183,7 +183,7 @@ export const REPL_LANGUAGE = "nix";
 export const USER = "runner";
 
 /** @type {import('$env/static/private').SESSION_SECRET} */
-export const SESSION_SECRET = "e37eObfG18jXoc7lH2WBThgLHhC/MYsixK80P7Xf2bIfx39s8hmtyd9cwfRivxdnXYRKrIQ9nWZ6zj8PgCoINg==";
+export const SESSION_SECRET = "d56oGERyEPSQz/wC4KA7PElPShOleEzGEnft7+6Hq2klmcCUV/xoWA4zcnbJyT29xrVoAAEsEbnxyNhG7NN9yQ==";
 
 /** @type {import('$env/static/private').REPL_HOME} */
 export const REPL_HOME = "/home/runner/workspace";
@@ -252,7 +252,7 @@ export const npm_package_json = "/home/runner/workspace/package.json";
 export const XDG_DATA_DIRS = "/nix/store/n3fwf368m4bpdjkw4lm38ylkxk2vmsqi-git-lfs-3.6.1/share:/nix/store/1dyk2gadghrim582jhij2pgmnglpkcpz-replit-runtime-path/share";
 
 /** @type {import('$env/static/private').REPL_IDENTITY_KEY} */
-export const REPL_IDENTITY_KEY = "k2.secret.5t68mXwmr7gU9k96Cz_u_5A0TZHJm2_k9QuQCsj5OTjpXxv378XJjMiRKVJNcbfobQ7Va0hiE0xXaetVKJKJGA";
+export const REPL_IDENTITY_KEY = "k2.secret.jfcMz1GxeUL_4dlv3lrqqqo2sbqZw1xvxhgbm7vjCxMPi22lkYq8yMwe7EMYJIKS1iFz_sO2UeeHjJ7BwJrAEQ";
 
 /** @type {import('$env/static/private').REPLIT_HELIUM_ENABLED} */
 export const REPLIT_HELIUM_ENABLED = "true";
