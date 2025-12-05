@@ -90,6 +90,21 @@ The portfolio includes an admin authentication system that allows the owner to m
 - **About Me page**: Edit your personal profile (name, title, bio, contact info, skills, social links)
 - **Video Manager**: Add and manage your portfolio videos for the YouTube-like interface in Internet Explorer
 
+## Magazine Portfolio
+
+The desktop includes a Magazine Portfolio showcase - an awwwards.com inspired carousel gallery with a FlowPaper-style flipbook viewer.
+
+### Features:
+- **Carousel Gallery**: Browse magazines in a sleek dark-themed interface with left/right navigation
+- **Flipbook Viewer**: Click any magazine to open it with realistic page-turning CSS animations
+- **Admin Management**: When logged in as admin, add/edit/delete magazines with cover images and PDF files
+
+### For Admins:
+1. Log in as admin (navigate to `/admin-login`)
+2. Open the Magazine Portfolio from the desktop
+3. Click "Add Magazine" to upload new magazines (title, cover image, PDF file)
+4. Manage existing magazines with edit/delete options
+
 ## Stube Video Portfolio
 
 Internet Explorer features "Stube" - a custom YouTube-style video portfolio interface where visitors can browse and watch your videos. The interface uses your About Me profile photo for all avatars and applies Arial font styling throughout.
