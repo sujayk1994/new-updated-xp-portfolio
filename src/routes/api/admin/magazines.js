@@ -1,7 +1,28 @@
 import { initializeDatabase, getClient } from '$lib/server/db.js';
+import { verifyToken } from '$lib/server/auth.js';
 
 async function ensureDb() {
     await initializeDatabase();
+}
+
+function isAuthenticated(request) {
+    const cookieHeader = request.headers.get('cookie') || '';
+    if (!cookieHeader.trim()) return null;
+    
+    const cookies = Object.fromEntries(
+        cookieHeader.split(';')
+            .map(c => c.trim())
+            .filter(c => c.length > 0 && c.includes('='))
+            .map(c => {
+                const [key, ...val] = c.split('=');
+                return [key.trim(), val.join('=')];
+            })
+    );
+    
+    const token = cookies.admin_token;
+    if (!token) return null;
+    
+    return verifyToken(token);
 }
 
 export async function GET() {
@@ -43,10 +64,10 @@ export async function GET() {
     }
 }
 
-export async function POST({ request, cookies }) {
+export async function POST({ request }) {
     try {
-        const token = cookies.get('admin_token');
-        if (!token) {
+        const admin = isAuthenticated(request);
+        if (!admin) {
             return new Response(JSON.stringify({ success: false, error: 'Unauthorized' }), {
                 status: 401,
                 headers: { 'Content-Type': 'application/json' }
@@ -101,10 +122,10 @@ export async function POST({ request, cookies }) {
     }
 }
 
-export async function DELETE({ request, cookies }) {
+export async function DELETE({ request }) {
     try {
-        const token = cookies.get('admin_token');
-        if (!token) {
+        const admin = isAuthenticated(request);
+        if (!admin) {
             return new Response(JSON.stringify({ success: false, error: 'Unauthorized' }), {
                 status: 401,
                 headers: { 'Content-Type': 'application/json' }

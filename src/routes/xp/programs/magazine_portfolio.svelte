@@ -34,6 +34,8 @@
     let totalPages = 0;
     let loadingFlipbook = false;
     let flipbookReady = false;
+    let isFlipping = false;
+    let flipDirection = 'none';
 
     export let options = {
         title: "Magazine Portfolio",
@@ -63,26 +65,14 @@
             const data = await response.json();
             if (data.success) {
                 magazines = data.magazines || [];
+            } else {
+                magazines = [];
             }
         } catch (error) {
             console.error('Error loading magazines:', error);
-            magazines = getSampleMagazines();
+            magazines = [];
         }
         loading = false;
-    }
-
-    function getSampleMagazines() {
-        return [
-            {
-                id: 'sample1',
-                title: 'Design Magazine Vol. 1',
-                description: 'A collection of stunning design works',
-                coverUrl: '/images/xp/sample_magazine_cover.jpg',
-                pdfUrl: '',
-                pages: [],
-                createdAt: Date.now()
-            }
-        ];
     }
 
     async function openMagazine(magazine) {
@@ -91,6 +81,8 @@
         loadingFlipbook = true;
         flipbookReady = false;
         currentPage = 0;
+        isFlipping = false;
+        flipDirection = 'none';
         
         if (magazine.pages && magazine.pages.length > 0) {
             flipbookPages = magazine.pages;
@@ -100,6 +92,8 @@
         } else if (magazine.pdfUrl) {
             await loadPdfPages(magazine.pdfUrl);
         } else {
+            flipbookPages = [];
+            totalPages = 0;
             loadingFlipbook = false;
             flipbookReady = true;
         }
@@ -168,24 +162,56 @@
     }
 
     function nextPage() {
-        if (currentPage < totalPages - 2) {
-            currentPage += 2;
+        if (currentPage < totalPages - 2 && !isFlipping) {
+            isFlipping = true;
+            flipDirection = 'forward';
+            setTimeout(() => {
+                currentPage += 2;
+                isFlipping = false;
+                flipDirection = 'none';
+            }, 400);
         }
     }
 
     function prevPage() {
-        if (currentPage > 0) {
-            currentPage -= 2;
+        if (currentPage > 0 && !isFlipping) {
+            isFlipping = true;
+            flipDirection = 'backward';
+            setTimeout(() => {
+                currentPage -= 2;
+                isFlipping = false;
+                flipDirection = 'none';
+            }, 400);
         }
     }
 
     function goToPage(pageNum) {
-        currentPage = Math.max(0, Math.min(pageNum, totalPages - 1));
-        if (currentPage % 2 !== 0) currentPage--;
+        if (isFlipping) return;
+        let targetPage = Math.max(0, Math.min(pageNum, totalPages - 1));
+        if (targetPage % 2 !== 0) targetPage--;
+        
+        if (targetPage !== currentPage) {
+            isFlipping = true;
+            flipDirection = targetPage > currentPage ? 'forward' : 'backward';
+            setTimeout(() => {
+                currentPage = targetPage;
+                isFlipping = false;
+                flipDirection = 'none';
+            }, 400);
+        }
+    }
+
+    function getVisibleMagazines() {
+        if (magazines.length === 0) return [];
+        const itemsToShow = Math.min(3, magazines.length);
+        const maxIndex = Math.max(0, magazines.length - itemsToShow);
+        const safeIndex = Math.min(carouselIndex, maxIndex);
+        return magazines.slice(safeIndex, safeIndex + itemsToShow);
     }
 
     function nextCarousel() {
-        if (carouselIndex < magazines.length - 3) {
+        const maxIndex = Math.max(0, magazines.length - 3);
+        if (carouselIndex < maxIndex) {
             carouselIndex++;
         }
     }
@@ -194,6 +220,14 @@
         if (carouselIndex > 0) {
             carouselIndex--;
         }
+    }
+
+    function canNavigateNext() {
+        return magazines.length > 3 && carouselIndex < magazines.length - 3;
+    }
+
+    function canNavigatePrev() {
+        return carouselIndex > 0;
     }
 
     function startAddMagazine() {
@@ -223,6 +257,11 @@
 
     async function saveMagazine() {
         if (!$isAdmin || !editingMagazine) return;
+        
+        if (!editingMagazine.title || editingMagazine.title.trim() === '') {
+            saveMessage = "Title is required";
+            return;
+        }
         
         uploading = true;
         try {
@@ -260,6 +299,7 @@
             const data = await response.json();
             if (data.success) {
                 await loadMagazines();
+                carouselIndex = Math.max(0, Math.min(carouselIndex, Math.max(0, magazines.length - 3)));
             }
         } catch (error) {
             console.error('Error deleting magazine:', error);
@@ -284,9 +324,12 @@
             if (data.success) {
                 editingMagazine.coverUrl = data.url;
                 editingMagazine = editingMagazine;
+            } else {
+                saveMessage = data.error || "Failed to upload cover";
             }
         } catch (error) {
             console.error('Error uploading cover:', error);
+            saveMessage = "Error uploading cover";
         }
         uploading = false;
     }
@@ -350,6 +393,8 @@
             if (event.key === 'Escape') goToGallery();
         }
     }
+
+    $: visibleMagazines = getVisibleMagazines();
 </script>
 
 <svelte:window on:keydown={handleKeydown} />
@@ -373,15 +418,17 @@
                     
                     <div class="space-y-4">
                         <div>
-                            <label class="block text-sm text-gray-300 mb-1">Title</label>
+                            <label class="block text-sm text-gray-300 mb-1">Title *</label>
                             <input type="text" bind:value={editingMagazine.title}
-                                class="w-full px-3 py-2 bg-white/20 text-white rounded border border-white/30 focus:outline-none focus:border-purple-400" />
+                                class="w-full px-3 py-2 bg-white/20 text-white rounded border border-white/30 focus:outline-none focus:border-purple-400" 
+                                placeholder="Enter magazine title" />
                         </div>
                         
                         <div>
                             <label class="block text-sm text-gray-300 mb-1">Description</label>
                             <textarea bind:value={editingMagazine.description} rows="2"
-                                class="w-full px-3 py-2 bg-white/20 text-white rounded border border-white/30 focus:outline-none focus:border-purple-400 resize-none"></textarea>
+                                class="w-full px-3 py-2 bg-white/20 text-white rounded border border-white/30 focus:outline-none focus:border-purple-400 resize-none"
+                                placeholder="Brief description of the magazine"></textarea>
                         </div>
                         
                         <div>
@@ -469,30 +516,32 @@
                 {#if magazines.length === 0}
                     <div class="flex-1 flex items-center justify-center">
                         <div class="text-center text-gray-400">
+                            <div class="text-6xl mb-4 opacity-30">📚</div>
                             <p class="text-lg mb-2">No magazines yet</p>
                             {#if $isAdmin}
                                 <p class="text-sm">Click "Add Magazine" to create your first magazine</p>
+                            {:else}
+                                <p class="text-sm">Check back later for magazine content</p>
                             {/if}
                         </div>
                     </div>
                 {:else}
                     <div class="flex-1 flex items-center justify-center">
                         <div class="relative w-full max-w-4xl">
-                            {#if magazines.length > 3}
+                            {#if canNavigatePrev()}
                                 <button on:click={prevCarousel} 
-                                    class="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-12 z-10 w-10 h-10 bg-white/10 hover:bg-white/20 rounded-full flex items-center justify-center text-white text-xl transition-all"
-                                    disabled={carouselIndex === 0}>
+                                    class="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-12 z-10 w-10 h-10 bg-white/10 hover:bg-white/20 rounded-full flex items-center justify-center text-white text-xl transition-all">
                                     &#8249;
                                 </button>
                             {/if}
                             
                             <div class="flex gap-6 justify-center overflow-hidden">
-                                {#each magazines.slice(carouselIndex, carouselIndex + 3) as magazine, i}
+                                {#each visibleMagazines as magazine, i (magazine.id)}
                                     <div class="magazine-card relative group cursor-pointer transform transition-all duration-300 hover:scale-105 hover:-translate-y-2"
                                          style="perspective: 1000px;"
                                          on:click={() => openMagazine(magazine)}>
                                         <div class="relative w-56 h-80 rounded-lg overflow-hidden shadow-2xl"
-                                             style="transform-style: preserve-3d; transform: rotateY({i === 1 ? 0 : i === 0 ? 5 : -5}deg);">
+                                             style="transform-style: preserve-3d; transform: rotateY({i === 1 && visibleMagazines.length === 3 ? 0 : i === 0 ? 5 : -5}deg);">
                                             {#if magazine.coverUrl}
                                                 <img src={magazine.coverUrl} alt={magazine.title} 
                                                      class="w-full h-full object-cover" />
@@ -535,10 +584,9 @@
                                 {/each}
                             </div>
                             
-                            {#if magazines.length > 3}
+                            {#if canNavigateNext()}
                                 <button on:click={nextCarousel}
-                                    class="absolute right-0 top-1/2 -translate-y-1/2 translate-x-12 z-10 w-10 h-10 bg-white/10 hover:bg-white/20 rounded-full flex items-center justify-center text-white text-xl transition-all"
-                                    disabled={carouselIndex >= magazines.length - 3}>
+                                    class="absolute right-0 top-1/2 -translate-y-1/2 translate-x-12 z-10 w-10 h-10 bg-white/10 hover:bg-white/20 rounded-full flex items-center justify-center text-white text-xl transition-all">
                                     &#8250;
                                 </button>
                             {/if}
@@ -548,7 +596,7 @@
                     {#if magazines.length > 3}
                         <div class="flex justify-center gap-2 mt-6">
                             {#each Array(Math.ceil(magazines.length / 3)) as _, i}
-                                <button on:click={() => carouselIndex = i * 3}
+                                <button on:click={() => carouselIndex = Math.min(i * 3, magazines.length - 3)}
                                     class="w-2 h-2 rounded-full transition-all {carouselIndex >= i * 3 && carouselIndex < (i + 1) * 3 ? 'bg-purple-500 w-6' : 'bg-white/30 hover:bg-white/50'}">
                                 </button>
                             {/each}
@@ -574,26 +622,31 @@
                 
                 <div class="flex-1 flex items-center justify-center overflow-hidden p-4" bind:this={flipbookContainer}>
                     {#if loadingFlipbook}
-                        <div class="text-white text-lg">Loading magazine pages...</div>
+                        <div class="text-white text-lg flex flex-col items-center gap-4">
+                            <div class="w-8 h-8 border-2 border-purple-500 border-t-transparent rounded-full animate-spin"></div>
+                            <span>Loading magazine pages...</span>
+                        </div>
                     {:else if flipbookPages.length === 0}
                         <div class="text-gray-400 text-center">
+                            <div class="text-6xl mb-4 opacity-30">📖</div>
                             <p class="text-lg mb-2">No pages available</p>
                             <p class="text-sm">This magazine doesn't have any pages yet</p>
                         </div>
                     {:else}
-                        <div class="flipbook-wrapper relative flex items-center">
+                        <div class="flipbook-wrapper relative flex items-center select-none">
                             <button on:click={prevPage} 
-                                class="absolute -left-16 w-12 h-12 bg-white/10 hover:bg-white/20 rounded-full flex items-center justify-center text-white text-2xl transition-all disabled:opacity-30"
-                                disabled={currentPage === 0}>
+                                class="absolute -left-16 w-12 h-12 bg-white/10 hover:bg-white/20 rounded-full flex items-center justify-center text-white text-2xl transition-all disabled:opacity-30 disabled:cursor-not-allowed"
+                                disabled={currentPage === 0 || isFlipping}>
                                 &#8249;
                             </button>
                             
-                            <div class="flipbook flex shadow-2xl" style="perspective: 2000px;">
+                            <div class="flipbook flex shadow-2xl relative" style="perspective: 2000px;">
                                 <div class="page left-page bg-white relative overflow-hidden"
+                                     class:flip-backward={isFlipping && flipDirection === 'backward'}
                                      style="width: 320px; height: 450px; transform-origin: right center;">
                                     {#if flipbookPages[currentPage]}
                                         <img src={flipbookPages[currentPage]} alt="Page {currentPage + 1}" 
-                                             class="w-full h-full object-contain bg-gray-100" />
+                                             class="w-full h-full object-contain bg-gray-100" draggable="false" />
                                         <div class="absolute bottom-2 left-2 text-xs text-gray-500 bg-white/80 px-2 py-0.5 rounded">
                                             {currentPage + 1}
                                         </div>
@@ -602,14 +655,17 @@
                                             Cover
                                         </div>
                                     {/if}
-                                    <div class="page-shadow absolute inset-y-0 right-0 w-8 bg-gradient-to-l from-black/10 to-transparent"></div>
+                                    <div class="page-shadow absolute inset-y-0 right-0 w-8 bg-gradient-to-l from-black/10 to-transparent pointer-events-none"></div>
                                 </div>
                                 
+                                <div class="book-spine w-1 bg-gradient-to-r from-gray-400 to-gray-300 shadow-inner"></div>
+                                
                                 <div class="page right-page bg-white relative overflow-hidden"
+                                     class:flip-forward={isFlipping && flipDirection === 'forward'}
                                      style="width: 320px; height: 450px; transform-origin: left center;">
                                     {#if flipbookPages[currentPage + 1]}
                                         <img src={flipbookPages[currentPage + 1]} alt="Page {currentPage + 2}" 
-                                             class="w-full h-full object-contain bg-gray-100" />
+                                             class="w-full h-full object-contain bg-gray-100" draggable="false" />
                                         <div class="absolute bottom-2 right-2 text-xs text-gray-500 bg-white/80 px-2 py-0.5 rounded">
                                             {currentPage + 2}
                                         </div>
@@ -618,13 +674,13 @@
                                             {currentPage + 1 >= totalPages ? 'End' : ''}
                                         </div>
                                     {/if}
-                                    <div class="page-shadow absolute inset-y-0 left-0 w-8 bg-gradient-to-r from-black/10 to-transparent"></div>
+                                    <div class="page-shadow absolute inset-y-0 left-0 w-8 bg-gradient-to-r from-black/10 to-transparent pointer-events-none"></div>
                                 </div>
                             </div>
                             
                             <button on:click={nextPage}
-                                class="absolute -right-16 w-12 h-12 bg-white/10 hover:bg-white/20 rounded-full flex items-center justify-center text-white text-2xl transition-all disabled:opacity-30"
-                                disabled={currentPage >= totalPages - 2}>
+                                class="absolute -right-16 w-12 h-12 bg-white/10 hover:bg-white/20 rounded-full flex items-center justify-center text-white text-2xl transition-all disabled:opacity-30 disabled:cursor-not-allowed"
+                                disabled={currentPage >= totalPages - 2 || isFlipping}>
                                 &#8250;
                             </button>
                         </div>
@@ -634,20 +690,24 @@
                 {#if flipbookPages.length > 0}
                     <div class="px-6 py-3 bg-black/30">
                         <div class="flex items-center justify-center gap-2">
+                            <span class="text-gray-400 text-sm">1</span>
                             <div class="flex-1 max-w-md">
                                 <input type="range" min="0" max={Math.max(0, totalPages - 2)} step="2" bind:value={currentPage}
-                                    class="w-full h-1 bg-white/20 rounded-lg appearance-none cursor-pointer accent-purple-500" />
+                                    disabled={isFlipping}
+                                    class="w-full h-1 bg-white/20 rounded-lg appearance-none cursor-pointer accent-purple-500 disabled:cursor-not-allowed" />
                             </div>
+                            <span class="text-gray-400 text-sm">{totalPages}</span>
                         </div>
-                        <div class="flex justify-center gap-1 mt-2 max-w-lg mx-auto overflow-hidden">
-                            {#each flipbookPages.slice(0, 20) as page, i}
+                        <div class="flex justify-center gap-1 mt-3 max-w-lg mx-auto overflow-x-auto py-1">
+                            {#each flipbookPages.slice(0, 16) as page, i}
                                 <button on:click={() => goToPage(i)}
-                                    class="w-8 h-10 rounded overflow-hidden border-2 transition-all {currentPage === i || currentPage + 1 === i ? 'border-purple-500' : 'border-transparent opacity-60 hover:opacity-100'}">
-                                    <img src={page} alt="Thumb {i + 1}" class="w-full h-full object-cover" />
+                                    disabled={isFlipping}
+                                    class="w-8 h-10 rounded overflow-hidden border-2 transition-all flex-shrink-0 disabled:cursor-not-allowed {currentPage === i || currentPage + 1 === i ? 'border-purple-500' : 'border-transparent opacity-60 hover:opacity-100'}">
+                                    <img src={page} alt="Thumb {i + 1}" class="w-full h-full object-cover" draggable="false" />
                                 </button>
                             {/each}
-                            {#if flipbookPages.length > 20}
-                                <span class="text-gray-400 text-xs self-center">+{flipbookPages.length - 20} more</span>
+                            {#if flipbookPages.length > 16}
+                                <span class="text-gray-400 text-xs self-center flex-shrink-0 pl-2">+{flipbookPages.length - 16} more</span>
                             {/if}
                         </div>
                     </div>
@@ -656,7 +716,7 @@
         {/if}
         
         {#if saveMessage}
-            <div class="absolute bottom-4 right-4 bg-green-500 text-white px-4 py-2 rounded-lg shadow-lg">
+            <div class="absolute bottom-4 right-4 {saveMessage.includes('Error') || saveMessage.includes('required') ? 'bg-red-500' : 'bg-green-500'} text-white px-4 py-2 rounded-lg shadow-lg">
                 {saveMessage}
             </div>
         {/if}
@@ -678,6 +738,7 @@
     
     .page {
         box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+        backface-visibility: hidden;
     }
     
     .left-page {
@@ -686,6 +747,44 @@
     
     .right-page {
         border-radius: 0 3px 3px 0;
+    }
+    
+    .book-spine {
+        height: 450px;
+    }
+    
+    .flip-forward {
+        animation: flipForward 0.4s ease-in-out;
+    }
+    
+    .flip-backward {
+        animation: flipBackward 0.4s ease-in-out;
+    }
+    
+    @keyframes flipForward {
+        0% {
+            transform: rotateY(0deg);
+        }
+        50% {
+            transform: rotateY(-90deg);
+            box-shadow: -10px 0 30px rgba(0, 0, 0, 0.3);
+        }
+        100% {
+            transform: rotateY(0deg);
+        }
+    }
+    
+    @keyframes flipBackward {
+        0% {
+            transform: rotateY(0deg);
+        }
+        50% {
+            transform: rotateY(90deg);
+            box-shadow: 10px 0 30px rgba(0, 0, 0, 0.3);
+        }
+        100% {
+            transform: rotateY(0deg);
+        }
     }
     
     input[type="range"]::-webkit-slider-thumb {
@@ -704,5 +803,13 @@
         border-radius: 50%;
         cursor: pointer;
         border: none;
+    }
+    
+    input[type="range"]:disabled::-webkit-slider-thumb {
+        cursor: not-allowed;
+    }
+    
+    input[type="range"]:disabled::-moz-range-thumb {
+        cursor: not-allowed;
     }
 </style>
