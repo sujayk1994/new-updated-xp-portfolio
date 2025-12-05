@@ -2,6 +2,7 @@
     import TaskBar from "./task_bar.svelte";
     import WorkSpace from "./work_space.svelte";
     import ContextMenu from "../../lib/components/xp/ContextMenu.svelte";
+    import Screensaver from "./screensaver.svelte";
     import axios from "axios";
     import { get, set, keys } from "idb-keyval";
     import { onMount, onDestroy, createEventDispatcher } from "svelte";
@@ -125,3 +126,4 @@
 </div>
 
 <Welcome bind:this={welcome_scene} />
+<Screensaver timeout={60000} />
