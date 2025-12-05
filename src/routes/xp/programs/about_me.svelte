@@ -24,6 +24,7 @@
         email: "your.email@example.com",
         phone: "+1 (555) 123-4567",
         location: "Your City, Country",
+        profilePhoto: "",
         skills: ["Skill 1", "Skill 2", "Skill 3"],
         socialLinks: {
             linkedin: "",
@@ -37,6 +38,8 @@
     let loading = true;
     let saving = false;
     let saveMessage = "";
+    let uploading = false;
+    let fileInput;
 
     export let options = {
         title: "About Me",
@@ -117,6 +120,40 @@
         editForm.skills = editForm.skills.filter((_, i) => i !== index);
     }
 
+    async function uploadPhoto() {
+        if (!fileInput?.files?.length) return;
+        
+        uploading = true;
+        try {
+            const file = fileInput.files[0];
+            const formData = new FormData();
+            formData.append('file', file);
+            formData.append('fileId', 'profile_photo');
+            
+            const response = await fetch('/api/admin/upload', {
+                method: 'POST',
+                body: formData
+            });
+            
+            const data = await response.json();
+            if (data.success) {
+                editForm.profilePhoto = data.url;
+                saveMessage = "Photo uploaded! Don't forget to save.";
+                setTimeout(() => saveMessage = "", 3000);
+            } else {
+                saveMessage = data.error || "Failed to upload photo";
+            }
+        } catch (error) {
+            console.error('Error uploading photo:', error);
+            saveMessage = "Error uploading photo";
+        }
+        uploading = false;
+    }
+
+    function removePhoto() {
+        editForm.profilePhoto = "";
+    }
+
     export async function destroy() {
         close_program();
     }
@@ -142,6 +179,27 @@
                 <div class="bg-white rounded shadow-sm border border-gray-300 p-4 space-y-4">
                     <h2 class="text-lg font-bold text-blue-800 border-b pb-2">Edit About Me</h2>
                     
+                    <div>
+                        <label class="block text-xs font-medium text-gray-700 mb-2">Profile Photo</label>
+                        <div class="flex items-center gap-4">
+                            {#if editForm.profilePhoto}
+                                <img src={editForm.profilePhoto} alt="Profile" class="w-16 h-16 rounded-full object-cover border-2 border-gray-300" />
+                                <button on:click={removePhoto} class="px-2 py-1 text-xs bg-red-500 text-white rounded hover:bg-red-600">Remove</button>
+                            {:else}
+                                <div class="w-16 h-16 bg-gray-200 rounded-full flex items-center justify-center text-gray-500 text-xl font-bold">
+                                    {editForm.name.charAt(0).toUpperCase()}
+                                </div>
+                            {/if}
+                            <div class="flex-1">
+                                <input type="file" accept="image/*" bind:this={fileInput} on:change={uploadPhoto} class="hidden" />
+                                <button on:click={() => fileInput.click()} disabled={uploading}
+                                    class="px-3 py-1.5 text-xs bg-blue-500 text-white rounded hover:bg-blue-600 disabled:opacity-50">
+                                    {uploading ? 'Uploading...' : 'Upload Photo'}
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
                     <div class="grid grid-cols-2 gap-4">
                         <div>
                             <label class="block text-xs font-medium text-gray-700 mb-1">Name</label>
@@ -239,9 +297,13 @@
                 <div class="bg-white rounded shadow-sm border border-gray-300">
                     <div class="bg-gradient-to-r from-blue-600 to-blue-800 text-white p-6 rounded-t">
                         <div class="flex items-center gap-4">
-                            <div class="w-20 h-20 bg-white/20 rounded-full flex items-center justify-center text-3xl font-bold">
-                                {aboutContent.name.charAt(0).toUpperCase()}
-                            </div>
+                            {#if aboutContent.profilePhoto}
+                                <img src={aboutContent.profilePhoto} alt={aboutContent.name} class="w-20 h-20 rounded-full object-cover border-2 border-white/30" />
+                            {:else}
+                                <div class="w-20 h-20 bg-white/20 rounded-full flex items-center justify-center text-3xl font-bold">
+                                    {aboutContent.name.charAt(0).toUpperCase()}
+                                </div>
+                            {/if}
                             <div>
                                 <h1 class="text-xl font-bold">{aboutContent.name}</h1>
                                 <p class="text-blue-100">{aboutContent.title}</p>
