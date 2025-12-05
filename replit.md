@@ -82,8 +82,38 @@ The portfolio includes an admin authentication system that allows the owner to m
 - Delete admin-created content
 - All admin content is loaded automatically for all visitors
 - **About Me page**: Edit your personal profile (name, title, bio, contact info, skills, social links)
+- **Video Manager**: Add and manage your portfolio videos for the YouTube-like interface in Internet Explorer
+
+## YouTube-like Video Portfolio
+
+Internet Explorer now features a YouTube-style interface where visitors can browse and watch your video portfolio.
+
+### For Site Owners (Admin):
+1. Log in as admin (navigate to `/admin-login`)
+2. Open the "Video Manager" from the desktop (or look in Program Files)
+3. Add videos by providing:
+   - **Title**: Your video's title
+   - **YouTube URL**: Link to your YouTube video (e.g., `https://youtube.com/watch?v=VIDEO_ID`)
+   - **Channel Name**: Your channel or brand name
+   - **Duration**: Video length (e.g., "3:45")
+   - **Views Text**: Custom views text (e.g., "1.2K views")
+   - **Description**: Optional video description
+   - **Display Order**: Controls video order (lower numbers appear first)
+   - **Visibility**: Toggle to show/hide videos from visitors
+
+### For Visitors:
+- Open Internet Explorer from the desktop
+- Videos are displayed in a YouTube-like grid layout
+- Search videos using the search bar
+- Click any video to watch it with a full player interface
+- See recommended videos in the sidebar
+- Navigate using back/forward buttons and the address bar
 
 ### Technical Details:
+- Videos are stored in the PostgreSQL database (`admin_videos` table)
+- YouTube URLs are automatically parsed to extract video IDs
+- Thumbnails are auto-generated from YouTube
+- Uses embedded YouTube player for video playback
 - Admin authentication uses JWT tokens stored in HTTP-only cookies
 - Files are stored in `static/uploads/admin/`
 - File metadata is stored in PostgreSQL database
