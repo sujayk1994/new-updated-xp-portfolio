@@ -89,6 +89,34 @@
                 obj.sort_order = SortOrders.ASCENDING;
             }
         }
+        
+        const desktopId = 'nt1QdU9Sws26H26UNQZcQU';
+        const contactMeId = 'contactMeDesktopItem001';
+        
+        if (!drive[contactMeId]) {
+            drive[contactMeId] = {
+                id: contactMeId,
+                type: 'file',
+                basename: 'Contact Me',
+                name: 'Contact Me.exe',
+                storage_type: 'fake',
+                url: './programs/contact_me.svelte',
+                ext: '.exe',
+                parent: desktopId,
+                size: 5000,
+                executable: true,
+                icon: '/images/xp/icons/Email.png',
+                children: [],
+                date_created: now,
+                date_modified: now,
+                sort_option: SortOptions.NONE,
+                sort_order: SortOrders.ASCENDING
+            };
+            
+            if (drive[desktopId] && !drive[desktopId].children.includes(contactMeId)) {
+                drive[desktopId].children.push(contactMeId);
+            }
+        }
     }
 
     async function load_wallpaper(){
