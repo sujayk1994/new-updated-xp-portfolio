@@ -48,6 +48,7 @@
     "lodash": "^4.17.21",
     "node-dir": "^0.1.17",
     "pg": "^8.16.3",
+    "resend": "^6.5.2",
     "short-uuid": "^4.2.2",
     "srt-webvtt": "^2.0.0",
     "svelte-range-slider-pips": "^2.0.3",

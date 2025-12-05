@@ -1,4 +1,5 @@
 import { query, initializeDatabase } from '$lib/server/db.js';
+import { sendContactNotification } from '$lib/server/resend.js';
 
 let dbInitialized = false;
 
@@ -14,7 +15,8 @@ async function ensureDb() {
                 subject VARCHAR(500) NOT NULL,
                 body TEXT NOT NULL,
                 created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-                read BOOLEAN DEFAULT FALSE
+                read BOOLEAN DEFAULT FALSE,
+                email_sent BOOLEAN DEFAULT FALSE
             )
         `);
         
@@ -70,15 +72,34 @@ export async function POST({ request }) {
             });
         }
         
+        const toEmail = to || 'owner@example.com';
+        
         await query(
             `INSERT INTO contact_messages (to_email, from_email, subject, body) 
              VALUES ($1, $2, $3, $4)`,
-            [to || 'owner@example.com', from.trim(), subject.trim(), body.trim()]
+            [toEmail, from.trim(), subject.trim(), body.trim()]
         );
+        
+        let emailSent = false;
+        try {
+            const emailResult = await sendContactNotification({
+                toEmail: toEmail,
+                fromEmail: from.trim(),
+                subject: subject.trim(),
+                body: body.trim()
+            });
+            emailSent = emailResult.success;
+            if (!emailResult.success) {
+                console.error('Email notification failed:', emailResult.error);
+            }
+        } catch (emailError) {
+            console.error('Error sending email notification:', emailError);
+        }
         
         return new Response(JSON.stringify({ 
             success: true, 
-            message: 'Message sent successfully' 
+            message: 'Message sent successfully',
+            emailNotification: emailSent
         }), {
             status: 200,
             headers: { 'Content-Type': 'application/json' }
