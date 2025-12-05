@@ -18,33 +18,47 @@
     let sending = false;
     let statusMessage = "";
     let statusType = "";
+    let linkedinUrl = "";
 
     export let options = {
         title: "Contact Me",
-        min_width: 350,
-        min_height: 300,
-        width: 450,
-        height: 400,
-        icon: "/images/xp/icons/Email.png",
+        min_width: 400,
+        min_height: 350,
+        width: 550,
+        height: 480,
+        icon: "/images/xp/icons/ContactMe.webp",
         id: id,
         exec_path
     };
 
     onMount(async () => {
-        await loadOwnerEmail();
+        await loadOwnerInfo();
     });
 
-    async function loadOwnerEmail() {
+    async function loadOwnerInfo() {
         try {
             const response = await fetch('/api/admin/about-me');
             const data = await response.json();
-            if (data.success && data.content && data.content.email) {
-                toEmail = data.content.email;
+            if (data.success && data.content) {
+                if (data.content.email) {
+                    toEmail = data.content.email;
+                } else {
+                    toEmail = "owner@example.com";
+                }
+                if (data.content.socialLinks && data.content.socialLinks.linkedin) {
+                    linkedinUrl = data.content.socialLinks.linkedin;
+                }
             } else {
                 toEmail = "owner@example.com";
             }
         } catch (error) {
             toEmail = "owner@example.com";
+        }
+    }
+
+    function openLinkedIn() {
+        if (linkedinUrl) {
+            window.open(linkedinUrl, '_blank');
         }
     }
 
@@ -132,7 +146,7 @@
             <span class="px-2 py-0.5 hover:bg-blue-600 hover:text-white cursor-pointer">Help</span>
         </div>
 
-        <div class="toolbar flex items-center gap-2 px-2 py-1 bg-gradient-to-b from-[#f6f4ec] to-[#ece9d8] border-b border-gray-300">
+        <div class="toolbar flex items-center gap-2 px-2 py-1.5 bg-gradient-to-b from-[#f6f4ec] to-[#ece9d8] border-b border-gray-300">
             <button on:click={sendMessage} disabled={sending}
                 class="flex items-center gap-1 px-2 py-1 text-xs bg-transparent hover:bg-blue-100 rounded border border-transparent hover:border-blue-300 disabled:opacity-50">
                 <img src="/images/xp/icons/OESend.png" alt="" class="w-4 h-4" />
@@ -143,10 +157,20 @@
                 <img src="/images/xp/icons/OECreateMail.png" alt="" class="w-4 h-4" />
                 <span>New Message</span>
             </button>
+            <div class="border-l border-gray-400 h-5 mx-1"></div>
+            {#if linkedinUrl}
+                <button on:click={openLinkedIn}
+                    class="flex items-center gap-1.5 px-2 py-1 text-xs bg-[#0077b5] text-white rounded hover:bg-[#005582] border border-[#005582]">
+                    <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                    </svg>
+                    <span>LinkedIn</span>
+                </button>
+            {/if}
         </div>
 
-        <div class="form-area flex-1 flex flex-col p-2 gap-1 overflow-auto">
-            <div class="field flex items-center gap-2 bg-white border border-gray-400 px-2 py-1">
+        <div class="form-area flex-1 flex flex-col p-2 gap-1.5 overflow-auto">
+            <div class="field flex items-center gap-2 bg-white border border-gray-400 px-2 py-1.5">
                 <label class="text-xs font-bold text-gray-700 w-14 shrink-0">To:</label>
                 <input 
                     type="text" 
@@ -156,7 +180,7 @@
                 />
             </div>
 
-            <div class="field flex items-center gap-2 bg-white border border-gray-400 px-2 py-1">
+            <div class="field flex items-center gap-2 bg-white border border-gray-400 px-2 py-1.5">
                 <label class="text-xs font-bold text-gray-700 w-14 shrink-0">From:</label>
                 <input 
                     type="email" 
@@ -166,7 +190,7 @@
                 />
             </div>
 
-            <div class="field flex items-center gap-2 bg-white border border-gray-400 px-2 py-1">
+            <div class="field flex items-center gap-2 bg-white border border-gray-400 px-2 py-1.5">
                 <label class="text-xs font-bold text-gray-700 w-14 shrink-0">Subject:</label>
                 <input 
                     type="text" 
@@ -180,18 +204,18 @@
                 <textarea 
                     bind:value={body}
                     placeholder="Write your message here"
-                    class="flex-1 w-full p-2 text-xs border border-gray-400 outline-none resize-none bg-white"
+                    class="flex-1 w-full p-2 text-sm border border-gray-400 outline-none resize-none bg-white"
                 ></textarea>
             </div>
 
             {#if statusMessage}
-                <div class="status-bar px-2 py-1 text-xs rounded {statusType === 'success' ? 'bg-green-100 text-green-800 border border-green-300' : 'bg-red-100 text-red-800 border border-red-300'}">
+                <div class="status-bar px-2 py-1.5 text-xs rounded {statusType === 'success' ? 'bg-green-100 text-green-800 border border-green-300' : 'bg-red-100 text-red-800 border border-red-300'}">
                     {statusMessage}
                 </div>
             {/if}
         </div>
 
-        <div class="status-bar px-2 py-1 bg-[#ece9d8] border-t border-gray-300 text-xs text-gray-600">
+        <div class="status-bar px-2 py-1.5 bg-[#ece9d8] border-t border-gray-300 text-xs text-gray-600">
             Compose a message to the owner
         </div>
     </div>

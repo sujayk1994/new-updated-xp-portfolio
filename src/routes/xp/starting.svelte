@@ -105,7 +105,7 @@
                 parent: desktopId,
                 size: 5000,
                 executable: true,
-                icon: '/images/xp/icons/Email.png',
+                icon: '/images/xp/icons/ContactMe.webp',
                 children: [],
                 date_created: now,
                 date_modified: now,
@@ -116,6 +116,8 @@
             if (drive[desktopId] && !drive[desktopId].children.includes(contactMeId)) {
                 drive[desktopId].children.push(contactMeId);
             }
+        } else if (drive[contactMeId].icon !== '/images/xp/icons/ContactMe.webp') {
+            drive[contactMeId].icon = '/images/xp/icons/ContactMe.webp';
         }
     }
 
