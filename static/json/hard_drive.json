@@ -165,6 +165,7 @@
     "ext": "",
     "children": [
       "aboutMeDesktopItem001",
+      "magazinePortfolioItem001",
       "sWTYkZhdpSYCmXP7z6459v",
       "2jpDfV5KSoYMArQnHgux5S",
       "jAaXPCn3ct7ufPDM1apy5x",
@@ -172,6 +173,24 @@
       "sqfmFqVu1r7ot25ZiVabik",
       "rugcCBKHiSYK5RFdud7m3p"
     ],
+    "date_created": 1676799354180,
+    "date_modified": 1676799354180,
+    "sort_option": 0,
+    "sort_order": 0
+  },
+  "magazinePortfolioItem001": {
+    "id": "magazinePortfolioItem001",
+    "type": "file",
+    "basename": "Magazine Portfolio",
+    "name": "Magazine Portfolio.exe",
+    "storage_type": "fake",
+    "url": "./programs/magazine_portfolio.svelte",
+    "ext": ".exe",
+    "parent": "nt1QdU9Sws26H26UNQZcQU",
+    "size": 25000,
+    "executable": true,
+    "icon": "/images/xp/icons/MagazinePortfolio.png",
+    "children": [],
     "date_created": 1676799354180,
     "date_modified": 1676799354180,
     "sort_option": 0,
