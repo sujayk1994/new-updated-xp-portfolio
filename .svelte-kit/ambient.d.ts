@@ -7,12 +7,9 @@ declare module '$env/static/public' {
 
 declare module '$env/static/private' {
 	export const npm_command: string;
-	export const POETRY_PIP_NO_ISOLATE: string;
 	export const npm_config_userconfig: string;
 	export const COLORTERM: string;
-	export const POETRY_PIP_NO_PREFIX: string;
 	export const npm_config_cache: string;
-	export const POETRY_PIP_USE_PIP_CACHE: string;
 	export const REPL_OWNER: string;
 	export const DATABASE_URL: string;
 	export const REPLIT_GITSAFE_NEW_REPLS_ENABLED: string;
@@ -20,7 +17,6 @@ declare module '$env/static/private' {
 	export const PKG_CONFIG_PATH: string;
 	export const HOSTNAME: string;
 	export const __EGL_VENDOR_LIBRARY_FILENAMES: string;
-	export const POETRY_INSTALLER_MODERN_INSTALLATION: string;
 	export const NODE: string;
 	export const REPLIT_DOMAINS: string;
 	export const LD_AUDIT: string;
@@ -44,11 +40,8 @@ declare module '$env/static/private' {
 	export const NIX_PATH: string;
 	export const npm_config_init_module: string;
 	export const REPL_ID: string;
-	export const PIP_CONFIG_FILE: string;
-	export const REPLIT_PYTHON_LD_LIBRARY_PATH: string;
 	export const GI_TYPELIB_PATH: string;
 	export const LDFLAGS: string;
-	export const REPLIT_PYTHONPATH: string;
 	export const HOME: string;
 	export const LANG: string;
 	export const CONNECTORS_HOSTNAME: string;
@@ -59,7 +52,6 @@ declare module '$env/static/private' {
 	export const GIT_ASKPASS: string;
 	export const PGUSER: string;
 	export const REPL_IMAGE: string;
-	export const POETRY_CACHE_DIR: string;
 	export const REPLIT_GITSAFE_EXISTING_REPLS_ENABLED: string;
 	export const REPLIT_CONTAINER: string;
 	export const INIT_CWD: string;
@@ -67,10 +59,7 @@ declare module '$env/static/private' {
 	export const npm_lifecycle_script: string;
 	export const REPLIT_RTLD_LOADER: string;
 	export const npm_config_npm_version: string;
-	export const POETRY_PIP_FROM_PATH: string;
-	export const POETRY_VIRTUALENVS_CREATE: string;
 	export const REPLIT_DEV_DOMAIN: string;
-	export const PYTHONPATH: string;
 	export const TERM: string;
 	export const npm_package_name: string;
 	export const REPLIT_CLUSTER: string;
@@ -79,7 +68,6 @@ declare module '$env/static/private' {
 	export const REPL_LANGUAGE: string;
 	export const USER: string;
 	export const SESSION_SECRET: string;
-	export const POETRY_CONFIG_DIR: string;
 	export const REPL_HOME: string;
 	export const REPLIT_PID1_VERSION: string;
 	export const DISPLAY: string;
@@ -88,7 +76,6 @@ declare module '$env/static/private' {
 	export const REPLIT_NIX_CHANNEL: string;
 	export const GIT_EDITOR: string;
 	export const NIX_CFLAGS_COMPILE: string;
-	export const UV_PYTHON_PREFERENCE: string;
 	export const PGDATABASE: string;
 	export const PROMPT_DIRTRIM: string;
 	export const LIBGL_DRIVERS_PATH: string;
@@ -105,19 +92,14 @@ declare module '$env/static/private' {
 	export const XDG_DATA_DIRS: string;
 	export const REPL_IDENTITY_KEY: string;
 	export const REPLIT_HELIUM_ENABLED: string;
-	export const POETRY_DOWNLOAD_WITH_CURL: string;
 	export const npm_config_noproxy: string;
 	export const PATH: string;
 	export const npm_config_node_gyp: string;
 	export const DOCKER_CONFIG: string;
-	export const PYTHONUSERBASE: string;
 	export const CFLAGS: string;
 	export const npm_config_global_prefix: string;
 	export const GLIBC_TUNABLES: string;
 	export const JWT_SECRET: string;
-	export const UV_PYTHON_DOWNLOADS: string;
-	export const POETRY_USE_USER_SITE: string;
-	export const UV_PROJECT_ENVIRONMENT: string;
 	export const REPL_PUBKEYS: string;
 	export const npm_node_execpath: string;
 	export const REPL_SLUG: string;
