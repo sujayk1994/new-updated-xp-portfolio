@@ -38,6 +38,23 @@ export async function initializeDatabase() {
                 file_data BYTEA
             )
         `);
+
+        await client.query(`
+            CREATE TABLE IF NOT EXISTS admin_videos (
+                id SERIAL PRIMARY KEY,
+                title VARCHAR(255) NOT NULL,
+                youtube_id VARCHAR(50) NOT NULL,
+                channel VARCHAR(255) DEFAULT 'Portfolio Channel',
+                description TEXT,
+                duration VARCHAR(20) DEFAULT '0:00',
+                views VARCHAR(50) DEFAULT '0 views',
+                thumbnail_url TEXT,
+                is_public BOOLEAN DEFAULT TRUE,
+                display_order INTEGER DEFAULT 0,
+                created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+                updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+            )
+        `);
         
         console.log('Database initialized successfully');
     } catch (error) {

@@ -26,58 +26,46 @@
     
     let page_index = 0;
     let loading = true;
+    let currentUrl = homepage;
 
     let real_url;
     let showYouTube = true;
     let currentVideo = null;
     let searchQuery = '';
+    
+    let videos = [];
+    let videosLoading = true;
+    let videosError = null;
 
-    const videos = [
-        {
-            id: 'video1',
-            title: 'Demo Reel 2024 - Creative Works Showcase',
-            channel: 'Portfolio Channel',
-            views: '12K views',
-            time: '2 months ago',
-            duration: '3:45',
-            thumbnail: 'https://img.youtube.com/vi/dQw4w9WgXcQ/maxresdefault.jpg',
-            youtubeUrl: 'https://www.youtube.com/embed/dQw4w9WgXcQ'
-        },
-        {
-            id: 'video2',
-            title: 'Motion Graphics Animation Project',
-            channel: 'Portfolio Channel',
-            views: '8.5K views',
-            time: '1 month ago',
-            duration: '2:30',
-            thumbnail: 'https://img.youtube.com/vi/ScMzIvxBSi4/maxresdefault.jpg',
-            youtubeUrl: 'https://www.youtube.com/embed/ScMzIvxBSi4'
-        },
-        {
-            id: 'video3',
-            title: 'Brand Identity Design Process',
-            channel: 'Portfolio Channel',
-            views: '5.2K views',
-            time: '3 weeks ago',
-            duration: '4:15',
-            thumbnail: 'https://img.youtube.com/vi/LXb3EKWsInQ/maxresdefault.jpg',
-            youtubeUrl: 'https://www.youtube.com/embed/LXb3EKWsInQ'
-        },
-        {
-            id: 'video4',
-            title: 'UI/UX Design Walkthrough',
-            channel: 'Portfolio Channel',
-            views: '3.1K views',
-            time: '1 week ago',
-            duration: '5:20',
-            thumbnail: 'https://img.youtube.com/vi/jNQXAC9IVRw/maxresdefault.jpg',
-            youtubeUrl: 'https://www.youtube.com/embed/jNQXAC9IVRw'
+    $: currentUrl = history[page_index];
+
+    async function loadVideos() {
+        videosLoading = true;
+        videosError = null;
+        try {
+            const response = await fetch('/api/videos');
+            const data = await response.json();
+            if (data.success) {
+                videos = data.videos;
+            } else {
+                videosError = data.error || 'Failed to load videos';
+            }
+        } catch (e) {
+            videosError = 'Failed to connect to server';
         }
-    ];
+        videosLoading = false;
+    }
 
-    const recommendedVideos = videos.slice(0, 4);
+    $: filteredVideos = searchQuery 
+        ? videos.filter(v => 
+            v.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
+            v.channel.toLowerCase().includes(searchQuery.toLowerCase())
+          )
+        : videos;
 
     onMount(async () => {
+        await loadVideos();
+        
         if (history[page_index] === youtubeHomepage || history[page_index].startsWith('youtube://')) {
             showYouTube = true;
             loading = false;
@@ -100,9 +88,14 @@
 
         if (url === youtubeHomepage || url.startsWith('youtube://')) {
             showYouTube = true;
-            currentVideo = null;
+            if (url === youtubeHomepage) {
+                currentVideo = null;
+            } else if (url.startsWith('youtube://watch/')) {
+                const videoId = url.replace('youtube://watch/', '');
+                currentVideo = videos.find(v => v.id === videoId) || null;
+            }
             loading = false;
-            history = [...history.slice(0, page_index+1), url, ...history.slice(page_index+1)];
+            history = [...history.slice(0, page_index+1), url];
             page_index++;
             return;
         }
@@ -123,7 +116,7 @@
 
         showYouTube = false;
         currentVideo = null;
-        history = [...history.slice(0, page_index+1), url, ...history.slice(page_index+1)];
+        history = [...history.slice(0, page_index+1), url];
         page_index++;
         console.log(history);
         real_url = await to_real_url(history[page_index]);
@@ -185,19 +178,14 @@
         const videoUrl = `youtube://watch/${video.id}`;
         history = [...history.slice(0, page_index+1), videoUrl];
         page_index++;
-        if (address_bar) {
-            address_bar.value = videoUrl;
-        }
     }
 
     function goToHome() {
         currentVideo = null;
+        searchQuery = '';
         const homeUrl = youtubeHomepage;
         history = [...history.slice(0, page_index+1), homeUrl];
         page_index++;
-        if (address_bar) {
-            address_bar.value = homeUrl;
-        }
     }
 
     export function destroy(){
@@ -371,8 +359,7 @@
             <RButton icon="/images/xp/icons/IERefresh.png" 
                 on_click={() => {
                     if (showYouTube) {
-                        loading = true;
-                        setTimeout(() => loading = false, 300);
+                        loadVideos();
                     } else if (iframe) {
                         var src = iframe.src;
                         iframe.src = src;
@@ -380,9 +367,9 @@
                 }}></RButton>
             <RButton icon="/images/xp/icons/IEHome.png"
                 on_click={() => {
-                    address_bar.value = youtubeHomepage;
                     showYouTube = true;
                     currentVideo = null;
+                    searchQuery = '';
                     loading = false;
                     history = [...history.slice(0, page_index+1), youtubeHomepage];
                     page_index++;
@@ -415,10 +402,10 @@
             <span class="px-2 text-slate-800">Address</span>
             <div class="grow h-[25px] relative">
                 <input class="absolute inset-0 pl-6 outline-none" type="text" bind:this={address_bar}
-                on:click={(e) => e.target.select()} on:keyup={on_user_input} value="{history[page_index]}">
+                on:click={(e) => e.target.select()} on:keyup={on_user_input} value="{currentUrl}">
                 <div class="w-[17px] h-[17px] absolute top-[4px] left-[4px] bg-[url(/images/xp/icons/URL.png)] bg-contain"></div>
             </div>
-            <div on:click={load_page} class="w-[30px] h-[20px] bg-[url(/images/xp/icons/Go.png)] bg-center bg-contain bg-no-repeat"></div>
+            <div on:click={load_page} class="w-[30px] h-[20px] bg-[url(/images/xp/icons/Go.png)] bg-center bg-contain bg-no-repeat cursor-pointer"></div>
         </div>
         
         <div class="grow overflow-hidden">
@@ -443,7 +430,7 @@
                             <div class="flex items-center bg-[#121212] border border-[#303030] rounded-full overflow-hidden">
                                 <input 
                                     type="text" 
-                                    placeholder="Search"
+                                    placeholder="Search videos"
                                     bind:value={searchQuery}
                                     class="flex-1 bg-transparent text-white text-sm px-4 py-2 outline-none placeholder-gray-400"
                                 />
@@ -467,7 +454,7 @@
                                 </svg>
                             </button>
                             <div class="w-8 h-8 bg-purple-600 rounded-full flex items-center justify-center text-white text-sm font-medium">
-                                U
+                                V
                             </div>
                         </div>
                     </div>
@@ -483,19 +470,20 @@
                                             frameborder="0" 
                                             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
                                             allowfullscreen
+                                            title={currentVideo.title}
                                         ></iframe>
                                     </div>
                                     
                                     <h1 class="text-white text-xl font-medium mt-3">{currentVideo.title}</h1>
                                     
-                                    <div class="flex items-center justify-between mt-3">
+                                    <div class="flex items-center justify-between mt-3 flex-wrap gap-3">
                                         <div class="flex items-center gap-3">
                                             <div class="w-10 h-10 bg-purple-600 rounded-full flex items-center justify-center text-white font-medium">
-                                                P
+                                                {currentVideo.channel?.charAt(0) || 'P'}
                                             </div>
                                             <div>
                                                 <p class="text-white text-sm font-medium">{currentVideo.channel}</p>
-                                                <p class="text-gray-400 text-xs">1.2K subscribers</p>
+                                                <p class="text-gray-400 text-xs">Portfolio Channel</p>
                                             </div>
                                             <button class="ml-4 bg-white text-black px-4 py-2 rounded-full text-sm font-medium hover:bg-gray-200">
                                                 Subscribe
@@ -508,7 +496,7 @@
                                                     <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 10h4.764a2 2 0 011.789 2.894l-3.5 7A2 2 0 0115.263 21h-4.017c-.163 0-.326-.02-.485-.06L7 20m7-10V5a2 2 0 00-2-2h-.095c-.5 0-.905.405-.905.905 0 .714-.211 1.412-.608 2.006L7 11v9m7-10h-2M7 20H5a2 2 0 01-2-2v-6a2 2 0 012-2h2.5"></path>
                                                     </svg>
-                                                    <span class="text-white text-sm">5.1K</span>
+                                                    <span class="text-white text-sm">Like</span>
                                                 </button>
                                                 <div class="w-px h-6 bg-[#505050]"></div>
                                                 <button class="px-4 py-2 hover:bg-[#3f3f3f]">
@@ -523,12 +511,6 @@
                                                 </svg>
                                                 <span class="text-white text-sm">Share</span>
                                             </button>
-                                            <button class="flex items-center gap-2 bg-[#272727] px-4 py-2 rounded-full hover:bg-[#3f3f3f]">
-                                                <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path>
-                                                </svg>
-                                                <span class="text-white text-sm">Download</span>
-                                            </button>
                                         </div>
                                     </div>
                                     
@@ -538,22 +520,22 @@
                                             <span class="mx-1">•</span>
                                             <span>{currentVideo.time}</span>
                                         </p>
-                                        <p class="text-white text-sm mt-2">
-                                            This is a showcase of creative work from my portfolio. Thank you for watching!
-                                        </p>
+                                        {#if currentVideo.description}
+                                            <p class="text-white text-sm mt-2">{currentVideo.description}</p>
+                                        {/if}
                                     </div>
                                 </div>
                             </div>
                             
-                            <div class="w-96 overflow-y-auto p-4 border-l border-[#272727]">
-                                <h3 class="text-white font-medium mb-4">Recommended</h3>
+                            <div class="w-80 overflow-y-auto p-4 border-l border-[#272727] hidden lg:block">
+                                <h3 class="text-white font-medium mb-4">More Videos</h3>
                                 {#each videos.filter(v => v.id !== currentVideo.id) as video}
                                     <button 
                                         class="w-full flex gap-2 mb-3 hover:bg-[#272727] rounded-lg p-1 text-left"
                                         on:click={() => playVideo(video)}
                                     >
                                         <div class="relative w-40 shrink-0">
-                                            <img src={video.thumbnail} alt={video.title} class="w-full aspect-video object-cover rounded-lg">
+                                            <img src={video.thumbnail} alt={video.title} class="w-full aspect-video object-cover rounded-lg bg-gray-800">
                                             <span class="absolute bottom-1 right-1 bg-black/80 text-white text-xs px-1 rounded">{video.duration}</span>
                                         </div>
                                         <div class="flex-1 min-w-0">
@@ -568,7 +550,7 @@
                     {:else}
                         <div class="flex-1 flex overflow-hidden">
                             <div class="w-16 bg-[#0f0f0f] shrink-0 py-3 flex flex-col items-center gap-4 border-r border-[#272727]">
-                                <button class="flex flex-col items-center gap-1 text-white hover:bg-[#272727] rounded-lg p-2 w-14">
+                                <button on:click={goToHome} class="flex flex-col items-center gap-1 text-white hover:bg-[#272727] rounded-lg p-2 w-14">
                                     <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
                                         <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/>
                                     </svg>
@@ -576,70 +558,83 @@
                                 </button>
                                 <button class="flex flex-col items-center gap-1 text-gray-400 hover:bg-[#272727] rounded-lg p-2 w-14">
                                     <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"></path>
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
                                     </svg>
-                                    <span class="text-[10px]">Shorts</span>
-                                </button>
-                                <button class="flex flex-col items-center gap-1 text-gray-400 hover:bg-[#272727] rounded-lg p-2 w-14">
-                                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"></path>
-                                    </svg>
-                                    <span class="text-[10px]">Subs</span>
-                                </button>
-                                <button class="flex flex-col items-center gap-1 text-gray-400 hover:bg-[#272727] rounded-lg p-2 w-14">
-                                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path>
-                                    </svg>
-                                    <span class="text-[10px]">You</span>
+                                    <span class="text-[10px]">Videos</span>
                                 </button>
                             </div>
                             
                             <div class="flex-1 overflow-y-auto p-6">
-                                <div class="flex gap-2 mb-6 overflow-x-auto pb-2">
-                                    <button class="px-3 py-1.5 bg-white text-black rounded-lg text-sm font-medium whitespace-nowrap">All</button>
-                                    <button class="px-3 py-1.5 bg-[#272727] text-white rounded-lg text-sm whitespace-nowrap hover:bg-[#3f3f3f]">Music</button>
-                                    <button class="px-3 py-1.5 bg-[#272727] text-white rounded-lg text-sm whitespace-nowrap hover:bg-[#3f3f3f]">Gaming</button>
-                                    <button class="px-3 py-1.5 bg-[#272727] text-white rounded-lg text-sm whitespace-nowrap hover:bg-[#3f3f3f]">Live</button>
-                                    <button class="px-3 py-1.5 bg-[#272727] text-white rounded-lg text-sm whitespace-nowrap hover:bg-[#3f3f3f]">Motion Graphics</button>
-                                    <button class="px-3 py-1.5 bg-[#272727] text-white rounded-lg text-sm whitespace-nowrap hover:bg-[#3f3f3f]">Design</button>
-                                    <button class="px-3 py-1.5 bg-[#272727] text-white rounded-lg text-sm whitespace-nowrap hover:bg-[#3f3f3f]">Creative</button>
-                                </div>
-                                
-                                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
-                                    {#each videos as video}
+                                {#if videosLoading}
+                                    <div class="flex items-center justify-center h-64">
+                                        <div class="text-gray-400">Loading videos...</div>
+                                    </div>
+                                {:else if videosError}
+                                    <div class="flex flex-col items-center justify-center h-64 gap-4">
+                                        <div class="text-gray-400">{videosError}</div>
                                         <button 
-                                            class="text-left group"
-                                            on:click={() => playVideo(video)}
+                                            on:click={loadVideos}
+                                            class="px-4 py-2 bg-[#272727] text-white rounded-full hover:bg-[#3f3f3f]"
                                         >
-                                            <div class="relative">
-                                                <img 
-                                                    src={video.thumbnail} 
-                                                    alt={video.title}
-                                                    class="w-full aspect-video object-cover rounded-xl group-hover:rounded-none transition-all"
-                                                >
-                                                <span class="absolute bottom-2 right-2 bg-black/80 text-white text-xs px-1 rounded">
-                                                    {video.duration}
-                                                </span>
-                                            </div>
-                                            <div class="flex gap-3 mt-3">
-                                                <div class="w-9 h-9 bg-purple-600 rounded-full shrink-0 flex items-center justify-center text-white text-sm font-medium">
-                                                    P
-                                                </div>
-                                                <div class="flex-1 min-w-0">
-                                                    <h3 class="text-white text-sm font-medium line-clamp-2 leading-5">
-                                                        {video.title}
-                                                    </h3>
-                                                    <p class="text-gray-400 text-xs mt-1 hover:text-white">
-                                                        {video.channel}
-                                                    </p>
-                                                    <p class="text-gray-400 text-xs">
-                                                        {video.views} • {video.time}
-                                                    </p>
-                                                </div>
-                                            </div>
+                                            Retry
                                         </button>
-                                    {/each}
-                                </div>
+                                    </div>
+                                {:else if filteredVideos.length === 0}
+                                    <div class="flex flex-col items-center justify-center h-64 gap-2">
+                                        <svg class="w-16 h-16 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
+                                        </svg>
+                                        <div class="text-gray-400 text-center">
+                                            {#if searchQuery}
+                                                No videos found for "{searchQuery}"
+                                            {:else}
+                                                No videos available yet
+                                            {/if}
+                                        </div>
+                                    </div>
+                                {:else}
+                                    <div class="flex gap-2 mb-6 overflow-x-auto pb-2">
+                                        <button class="px-3 py-1.5 bg-white text-black rounded-lg text-sm font-medium whitespace-nowrap">All</button>
+                                        <button class="px-3 py-1.5 bg-[#272727] text-white rounded-lg text-sm whitespace-nowrap hover:bg-[#3f3f3f]">Recent</button>
+                                        <button class="px-3 py-1.5 bg-[#272727] text-white rounded-lg text-sm whitespace-nowrap hover:bg-[#3f3f3f]">Popular</button>
+                                    </div>
+                                    
+                                    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
+                                        {#each filteredVideos as video}
+                                            <button 
+                                                class="text-left group"
+                                                on:click={() => playVideo(video)}
+                                            >
+                                                <div class="relative">
+                                                    <img 
+                                                        src={video.thumbnail} 
+                                                        alt={video.title}
+                                                        class="w-full aspect-video object-cover rounded-xl group-hover:rounded-none transition-all bg-gray-800"
+                                                    />
+                                                    <span class="absolute bottom-2 right-2 bg-black/80 text-white text-xs px-1 rounded">
+                                                        {video.duration}
+                                                    </span>
+                                                </div>
+                                                <div class="flex gap-3 mt-3">
+                                                    <div class="w-9 h-9 bg-purple-600 rounded-full shrink-0 flex items-center justify-center text-white text-sm font-medium">
+                                                        {video.channel?.charAt(0) || 'P'}
+                                                    </div>
+                                                    <div class="flex-1 min-w-0">
+                                                        <h3 class="text-white text-sm font-medium line-clamp-2 leading-5">
+                                                            {video.title}
+                                                        </h3>
+                                                        <p class="text-gray-400 text-xs mt-1 hover:text-white">
+                                                            {video.channel}
+                                                        </p>
+                                                        <p class="text-gray-400 text-xs">
+                                                            {video.views} • {video.time}
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                            </button>
+                                        {/each}
+                                    </div>
+                                {/if}
                             </div>
                         </div>
                     {/if}
@@ -648,21 +643,22 @@
                 <iframe bind:this={iframe} 
                     class="w-full h-full bg-slate-50 {window?.z_index == $zIndex ? 'pointer-events-auto' : 'pointer-events-none'}" 
                     src="{real_url}" 
-                    on:load={(e) => iframe_loaded(e)} frameborder="0">
+                    on:load={(e) => iframe_loaded(e)} frameborder="0"
+                    title="Web page">
                 </iframe>
             {/if}
         </div>
         <div class="bg-xp-yellow h-[20px] shrink-0 flex flex-row justify-between items-center px-2">
             <div class="flex flex-row">
-                <img src="/images/xp/icons/URL.png" class="w-[15px] h-[15px]" alt="">
-                {#if loading}
+                <img src="/images/xp/icons/URL.png" class="w-[15px] h-[15px]" alt="URL icon">
+                {#if loading || videosLoading}
                     <ProgressBar style="width:100px;height:15px;margin-left:8px;" value={utils.random_int(50,80)}></ProgressBar>
                 {:else}
                     <span class="ml-2 text-[11px]">Done</span>
                 {/if}
             </div>
             <div class="flex flex-row">
-                <img src="/images/xp/icons/InternetShortcut.png" class="w-[15px] h-[15px]" alt="">
+                <img src="/images/xp/icons/InternetShortcut.png" class="w-[15px] h-[15px]" alt="Internet icon">
                 <span class="ml-2 text-[11px]">Internet</span>
             </div>
         </div>
