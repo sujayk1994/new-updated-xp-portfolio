@@ -76,7 +76,7 @@
         <div class="xp-titlebar flex items-center justify-between px-1 h-[26px] select-none"
              style="background: linear-gradient(180deg, #0a246a 0%, #0a246a 3%, #a6caf0 4%, #0a246a 5%, #0a246a 100%);">
             <div class="flex items-center gap-1">
-                <img src="/images/xp/icons/Users.png" alt="" class="w-4 h-4" />
+                <img src="/images/xp/icons/UserAccounts.png" alt="" class="w-4 h-4" />
                 <span class="text-white text-xs font-bold drop-shadow-[1px_1px_0px_rgba(0,0,0,0.5)]">
                     {$isAdmin ? 'Admin Panel' : (isRegistering ? 'Create Admin Account' : 'Admin Login')}
                 </span>
@@ -90,7 +90,7 @@
             {#if $isAdmin}
                 <div class="text-center">
                     <div class="flex items-center justify-center gap-2 mb-4">
-                        <img src="/images/xp/icons/Users.png" alt="" class="w-12 h-12" />
+                        <img src="/images/xp/icons/UserAccounts.png" alt="" class="w-12 h-12" />
                         <div class="text-left">
                             <div class="text-sm font-bold">Logged in as:</div>
                             <div class="text-lg text-blue-800">{$adminUser?.username}</div>
@@ -108,7 +108,7 @@
                 </div>
             {:else}
                 <div class="flex gap-4">
-                    <img src="/images/xp/icons/Users.png" alt="" class="w-12 h-12 shrink-0" />
+                    <img src="/images/xp/icons/UserAccounts.png" alt="" class="w-12 h-12 shrink-0" />
                     <div class="flex-1">
                         {#if isRegistering}
                             <p class="text-xs text-gray-600 mb-3">

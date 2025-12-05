@@ -1,7 +1,6 @@
 <script>
     import {hardDrive, queueProgram } from '../../lib/store';
     import { my_pictures_id, my_music_id } from '../../lib/system';
-    import { showAdminLogin, isAdmin } from '../../lib/admin';
     import * as utils from '../../lib/utils';
     const { click_outside } = utils;
 
@@ -387,11 +386,6 @@
         hide();
     }
 
-    function openAdminLogin() {
-        showAdminLogin.set(true);
-        hide();
-    }
-
 </script>
 
 <div id="start-menu" class="absolute bottom-[30px] left-0 h-[500px] w-[390px] z-20 flex flex-col shadow-lg rounded-t-md hidden"
@@ -533,10 +527,6 @@
     <div class="w-full h-[40px] shrink-0 flex items-center justify-between px-2" 
         style:background-image="linear-gradient(rgb(66, 130, 214) 0%, rgb(59, 133, 224) 3%, rgb(65, 138, 227) 5%, rgb(65, 138, 227) 17%, rgb(60, 135, 226) 21%, rgb(55, 134, 228) 26%, rgb(52, 130, 227) 29%, rgb(46, 126, 225) 39%, rgb(35, 116, 223) 49%, rgb(32, 114, 219) 57%, rgb(25, 110, 219) 62%, rgb(23, 107, 216) 72%, rgb(20, 104, 213) 75%, rgb(17, 101, 210) 83%, rgb(15, 97, 203) 88%)">
         <div class="flex items-center">
-            <div class="p-1 rounded-sm hover:brightness-110 flex flex-row items-center cursor-pointer" on:click={openAdminLogin}>
-                <div class="w-6 h-6 bg-[url(/images/xp/icons/Users.png)] bg-contain"></div>
-                <span class="text-slate-50 text-[11px] ml-1">{$isAdmin ? 'Admin Panel' : 'Admin Login'}</span>
-            </div>
         </div>
         <div class="flex items-center">
             <div class="p-1 rounded-sm hover:brightness-110 flex flex-row items-center cursor-pointer" on:click={show_shutdown_panel}>
