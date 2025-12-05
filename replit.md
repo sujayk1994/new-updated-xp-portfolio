@@ -89,6 +89,7 @@ The portfolio includes an admin authentication system that allows the owner to m
 - All admin content is loaded automatically for all visitors
 - **About Me page**: Edit your personal profile (name, title, bio, contact info, skills, social links)
 - **Video Manager**: Add and manage your portfolio videos for the YouTube-like interface in Internet Explorer
+- **Boot Screen Settings**: Customize the Windows XP boot screen (accessible via Start Menu > Admin Tools when logged in)
 
 ## Magazine Portfolio
 
@@ -139,6 +140,27 @@ Internet Explorer features "Stube" - a custom YouTube-style video portfolio inte
 - Files are stored in `static/uploads/admin/`
 - File metadata is stored in PostgreSQL database
 - Admin files are merged with base hard drive data on page load
+
+## Boot Screen Customization (Admin Only)
+
+Admins can customize the Windows XP boot screen that all visitors see on startup.
+
+### Accessing Boot Screen Settings:
+1. Log in as admin (navigate to `/admin-login`)
+2. Open the Start Menu
+3. Navigate to Admin Tools > Boot Screen Settings
+
+### Customization Options:
+- **Default**: The classic Windows XP boot screen
+- **Custom**: Upload your own GIF, PNG, JPG, or WEBP image (max 5MB)
+- **Background Color**: Choose the boot screen background color
+- **Toggle Elements**: Show/hide the Windows logo, progress bar, and copyright text
+
+### Technical Details:
+- Boot screen settings are stored in the PostgreSQL database (`boot_screen_settings` table)
+- Settings are loaded from the API on each page visit with automatic fallback to defaults
+- Only authenticated admins can modify boot screen settings (JWT token validation)
+- Image uploads are validated for size (5MB max) on both client and server
 
 ## Development Notes
 
