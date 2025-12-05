@@ -33,10 +33,12 @@ declare module '$env/static/private' {
 	export const REPLIT_CLI: string;
 	export const npm_config_globalconfig: string;
 	export const EDITOR: string;
+	export const REPLIT_USER: string;
 	export const REPLIT_SUBCLUSTER: string;
 	export const PWD: string;
 	export const NIX_PROFILES: string;
 	export const REPLIT_DB_URL: string;
+	export const REPLIT_SESSION: string;
 	export const NIX_PATH: string;
 	export const npm_config_init_module: string;
 	export const REPL_ID: string;
@@ -77,6 +79,7 @@ declare module '$env/static/private' {
 	export const GIT_EDITOR: string;
 	export const NIX_CFLAGS_COMPILE: string;
 	export const PGDATABASE: string;
+	export const REPLIT_USERID: string;
 	export const PROMPT_DIRTRIM: string;
 	export const LIBGL_DRIVERS_PATH: string;
 	export const REPLIT_MODE: string;

@@ -27,7 +27,7 @@ export const NIXPKGS_ALLOW_UNFREE = "1";
 export const PKG_CONFIG_PATH = "";
 
 /** @type {import('$env/static/private').HOSTNAME} */
-export const HOSTNAME = "4c6c76adb284";
+export const HOSTNAME = "fbe3c394c4f7";
 
 /** @type {import('$env/static/private').__EGL_VENDOR_LIBRARY_FILENAMES} */
 export const __EGL_VENDOR_LIBRARY_FILENAMES = "/nix/store/l4myp7qn0q9bqgmkqq4vnnii22ql1r68-mesa-25.0.7/share/glvnd/egl_vendor.d/50_mesa.json";
@@ -80,6 +80,9 @@ export const npm_config_globalconfig = "/home/runner/workspace/.config/npm/node_
 /** @type {import('$env/static/private').EDITOR} */
 export const EDITOR = "vi";
 
+/** @type {import('$env/static/private').REPLIT_USER} */
+export const REPLIT_USER = "konietzkokevin0";
+
 /** @type {import('$env/static/private').REPLIT_SUBCLUSTER} */
 export const REPLIT_SUBCLUSTER = "interactive";
 
@@ -90,7 +93,10 @@ export const PWD = "/home/runner/workspace";
 export const NIX_PROFILES = "/nix/var/nix/profiles/default /home/runner/.nix-profile";
 
 /** @type {import('$env/static/private').REPLIT_DB_URL} */
-export const REPLIT_DB_URL = "https://kv.replit.com/v0/eyJhbGciOiJIUzUxMiIsImlzcyI6ImNvbm1hbiIsImtpZCI6InByb2Q6MSIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJjb25tYW4iLCJleHAiOjE3NjQ5NzQ2NTcsImlhdCI6MTc2NDg2MzA1NywiZGF0YWJhc2VfaWQiOiI2ZDZiY2FkZC05MmRmLTRkOGItODMzOC0wNzhhZTFiZjQyZGQifQ.dih-tvyMVhLPUAgnRf965bfeIwnkEmaJpFV0Dbha3CxHJTW8S44RlAm6k-pJHO6p56TIXRbw02GMn5HOfqnrlw";
+export const REPLIT_DB_URL = "https://kv.replit.com/v0/eyJhbGciOiJIUzUxMiIsImlzcyI6ImNvbm1hbiIsImtpZCI6InByb2Q6MSIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJjb25tYW4iLCJleHAiOjE3NjUwMjY4MTksImlhdCI6MTc2NDkxNTIxOSwiZGF0YWJhc2VfaWQiOiI2ZDZiY2FkZC05MmRmLTRkOGItODMzOC0wNzhhZTFiZjQyZGQifQ.eKcZ5oFVSSTWlnHSbmHgSSuLsQcxprUGTlh_WIHc8gzc2WxpkJM_3YMB7XIvo0WYdX4ksqWcn5g5v4R5IPGdgA";
+
+/** @type {import('$env/static/private').REPLIT_SESSION} */
+export const REPLIT_SESSION = "konietzkokevin0-l4xg";
 
 /** @type {import('$env/static/private').NIX_PATH} */
 export const NIX_PATH = "nixpkgs=/home/runner/.nix-defexpr/channels/nixpkgs-stable-25_05:/home/runner/.nix-defexpr/channels";
@@ -117,7 +123,7 @@ export const LANG = "en_US.UTF-8";
 export const CONNECTORS_HOSTNAME = "connectors.replit.com";
 
 /** @type {import('$env/static/private').REPL_IDENTITY} */
-export const REPL_IDENTITY = "v2.public.Q2lRMlpEWmlZMkZrWkMwNU1tUm1MVFJrT0dJdE9ETXpPQzB3TnpoaFpURmlaalF5WkdRU0QydHZibWxsZEhwcmIydGxkbWx1TUJvYWJtVjNMWFZ3WkdGMFpXUXRlSEF0Y0c5eWRHWnZiR2x2TFRFaUpEWmtObUpqWVdSa0xUa3laR1l0TkdRNFlpMDRNek00TFRBM09HRmxNV0ptTkRKa1pEakQ1SmdZV2hVS0JuQnBZMkZ5WkJJTGFXNTBaWEpoWTNScGRtVT3oGZwnj2ptdSF7JsLDH4Du0KipU3fscSUIqjULUkyZURw7vWtwAOlLhw931cq1wMa2t2S-ttBAOKv9TLgt-BcL.R0FFaUJtTnZibTFoYmhLaENIWXlMbkIxWW14cFl5NVJNbVF6VTFoa01HRnJaRFZWVm14U1kxZFdjR0Z0ZEZKU1ZrNUZVVmR3VTJJelVuRlRhMHB2VVRGak1rNXJPVk5SVmtwMlVUQmtRbFpYUmt0YU1qbHlWRzB4VWsxc2JIUlViV2hoVWpGR01GUXhVa3RoTVhCd1RVUkNZVkpIYUhCVVJsSnVaV3N4TmxvelVrNVNSMDB3VjFaa1ZtVkdiSFJYVkVKT1lsWktjbEl5YUVaVk1GRjVaRWhhYVdKWGVITmFSV2gzWTIxSmVXUkhlR3RpVjNneFZGVktkbEpyT1U1VlIzUjBVVzFrYUZFd1RrcFNNazVJWWtkd1dsZEZjSEpTTW1OM1kxVk5lV0pJVm10U01WbzFWMVprVDAxSFJsbFhiWGhLWVd4YWVWUlhhekZrTWxKWVUyNU9hRll3TVRGVWExSktaVVpOZVZWWWFHcE5SM040Vm01cmVFMVZOWFZUYlRsT1ZteHdVMWRXV2tkak1VbDZWVzB4YTAxR1JYaFphMlEwVkd4U1NXRklUbFJTVkd4RFYxZDRhMVpzU1hsalJtUlZWVlF3T1ZaNmQxcHVhRmhKVTJGdldrd3dkV2c0WjNGMGNpMUVUREZCZGpCNE5YRmtOMFI1VVVKdFZucGtPRFpEWTJWRU9FWXhaMHBHTTJsR1J6WmpTbkJQVEc5Wk1GaDJiVkZ1V214Q00yeEpZVGhZWjNCQ09VSlJMbEl3UmtaaFZVcDBWRzVhYVdKVVJtOVpiV2hOV1d0R2RWZFliRTFpYTBsNFYxY3hOR05HYkRWT1ZrcE9ZbFpKTWxaVVJtdE5SMVowVTJ4YVZHSnVRbGRXYlRFMFZURlNjbFZ0Ums1V2JrSlhWVEowVDFaR1dsbGhSVlpXWld0S2NsVnFRVEZUVmtaeVUyeGFUbEpzY0ZOV2JYQlBXVmRTVjJJemFGTmlWMmhUVm1wS2IyUldWbGhrUjNScFlrVTFXRmxyVms5V2JVcFZZa1ZXVm1GclNraGFSM2h6Vm14S2RWSnNTbGRXV0VKS1ZqSndRMk14WkhOU2JHaG9VMFp3VTFSVlpGTlJNVnBIV2tWa1VtSlZXa2xYYTFWNFZUQXhkRlZyZEZkTlZscFVWVlJLU21ReFVuSmhSa3BYWVRGd2RsWldXbXRpTWtwelZHNUthVk5GV2xoWmJYUjNWREZzVjFWc1pFNU5XRUpJVjJ0V01HRnJNWEpYYkd4WFVtMW9XRlpFUm1Ga1IxWkpZMFprVjJKV1NrbFdSbEpMVkRKTmVWTnFXbFpoZW14WVZGZDRTMkl4V1hsTlZGSlVUV3RhUjFSV1ZtdFdSMHBHVjJ4YVdsWjZSVEJYVmxwelRteEdWVkp0Y0dsU1dFSTJWa1JHVjFsWFJYbFRiR3hXVmtWYVYxbHJXbUZqYkhCSVpVVmFiRkp1UWtaV01qRjNZVWRGZUdOSE9WZGhhMXBVVlhwR1RtVkdXbk5UYkVaWFVrVktNMVl5ZEdGWGJVNTBZMFV4VUZkRk5IcGFSVlphVGxad1JWSllVbWxpVkZaUlZEQmtZVlZ0U2xoaFJFcFVVbFp3ZUZaclZuSmtSMUpGWVVWd2FXSldjRkZYUkVsNFZsVXhkRmw2VW1wWFNFSkdWV3RrVms1R1drVmlSbEpvVFZaS05sZHRlRzlpVjFaeVlucENXRlpWTVRaWGJYTjNaV3hrVms1WVNsUldSMUpaVjFkcmQwNVdTbkpWYlRsUFlWUkdURlJxU1RWU1JYaHpVMWhrVTJFeGNHOVdiRlozVFVaYVNFNVhSbWhXTUhCV1ZXMHdOVmR0U2xoVmFrcFdZV3R3VUZVeFdrOWtWbVIwVW14T1UyVnRaekE9";
+export const REPL_IDENTITY = "v2.public.Q2lRMlpEWmlZMkZrWkMwNU1tUm1MVFJrT0dJdE9ETXpPQzB3TnpoaFpURmlaalF5WkdRU0QydHZibWxsZEhwcmIydGxkbWx1TUJvYWJtVjNMWFZ3WkdGMFpXUXRlSEF0Y0c5eWRHWnZiR2x2TFRFaUpEWmtObUpqWVdSa0xUa3laR1l0TkdRNFlpMDRNek00TFRBM09HRmxNV0ptTkRKa1pEakQ1SmdZV2hVS0JuQnBZMkZ5WkJJTGFXNTBaWEpoWTNScGRtVT2OB2MYPbf4dJIpaZpJWHvBee7FBdrZo1fr3EXejJ-bVTGjqLnLnbKbdFbTHanHSstRs7W_Goh5WdTyoVxD8NEF.R0FFaUJtTnZibTFoYmhLaENIWXlMbkIxWW14cFl5NVJNbVF6VTFkb1VWSkZjRFZWVm14U1pVVndVVkl6UWxKVFZrNUZVVmRzVldSWVVqSlRhMHB2VWtkV2MyTXlSbk5SVjJoMlVUQmtRbFpYUmt0YU1qbHlWRzB4VWsxc2JIUlViV2hoVWpGR01GUXhVa3RoTVhCd1RVUkNZVkpIYUhCVVJsSnVaV3N4TmxvelVrNVNSMDB3VjFaa1ZtVkdiSFJYVkVKT1lsWktjbEl5YUVaVk1GRjVaRWhhYVdKWGVITmFSV2gzWTIxSmVXUkhlR3RpVjNneFZGVktkbEpyT1U1VlIzUjBVVzFrYUZFd1RrcFNNazVJWWtkd1dsZEZjSEpTTW1OM1kxVk5lV0pJVm10U01WbzFWMVprVDAxSFJsbFhiWGhLWVd4YWVWUlhhekZrTWxKWVUyNU9hRll3TVRGVlZFWlRWVEpTUmxwR1FsSlhSWEJEVjFaV1lWTnNUa2hUYTBwWFRVVTFhRmw2U2s5VFZscEpWMnhXYUZaSFRYbFdNR2h6VjIxU1ZtUkVVbWhTYkVwNldrWlNUMlZGT1VkaFIwWlVWVlF3T1VWRU1IRm9OR0Z5YUZscVgyOTJNR2R0VjBSMVEyOTJNekZ4ZGxFeFJuaFBWbVJWUVVkbFUyUlJiM1V0VW1GclZGWTRiV2RqWkMxUGJtZDNTWE5qYkVOalNUaFRNelZ6V0ZObWJFTlRVa0ZYYTBjNWJrTlJMbEl3UmtaaFZVcDBWRzVhYVdKVVJtOVpiV2hOV1d0R2RWZFliRTFpYTBsNFYxY3hOR05HYkRWT1ZrcE9ZbFpKTWxaVVJtdE5SMVowVTJ4YVZHSnVRbGRXYlRFMFZURlNjbFZ0Ums1V2JrSlhWVEowVDFaR1dsbGhSVlpXWld0S2NsVnFRVEZUVmtaeVUyeGFUbEpzY0ZOV2JYQlBXVmRTVjJJemFGTmlWMmhUVm1wS2IyUldWbGhrUjNScFlrVTFXRmxyVms5V2JVcFZZa1ZXVm1GclNraGFSM2h6Vm14S2RWSnNTbGRXV0VKS1ZqSndRMk14WkhOU2JHaG9VMFp3VTFSVlpGTlJNVnBIV2tWa1VtSlZXa2xYYTFWNFZUQXhkRlZyZEZkTlZscFVWVlJLU21ReFVuSmhSa3BYWVRGd2RsWldXbXRpTWtwelZHNUthVk5GV2xoWmJYUjNWREZzVjFWc1pFNU5XRUpJVjJ0V01HRnJNWEpYYkd4WFVtMW9XRlpFUm1Ga1IxWkpZMFprVjJKV1NrbFdSbEpMVkRKTmVWTnFXbFpoZW14WVZGZDRTMkl4V1hsTlZGSlVUV3RhUjFSV1ZtdFdSMHBHVjJ4YVdsWjZSVEJYVmxwelRteEdWVkp0Y0dsU1dFSTJWa1JHVjFsWFJYbFRiR3hXVmtWYVYxbHJXbUZqYkhCSVpVVmFiRkp1UWtaV01qRjNZVWRGZUdOSE9WZGhhMXBVVlhwR1RtVkdXbk5UYkVaWFVrVktNMVl5ZEdGWGJVNTBZMFV4VUZkRk5IcGFSVlphVGxad1JWSllVbWxpVkZaUlZEQmtZVlZ0U2xoaFJFcFVVbFp3ZUZaclZuSmtSMUpGWVVWd2FXSldjRkZYUkVsNFZsVXhkRmw2VW1wWFNFSkdWV3RrVms1R1drVmlSbEpvVFZaS05sZHRlRzlpVjFaeVlucENXRlpWTVRaWGJYTjNaV3hrVms1WVNsUldSMUpaVjFkcmQwNVdTbkpWYlRsUFlWUkdURlJxU1RWU1JYaHpVMWhrVTJFeGNHOVdiRlozVFVaYVNFNVhSbWhXTUhCV1ZXMHdOVmR0U2xoVmFrcFdZV3R3VUZVeFdrOWtWbVIwVW14T1UyVnRaekE9";
 
 /** @type {import('$env/static/private').LS_COLORS} */
 export const LS_COLORS = "rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=00:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.7z=01;31:*.ace=01;31:*.alz=01;31:*.apk=01;31:*.arc=01;31:*.arj=01;31:*.bz=01;31:*.bz2=01;31:*.cab=01;31:*.cpio=01;31:*.crate=01;31:*.deb=01;31:*.drpm=01;31:*.dwm=01;31:*.dz=01;31:*.ear=01;31:*.egg=01;31:*.esd=01;31:*.gz=01;31:*.jar=01;31:*.lha=01;31:*.lrz=01;31:*.lz=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.lzo=01;31:*.pyz=01;31:*.rar=01;31:*.rpm=01;31:*.rz=01;31:*.sar=01;31:*.swm=01;31:*.t7z=01;31:*.tar=01;31:*.taz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tgz=01;31:*.tlz=01;31:*.txz=01;31:*.tz=01;31:*.tzo=01;31:*.tzst=01;31:*.udeb=01;31:*.war=01;31:*.whl=01;31:*.wim=01;31:*.xz=01;31:*.z=01;31:*.zip=01;31:*.zoo=01;31:*.zst=01;31:*.avif=01;35:*.jpg=01;35:*.jpeg=01;35:*.jxl=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:*~=00;90:*#=00;90:*.bak=00;90:*.crdownload=00;90:*.dpkg-dist=00;90:*.dpkg-new=00;90:*.dpkg-old=00;90:*.dpkg-tmp=00;90:*.old=00;90:*.orig=00;90:*.part=00;90:*.rej=00;90:*.rpmnew=00;90:*.rpmorig=00;90:*.rpmsave=00;90:*.swp=00;90:*.tmp=00;90:*.ucf-dist=00;90:*.ucf-new=00;90:*.ucf-old=00;90:";
@@ -212,6 +218,9 @@ export const NIX_CFLAGS_COMPILE = "";
 /** @type {import('$env/static/private').PGDATABASE} */
 export const PGDATABASE = "neondb";
 
+/** @type {import('$env/static/private').REPLIT_USERID} */
+export const REPLIT_USERID = "50737731";
+
 /** @type {import('$env/static/private').PROMPT_DIRTRIM} */
 export const PROMPT_DIRTRIM = "2";
 
@@ -252,7 +261,7 @@ export const npm_package_json = "/home/runner/workspace/package.json";
 export const XDG_DATA_DIRS = "/nix/store/n3fwf368m4bpdjkw4lm38ylkxk2vmsqi-git-lfs-3.6.1/share:/nix/store/1dyk2gadghrim582jhij2pgmnglpkcpz-replit-runtime-path/share";
 
 /** @type {import('$env/static/private').REPL_IDENTITY_KEY} */
-export const REPL_IDENTITY_KEY = "k2.secret.ugXX1FGP2dXtDv_sQKuAJTXJpXCPzFyuvLqZxBCOaFTjbUp3Wwjlb67quHVVBpCUa1_APmWUwvGUc4BtZQaNUw";
+export const REPL_IDENTITY_KEY = "k2.secret.8eABfzwsZ5la3IxJfmG7KN_sbJfev-gxGInjuEQDCqYJNG0Y4CsBoUgdsBYJmxwdO9OLvpfJi4rGFOW7erxdkg";
 
 /** @type {import('$env/static/private').REPLIT_HELIUM_ENABLED} */
 export const REPLIT_HELIUM_ENABLED = "true";
