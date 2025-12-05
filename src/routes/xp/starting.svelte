@@ -132,17 +132,24 @@
     }
 
     async function load_boot_screen(){
+        currentBootScreen = {...default_boot_screen};
+        
         try {
             const response = await axios.get('/api/admin/bootscreen');
-            if (response.data.success && response.data.settings) {
-                currentBootScreen = response.data.settings;
-            } else {
-                currentBootScreen = {...default_boot_screen};
+            if (response.data && response.data.settings) {
+                currentBootScreen = {
+                    type: response.data.settings.type || 'default',
+                    customGif: response.data.settings.customGif || null,
+                    showLogo: response.data.settings.showLogo !== false,
+                    showProgress: response.data.settings.showProgress !== false,
+                    showCopyright: response.data.settings.showCopyright !== false,
+                    backgroundColor: response.data.settings.backgroundColor || '#000000'
+                };
             }
         } catch (error) {
-            console.error('Error loading boot screen from API:', error);
-            currentBootScreen = {...default_boot_screen};
+            console.error('Error loading boot screen from API, using defaults:', error);
         }
+        
         bootScreen.set(currentBootScreen);
     }
 

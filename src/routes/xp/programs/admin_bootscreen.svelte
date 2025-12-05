@@ -75,9 +75,17 @@
         }, 3000);
     }
 
+    const MAX_FILE_SIZE = 5 * 1024 * 1024;
+    
     function handleBootScreenFileSelect(event) {
         const file = event.target.files[0];
         if (file) {
+            if (file.size > MAX_FILE_SIZE) {
+                showMessage('Image too large. Maximum size is 5MB.', 'error');
+                event.target.value = '';
+                return;
+            }
+            
             const ext = utils.extname(file.name).toLowerCase();
             if (supported_boot_screen_filetypes.includes(ext)) {
                 const reader = new FileReader();
