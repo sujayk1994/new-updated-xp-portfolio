@@ -19,33 +19,40 @@ download_lfs_files() {
     
     if [ -n "$LFS_FILES" ]; then
         echo -e "${YELLOW}Downloading media files...${NC}"
+        failed=0
         count=0
         total=$(echo "$LFS_FILES" | wc -l)
         
         while IFS= read -r file; do
             if [ -n "$file" ]; then
                 url="${BASE_URL}/${file}"
-                curl -sL "$url" -o "$file" &
+                if ! curl -sfL "$url" -o "$file" 2>/dev/null; then
+                    echo -e "${YELLOW}  Warning: Could not download $file${NC}"
+                    failed=$((failed + 1))
+                fi
                 count=$((count + 1))
                 
-                if (( count % 10 == 0 )); then
-                    wait
-                    echo "  Downloaded $count/$total files..."
+                if (( count % 20 == 0 )); then
+                    echo "  Progress: $count/$total files..."
                 fi
             fi
         done <<< "$LFS_FILES"
         
-        wait
-        echo -e "${GREEN}  Downloaded $total media files.${NC}"
+        if [ "$failed" -gt 0 ]; then
+            echo -e "${YELLOW}  Downloaded with $failed warnings (some files may be missing).${NC}"
+        else
+            echo -e "${GREEN}  Downloaded $total media files.${NC}"
+        fi
     fi
 }
 
 setup_database() {
     if [ -n "$DATABASE_URL" ]; then
-        echo -e "Setting up database..."
-        node scripts/setup-db.js 2>/dev/null
-        if [ $? -eq 0 ]; then
+        echo "Setting up database..."
+        if node scripts/setup-db.js 2>/dev/null; then
             echo -e "${GREEN}Database ready.${NC}"
+        else
+            echo -e "${YELLOW}Database setup had issues (app will still run).${NC}"
         fi
     fi
 }
@@ -53,14 +60,13 @@ setup_database() {
 install_dependencies() {
     if [ ! -d "node_modules" ]; then
         echo "Installing dependencies..."
-        npm install --silent
-        if [ $? -ne 0 ]; then
+        if ! npm install --silent; then
             echo -e "${RED}Failed to install dependencies.${NC}"
             exit 1
         fi
         echo -e "${GREEN}Dependencies installed.${NC}"
     else
-        npm install --prefer-offline --silent 2>/dev/null
+        npm install --prefer-offline --silent 2>/dev/null || true
     fi
 }
 
