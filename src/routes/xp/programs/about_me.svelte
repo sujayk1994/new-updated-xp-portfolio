@@ -132,7 +132,7 @@
     bind:this={window}
     on_click_close={destroy}
 >
-    <div slot="content" class="absolute inset-1 top-0 flex flex-col bg-gradient-to-b from-[#f5f5f5] to-[#e8e8e8] overflow-hidden">
+    <div slot="content" class="about-me-container absolute inset-1 top-0 flex flex-col bg-gradient-to-b from-[#f5f5f5] to-[#e8e8e8] overflow-hidden">
         {#if loading}
             <div class="flex-1 flex items-center justify-center">
                 <div class="text-gray-500">Loading...</div>
@@ -332,3 +332,21 @@
         {/if}
     </div>
 </Window>
+
+<style>
+    :global(.about-me-container) {
+        font-family: Arial, Helvetica, sans-serif;
+    }
+    :global(.about-me-container h1),
+    :global(.about-me-container h2),
+    :global(.about-me-container h3),
+    :global(.about-me-container p),
+    :global(.about-me-container span),
+    :global(.about-me-container a),
+    :global(.about-me-container label),
+    :global(.about-me-container input),
+    :global(.about-me-container textarea),
+    :global(.about-me-container button) {
+        font-family: Arial, Helvetica, sans-serif;
+    }
+</style>
