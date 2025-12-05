@@ -5,6 +5,11 @@ const pool = new pg.Pool({
 });
 
 export async function initializeDatabase() {
+    if (!process.env.DATABASE_URL) {
+        console.log('No DATABASE_URL configured, skipping database initialization');
+        return;
+    }
+    
     const client = await pool.connect();
     try {
         await client.query(`
@@ -35,7 +40,9 @@ export async function initializeDatabase() {
                 sort_order INTEGER DEFAULT 0,
                 starting_point BOOLEAN DEFAULT FALSE,
                 executable BOOLEAN DEFAULT FALSE,
-                file_data BYTEA
+                file_data BYTEA,
+                created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+                updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
             )
         `);
 
@@ -51,6 +58,15 @@ export async function initializeDatabase() {
                 thumbnail_url TEXT,
                 is_public BOOLEAN DEFAULT TRUE,
                 display_order INTEGER DEFAULT 0,
+                created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+                updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+            )
+        `);
+
+        await client.query(`
+            CREATE TABLE IF NOT EXISTS about_me_content (
+                id SERIAL PRIMARY KEY,
+                content JSONB NOT NULL,
                 created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
                 updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
             )

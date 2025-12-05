@@ -4,6 +4,12 @@ import bcrypt from 'bcrypt';
 const { Pool } = pg;
 
 async function setupDatabase() {
+    if (!process.env.DATABASE_URL) {
+        console.log('No DATABASE_URL found. Skipping database setup.');
+        console.log('The app will work but admin features will be unavailable.');
+        return;
+    }
+
     const pool = new Pool({
         connectionString: process.env.DATABASE_URL,
     });
@@ -26,23 +32,54 @@ async function setupDatabase() {
                 id VARCHAR(255) PRIMARY KEY,
                 type VARCHAR(50) NOT NULL,
                 name VARCHAR(255) NOT NULL,
-                storage_type VARCHAR(50) NOT NULL,
+                basename VARCHAR(255) NOT NULL,
+                ext VARCHAR(50) DEFAULT '',
+                parent VARCHAR(255) NOT NULL,
+                icon VARCHAR(255),
+                storage_type VARCHAR(50) DEFAULT 'admin',
                 url TEXT,
-                ext VARCHAR(50),
-                parent VARCHAR(255),
                 size INTEGER DEFAULT 0,
                 children TEXT DEFAULT '[]',
-                basename VARCHAR(255),
-                icon TEXT,
-                date_created BIGINT,
-                date_modified BIGINT,
+                date_created BIGINT NOT NULL,
+                date_modified BIGINT NOT NULL,
                 sort_option INTEGER DEFAULT 0,
                 sort_order INTEGER DEFAULT 0,
+                starting_point BOOLEAN DEFAULT FALSE,
+                executable BOOLEAN DEFAULT FALSE,
+                file_data BYTEA,
                 created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
                 updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
             )
         `);
         console.log('  - admin_files table ready');
+
+        await pool.query(`
+            CREATE TABLE IF NOT EXISTS admin_videos (
+                id SERIAL PRIMARY KEY,
+                title VARCHAR(255) NOT NULL,
+                youtube_id VARCHAR(50) NOT NULL,
+                channel VARCHAR(255) DEFAULT 'Portfolio Channel',
+                description TEXT,
+                duration VARCHAR(20) DEFAULT '0:00',
+                views VARCHAR(50) DEFAULT '0 views',
+                thumbnail_url TEXT,
+                is_public BOOLEAN DEFAULT TRUE,
+                display_order INTEGER DEFAULT 0,
+                created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+                updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+            )
+        `);
+        console.log('  - admin_videos table ready (for Stube video portfolio)');
+
+        await pool.query(`
+            CREATE TABLE IF NOT EXISTS about_me_content (
+                id SERIAL PRIMARY KEY,
+                content JSONB NOT NULL,
+                created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+                updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+            )
+        `);
+        console.log('  - about_me_content table ready (for profile info)');
 
         const adminUsername = process.env.ADMIN_USERNAME || 'admin';
         const adminPassword = process.env.ADMIN_PASSWORD;
@@ -65,8 +102,10 @@ async function setupDatabase() {
             }
         } else {
             console.log('  - No ADMIN_PASSWORD set, skipping admin user creation');
+            console.log('    (Set ADMIN_PASSWORD environment variable to create an admin)');
         }
 
+        console.log('');
         console.log('Database setup complete!');
     } catch (error) {
         console.error('Database setup failed:', error.message);

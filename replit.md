@@ -1,6 +1,6 @@
-# Windows XP Simulator
+# Windows XP Portfolio Simulator
 
-A browser-based Windows XP simulator built with SvelteKit and TailwindCSS.
+A browser-based Windows XP simulator featuring "Stube" - a custom YouTube-like video portfolio interface, built with SvelteKit and TailwindCSS.
 
 ## Quick Start
 
@@ -8,37 +8,43 @@ A browser-based Windows XP simulator built with SvelteKit and TailwindCSS.
 ```bash
 ./init.sh
 ```
-This will install dependencies (if needed) and start the development server.
+This comprehensive script will:
+1. Check environment configuration
+2. Install npm dependencies
+3. Download media files (if Git LFS placeholders exist)
+4. Set up database tables
+5. Create admin user (if ADMIN_PASSWORD is set)
+6. Start the development server
 
 ### Alternative Commands
 ```bash
 # Install dependencies only
-npm run setup
+./setup.sh
 
-# Install and start in one command
-npm run start
+# Quick start (auto-installs if needed)
+./start.sh
 
-# Start development server (after dependencies are installed)
-npm run dev
+# Direct npm commands
+npm run dev     # Start development server
+npm run build   # Build for production
+npm run prod    # Build and run production server
 ```
 
-## Available Scripts
+## Environment Variables
 
-| Command | Description |
-|---------|-------------|
-| `npm run dev` | Start development server on port 5000 |
-| `npm run build` | Build for production |
-| `npm run preview` | Preview production build |
-| `npm run start` | Install dependencies and start dev server |
-| `npm run setup` | Install dependencies |
-| `npm run prod` | Build and run production server |
+| Variable | Description | Required |
+|----------|-------------|----------|
+| `DATABASE_URL` | PostgreSQL connection string | Auto-set by Replit |
+| `ADMIN_PASSWORD` | Password for admin account | For admin features |
+| `ADMIN_USERNAME` | Admin username (default: "admin") | Optional |
+| `JWT_SECRET` | Secret for JWT tokens | Optional (uses default) |
 
 ## Shell Scripts
 
 | Script | Description |
 |--------|-------------|
-| `./init.sh` | One-command setup and run |
-| `./setup.sh` | Install dependencies only |
+| `./init.sh` | Complete one-command initialization and run |
+| `./setup.sh` | Install dependencies and setup database |
 | `./start.sh` | Start dev server (auto-installs if needed) |
 | `./push.sh` | Push changes to GitHub |
 
@@ -84,9 +90,9 @@ The portfolio includes an admin authentication system that allows the owner to m
 - **About Me page**: Edit your personal profile (name, title, bio, contact info, skills, social links)
 - **Video Manager**: Add and manage your portfolio videos for the YouTube-like interface in Internet Explorer
 
-## YouTube-like Video Portfolio
+## Stube Video Portfolio
 
-Internet Explorer now features a YouTube-style interface where visitors can browse and watch your video portfolio.
+Internet Explorer features "Stube" - a custom YouTube-style video portfolio interface where visitors can browse and watch your videos. The interface uses your About Me profile photo for all avatars and applies Arial font styling throughout.
 
 ### For Site Owners (Admin):
 1. Log in as admin (navigate to `/admin-login`)
