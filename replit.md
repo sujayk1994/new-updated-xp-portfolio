@@ -71,10 +71,10 @@ The portfolio includes an admin authentication system that allows the owner to m
 - **Admin**: When logged in, any files or folders created are saved permanently to the database and visible to all visitors
 
 ### Admin Login:
-1. Click the Start button
-2. Click "Admin Login" in the bottom left of the Start Menu
-3. First time: Create your admin account (username + password, min 6 characters)
-4. After that: Log in with your credentials
+1. Navigate to `/admin-login` in your browser (the admin login is hidden from visitors)
+2. First time: Create your admin account (username + password, min 6 characters)
+3. After that: Log in with your credentials
+4. When logged in, a yellow "ADMIN MODE" banner appears at the top of the desktop
 
 ### Admin Features:
 - Create folders that persist permanently
