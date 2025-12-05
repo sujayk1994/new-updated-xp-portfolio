@@ -81,6 +81,7 @@ The portfolio includes an admin authentication system that allows the owner to m
 - Upload files that are stored on the server
 - Delete admin-created content
 - All admin content is loaded automatically for all visitors
+- **About Me page**: Edit your personal profile (name, title, bio, contact info, skills, social links)
 
 ### Technical Details:
 - Admin authentication uses JWT tokens stored in HTTP-only cookies
