@@ -36,6 +36,7 @@
     let videos = [];
     let videosLoading = true;
     let videosError = null;
+    let profilePhoto = '';
 
     $: currentUrl = history[page_index];
 
@@ -56,6 +57,18 @@
         videosLoading = false;
     }
 
+    async function loadProfilePhoto() {
+        try {
+            const response = await fetch('/api/admin/about-me');
+            const data = await response.json();
+            if (data.success && data.content && data.content.profilePhoto) {
+                profilePhoto = data.content.profilePhoto;
+            }
+        } catch (e) {
+            console.error('Failed to load profile photo');
+        }
+    }
+
     $: filteredVideos = searchQuery 
         ? videos.filter(v => 
             v.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
@@ -65,6 +78,7 @@
 
     onMount(async () => {
         await loadVideos();
+        await loadProfilePhoto();
         
         if (history[page_index] === youtubeHomepage || history[page_index].startsWith('youtube://')) {
             showYouTube = true;
@@ -408,21 +422,19 @@
             <div on:click={load_page} class="w-[30px] h-[20px] bg-[url(/images/xp/icons/Go.png)] bg-center bg-contain bg-no-repeat cursor-pointer"></div>
         </div>
         
-        <div class="grow overflow-hidden">
+        <div class="grow overflow-hidden" style="font-family: Arial, sans-serif;">
             {#if showYouTube}
                 <div class="w-full h-full bg-[#0f0f0f] flex flex-col overflow-hidden">
                     <div class="h-14 bg-[#0f0f0f] flex items-center justify-between px-4 shrink-0 border-b border-[#272727]">
                         <div class="flex items-center gap-4">
                             <button on:click={goToHome} class="flex items-center gap-1 hover:opacity-80">
-                                <svg viewBox="0 0 90 20" class="h-5 w-auto fill-white">
-                                    <path d="M27.9727 3.12324C27.6435 1.89323 26.6768 0.926623 25.4468 0.597366C23.2197 2.24288e-07 14.285 0 14.285 0C14.285 0 5.35042 2.24288e-07 3.12323 0.597366C1.89323 0.926623 0.926623 1.89323 0.597366 3.12324C2.24288e-07 5.35042 0 10 0 10C0 10 2.24288e-07 14.6496 0.597366 16.8768C0.926623 18.1068 1.89323 19.0734 3.12323 19.4026C5.35042 20 14.285 20 14.285 20C14.285 20 23.2197 20 25.4468 19.4026C26.6768 19.0734 27.6435 18.1068 27.9727 16.8768C28.5701 14.6496 28.5701 10 28.5701 10C28.5701 10 28.5677 5.35042 27.9727 3.12324Z" fill="#FF0000"/>
-                                    <path d="M11.4253 14.2854L18.8477 10.0004L11.4253 5.71533V14.2854Z" fill="white"/>
-                                    <path d="M34.6024 19.4328L36.0677 14.5765H40.6105L42.0842 19.4328H45.1467L40.298 5.14752H36.4014L31.5693 19.4328H34.6024ZM37.1364 8.39308H39.5413L40.1989 10.8355L40.9174 13.278H35.778L36.4792 10.8355L37.1364 8.39308Z" fill="white"/>
-                                    <path d="M51.5765 19.6872C54.3174 19.6872 56.4043 18.0477 56.4043 14.6847V5.14752H53.4635V14.4302C53.4635 16.2381 52.6499 16.9986 51.5765 16.9986C50.503 16.9986 49.6895 16.2381 49.6895 14.4302V5.14752H46.7487V14.6847C46.7487 18.0477 48.8356 19.6872 51.5765 19.6872Z" fill="white"/>
-                                    <path d="M60.5701 19.4328H63.5109V7.83609H66.9851V5.14752H57.0959V7.83609H60.5701V19.4328Z" fill="white"/>
-                                    <path d="M74.2116 19.6872C76.9525 19.6872 79.0394 18.0477 79.0394 14.6847V5.14752H76.0986V14.4302C76.0986 16.2381 75.285 16.9986 74.2116 16.9986C73.1381 16.9986 72.3246 16.2381 72.3246 14.4302V5.14752H69.3838V14.6847C69.3838 18.0477 71.4707 19.6872 74.2116 19.6872Z" fill="white"/>
-                                    <path d="M83.2052 19.4328H86.146V13.6536H87.5645C89.3559 13.6536 90 12.7489 90 11.1668V7.61953C90 6.03737 89.3559 5.14752 87.5645 5.14752H83.2052V19.4328ZM86.146 7.83609H87.0593C87.2174 7.83609 87.3504 7.87455 87.4585 7.95147C87.5665 8.02839 87.6205 8.15916 87.6205 8.34377V10.9462C87.6205 11.1308 87.5665 11.2616 87.4585 11.3385C87.3504 11.4154 87.2174 11.4539 87.0593 11.4539H86.146V7.83609Z" fill="white"/>
-                                </svg>
+                                <div class="flex items-center">
+                                    <svg viewBox="0 0 28 20" class="h-5 w-auto">
+                                        <path d="M27.9727 3.12324C27.6435 1.89323 26.6768 0.926623 25.4468 0.597366C23.2197 2.24288e-07 14.285 0 14.285 0C14.285 0 5.35042 2.24288e-07 3.12323 0.597366C1.89323 0.926623 0.926623 1.89323 0.597366 3.12324C2.24288e-07 5.35042 0 10 0 10C0 10 2.24288e-07 14.6496 0.597366 16.8768C0.926623 18.1068 1.89323 19.0734 3.12323 19.4026C5.35042 20 14.285 20 14.285 20C14.285 20 23.2197 20 25.4468 19.4026C26.6768 19.0734 27.6435 18.1068 27.9727 16.8768C28.5701 14.6496 28.5701 10 28.5701 10C28.5701 10 28.5677 5.35042 27.9727 3.12324Z" fill="#FF0000"/>
+                                        <path d="M11.4253 14.2854L18.8477 10.0004L11.4253 5.71533V14.2854Z" fill="white"/>
+                                    </svg>
+                                    <span class="text-white text-xl font-bold ml-1" style="font-family: Arial, sans-serif;">Stube</span>
+                                </div>
                             </button>
                         </div>
                         
@@ -433,6 +445,7 @@
                                     placeholder="Search videos"
                                     bind:value={searchQuery}
                                     class="flex-1 bg-transparent text-white text-sm px-4 py-2 outline-none placeholder-gray-400"
+                                    style="font-family: Arial, sans-serif;"
                                 />
                                 <button class="px-5 py-2 bg-[#222222] border-l border-[#303030] hover:bg-[#333333]">
                                     <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -453,9 +466,13 @@
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9"></path>
                                 </svg>
                             </button>
-                            <div class="w-8 h-8 bg-purple-600 rounded-full flex items-center justify-center text-white text-sm font-medium">
-                                V
-                            </div>
+                            {#if profilePhoto}
+                                <img src={profilePhoto} alt="Profile" class="w-8 h-8 rounded-full object-cover" />
+                            {:else}
+                                <div class="w-8 h-8 bg-purple-600 rounded-full flex items-center justify-center text-white text-sm font-medium">
+                                    S
+                                </div>
+                            {/if}
                         </div>
                     </div>
                     
@@ -478,9 +495,13 @@
                                     
                                     <div class="flex items-center justify-between mt-3 flex-wrap gap-3">
                                         <div class="flex items-center gap-3">
-                                            <div class="w-10 h-10 bg-purple-600 rounded-full flex items-center justify-center text-white font-medium">
-                                                {currentVideo.channel?.charAt(0) || 'P'}
-                                            </div>
+                                            {#if profilePhoto}
+                                                <img src={profilePhoto} alt="Channel" class="w-10 h-10 rounded-full object-cover" />
+                                            {:else}
+                                                <div class="w-10 h-10 bg-purple-600 rounded-full flex items-center justify-center text-white font-medium">
+                                                    {currentVideo.channel?.charAt(0) || 'S'}
+                                                </div>
+                                            {/if}
                                             <div>
                                                 <p class="text-white text-sm font-medium">{currentVideo.channel}</p>
                                                 <p class="text-gray-400 text-xs">Portfolio Channel</p>
@@ -616,9 +637,13 @@
                                                     </span>
                                                 </div>
                                                 <div class="flex gap-3 mt-3">
-                                                    <div class="w-9 h-9 bg-purple-600 rounded-full shrink-0 flex items-center justify-center text-white text-sm font-medium">
-                                                        {video.channel?.charAt(0) || 'P'}
-                                                    </div>
+                                                    {#if profilePhoto}
+                                                        <img src={profilePhoto} alt="Channel" class="w-9 h-9 rounded-full object-cover shrink-0" />
+                                                    {:else}
+                                                        <div class="w-9 h-9 bg-purple-600 rounded-full shrink-0 flex items-center justify-center text-white text-sm font-medium">
+                                                            {video.channel?.charAt(0) || 'S'}
+                                                        </div>
+                                                    {/if}
                                                     <div class="flex-1 min-w-0">
                                                         <h3 class="text-white text-sm font-medium line-clamp-2 leading-5">
                                                             {video.title}
