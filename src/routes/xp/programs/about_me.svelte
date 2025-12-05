@@ -40,10 +40,10 @@
 
     export let options = {
         title: "About Me",
-        min_width: 400,
-        min_height: 350,
-        width: 550,
-        height: 500,
+        min_width: 450,
+        min_height: 400,
+        width: 650,
+        height: 600,
         icon: "/images/xp/icons/Information.png",
         id: id,
         exec_path
