@@ -139,6 +139,12 @@ let winrar_program = {
   name: 'WinRAR'
 }
 
+let foxit_reader_program = {
+  path: './programs/foxit_reader.svelte',
+  icon: '/images/xp/icons/FoxitReader.png',
+  name: 'Foxit Reader'
+}
+
 export let doctypes = {
   '.webp': [image_viewer],
   '.bmp': [image_viewer, paint_program],
@@ -154,7 +160,8 @@ export let doctypes = {
   '.zip': [winrar_program],
   '.rar': [winrar_program],
   '.tar': [winrar_program],
-  '.7z': [winrar_program]
+  '.7z': [winrar_program],
+  '.pdf': [foxit_reader_program]
 }
 
 export let icons = {

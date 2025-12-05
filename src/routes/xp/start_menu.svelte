@@ -19,6 +19,12 @@
         },
         null,
         {
+            name: 'Foxit Reader',
+            icon: '/images/xp/icons/FoxitReader.png',
+            path: './programs/foxit_reader.svelte',
+            
+        },
+        {
             name: 'Paint',
             icon: '/images/xp/icons/Paint.png',
             path: './programs/paint.svelte',
