@@ -132,10 +132,16 @@
     }
 
     async function load_boot_screen(){
-        currentBootScreen = await get('boot_screen');
-        if(currentBootScreen == null){
+        try {
+            const response = await axios.get('/api/admin/bootscreen');
+            if (response.data.success && response.data.settings) {
+                currentBootScreen = response.data.settings;
+            } else {
+                currentBootScreen = {...default_boot_screen};
+            }
+        } catch (error) {
+            console.error('Error loading boot screen from API:', error);
             currentBootScreen = {...default_boot_screen};
-            await set('boot_screen', currentBootScreen);
         }
         bootScreen.set(currentBootScreen);
     }

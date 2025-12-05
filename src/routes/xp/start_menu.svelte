@@ -1,6 +1,7 @@
 <script>
     import {hardDrive, queueProgram } from '../../lib/store';
     import { my_pictures_id, my_music_id } from '../../lib/system';
+    import { isAdmin } from '../../lib/admin';
     import * as utils from '../../lib/utils';
     const { click_outside } = utils;
 
@@ -347,6 +348,34 @@
         },
     ]
 
+    $: adminPrograms = $isAdmin ? [
+        null,
+        {
+            name: 'Admin Tools',
+            icon: '/images/xp/icons/UserAccounts.png',
+            top: '-150px',
+            items: [
+                {
+                    name: 'Boot Screen Settings',
+                    icon: '/images/xp/icons/DisplayProperties.png',
+                    path: './programs/admin_bootscreen.svelte'
+                },
+                {
+                    name: 'Manage Videos',
+                    icon: '/images/xp/icons/WindowsMediaPlayer9.png',
+                    path: './programs/admin_videos.svelte'
+                },
+                {
+                    name: 'About Me Editor',
+                    icon: '/images/xp/icons/Notepad.png',
+                    path: './programs/about_me.svelte'
+                }
+            ]
+        }
+    ] : [];
+
+    $: allPrograms = [...programs, ...adminPrograms];
+
     function hide(){
         let el = document.querySelector('#start-menu');
         if(!el.classList.contains('hidden')){
@@ -430,7 +459,7 @@
                     <div class="absolute -left-[50px] bottom-0 w-[820px] h-[500px] ">
                         <div class="absolute left-[300px] top-0 -bottom-[100px] right-0 " on:click|self={hide}></div>
                     </div>
-                    {#each programs as item}
+                    {#each allPrograms as item}
                         {#if item == null}
                             <div class="my-0.5 mx-auto w-5/6 h-[1px] bg-slate-200 shrink-0"></div>
                         {:else}
