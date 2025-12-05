@@ -9,6 +9,7 @@ export let contextMenu = writable(null);
 export let zIndex = writable(0);
 
 export let wallpaper = writable(null);
+export let bootScreen = writable(null);
 
 export let systemVolume = writable(1);
 

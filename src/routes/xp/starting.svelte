@@ -3,11 +3,12 @@
     import { onMount, createEventDispatcher } from 'svelte';
     import {set, get} from 'idb-keyval';
     import axios from 'axios';
-    import { hardDrive, wallpaper, contextMenu } from '../../lib/store';
-    import { bliss_wallpaper, wallpapers_folder, SortOptions, SortOrders } from '../../lib/system';
+    import { hardDrive, wallpaper, contextMenu, bootScreen } from '../../lib/store';
+    import { bliss_wallpaper, wallpapers_folder, SortOptions, SortOrders, default_boot_screen } from '../../lib/system';
     let dispatcher = createEventDispatcher();
 
     let assets_loaded = false;
+    let currentBootScreen = null;
 
     let remote_files = ["/files/blue_hill.jpg","/files/new_stories.mp3","/files/sunset.jpg","/files/symphony_9.mp3","/files/wallpapers/Ascent.jpg","/files/wallpapers/Autumn.jpg","/files/wallpapers/Azul.jpg","/files/wallpapers/Bliss.jpg","/files/wallpapers/Follow.jpg","/files/wallpapers/Friend.jpg","/files/wallpapers/Moonflower.jpg","/files/wallpapers/Radiance.jpg","/files/wallpapers/Redmoondesert.jpg","/files/wallpapers/Tulips.jpg","/files/wallpapers/Wind.jpg","/files/water_lily.jpg","/files/winter.jpg"];
 
@@ -22,6 +23,7 @@
     onMount(async () => {
         await load_hard_drive();
         await load_wallpaper();
+        await load_boot_screen();
         
         load_assets([
             ...audios,
@@ -129,6 +131,15 @@
         }
     }
 
+    async function load_boot_screen(){
+        currentBootScreen = await get('boot_screen');
+        if(currentBootScreen == null){
+            currentBootScreen = {...default_boot_screen};
+            await set('boot_screen', currentBootScreen);
+        }
+        bootScreen.set(currentBootScreen);
+    }
+
     function preload_iframes(){
         let urls = [
             '/html/jspaint/index.html',
@@ -157,25 +168,36 @@
 
 </script>
 
-<div class="absolute inset-0 bg-black overflow-hidden text-slate-100">
-    <div class="absolute top-[50%] -translate-y-[50%] left-[50%] -translate-x-[50%] animate-fadein">
-        <img src="/images/xp_loading_logo.jpg" alt="" width="400px">
-        <div class="xp-loader">
-            <div></div>
-            <div></div>
-            <div></div>
+<div class="absolute inset-0 overflow-hidden text-slate-100" style="background-color: {currentBootScreen?.backgroundColor || '#000000'}">
+    {#if currentBootScreen?.type === 'custom' && currentBootScreen?.customGif}
+        <div class="absolute inset-0 flex items-center justify-center animate-fadein">
+            <img src={currentBootScreen.customGif} alt="Loading" class="max-w-full max-h-full object-contain">
         </div>
-    </div>
+    {:else}
+        <div class="absolute top-[50%] -translate-y-[50%] left-[50%] -translate-x-[50%] animate-fadein">
+            {#if currentBootScreen?.showLogo !== false}
+                <img src="/images/xp_loading_logo.jpg" alt="" width="400px">
+            {/if}
+            {#if currentBootScreen?.showProgress !== false}
+                <div class="xp-loader">
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                </div>
+            {/if}
+        </div>
 
-    <div class="absolute left-8 bottom-8 animate-fadein text-base font-sans">
-        <p>Copyright &copy; Microsoft Corporation</p>
-    </div>
-    <div class="absolute right-8 bottom-8 animate-fadein">
-        <img src="/images/xp_loading_mslogo.jpg" width="120px" alt="">
-    </div>
-
-    
-
+        {#if currentBootScreen?.showCopyright !== false}
+            <div class="absolute left-8 bottom-8 animate-fadein text-base font-sans">
+                <p>Copyright &copy; Microsoft Corporation</p>
+            </div>
+        {/if}
+        {#if currentBootScreen?.showLogo !== false}
+            <div class="absolute right-8 bottom-8 animate-fadein">
+                <img src="/images/xp_loading_mslogo.jpg" width="120px" alt="">
+            </div>
+        {/if}
+    {/if}
 </div>
 
 

@@ -1,14 +1,22 @@
 <script>
+    import { createEventDispatcher } from 'svelte';
     export let items = [];
     export let selected;
     export let size = 'sm';
     export let style = 'margin-left:2px;';
+    
+    const dispatch = createEventDispatcher();
+    
+    function selectTab(item) {
+        selected = item;
+        dispatch('change', item);
+    }
 </script>
 
 
 <div class="w-min shrink-0 flex flex-row items-center justify-evenly" style="{style}">
     {#each items as item}
-        <div on:click={() => selected = item}
+        <div on:click={() => selectTab(item)}
             class="grow text-slate-800 tab-item {selected == item ? 'selected' : ''} 
             {size == 'sm' ? 'text-[11px]' : ''} {size == 'md' ? 'text-base' : ''} {size == 'lg' ? 'text-lg' : ''}">
             <span>{item}</span>

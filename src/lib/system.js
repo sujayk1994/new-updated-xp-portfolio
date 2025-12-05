@@ -205,3 +205,14 @@ export let icons = {
 
 export let archive_exts = ['.rar', '.zip', '.7z', '.tar']
 export let previewable_exts = ['.jpeg', '.jpg', '.png', '.webp', '.bmp']
+
+export let default_boot_screen = {
+  type: 'default',
+  customGif: null,
+  showLogo: true,
+  showProgress: true,
+  showCopyright: true,
+  backgroundColor: '#000000'
+};
+
+export let supported_boot_screen_filetypes = ['.gif', '.png', '.jpg', '.jpeg', '.webp'];
