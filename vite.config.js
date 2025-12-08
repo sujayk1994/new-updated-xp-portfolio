@@ -12,6 +12,22 @@ const config = {
                 port: 5000,
                 strictPort: true,
                 allowedHosts: true
+        },
+        build: {
+                target: 'esnext',
+                minify: 'esbuild',
+                cssMinify: true,
+                rollupOptions: {
+                        output: {
+                                manualChunks: {
+                                        'vendor': ['svelte', 'axios', 'lodash'],
+                                        'idb': ['idb-keyval']
+                                }
+                        }
+                }
+        },
+        optimizeDeps: {
+                include: ['svelte', 'axios', 'idb-keyval', 'lodash']
         }
 };
 

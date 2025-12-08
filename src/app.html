@@ -7,6 +7,17 @@
                 <link rel="stylesheet" id="theme" href=""/>
                 <meta name="viewport" content="width=device-width,initial-scale=1" />
                 <meta name="description" content="Yet another Windows XP in the browser, but with a File System and comes with it, Programs."/>
+                
+                <link rel="preload" href="/images/xp_loading_logo.jpg" as="image" />
+                <link rel="preload" href="/images/xp_loading_mslogo.jpg" as="image" />
+                <link rel="preload" href="/fonts/ms_sans_serif.ttf" as="font" type="font/ttf" crossorigin />
+                <link rel="preload" href="/fonts/ms_sans_serif_bold.ttf" as="font" type="font/ttf" crossorigin />
+                <link rel="preload" href="/json/hard_drive.json" as="fetch" crossorigin />
+                
+                <link rel="prefetch" href="/images/xp/icons/Desktop.png" />
+                <link rel="prefetch" href="/images/xp/icons/MyComputer.png" />
+                <link rel="prefetch" href="/images/xp/icons/RecycleBin.png" />
+                
                 %sveltekit.head%
 
                 <style>

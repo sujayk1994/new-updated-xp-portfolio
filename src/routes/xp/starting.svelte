@@ -37,10 +37,10 @@
 
         let wait_count = 0;
         do {
-            await utils.sleep(5000);
+            await utils.sleep(2000);
 
             wait_count++;
-            if(wait_count >= 2) break;
+            if(wait_count >= 3) break;
         } while (!assets_loaded);
         
         preload_iframes();
