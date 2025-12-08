@@ -1,72 +1,231 @@
-### Windows XP in the browser, with a File System, programs, XP-style File Picker and Saver dialogs, 3rd-party program, etc.
-## [🍭 win32.run](https://win32.run)
+# Windows XP Portfolio Simulator
+
+A browser-based Windows XP simulator featuring "Stube" - a custom YouTube-like video portfolio interface, built with SvelteKit and TailwindCSS.
 
 ![License MIT](https://badgen.net/badge/license/MIT/green)
 [![css tailwind](https://badgen.net/badge/css/tailwind/blue)](https://github.com/tailwindlabs/tailwindcss)
 [![js framework svelte](https://badgen.net/badge/built/svelte/orange)](https://github.com/sveltejs/svelte)
 
-#
-https://user-images.githubusercontent.com/5462728/218907749-22ddea15-8761-4cf3-b162-e2817c0f9db8.mp4
-#
-*Microsoft and Windows XP trademarks & logos definitely belong to Microsoft Corporation. All the programs' names and logos (Foxit, Word, WinRar, Internet Explorer, etc.) are of their rightful copyright holders. **win32.run** is purely for the **purpose of nostalgia**. I have no intent and no right to monetize  **win32.run**, but you may occasionally see ads when playing third-party games.*
+## Features
 
-# Introduction
-## 🦄 It's for nostalgia's sake!
+- Fully interactive Windows XP desktop experience
+- **Stube Video Portfolio** - YouTube-style video showcase in Internet Explorer
+- **Magazine Portfolio** - Flipbook-style magazine viewer
+- **Admin Dashboard** - Manage content, videos, and boot screen settings
+- **Boot Screen Customization** - Custom boot animations (admin only)
+- **About Me** - Editable personal profile page
+- Persistent admin content stored in PostgreSQL
 
-**WIN32.RUN** runs solely on the client-side (the user's browser). All files are processed right in the user's browser. There is no file uploading, no server-side processing (cause I'm broke, can't afford it). Each user has his own OS session (just like the good old Windows XP)
+## Quick Start
 
-Files (and Folders) in win32.run are stored locally in IndexedDB. Apps (and 3rd-party apps) can interact with files through win32.run homemade file picker and saver dialog (with Windows XP appearance).
-## Built with
-WIN32.RUN is built with [Svelte](https://github.com/sveltejs/svelte)/[SvelteKit](https://github.com/sveltejs/kit) and [Tailwindcss](https://github.com/tailwindlabs/tailwindcss).
-If you come from a React or Vue background, Svelte is really easy to work with. It doesn't have much boilerplate. 
+### Option 1: One-Command Setup (Recommended)
 
-Writing webapps in Svelte is just like writing vanilla JS, with ```div``` tag for UI and ```script``` tag for logic. One can pick it up in under an hour.
-
-The downside is *surprised breaking changes*.
-
-# Run, build & deploy
-I deploy it on a $5 Vultr instance, there's no special hardware and dependencies requirement here, except Node.js (and NPM).
-
-The project is built with [Svelte](https://github.com/sveltejs/svelte), which may not be great at backward-compatibity at its current phase.  You probably don't want to update Svelte and SvelteKit to newer versions to keep things working.
-## 📦 Install dependencies
-Clone or download from Github
-```shell
-git clone https://github.com/ducbao414/win32.run.git
-cd win32.run-main
+```bash
+./init.sh
 ```
-Then install dependencies
-```shell
+
+This will:
+1. Install npm dependencies
+2. Download media files (if needed)
+3. Set up database tables
+4. Create admin user (if ADMIN_PASSWORD is set)
+5. Start the development server
+
+### Option 2: Docker Compose (Production)
+
+```bash
+# Copy environment template
+cp .env.example .env
+
+# Edit .env with your settings
+nano .env
+
+# Build and run
+docker-compose up -d
+```
+
+### Option 3: Docker Only
+
+```bash
+# Build the image
+docker build -t winxp-portfolio .
+
+# Run with environment variables
+docker run -d \
+  -p 5000:5000 \
+  -e DATABASE_URL="your-postgres-url" \
+  -e ADMIN_PASSWORD="your-admin-password" \
+  winxp-portfolio
+```
+
+### Option 4: Manual Setup
+
+```bash
+# Install dependencies
 npm install
-```
-## Run
-```shell
+
+# Set up database
+node scripts/setup-db.js
+
+# Development
 npm run dev
-```
-The dev server is at http://localhost:3000
-## Build
-```shell
+
+# Production
 npm run build
+npm run prod
 ```
-The build output location is win32.run-main/build
-To preview the build
-```shell
-npm run preview
+
+## Environment Variables
+
+| Variable | Description | Required | Default |
+|----------|-------------|----------|---------|
+| `DATABASE_URL` | PostgreSQL connection string | Yes | - |
+| `ADMIN_PASSWORD` | Password for admin account | Recommended | - |
+| `ADMIN_USERNAME` | Admin username | No | `admin` |
+| `JWT_SECRET` | Secret for JWT tokens | No | Auto-generated |
+| `PORT` | Server port | No | `5000` |
+| `NODE_ENV` | Environment mode | No | `development` |
+
+## Deployment Options
+
+### Replit (Recommended for quick deploy)
+
+1. Fork this project on Replit
+2. Set environment variables in Secrets tab
+3. Click "Run" or use `./init.sh`
+4. Click "Deploy" for production
+
+### Docker Compose (Self-hosted)
+
+```bash
+# Production deployment
+docker-compose up -d
+
+# View logs
+docker-compose logs -f
+
+# Stop
+docker-compose down
+
+# Rebuild after changes
+docker-compose up -d --build
 ```
-## Deploy
-I shamelessly share my deployment process.
 
-Follow [this guide](https://www.digitalocean.com/community/tutorials/how-to-set-up-a-node-js-application-for-production-on-ubuntu-20-04) to set up a Ubuntu server with NGINX. I chose Vultr since theirs is cheaper than DigitalOcean's ($5 vs $6).
+### Manual Server Deployment
 
-Put the build folder, package.json, package-lock.json on to the server, ```cd``` then ```npm install```
+```bash
+# Build for production
+npm run build
 
-Finally, ```pm2 start build/index.js``` to start win32 at localhost:3000
-# Documentation
-If you're interested in expanding or customizing win32.run, please have a look at its documentation.
+# Start production server
+NODE_ENV=production node build/index.js
+```
 
-[![Please visit docs.win32.run](https://img.shields.io/badge/view-Documentation-blue?style=for-the-badge)](https://docs.win32.run)
+### Cloud Platforms
 
-### This project has been discontinued. 
-Even though I don't enjoy React syntax and its methodology, NextJS by Vercel offers a better developer experience than SvelteKit in every way imaginable: it has better backward compatibility, improved tooling, comprehensive documentation, stabability, seamless functionality (everything just worked as expected), rich 3rd-party libraries, less memory consumption, etc.
+**Railway/Render/Fly.io:**
+1. Connect your repository
+2. Set environment variables
+3. Deploy automatically on push
 
-While it has been an enjoyable experience working on win32.run, the numerous breaking changes in SvelteKit have rendered its codebase incomprehensible to other developers. It will take a complete restructure to make it work with new SvelteKit releases. 
-I don't see this project contributing in any meaningful way to either developers utilizing Svelte or those in the process of learning Svelte.
+## Admin System
+
+### First-Time Setup
+
+1. Navigate to `/admin-login`
+2. Create your admin account (username + password, min 6 characters)
+3. Log in to access admin features
+
+### Admin Features
+
+- **File Manager** - Create persistent folders and upload files
+- **Video Manager** - Add YouTube videos to Stube portfolio
+- **About Me Editor** - Edit your personal profile
+- **Boot Screen Settings** - Customize the Windows XP boot screen (Start Menu > Admin Tools)
+- **Magazine Manager** - Add flipbook magazines to the portfolio
+
+## Project Structure
+
+```
+├── src/
+│   ├── routes/           # SvelteKit pages and API endpoints
+│   │   ├── api/admin/    # Admin API endpoints
+│   │   └── xp/           # Windows XP interface components
+│   └── lib/              # Shared components and utilities
+├── static/               # Static assets (images, fonts, audio, video)
+├── scripts/              # Setup and utility scripts
+├── build/                # Production build output
+├── Dockerfile            # Docker container configuration
+├── docker-compose.yml    # Docker orchestration
+└── init.sh               # One-command initialization
+```
+
+## Database Schema
+
+The application uses PostgreSQL with the following tables:
+
+- `admin_users` - Admin authentication
+- `admin_files` - Persistent file storage metadata
+- `admin_videos` - Stube video portfolio entries
+- `about_me_content` - Personal profile data
+- `boot_screen_settings` - Boot screen customization
+
+## Development
+
+```bash
+# Start development server
+npm run dev
+
+# Build for production
+npm run build
+
+# Run production build locally
+npm run prod
+
+# Run database setup
+node scripts/setup-db.js
+```
+
+## Shell Scripts
+
+| Script | Description |
+|--------|-------------|
+| `./init.sh` | Complete initialization and run |
+| `./setup.sh` | Install dependencies and setup database |
+| `./start.sh` | Quick start (auto-installs if needed) |
+| `./deploy.sh` | Build and prepare for deployment |
+| `./build.sh` | Build Docker image |
+
+## Technology Stack
+
+- **Framework:** SvelteKit
+- **Styling:** TailwindCSS
+- **Database:** PostgreSQL
+- **Authentication:** JWT tokens (HTTP-only cookies)
+- **Build Tool:** Vite
+- **Container:** Docker
+
+## Troubleshooting
+
+### Database Connection Issues
+- Verify `DATABASE_URL` is correct
+- Ensure PostgreSQL is running and accessible
+- Check firewall/network settings
+
+### Admin Login Not Working
+- Clear browser cookies and try again
+- Verify `ADMIN_PASSWORD` is set correctly
+- Check server logs for authentication errors
+
+### Boot Screen Not Loading
+- Settings load from database with automatic fallback
+- Check browser console for API errors
+- Verify database connection
+
+## Credits
+
+Based on the original [win32.run](https://win32.run) project. Microsoft and Windows XP trademarks belong to Microsoft Corporation. This project is purely for nostalgia purposes.
+
+## License
+
+MIT License - See LICENSE file for details.
