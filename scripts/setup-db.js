@@ -81,6 +81,21 @@ async function setupDatabase() {
         `);
         console.log('  - about_me_content table ready (for profile info)');
 
+        await pool.query(`
+            CREATE TABLE IF NOT EXISTS boot_screen_settings (
+                id SERIAL PRIMARY KEY,
+                type VARCHAR(50) DEFAULT 'default',
+                custom_gif TEXT,
+                show_logo BOOLEAN DEFAULT TRUE,
+                show_progress BOOLEAN DEFAULT TRUE,
+                show_copyright BOOLEAN DEFAULT TRUE,
+                background_color VARCHAR(20) DEFAULT '#000000',
+                created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+                updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+            )
+        `);
+        console.log('  - boot_screen_settings table ready (for boot screen customization)');
+
         const adminUsername = process.env.ADMIN_USERNAME || 'admin';
         const adminPassword = process.env.ADMIN_PASSWORD;
 
