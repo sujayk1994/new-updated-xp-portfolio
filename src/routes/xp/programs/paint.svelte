@@ -46,7 +46,7 @@
     })
 
     let iframe;
-    let iframe_loaded = false;
+    let iframe_loaded = true;
 
     $: {
         if(fs_item && window) {
@@ -212,11 +212,6 @@
 <Window options={options} bind:this={window} on_click_close={destroy}>
     <div slot="content" class="absolute inset-1 top-0 flex flex-col bg-[rgb(192,192,192)] overflow-hidden">
         <!-- svelte-ignore a11y-missing-attribute -->
-        {#if !iframe_loaded}
-        <div class="absolute top-1/2 -translate-y-1/2 left-1/2 -translate-x-1/2 text-slate-500 text-sm p-2 rounded font-mono">
-            <DumbProgress style="width:150px;height:15px;"></DumbProgress>
-        </div>
-        {/if}
         
         <iframe src="/html/jspaint/index.html" bind:this={iframe} width="100%" height="100%" on:load={setup_paint}
             class="inset-0 absolute bg-white {iframe_loaded ? '' : 'opacity-0'}  {window?.z_index == $zIndex ? 'pointer-events-auto' : 'pointer-events-none'}">

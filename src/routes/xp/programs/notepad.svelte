@@ -23,7 +23,7 @@
     export let exec_path;
 
     let iframe;
-    let iframe_loaded = false;
+    let iframe_loaded = true;
     let dirty = false;
     let default_title = "Notepad";
 
@@ -395,13 +395,6 @@
         <div
             class="absolute inset-0 top-[25px] overflow-auto bg-slate-50 font-sans"
         >
-            {#if !iframe_loaded}
-                <div
-                    class="absolute top-1/2 -translate-y-1/2 left-1/2 -translate-x-1/2 text-slate-500 text-sm p-2 rounded font-mono"
-                >
-                    <DumbProgress style="width:150px;height:15px;" />
-                </div>
-            {/if}
 
             <iframe
                 bind:this={iframe}

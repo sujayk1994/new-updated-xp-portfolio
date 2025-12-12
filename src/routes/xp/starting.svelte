@@ -9,6 +9,7 @@
 
     let assets_loaded = false;
     let currentBootScreen = null;
+    let bootScreenLoaded = false;
 
     let remote_files = ["/files/blue_hill.jpg","/files/new_stories.mp3","/files/sunset.jpg","/files/symphony_9.mp3","/files/wallpapers/Ascent.jpg","/files/wallpapers/Autumn.jpg","/files/wallpapers/Azul.jpg","/files/wallpapers/Bliss.jpg","/files/wallpapers/Follow.jpg","/files/wallpapers/Friend.jpg","/files/wallpapers/Moonflower.jpg","/files/wallpapers/Radiance.jpg","/files/wallpapers/Redmoondesert.jpg","/files/wallpapers/Tulips.jpg","/files/wallpapers/Wind.jpg","/files/water_lily.jpg","/files/winter.jpg"];
 
@@ -132,8 +133,6 @@
     }
 
     async function load_boot_screen(){
-        currentBootScreen = {...default_boot_screen};
-        
         try {
             const response = await axios.get('/api/admin/bootscreen');
             if (response.data && response.data.settings) {
@@ -145,12 +144,16 @@
                     showCopyright: response.data.settings.showCopyright !== false,
                     backgroundColor: response.data.settings.backgroundColor || '#000000'
                 };
+            } else {
+                currentBootScreen = {...default_boot_screen};
             }
         } catch (error) {
             console.error('Error loading boot screen from API, using defaults:', error);
+            currentBootScreen = {...default_boot_screen};
         }
         
         bootScreen.set(currentBootScreen);
+        bootScreenLoaded = true;
     }
 
     function preload_iframes(){
@@ -182,7 +185,9 @@
 </script>
 
 <div class="absolute inset-0 overflow-hidden text-slate-100" style="background-color: {currentBootScreen?.backgroundColor || '#000000'}">
-    {#if currentBootScreen?.type === 'custom' && currentBootScreen?.customGif}
+    {#if !bootScreenLoaded}
+        <!-- Wait for boot screen settings to load -->
+    {:else if currentBootScreen?.type === 'custom' && currentBootScreen?.customGif}
         <div class="absolute inset-0 flex items-center justify-center animate-fadein">
             <img src={currentBootScreen.customGif} alt="Loading" class="max-w-full max-h-full object-contain">
         </div>
