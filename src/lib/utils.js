@@ -345,3 +345,20 @@ export function timestamp_to_readable(timestamp){
   date.setTime(timestamp);
   return date.toString();
 }
+
+let audioUnlocked = false;
+export async function unlockAudio() {
+  if (audioUnlocked) return true;
+  try {
+    const audio = new Audio('/audio/xp_startup.mp3');
+    audio.volume = 0;
+    await audio.play();
+    audio.pause();
+    audio.currentTime = 0;
+    audioUnlocked = true;
+    return true;
+  } catch (e) {
+    console.log('Audio unlock attempt:', e.message);
+    return false;
+  }
+}

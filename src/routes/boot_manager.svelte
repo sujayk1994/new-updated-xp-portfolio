@@ -31,31 +31,33 @@
     ];
 
     function on_key_pressed(e) {
-		 switch(e.keyCode) {
-			 case 38:
-				 if(current_option == 0){
+                 switch(e.keyCode) {
+                         case 38:
+                                 if(current_option == 0){
                     current_option = boot_options.length - 1;
                  } else {
                     current_option = current_option - 1;
                  }
-				 break;
-			 case 40:
-				 if(current_option == boot_options.length - 1){
+                                 break;
+                         case 40:
+                                 if(current_option == boot_options.length - 1){
                     current_option = 0;
                  } else {
                     current_option = current_option + 1;
                  }
-				 break;
-			 case 13:
-				 boot();
-				 break;
-		 }
-	}
+                                 break;
+                         case 13:
+                                 boot();
+                                 break;
+                 }
+        }
 
     let selected = false;
-    function boot(){
+    async function boot(){
         if(selected) return;
         selected = true;
+        
+        await utils.unlockAudio();
         
         if(current_option == 0){
             utils.set_installing_windows(false);
