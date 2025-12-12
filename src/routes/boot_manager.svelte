@@ -53,11 +53,11 @@
         }
 
     let selected = false;
-    async function boot(){
+    function boot(){
         if(selected) return;
         selected = true;
         
-        await utils.unlockAudio();
+        utils.unlockAudio();
         
         if(current_option == 0){
             utils.set_installing_windows(false);
