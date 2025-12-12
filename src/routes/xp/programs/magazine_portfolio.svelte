@@ -49,7 +49,9 @@
     };
 
     onMount(async () => {
+        console.log('Magazine Portfolio mounting, loading magazines...');
         await loadMagazines();
+        console.log('After loadMagazines, magazines count:', magazines.length, 'loading:', loading);
         if (openMagazineId) {
             const mag = magazines.find(m => m.id === openMagazineId);
             if (mag) {
@@ -63,9 +65,12 @@
         try {
             const response = await fetch('/api/admin/magazines');
             const data = await response.json();
+            console.log('Magazines API response:', data);
             if (data.success) {
                 magazines = data.magazines || [];
+                console.log('Loaded magazines:', magazines.length);
             } else {
+                console.log('Magazines API failed:', data.error);
                 magazines = [];
             }
         } catch (error) {
@@ -394,7 +399,8 @@
         }
     }
 
-    $: visibleMagazines = getVisibleMagazines();
+    $: console.log('magazines changed:', magazines.length, 'carouselIndex:', carouselIndex);
+    $: visibleMagazines = magazines.slice(Math.min(carouselIndex, Math.max(0, magazines.length - 3)), Math.min(carouselIndex, Math.max(0, magazines.length - 3)) + Math.min(3, magazines.length));
 </script>
 
 <svelte:window on:keydown={handleKeydown} />
@@ -513,6 +519,7 @@
                     {/if}
                 </div>
                 
+                <p class="text-yellow-300 text-xs mb-2">DEBUG: magazines={magazines.length}, visible={visibleMagazines.length}</p>
                 {#if magazines.length === 0}
                     <div class="flex-1 flex items-center justify-center">
                         <div class="text-center text-gray-400">
