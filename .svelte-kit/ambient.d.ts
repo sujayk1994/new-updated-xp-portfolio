@@ -1,21 +1,43 @@
+
 // this file is generated — do not edit it
+
+
 /// <reference types="@sveltejs/kit" />
 
-declare module '$env/static/public' {
-
-}
-
+/**
+ * Environment variables [loaded by Vite](https://vitejs.dev/guide/env-and-mode.html#env-files) from `.env` files and `process.env`. Like [`$env/dynamic/private`](https://kit.svelte.dev/docs/modules#$env-dynamic-private), this module cannot be imported into client-side code. This module only includes variables that _do not_ begin with [`config.kit.env.publicPrefix`](https://kit.svelte.dev/docs/configuration#env) _and do_ start with [`config.kit.env.privatePrefix`](https://kit.svelte.dev/docs/configuration#env) (if configured).
+ * 
+ * _Unlike_ [`$env/dynamic/private`](https://kit.svelte.dev/docs/modules#$env-dynamic-private), the values exported from this module are statically injected into your bundle at build time, enabling optimisations like dead code elimination.
+ * 
+ * ```ts
+ * import { API_KEY } from '$env/static/private';
+ * ```
+ * 
+ * Note that all environment variables referenced in your code should be declared (for example in an `.env` file), even if they don't have a value until the app is deployed:
+ * 
+ * ```
+ * MY_FEATURE_FLAG=""
+ * ```
+ * 
+ * You can override `.env` values from the command line like so:
+ * 
+ * ```bash
+ * MY_FEATURE_FLAG="enabled" npm run dev
+ * ```
+ */
 declare module '$env/static/private' {
 	export const npm_command: string;
 	export const npm_config_userconfig: string;
 	export const COLORTERM: string;
 	export const npm_config_cache: string;
+	export const npm_package_dev_optional: string;
 	export const HISTCONTROL: string;
 	export const REPL_OWNER: string;
 	export const DATABASE_URL: string;
 	export const REPLIT_GITSAFE_NEW_REPLS_ENABLED: string;
 	export const NIXPKGS_ALLOW_UNFREE: string;
 	export const PKG_CONFIG_PATH: string;
+	export const npm_package_integrity: string;
 	export const HISTSIZE: string;
 	export const HOSTNAME: string;
 	export const __EGL_VENDOR_LIBRARY_FILENAMES: string;
@@ -44,16 +66,19 @@ declare module '$env/static/private' {
 	export const REPLIT_SESSION: string;
 	export const NIX_PATH: string;
 	export const npm_config_init_module: string;
+	export const npm_package_dev: string;
 	export const REPL_ID: string;
 	export const GI_TYPELIB_PATH: string;
 	export const LDFLAGS: string;
 	export const HOME: string;
+	export const npm_package_peer: string;
 	export const LANG: string;
 	export const CONNECTORS_HOSTNAME: string;
 	export const REPL_IDENTITY: string;
 	export const HISTFILE: string;
 	export const REPLIT_RIPPKGS_INDICES: string;
 	export const npm_package_version: string;
+	export const npm_package_resolved: string;
 	export const GIT_ASKPASS: string;
 	export const PGUSER: string;
 	export const REPLIT_USER_RUN: string;
@@ -64,6 +89,7 @@ declare module '$env/static/private' {
 	export const XDG_CACHE_HOME: string;
 	export const npm_lifecycle_script: string;
 	export const REPLIT_RTLD_LOADER: string;
+	export const npm_package_optional: string;
 	export const npm_config_npm_version: string;
 	export const REPLIT_DEV_DOMAIN: string;
 	export const TERM: string;
@@ -114,5 +140,168 @@ declare module '$env/static/private' {
 	export const REPL_SLUG: string;
 	export const OLDPWD: string;
 	export const NIX_LDFLAGS: string;
-	export const NODE_ENV: string;
+	export const npm_package_engines_node: string;
+}
+
+/**
+ * Similar to [`$env/static/private`](https://kit.svelte.dev/docs/modules#$env-static-private), except that it only includes environment variables that begin with [`config.kit.env.publicPrefix`](https://kit.svelte.dev/docs/configuration#env) (which defaults to `PUBLIC_`), and can therefore safely be exposed to client-side code.
+ * 
+ * Values are replaced statically at build time.
+ * 
+ * ```ts
+ * import { PUBLIC_BASE_URL } from '$env/static/public';
+ * ```
+ */
+declare module '$env/static/public' {
+	
+}
+
+/**
+ * This module provides access to runtime environment variables, as defined by the platform you're running on. For example if you're using [`adapter-node`](https://github.com/sveltejs/kit/tree/master/packages/adapter-node) (or running [`vite preview`](https://kit.svelte.dev/docs/cli)), this is equivalent to `process.env`. This module only includes variables that _do not_ begin with [`config.kit.env.publicPrefix`](https://kit.svelte.dev/docs/configuration#env) _and do_ start with [`config.kit.env.privatePrefix`](https://kit.svelte.dev/docs/configuration#env) (if configured).
+ * 
+ * This module cannot be imported into client-side code.
+ * 
+ * ```ts
+ * import { env } from '$env/dynamic/private';
+ * console.log(env.DEPLOYMENT_SPECIFIC_VARIABLE);
+ * ```
+ * 
+ * > In `dev`, `$env/dynamic` always includes environment variables from `.env`. In `prod`, this behavior will depend on your adapter.
+ */
+declare module '$env/dynamic/private' {
+	export const env: {
+		npm_command: string;
+		npm_config_userconfig: string;
+		COLORTERM: string;
+		npm_config_cache: string;
+		npm_package_dev_optional: string;
+		HISTCONTROL: string;
+		REPL_OWNER: string;
+		DATABASE_URL: string;
+		REPLIT_GITSAFE_NEW_REPLS_ENABLED: string;
+		NIXPKGS_ALLOW_UNFREE: string;
+		PKG_CONFIG_PATH: string;
+		npm_package_integrity: string;
+		HISTSIZE: string;
+		HOSTNAME: string;
+		__EGL_VENDOR_LIBRARY_FILENAMES: string;
+		NODE: string;
+		REPLIT_DOMAINS: string;
+		LD_AUDIT: string;
+		PGPORT: string;
+		XDG_DATA_HOME: string;
+		REPLIT_PID1_FLAG_PREEVALED_SYSPKGS: string;
+		REPL_OWNER_ID: string;
+		PGPASSWORD: string;
+		XDG_CONFIG_HOME: string;
+		REPLIT_LD_AUDIT: string;
+		COLOR: string;
+		PKG_CONFIG_PATH_FOR_TARGET: string;
+		npm_config_local_prefix: string;
+		REPLIT_CLI: string;
+		GIT_CONFIG_GLOBAL: string;
+		npm_config_globalconfig: string;
+		EDITOR: string;
+		REPLIT_USER: string;
+		REPLIT_SUBCLUSTER: string;
+		PWD: string;
+		NIX_PROFILES: string;
+		REPLIT_DB_URL: string;
+		REPLIT_SESSION: string;
+		NIX_PATH: string;
+		npm_config_init_module: string;
+		npm_package_dev: string;
+		REPL_ID: string;
+		GI_TYPELIB_PATH: string;
+		LDFLAGS: string;
+		HOME: string;
+		npm_package_peer: string;
+		LANG: string;
+		CONNECTORS_HOSTNAME: string;
+		REPL_IDENTITY: string;
+		HISTFILE: string;
+		REPLIT_RIPPKGS_INDICES: string;
+		npm_package_version: string;
+		npm_package_resolved: string;
+		GIT_ASKPASS: string;
+		PGUSER: string;
+		REPLIT_USER_RUN: string;
+		REPL_IMAGE: string;
+		REPLIT_GITSAFE_EXISTING_REPLS_ENABLED: string;
+		REPLIT_CONTAINER: string;
+		INIT_CWD: string;
+		XDG_CACHE_HOME: string;
+		npm_lifecycle_script: string;
+		REPLIT_RTLD_LOADER: string;
+		npm_package_optional: string;
+		npm_config_npm_version: string;
+		REPLIT_DEV_DOMAIN: string;
+		TERM: string;
+		npm_package_name: string;
+		REPLIT_CLUSTER: string;
+		REPLIT_BASHRC: string;
+		npm_config_prefix: string;
+		REPL_LANGUAGE: string;
+		USER: string;
+		SESSION_SECRET: string;
+		REPL_HOME: string;
+		REPLIT_PID1_VERSION: string;
+		DISPLAY: string;
+		npm_lifecycle_event: string;
+		SHLVL: string;
+		REPLIT_NIX_CHANNEL: string;
+		GIT_EDITOR: string;
+		NIX_CFLAGS_COMPILE: string;
+		PGDATABASE: string;
+		REPLIT_USERID: string;
+		PROMPT_DIRTRIM: string;
+		LIBGL_DRIVERS_PATH: string;
+		REPLIT_MODE: string;
+		LOCALE_ARCHIVE: string;
+		REPLIT_GITSAFE_ENABLED: string;
+		npm_config_user_agent: string;
+		REPLIT_CONNECTORS_HOSTNAME: string;
+		npm_execpath: string;
+		REPLIT_RUN_PATH: string;
+		REPLIT_PID2: string;
+		REPLIT_ENVIRONMENT: string;
+		PGHOST: string;
+		npm_package_json: string;
+		XDG_DATA_DIRS: string;
+		REPL_IDENTITY_KEY: string;
+		REPLIT_HELIUM_ENABLED: string;
+		npm_config_noproxy: string;
+		PATH: string;
+		npm_config_node_gyp: string;
+		DOCKER_CONFIG: string;
+		HISTFILESIZE: string;
+		CFLAGS: string;
+		npm_config_global_prefix: string;
+		GLIBC_TUNABLES: string;
+		JWT_SECRET: string;
+		REPL_PUBKEYS: string;
+		npm_node_execpath: string;
+		REPL_SLUG: string;
+		OLDPWD: string;
+		NIX_LDFLAGS: string;
+		npm_package_engines_node: string;
+		[key: `PUBLIC_${string}`]: undefined;
+		[key: `${string}`]: string | undefined;
+	}
+}
+
+/**
+ * Similar to [`$env/dynamic/private`](https://kit.svelte.dev/docs/modules#$env-dynamic-private), but only includes variables that begin with [`config.kit.env.publicPrefix`](https://kit.svelte.dev/docs/configuration#env) (which defaults to `PUBLIC_`), and can therefore safely be exposed to client-side code.
+ * 
+ * Note that public dynamic environment variables must all be sent from the server to the client, causing larger network requests — when possible, use `$env/static/public` instead.
+ * 
+ * ```ts
+ * import { env } from '$env/dynamic/public';
+ * console.log(env.PUBLIC_DEPLOYMENT_SPECIFIC_VARIABLE);
+ * ```
+ */
+declare module '$env/dynamic/public' {
+	export const env: {
+		[key: `PUBLIC_${string}`]: string | undefined;
+	}
 }
