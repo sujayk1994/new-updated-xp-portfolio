@@ -1,11 +1,11 @@
 {
   ".svelte-kit/runtime/client/start.js": {
-    "file": "_app/immutable/start-474c43bb.js",
+    "file": "_app/immutable/start-437eb0e5.js",
     "src": ".svelte-kit/runtime/client/start.js",
     "isEntry": true,
     "imports": [
-      "_index-59da92c8.js",
-      "_index-5377a032.js",
+      "_index-7043d62e.js",
+      "_index-bc59e2a0.js",
       "_preload-helper-c28b9807.js",
       "_singletons-eca981c1.js"
     ],
@@ -72,60 +72,60 @@
     ]
   },
   "src/routes/__layout.svelte": {
-    "file": "_app/immutable/pages/__layout.svelte-af368bfb.js",
+    "file": "_app/immutable/pages/__layout.svelte-9e6ca39a.js",
     "src": "src/routes/__layout.svelte",
     "isEntry": true,
     "isDynamicEntry": true,
     "imports": [
-      "_index-59da92c8.js"
+      "_index-7043d62e.js"
     ],
     "css": [
-      "_app/immutable/assets/__layout-4e1d1f9d.css"
+      "_app/immutable/assets/__layout-468f05be.css"
     ]
   },
   ".svelte-kit/runtime/components/error.svelte": {
-    "file": "_app/immutable/error.svelte-a44734d2.js",
+    "file": "_app/immutable/error.svelte-581735e1.js",
     "src": ".svelte-kit/runtime/components/error.svelte",
     "isEntry": true,
     "isDynamicEntry": true,
     "imports": [
-      "_index-59da92c8.js"
+      "_index-7043d62e.js"
     ]
   },
   "src/routes/admin-login.svelte": {
-    "file": "_app/immutable/pages/admin-login.svelte-cbc283e4.js",
+    "file": "_app/immutable/pages/admin-login.svelte-35d6a417.js",
     "src": "src/routes/admin-login.svelte",
     "isEntry": true,
     "isDynamicEntry": true,
     "imports": [
-      "_index-59da92c8.js",
+      "_index-7043d62e.js",
       "_singletons-eca981c1.js",
-      "_admin-b2f51e94.js",
-      "_index-5377a032.js",
+      "_admin-093cca4c.js",
+      "_index-bc59e2a0.js",
       "_system-e72d84b7.js"
     ],
     "css": [
-      "_app/immutable/assets/admin-login-d9caad35.css"
+      "_app/immutable/assets/admin-login-d53db9da.css"
     ]
   },
   "src/routes/boot_manager.svelte": {
-    "file": "_app/immutable/pages/boot_manager.svelte-de53866e.js",
+    "file": "_app/immutable/pages/boot_manager.svelte-1847be08.js",
     "src": "src/routes/boot_manager.svelte",
     "isEntry": true,
     "isDynamicEntry": true,
     "imports": [
-      "_index-59da92c8.js",
+      "_index-7043d62e.js",
       "_utils-1f7a3290.js"
     ]
   },
   "src/routes/index.svelte": {
-    "file": "_app/immutable/pages/index.svelte-abea731d.js",
+    "file": "_app/immutable/pages/index.svelte-52cfc811.js",
     "src": "src/routes/index.svelte",
     "isEntry": true,
     "isDynamicEntry": true,
     "imports": [
       "_preload-helper-c28b9807.js",
-      "_index-59da92c8.js"
+      "_index-7043d62e.js"
     ],
     "dynamicImports": [
       "src/routes/boot_manager.svelte",
@@ -152,124 +152,124 @@
     ]
   },
   "src/routes/installation/95/installing.svelte": {
-    "file": "_app/immutable/pages/installation/95/installing.svelte-325d5bdb.js",
+    "file": "_app/immutable/pages/installation/95/installing.svelte-204e3ac7.js",
     "src": "src/routes/installation/95/installing.svelte",
     "isEntry": true,
     "isDynamicEntry": true,
     "imports": [
       "_preload-helper-c28b9807.js",
-      "_index-59da92c8.js",
+      "_index-7043d62e.js",
       "_utils-1f7a3290.js"
     ],
     "dynamicImports": [
       "src/routes/installation/95/product_key_windows.svelte"
     ],
     "css": [
-      "_app/immutable/assets/installing-a160a914.css"
+      "_app/immutable/assets/installing-70b725d2.css"
     ]
   },
   "src/routes/installation/95/product_key_windows.svelte": {
-    "file": "_app/immutable/pages/installation/95/product_key_windows.svelte-eb02fbac.js",
+    "file": "_app/immutable/pages/installation/95/product_key_windows.svelte-4e963fb2.js",
     "src": "src/routes/installation/95/product_key_windows.svelte",
     "isEntry": true,
     "isDynamicEntry": true,
     "imports": [
-      "_index-59da92c8.js",
+      "_index-7043d62e.js",
       "_utils-1f7a3290.js",
       "_lodash-b0811ec1.js",
       "__commonjsHelpers-cea7ac1a.js"
     ]
   },
   "src/routes/installation/dos/copying.svelte": {
-    "file": "_app/immutable/pages/installation/dos/copying.svelte-eeb10b63.js",
+    "file": "_app/immutable/pages/installation/dos/copying.svelte-3b0b4db5.js",
     "src": "src/routes/installation/dos/copying.svelte",
     "isEntry": true,
     "isDynamicEntry": true,
     "imports": [
-      "_index-59da92c8.js",
-      "_status_bar-b78eb56a.js",
-      "_index-b421a415.js",
+      "_index-7043d62e.js",
+      "_status_bar-83391783.js",
+      "_index-37f0bdfd.js",
       "_utils-1f7a3290.js"
     ]
   },
   "src/routes/installation/dos/eula.svelte": {
-    "file": "_app/immutable/pages/installation/dos/eula.svelte-a25eff8d.js",
+    "file": "_app/immutable/pages/installation/dos/eula.svelte-7e68a476.js",
     "src": "src/routes/installation/dos/eula.svelte",
     "isEntry": true,
     "isDynamicEntry": true,
     "imports": [
-      "_index-59da92c8.js",
-      "_status_bar-b78eb56a.js"
+      "_index-7043d62e.js",
+      "_status_bar-83391783.js"
     ]
   },
   "src/routes/installation/dos/format.svelte": {
-    "file": "_app/immutable/pages/installation/dos/format.svelte-0a685238.js",
+    "file": "_app/immutable/pages/installation/dos/format.svelte-7b745bc7.js",
     "src": "src/routes/installation/dos/format.svelte",
     "isEntry": true,
     "isDynamicEntry": true,
     "imports": [
-      "_index-59da92c8.js",
-      "_status_bar-b78eb56a.js",
-      "_index-b421a415.js",
+      "_index-7043d62e.js",
+      "_status_bar-83391783.js",
+      "_index-37f0bdfd.js",
       "_utils-1f7a3290.js"
     ]
   },
   "src/routes/installation/dos/partition.svelte": {
-    "file": "_app/immutable/pages/installation/dos/partition.svelte-584d4782.js",
+    "file": "_app/immutable/pages/installation/dos/partition.svelte-8ee5dfee.js",
     "src": "src/routes/installation/dos/partition.svelte",
     "isEntry": true,
     "isDynamicEntry": true,
     "imports": [
-      "_index-59da92c8.js",
-      "_status_bar-b78eb56a.js",
-      "_index-b421a415.js"
+      "_index-7043d62e.js",
+      "_status_bar-83391783.js",
+      "_index-37f0bdfd.js"
     ]
   },
   "src/routes/installation/dos/restart.svelte": {
-    "file": "_app/immutable/pages/installation/dos/restart.svelte-57e45cee.js",
+    "file": "_app/immutable/pages/installation/dos/restart.svelte-9efc9903.js",
     "src": "src/routes/installation/dos/restart.svelte",
     "isEntry": true,
     "isDynamicEntry": true,
     "imports": [
-      "_index-59da92c8.js",
-      "_status_bar-b78eb56a.js",
-      "_index-b421a415.js",
+      "_index-7043d62e.js",
+      "_status_bar-83391783.js",
+      "_index-37f0bdfd.js",
       "_utils-1f7a3290.js"
     ]
   },
   "src/routes/installation/dos/starting.svelte": {
-    "file": "_app/immutable/pages/installation/dos/starting.svelte-4057bfaa.js",
+    "file": "_app/immutable/pages/installation/dos/starting.svelte-9b9854f6.js",
     "src": "src/routes/installation/dos/starting.svelte",
     "isEntry": true,
     "isDynamicEntry": true,
     "imports": [
-      "_index-59da92c8.js",
-      "_status_bar-b78eb56a.js",
-      "_index-b421a415.js",
+      "_index-7043d62e.js",
+      "_status_bar-83391783.js",
+      "_index-37f0bdfd.js",
       "_utils-1f7a3290.js"
     ]
   },
   "src/routes/installation/dos/welcome.svelte": {
-    "file": "_app/immutable/pages/installation/dos/welcome.svelte-c062f0f8.js",
+    "file": "_app/immutable/pages/installation/dos/welcome.svelte-43925e4b.js",
     "src": "src/routes/installation/dos/welcome.svelte",
     "isEntry": true,
     "isDynamicEntry": true,
     "imports": [
-      "_index-59da92c8.js",
-      "_status_bar-b78eb56a.js",
-      "_index-b421a415.js"
+      "_index-7043d62e.js",
+      "_status_bar-83391783.js",
+      "_index-37f0bdfd.js"
     ]
   },
   "src/routes/xp/admin_login.svelte": {
-    "file": "_app/immutable/pages/xp/admin_login.svelte-a491d388.js",
+    "file": "_app/immutable/pages/xp/admin_login.svelte-6aaa3cc5.js",
     "src": "src/routes/xp/admin_login.svelte",
     "isEntry": true,
     "isDynamicEntry": true,
     "imports": [
-      "_index-59da92c8.js",
-      "_admin-b2f51e94.js",
+      "_index-7043d62e.js",
+      "_admin-093cca4c.js",
       "_utils-1f7a3290.js",
-      "_index-5377a032.js",
+      "_index-bc59e2a0.js",
       "_system-e72d84b7.js"
     ],
     "css": [
@@ -277,49 +277,49 @@
     ]
   },
   "src/routes/xp/blackout.svelte": {
-    "file": "_app/immutable/pages/xp/blackout.svelte-2bc462ff.js",
+    "file": "_app/immutable/pages/xp/blackout.svelte-c3fcd06f.js",
     "src": "src/routes/xp/blackout.svelte",
     "isEntry": true,
     "isDynamicEntry": true,
     "imports": [
-      "_index-59da92c8.js",
-      "_store-fabc0359.js",
+      "_index-7043d62e.js",
+      "_store-a53f3f11.js",
       "_utils-1f7a3290.js",
-      "_index-5377a032.js",
+      "_index-bc59e2a0.js",
       "_system-e72d84b7.js"
     ]
   },
   "src/routes/xp/desktop.svelte": {
-    "file": "_app/immutable/pages/xp/desktop.svelte-b2aafb84.js",
+    "file": "_app/immutable/pages/xp/desktop.svelte-87c8547e.js",
     "src": "src/routes/xp/desktop.svelte",
     "isEntry": true,
     "isDynamicEntry": true,
     "imports": [
-      "_index-59da92c8.js",
+      "_index-7043d62e.js",
       "src/routes/xp/task_bar.svelte",
       "src/routes/xp/work_space.svelte",
       "_preload-helper-c28b9807.js",
       "_utils-1f7a3290.js",
-      "_store-fabc0359.js",
+      "_store-a53f3f11.js",
       "_lodash-b0811ec1.js",
       "src/routes/xp/screensaver.svelte",
       "_index-5725e307.js",
-      "_index-355ed6be.js",
+      "_index-e9763cd9.js",
       "src/routes/xp/start_menu.svelte",
       "src/routes/xp/welcome.svelte",
-      "_admin-b2f51e94.js",
+      "_admin-093cca4c.js",
       "src/routes/xp/system_tray.svelte",
       "_tooltip-f551ec3c.js",
       "src/routes/xp/program_tray.svelte",
       "src/routes/xp/wallpaper.svelte",
       "_system-e72d84b7.js",
-      "_fs-94169c0b.js",
+      "_fs-359b7395.js",
       "__commonjsHelpers-cea7ac1a.js",
-      "_finder-f715ee8c.js",
+      "_finder-63196e92.js",
       "src/routes/xp/desktop_folder.svelte",
-      "_dir_parser-92703b79.js",
-      "_Previewable-21087848.js",
-      "_index-5377a032.js"
+      "_dir_parser-38186120.js",
+      "_Previewable-95faa8f2.js",
+      "_index-bc59e2a0.js"
     ],
     "dynamicImports": [
       "src/lib/components/xp/context_menu/CMProgramTile.js",
@@ -330,43 +330,43 @@
     ]
   },
   "src/routes/xp/task_bar.svelte": {
-    "file": "_app/immutable/pages/xp/task_bar.svelte-e3e410e7.js",
+    "file": "_app/immutable/pages/xp/task_bar.svelte-a4e7e820.js",
     "src": "src/routes/xp/task_bar.svelte",
     "isEntry": true,
     "isDynamicEntry": true,
     "imports": [
-      "_index-59da92c8.js",
+      "_index-7043d62e.js",
       "src/routes/xp/system_tray.svelte",
       "src/routes/xp/program_tray.svelte",
       "_preload-helper-c28b9807.js",
-      "_store-fabc0359.js",
-      "_index-5377a032.js",
+      "_store-a53f3f11.js",
+      "_index-bc59e2a0.js",
       "_system-e72d84b7.js",
       "_tooltip-f551ec3c.js"
     ]
   },
   "src/routes/xp/work_space.svelte": {
-    "file": "_app/immutable/pages/xp/work_space.svelte-888afafc.js",
+    "file": "_app/immutable/pages/xp/work_space.svelte-bd84cd2c.js",
     "src": "src/routes/xp/work_space.svelte",
     "isEntry": true,
     "isDynamicEntry": true,
     "imports": [
       "_preload-helper-c28b9807.js",
-      "_index-59da92c8.js",
+      "_index-7043d62e.js",
       "src/routes/xp/wallpaper.svelte",
-      "_store-fabc0359.js",
+      "_store-a53f3f11.js",
       "_lodash-b0811ec1.js",
-      "_fs-94169c0b.js",
+      "_fs-359b7395.js",
       "src/routes/xp/desktop_folder.svelte",
-      "_finder-f715ee8c.js",
+      "_finder-63196e92.js",
       "_system-e72d84b7.js",
-      "_index-355ed6be.js",
-      "_index-5377a032.js",
+      "_index-e9763cd9.js",
+      "_index-bc59e2a0.js",
       "__commonjsHelpers-cea7ac1a.js",
       "_utils-1f7a3290.js",
-      "_admin-b2f51e94.js",
-      "_dir_parser-92703b79.js",
-      "_Previewable-21087848.js"
+      "_admin-093cca4c.js",
+      "_dir_parser-38186120.js",
+      "_Previewable-95faa8f2.js"
     ],
     "dynamicImports": [
       "src/routes/xp/programs/my_computer.svelte",
@@ -399,55 +399,55 @@
     ]
   },
   "src/routes/xp/screensaver.svelte": {
-    "file": "_app/immutable/pages/xp/screensaver.svelte-06b950fa.js",
+    "file": "_app/immutable/pages/xp/screensaver.svelte-fc1cbdb9.js",
     "src": "src/routes/xp/screensaver.svelte",
     "isEntry": true,
     "isDynamicEntry": true,
     "imports": [
-      "_index-59da92c8.js"
+      "_index-7043d62e.js"
     ],
     "css": [
       "_app/immutable/assets/screensaver-f8f54214.css"
     ]
   },
   "src/routes/xp/start_menu.svelte": {
-    "file": "_app/immutable/pages/xp/start_menu.svelte-416b5be9.js",
+    "file": "_app/immutable/pages/xp/start_menu.svelte-883fa413.js",
     "src": "src/routes/xp/start_menu.svelte",
     "isEntry": true,
     "isDynamicEntry": true,
     "imports": [
       "_preload-helper-c28b9807.js",
-      "_index-59da92c8.js",
-      "_store-fabc0359.js",
+      "_index-7043d62e.js",
+      "_store-a53f3f11.js",
       "_system-e72d84b7.js",
-      "_admin-b2f51e94.js",
+      "_admin-093cca4c.js",
       "_utils-1f7a3290.js",
-      "_index-5377a032.js"
+      "_index-bc59e2a0.js"
     ],
     "dynamicImports": [
       "src/routes/xp/shutdown_panel.svelte"
     ]
   },
   "src/routes/xp/welcome.svelte": {
-    "file": "_app/immutable/pages/xp/welcome.svelte-e420fd4b.js",
+    "file": "_app/immutable/pages/xp/welcome.svelte-6130502b.js",
     "src": "src/routes/xp/welcome.svelte",
     "isEntry": true,
     "isDynamicEntry": true,
     "imports": [
-      "_index-59da92c8.js"
+      "_index-7043d62e.js"
     ]
   },
   "src/routes/xp/system_tray.svelte": {
-    "file": "_app/immutable/pages/xp/system_tray.svelte-46be6ed2.js",
+    "file": "_app/immutable/pages/xp/system_tray.svelte-6de4482f.js",
     "src": "src/routes/xp/system_tray.svelte",
     "isEntry": true,
     "isDynamicEntry": true,
     "imports": [
       "_preload-helper-c28b9807.js",
-      "_index-59da92c8.js",
-      "_store-fabc0359.js",
+      "_index-7043d62e.js",
+      "_store-a53f3f11.js",
       "_tooltip-f551ec3c.js",
-      "_index-5377a032.js",
+      "_index-bc59e2a0.js",
       "_system-e72d84b7.js"
     ],
     "dynamicImports": [
@@ -458,67 +458,67 @@
     ]
   },
   "src/routes/xp/program_tray.svelte": {
-    "file": "_app/immutable/pages/xp/program_tray.svelte-c44c2867.js",
+    "file": "_app/immutable/pages/xp/program_tray.svelte-af775ccc.js",
     "src": "src/routes/xp/program_tray.svelte",
     "isEntry": true,
     "isDynamicEntry": true,
     "imports": [
-      "_index-59da92c8.js",
-      "_store-fabc0359.js",
-      "_index-5377a032.js",
+      "_index-7043d62e.js",
+      "_store-a53f3f11.js",
+      "_index-bc59e2a0.js",
       "_system-e72d84b7.js"
     ]
   },
   "src/routes/xp/wallpaper.svelte": {
-    "file": "_app/immutable/pages/xp/wallpaper.svelte-7c1ad6da.js",
+    "file": "_app/immutable/pages/xp/wallpaper.svelte-ee3b9d0f.js",
     "src": "src/routes/xp/wallpaper.svelte",
     "isEntry": true,
     "isDynamicEntry": true,
     "imports": [
-      "_index-59da92c8.js",
-      "_store-fabc0359.js",
+      "_index-7043d62e.js",
+      "_store-a53f3f11.js",
       "_system-e72d84b7.js",
-      "_index-355ed6be.js",
-      "_index-5377a032.js"
+      "_index-e9763cd9.js",
+      "_index-bc59e2a0.js"
     ]
   },
   "src/routes/xp/desktop_folder.svelte": {
-    "file": "_app/immutable/pages/xp/desktop_folder.svelte-ca147172.js",
+    "file": "_app/immutable/pages/xp/desktop_folder.svelte-8e09f62e.js",
     "src": "src/routes/xp/desktop_folder.svelte",
     "isEntry": true,
     "isDynamicEntry": true,
     "imports": [
-      "_index-59da92c8.js",
-      "_store-fabc0359.js",
+      "_index-7043d62e.js",
+      "_store-a53f3f11.js",
       "_utils-1f7a3290.js",
       "_system-e72d84b7.js",
-      "_fs-94169c0b.js",
+      "_fs-359b7395.js",
       "_lodash-b0811ec1.js",
-      "_dir_parser-92703b79.js",
-      "_Previewable-21087848.js",
-      "_index-5377a032.js",
+      "_dir_parser-38186120.js",
+      "_Previewable-95faa8f2.js",
+      "_index-bc59e2a0.js",
       "__commonjsHelpers-cea7ac1a.js",
-      "_index-355ed6be.js",
-      "_finder-f715ee8c.js",
-      "_admin-b2f51e94.js"
+      "_index-e9763cd9.js",
+      "_finder-63196e92.js",
+      "_admin-093cca4c.js"
     ]
   },
   "src/routes/xp/programs/about_me.svelte": {
-    "file": "_app/immutable/pages/xp/programs/about_me.svelte-c31369bb.js",
+    "file": "_app/immutable/pages/xp/programs/about_me.svelte-9e0a3f02.js",
     "src": "src/routes/xp/programs/about_me.svelte",
     "isEntry": true,
     "isDynamicEntry": true,
     "imports": [
-      "_index-59da92c8.js",
-      "_Window-6d40284c.js",
-      "_store-fabc0359.js",
-      "_admin-b2f51e94.js",
-      "_TitleBar-a503be9c.js",
+      "_index-7043d62e.js",
+      "_Window-b5e17ac1.js",
+      "_store-a53f3f11.js",
+      "_admin-093cca4c.js",
+      "_TitleBar-43a93d4a.js",
       "_utils-1f7a3290.js",
       "_lodash-b0811ec1.js",
       "__commonjsHelpers-cea7ac1a.js",
-      "_index-355ed6be.js",
-      "_index-5377a032.js",
+      "_index-e9763cd9.js",
+      "_index-bc59e2a0.js",
       "_system-e72d84b7.js"
     ],
     "css": [
@@ -526,45 +526,45 @@
     ]
   },
   "src/routes/xp/programs/admin_bootscreen.svelte": {
-    "file": "_app/immutable/pages/xp/programs/admin_bootscreen.svelte-68e95be9.js",
+    "file": "_app/immutable/pages/xp/programs/admin_bootscreen.svelte-e8254adc.js",
     "src": "src/routes/xp/programs/admin_bootscreen.svelte",
     "isEntry": true,
     "isDynamicEntry": true,
     "imports": [
-      "_index-59da92c8.js",
-      "_Window-6d40284c.js",
-      "_Button-5a8d2150.js",
-      "_store-fabc0359.js",
-      "_admin-b2f51e94.js",
+      "_index-7043d62e.js",
+      "_Window-b5e17ac1.js",
+      "_Button-4430907d.js",
+      "_store-a53f3f11.js",
+      "_admin-093cca4c.js",
       "_system-e72d84b7.js",
       "_utils-1f7a3290.js",
       "_index-5725e307.js",
-      "_TitleBar-a503be9c.js",
+      "_TitleBar-43a93d4a.js",
       "_lodash-b0811ec1.js",
       "__commonjsHelpers-cea7ac1a.js",
-      "_index-355ed6be.js",
-      "_index-5377a032.js"
+      "_index-e9763cd9.js",
+      "_index-bc59e2a0.js"
     ],
     "css": [
       "_app/immutable/assets/Button-bfb744c1.css"
     ]
   },
   "src/routes/xp/programs/admin_videos.svelte": {
-    "file": "_app/immutable/pages/xp/programs/admin_videos.svelte-281a112d.js",
+    "file": "_app/immutable/pages/xp/programs/admin_videos.svelte-dd58a4cd.js",
     "src": "src/routes/xp/programs/admin_videos.svelte",
     "isEntry": true,
     "isDynamicEntry": true,
     "imports": [
-      "_index-59da92c8.js",
-      "_Window-6d40284c.js",
-      "_Button-5a8d2150.js",
-      "_store-fabc0359.js",
-      "_TitleBar-a503be9c.js",
+      "_index-7043d62e.js",
+      "_Window-b5e17ac1.js",
+      "_Button-4430907d.js",
+      "_store-a53f3f11.js",
+      "_TitleBar-43a93d4a.js",
       "_utils-1f7a3290.js",
       "_lodash-b0811ec1.js",
       "__commonjsHelpers-cea7ac1a.js",
-      "_index-355ed6be.js",
-      "_index-5377a032.js",
+      "_index-e9763cd9.js",
+      "_index-bc59e2a0.js",
       "_system-e72d84b7.js"
     ],
     "css": [
@@ -572,45 +572,45 @@
     ]
   },
   "src/routes/xp/programs/app_installer.svelte": {
-    "file": "_app/immutable/pages/xp/programs/app_installer.svelte-22d25c2a.js",
+    "file": "_app/immutable/pages/xp/programs/app_installer.svelte-0518a108.js",
     "src": "src/routes/xp/programs/app_installer.svelte",
     "isEntry": true,
     "isDynamicEntry": true,
     "imports": [
-      "_index-59da92c8.js",
-      "_Window-6d40284c.js",
-      "_Button-5a8d2150.js",
-      "_store-fabc0359.js",
+      "_index-7043d62e.js",
+      "_Window-b5e17ac1.js",
+      "_Button-4430907d.js",
+      "_store-a53f3f11.js",
       "_system-e72d84b7.js",
-      "_fs-94169c0b.js",
-      "_TitleBar-a503be9c.js",
+      "_fs-359b7395.js",
+      "_TitleBar-43a93d4a.js",
       "_utils-1f7a3290.js",
       "_lodash-b0811ec1.js",
       "__commonjsHelpers-cea7ac1a.js",
-      "_index-355ed6be.js",
-      "_index-5377a032.js",
-      "_finder-f715ee8c.js",
-      "_admin-b2f51e94.js"
+      "_index-e9763cd9.js",
+      "_index-bc59e2a0.js",
+      "_finder-63196e92.js",
+      "_admin-093cca4c.js"
     ],
     "css": [
       "_app/immutable/assets/Button-bfb744c1.css"
     ]
   },
   "src/routes/xp/programs/contact_me.svelte": {
-    "file": "_app/immutable/pages/xp/programs/contact_me.svelte-3f9127bb.js",
+    "file": "_app/immutable/pages/xp/programs/contact_me.svelte-212e4e92.js",
     "src": "src/routes/xp/programs/contact_me.svelte",
     "isEntry": true,
     "isDynamicEntry": true,
     "imports": [
-      "_index-59da92c8.js",
-      "_Window-6d40284c.js",
-      "_store-fabc0359.js",
-      "_TitleBar-a503be9c.js",
+      "_index-7043d62e.js",
+      "_Window-b5e17ac1.js",
+      "_store-a53f3f11.js",
+      "_TitleBar-43a93d4a.js",
       "_utils-1f7a3290.js",
       "_lodash-b0811ec1.js",
       "__commonjsHelpers-cea7ac1a.js",
-      "_index-355ed6be.js",
-      "_index-5377a032.js",
+      "_index-e9763cd9.js",
+      "_index-bc59e2a0.js",
       "_system-e72d84b7.js"
     ],
     "css": [
@@ -618,51 +618,51 @@
     ]
   },
   "src/routes/xp/programs/copier.svelte": {
-    "file": "_app/immutable/pages/xp/programs/copier.svelte-b360a5fd.js",
+    "file": "_app/immutable/pages/xp/programs/copier.svelte-95f800cf.js",
     "src": "src/routes/xp/programs/copier.svelte",
     "isEntry": true,
     "isDynamicEntry": true,
     "imports": [
-      "_index-59da92c8.js",
-      "_Window-6d40284c.js",
-      "_Button-5a8d2150.js",
-      "_store-fabc0359.js",
+      "_index-7043d62e.js",
+      "_Window-b5e17ac1.js",
+      "_Button-4430907d.js",
+      "_store-a53f3f11.js",
       "_utils-1f7a3290.js",
-      "_fs-94169c0b.js",
-      "_DumbProgress-ba1b12c7.js",
-      "_TitleBar-a503be9c.js",
+      "_fs-359b7395.js",
+      "_DumbProgress-474c7fb6.js",
+      "_TitleBar-43a93d4a.js",
       "_lodash-b0811ec1.js",
       "__commonjsHelpers-cea7ac1a.js",
-      "_index-355ed6be.js",
-      "_index-5377a032.js",
+      "_index-e9763cd9.js",
+      "_index-bc59e2a0.js",
       "_system-e72d84b7.js",
-      "_finder-f715ee8c.js",
-      "_admin-b2f51e94.js",
-      "_ProgressBar-a36ef5c0.js"
+      "_finder-63196e92.js",
+      "_admin-093cca4c.js",
+      "_ProgressBar-faa0e4b3.js"
     ],
     "css": [
       "_app/immutable/assets/Button-bfb744c1.css"
     ]
   },
   "src/routes/xp/programs/disk_properties.svelte": {
-    "file": "_app/immutable/pages/xp/programs/disk_properties.svelte-5c7e99e9.js",
+    "file": "_app/immutable/pages/xp/programs/disk_properties.svelte-6934b8f7.js",
     "src": "src/routes/xp/programs/disk_properties.svelte",
     "isEntry": true,
     "isDynamicEntry": true,
     "imports": [
-      "_index-59da92c8.js",
-      "_Window-6d40284c.js",
-      "_Button-5a8d2150.js",
-      "_Tab-547cf6fa.js",
-      "_CheckBox-9b1524d0.js",
-      "_store-fabc0359.js",
+      "_index-7043d62e.js",
+      "_Window-b5e17ac1.js",
+      "_Button-4430907d.js",
+      "_Tab-2656ffbd.js",
+      "_CheckBox-77df900a.js",
+      "_store-a53f3f11.js",
       "_system-e72d84b7.js",
       "_utils-1f7a3290.js",
       "_lodash-b0811ec1.js",
-      "_finder-f715ee8c.js",
-      "_TitleBar-a503be9c.js",
-      "_index-355ed6be.js",
-      "_index-5377a032.js",
+      "_finder-63196e92.js",
+      "_TitleBar-43a93d4a.js",
+      "_index-e9763cd9.js",
+      "_index-bc59e2a0.js",
       "__commonjsHelpers-cea7ac1a.js"
     ],
     "css": [
@@ -670,22 +670,22 @@
     ]
   },
   "src/routes/xp/programs/display_properties.svelte": {
-    "file": "_app/immutable/pages/xp/programs/display_properties.svelte-79668775.js",
+    "file": "_app/immutable/pages/xp/programs/display_properties.svelte-8aa9ecd6.js",
     "src": "src/routes/xp/programs/display_properties.svelte",
     "isEntry": true,
     "isDynamicEntry": true,
     "imports": [
-      "_index-59da92c8.js",
-      "_Window-6d40284c.js",
-      "_Button-5a8d2150.js",
-      "_Tab-547cf6fa.js",
-      "_store-fabc0359.js",
-      "_index-355ed6be.js",
+      "_index-7043d62e.js",
+      "_Window-b5e17ac1.js",
+      "_Button-4430907d.js",
+      "_Tab-2656ffbd.js",
+      "_store-a53f3f11.js",
+      "_index-e9763cd9.js",
       "_lodash-b0811ec1.js",
       "_system-e72d84b7.js",
-      "_TitleBar-a503be9c.js",
+      "_TitleBar-43a93d4a.js",
       "_utils-1f7a3290.js",
-      "_index-5377a032.js",
+      "_index-bc59e2a0.js",
       "__commonjsHelpers-cea7ac1a.js"
     ],
     "css": [
@@ -693,47 +693,47 @@
     ]
   },
   "src/routes/xp/programs/flash_player.svelte": {
-    "file": "_app/immutable/pages/xp/programs/flash_player.svelte-cf0084ed.js",
+    "file": "_app/immutable/pages/xp/programs/flash_player.svelte-94429878.js",
     "src": "src/routes/xp/programs/flash_player.svelte",
     "isEntry": true,
     "isDynamicEntry": true,
     "imports": [
-      "_index-59da92c8.js",
-      "_Window-6d40284c.js",
-      "_store-fabc0359.js",
-      "_index-355ed6be.js",
-      "_DumbProgress-ba1b12c7.js",
+      "_index-7043d62e.js",
+      "_Window-b5e17ac1.js",
+      "_store-a53f3f11.js",
+      "_index-e9763cd9.js",
+      "_DumbProgress-474c7fb6.js",
       "_utils-1f7a3290.js",
-      "_TitleBar-a503be9c.js",
+      "_TitleBar-43a93d4a.js",
       "_lodash-b0811ec1.js",
       "__commonjsHelpers-cea7ac1a.js",
-      "_index-5377a032.js",
+      "_index-bc59e2a0.js",
       "_system-e72d84b7.js",
-      "_ProgressBar-a36ef5c0.js"
+      "_ProgressBar-faa0e4b3.js"
     ]
   },
   "src/routes/xp/programs/foxit_reader.svelte": {
-    "file": "_app/immutable/pages/xp/programs/foxit_reader.svelte-5a055150.js",
+    "file": "_app/immutable/pages/xp/programs/foxit_reader.svelte-78bfcce4.js",
     "src": "src/routes/xp/programs/foxit_reader.svelte",
     "isEntry": true,
     "isDynamicEntry": true,
     "imports": [
       "_preload-helper-c28b9807.js",
-      "_index-59da92c8.js",
-      "_Window-6d40284c.js",
-      "_store-fabc0359.js",
+      "_index-7043d62e.js",
+      "_Window-b5e17ac1.js",
+      "_store-a53f3f11.js",
       "_utils-1f7a3290.js",
-      "_fs-94169c0b.js",
-      "_DumbProgress-ba1b12c7.js",
-      "_TitleBar-a503be9c.js",
+      "_fs-359b7395.js",
+      "_DumbProgress-474c7fb6.js",
+      "_TitleBar-43a93d4a.js",
       "_lodash-b0811ec1.js",
       "__commonjsHelpers-cea7ac1a.js",
-      "_index-355ed6be.js",
-      "_index-5377a032.js",
+      "_index-e9763cd9.js",
+      "_index-bc59e2a0.js",
       "_system-e72d84b7.js",
-      "_finder-f715ee8c.js",
-      "_admin-b2f51e94.js",
-      "_ProgressBar-a36ef5c0.js"
+      "_finder-63196e92.js",
+      "_admin-093cca4c.js",
+      "_ProgressBar-faa0e4b3.js"
     ],
     "dynamicImports": [
       "src/lib/components/xp/OpenModal.svelte",
@@ -741,68 +741,68 @@
     ]
   },
   "src/routes/xp/programs/image_viewer.svelte": {
-    "file": "_app/immutable/pages/xp/programs/image_viewer.svelte-c309439f.js",
+    "file": "_app/immutable/pages/xp/programs/image_viewer.svelte-8766e325.js",
     "src": "src/routes/xp/programs/image_viewer.svelte",
     "isEntry": true,
     "isDynamicEntry": true,
     "imports": [
-      "_index-59da92c8.js",
-      "_Window-6d40284c.js",
-      "_store-fabc0359.js",
-      "_index-355ed6be.js",
-      "_TitleBar-a503be9c.js",
+      "_index-7043d62e.js",
+      "_Window-b5e17ac1.js",
+      "_store-a53f3f11.js",
+      "_index-e9763cd9.js",
+      "_TitleBar-43a93d4a.js",
       "_utils-1f7a3290.js",
       "_lodash-b0811ec1.js",
       "__commonjsHelpers-cea7ac1a.js",
-      "_index-5377a032.js",
+      "_index-bc59e2a0.js",
       "_system-e72d84b7.js"
     ]
   },
   "src/routes/xp/programs/internet_explorer.svelte": {
-    "file": "_app/immutable/pages/xp/programs/internet_explorer.svelte-43f865ad.js",
+    "file": "_app/immutable/pages/xp/programs/internet_explorer.svelte-f429166a.js",
     "src": "src/routes/xp/programs/internet_explorer.svelte",
     "isEntry": true,
     "isDynamicEntry": true,
     "imports": [
-      "_index-59da92c8.js",
-      "_Window-6d40284c.js",
-      "_store-fabc0359.js",
-      "_Menu-cd71a071.js",
-      "_RButton-01f44cac.js",
-      "_ProgressBar-a36ef5c0.js",
+      "_index-7043d62e.js",
+      "_Window-b5e17ac1.js",
+      "_store-a53f3f11.js",
+      "_Menu-efd686a8.js",
+      "_RButton-10c56b49.js",
+      "_ProgressBar-faa0e4b3.js",
       "__commonjsHelpers-cea7ac1a.js",
-      "_fs-94169c0b.js",
+      "_fs-359b7395.js",
       "_utils-1f7a3290.js",
-      "_finder-f715ee8c.js",
-      "_TitleBar-a503be9c.js",
+      "_finder-63196e92.js",
+      "_TitleBar-43a93d4a.js",
       "_lodash-b0811ec1.js",
-      "_index-355ed6be.js",
-      "_index-5377a032.js",
+      "_index-e9763cd9.js",
+      "_index-bc59e2a0.js",
       "_system-e72d84b7.js",
       "_tooltip-f551ec3c.js",
-      "_admin-b2f51e94.js"
+      "_admin-093cca4c.js"
     ],
     "css": [
       "_app/immutable/assets/Button-bfb744c1.css"
     ]
   },
   "src/routes/xp/programs/java.svelte": {
-    "file": "_app/immutable/pages/xp/programs/java.svelte-cb874277.js",
+    "file": "_app/immutable/pages/xp/programs/java.svelte-0819f141.js",
     "src": "src/routes/xp/programs/java.svelte",
     "isEntry": true,
     "isDynamicEntry": true,
     "imports": [
       "_preload-helper-c28b9807.js",
-      "_index-59da92c8.js",
-      "_Window-6d40284c.js",
-      "_Button-5a8d2150.js",
-      "_store-fabc0359.js",
-      "_TitleBar-a503be9c.js",
+      "_index-7043d62e.js",
+      "_Window-b5e17ac1.js",
+      "_Button-4430907d.js",
+      "_store-a53f3f11.js",
+      "_TitleBar-43a93d4a.js",
       "_utils-1f7a3290.js",
       "_lodash-b0811ec1.js",
       "__commonjsHelpers-cea7ac1a.js",
-      "_index-355ed6be.js",
-      "_index-5377a032.js",
+      "_index-e9763cd9.js",
+      "_index-bc59e2a0.js",
       "_system-e72d84b7.js"
     ],
     "dynamicImports": [
@@ -815,27 +815,27 @@
     ]
   },
   "src/routes/xp/programs/koodo.svelte": {
-    "file": "_app/immutable/pages/xp/programs/koodo.svelte-f969c144.js",
+    "file": "_app/immutable/pages/xp/programs/koodo.svelte-58eeb7f2.js",
     "src": "src/routes/xp/programs/koodo.svelte",
     "isEntry": true,
     "isDynamicEntry": true,
     "imports": [
       "_preload-helper-c28b9807.js",
-      "_index-59da92c8.js",
-      "_Window-6d40284c.js",
-      "_store-fabc0359.js",
-      "_fs-94169c0b.js",
-      "_DumbProgress-ba1b12c7.js",
-      "_TitleBar-a503be9c.js",
+      "_index-7043d62e.js",
+      "_Window-b5e17ac1.js",
+      "_store-a53f3f11.js",
+      "_fs-359b7395.js",
+      "_DumbProgress-474c7fb6.js",
+      "_TitleBar-43a93d4a.js",
       "_utils-1f7a3290.js",
       "_lodash-b0811ec1.js",
       "__commonjsHelpers-cea7ac1a.js",
-      "_index-355ed6be.js",
-      "_index-5377a032.js",
+      "_index-e9763cd9.js",
+      "_index-bc59e2a0.js",
       "_system-e72d84b7.js",
-      "_finder-f715ee8c.js",
-      "_admin-b2f51e94.js",
-      "_ProgressBar-a36ef5c0.js"
+      "_finder-63196e92.js",
+      "_admin-093cca4c.js",
+      "_ProgressBar-faa0e4b3.js"
     ],
     "dynamicImports": [
       "src/lib/components/xp/OpenModal.svelte",
@@ -843,21 +843,21 @@
     ]
   },
   "src/routes/xp/programs/magazine_portfolio.svelte": {
-    "file": "_app/immutable/pages/xp/programs/magazine_portfolio.svelte-d39955cd.js",
+    "file": "_app/immutable/pages/xp/programs/magazine_portfolio.svelte-5b683b0a.js",
     "src": "src/routes/xp/programs/magazine_portfolio.svelte",
     "isEntry": true,
     "isDynamicEntry": true,
     "imports": [
-      "_index-59da92c8.js",
-      "_Window-6d40284c.js",
-      "_store-fabc0359.js",
-      "_admin-b2f51e94.js",
-      "_TitleBar-a503be9c.js",
+      "_index-7043d62e.js",
+      "_Window-b5e17ac1.js",
+      "_store-a53f3f11.js",
+      "_admin-093cca4c.js",
+      "_TitleBar-43a93d4a.js",
       "_utils-1f7a3290.js",
       "_lodash-b0811ec1.js",
       "__commonjsHelpers-cea7ac1a.js",
-      "_index-355ed6be.js",
-      "_index-5377a032.js",
+      "_index-e9763cd9.js",
+      "_index-bc59e2a0.js",
       "_system-e72d84b7.js"
     ],
     "css": [
@@ -865,54 +865,54 @@
     ]
   },
   "src/routes/xp/programs/media_player_classic.svelte": {
-    "file": "_app/immutable/pages/xp/programs/media_player_classic.svelte-15056588.js",
+    "file": "_app/immutable/pages/xp/programs/media_player_classic.svelte-269cbafd.js",
     "src": "src/routes/xp/programs/media_player_classic.svelte",
     "isEntry": true,
     "isDynamicEntry": true,
     "imports": [
       "_preload-helper-c28b9807.js",
-      "_index-59da92c8.js",
-      "_Window-6d40284c.js",
-      "_RangeSlider-ee585cf7.js",
-      "_store-fabc0359.js",
+      "_index-7043d62e.js",
+      "_Window-b5e17ac1.js",
+      "_RangeSlider-4cdba2d0.js",
+      "_store-a53f3f11.js",
       "_utils-1f7a3290.js",
-      "_fs-94169c0b.js",
+      "_fs-359b7395.js",
       "_tooltip-f551ec3c.js",
-      "_index-355ed6be.js",
+      "_index-e9763cd9.js",
       "__commonjsHelpers-cea7ac1a.js",
       "_lodash-b0811ec1.js",
-      "_TitleBar-a503be9c.js",
-      "_index-5377a032.js",
+      "_TitleBar-43a93d4a.js",
+      "_index-bc59e2a0.js",
       "_system-e72d84b7.js",
-      "_finder-f715ee8c.js",
-      "_admin-b2f51e94.js"
+      "_finder-63196e92.js",
+      "_admin-093cca4c.js"
     ],
     "dynamicImports": [
       "src/lib/components/xp/OpenModal.svelte"
     ]
   },
   "src/routes/xp/programs/microsoft_word.svelte": {
-    "file": "_app/immutable/pages/xp/programs/microsoft_word.svelte-6972b4c0.js",
+    "file": "_app/immutable/pages/xp/programs/microsoft_word.svelte-7ce9a9d9.js",
     "src": "src/routes/xp/programs/microsoft_word.svelte",
     "isEntry": true,
     "isDynamicEntry": true,
     "imports": [
       "_preload-helper-c28b9807.js",
-      "_index-59da92c8.js",
-      "_Window-6d40284c.js",
-      "_store-fabc0359.js",
+      "_index-7043d62e.js",
+      "_Window-b5e17ac1.js",
+      "_store-a53f3f11.js",
       "_utils-1f7a3290.js",
-      "_fs-94169c0b.js",
-      "_DumbProgress-ba1b12c7.js",
-      "_TitleBar-a503be9c.js",
+      "_fs-359b7395.js",
+      "_DumbProgress-474c7fb6.js",
+      "_TitleBar-43a93d4a.js",
       "_lodash-b0811ec1.js",
       "__commonjsHelpers-cea7ac1a.js",
-      "_index-355ed6be.js",
-      "_index-5377a032.js",
+      "_index-e9763cd9.js",
+      "_index-bc59e2a0.js",
       "_system-e72d84b7.js",
-      "_finder-f715ee8c.js",
-      "_admin-b2f51e94.js",
-      "_ProgressBar-a36ef5c0.js"
+      "_finder-63196e92.js",
+      "_admin-093cca4c.js",
+      "_ProgressBar-faa0e4b3.js"
     ],
     "dynamicImports": [
       "src/lib/components/xp/OpenModal.svelte",
@@ -921,117 +921,117 @@
     ]
   },
   "src/routes/xp/programs/minesweeper.svelte": {
-    "file": "_app/immutable/pages/xp/programs/minesweeper.svelte-e4fdbae4.js",
+    "file": "_app/immutable/pages/xp/programs/minesweeper.svelte-7ec96884.js",
     "src": "src/routes/xp/programs/minesweeper.svelte",
     "isEntry": true,
     "isDynamicEntry": true,
     "imports": [
-      "_index-59da92c8.js",
-      "_Window-6d40284c.js",
-      "_store-fabc0359.js",
-      "_Menu-cd71a071.js",
-      "_TitleBar-a503be9c.js",
+      "_index-7043d62e.js",
+      "_Window-b5e17ac1.js",
+      "_store-a53f3f11.js",
+      "_Menu-efd686a8.js",
+      "_TitleBar-43a93d4a.js",
       "_utils-1f7a3290.js",
       "_lodash-b0811ec1.js",
       "__commonjsHelpers-cea7ac1a.js",
-      "_index-355ed6be.js",
-      "_index-5377a032.js",
+      "_index-e9763cd9.js",
+      "_index-bc59e2a0.js",
       "_system-e72d84b7.js"
     ]
   },
   "src/routes/xp/programs/my_computer/sidebar.svelte": {
-    "file": "_app/immutable/pages/xp/programs/my_computer/sidebar.svelte-3d4a9124.js",
+    "file": "_app/immutable/pages/xp/programs/my_computer/sidebar.svelte-2e199071.js",
     "src": "src/routes/xp/programs/my_computer/sidebar.svelte",
     "isEntry": true,
     "isDynamicEntry": true,
     "imports": [
-      "_index-59da92c8.js",
+      "_index-7043d62e.js",
       "_system-e72d84b7.js",
-      "_fs-94169c0b.js",
-      "_store-fabc0359.js",
-      "_index-5377a032.js",
+      "_fs-359b7395.js",
+      "_store-a53f3f11.js",
+      "_index-bc59e2a0.js",
       "_utils-1f7a3290.js",
       "__commonjsHelpers-cea7ac1a.js",
-      "_index-355ed6be.js",
-      "_finder-f715ee8c.js",
-      "_admin-b2f51e94.js"
+      "_index-e9763cd9.js",
+      "_finder-63196e92.js",
+      "_admin-093cca4c.js"
     ]
   },
   "src/routes/xp/programs/my_computer/viewer.svelte": {
-    "file": "_app/immutable/pages/xp/programs/my_computer/viewer.svelte-9c868999.js",
+    "file": "_app/immutable/pages/xp/programs/my_computer/viewer.svelte-339923a0.js",
     "src": "src/routes/xp/programs/my_computer/viewer.svelte",
     "isEntry": true,
     "isDynamicEntry": true,
     "imports": [
       "_preload-helper-c28b9807.js",
-      "_index-59da92c8.js",
-      "_store-fabc0359.js",
-      "_finder-f715ee8c.js",
+      "_index-7043d62e.js",
+      "_store-a53f3f11.js",
+      "_finder-63196e92.js",
       "_utils-1f7a3290.js",
       "_system-e72d84b7.js",
-      "_fs-94169c0b.js",
-      "_index-355ed6be.js",
+      "_fs-359b7395.js",
+      "_index-e9763cd9.js",
       "_lodash-b0811ec1.js",
-      "_dir_parser-92703b79.js",
-      "_Previewable-21087848.js",
-      "_index-5377a032.js",
+      "_dir_parser-38186120.js",
+      "_Previewable-95faa8f2.js",
+      "_index-bc59e2a0.js",
       "__commonjsHelpers-cea7ac1a.js",
-      "_admin-b2f51e94.js"
+      "_admin-093cca4c.js"
     ],
     "dynamicImports": [
       "src/lib/components/xp/Dialog.svelte"
     ]
   },
   "src/routes/xp/programs/my_computer.svelte": {
-    "file": "_app/immutable/pages/xp/programs/my_computer.svelte-383fe88c.js",
+    "file": "_app/immutable/pages/xp/programs/my_computer.svelte-bf72ca94.js",
     "src": "src/routes/xp/programs/my_computer.svelte",
     "isEntry": true,
     "isDynamicEntry": true,
     "imports": [
-      "_index-59da92c8.js",
-      "_Window-6d40284c.js",
-      "_store-fabc0359.js",
+      "_index-7043d62e.js",
+      "_Window-b5e17ac1.js",
+      "_store-a53f3f11.js",
       "_system-e72d84b7.js",
-      "_Menu-cd71a071.js",
-      "_RButton-01f44cac.js",
+      "_Menu-efd686a8.js",
+      "_RButton-10c56b49.js",
       "src/routes/xp/programs/my_computer/viewer.svelte",
-      "_finder-f715ee8c.js",
+      "_finder-63196e92.js",
       "src/routes/xp/programs/my_computer/sidebar.svelte",
-      "_TitleBar-a503be9c.js",
+      "_TitleBar-43a93d4a.js",
       "_utils-1f7a3290.js",
       "_lodash-b0811ec1.js",
       "__commonjsHelpers-cea7ac1a.js",
-      "_index-355ed6be.js",
-      "_index-5377a032.js",
+      "_index-e9763cd9.js",
+      "_index-bc59e2a0.js",
       "_tooltip-f551ec3c.js",
       "_preload-helper-c28b9807.js",
-      "_fs-94169c0b.js",
-      "_admin-b2f51e94.js",
-      "_dir_parser-92703b79.js",
-      "_Previewable-21087848.js"
+      "_fs-359b7395.js",
+      "_admin-093cca4c.js",
+      "_dir_parser-38186120.js",
+      "_Previewable-95faa8f2.js"
     ]
   },
   "src/routes/xp/programs/notepad.svelte": {
-    "file": "_app/immutable/pages/xp/programs/notepad.svelte-c268e879.js",
+    "file": "_app/immutable/pages/xp/programs/notepad.svelte-ed5249c5.js",
     "src": "src/routes/xp/programs/notepad.svelte",
     "isEntry": true,
     "isDynamicEntry": true,
     "imports": [
       "_preload-helper-c28b9807.js",
-      "_index-59da92c8.js",
-      "_Window-6d40284c.js",
-      "_store-fabc0359.js",
+      "_index-7043d62e.js",
+      "_Window-b5e17ac1.js",
+      "_store-a53f3f11.js",
       "_utils-1f7a3290.js",
-      "_Menu-cd71a071.js",
-      "_fs-94169c0b.js",
-      "_TitleBar-a503be9c.js",
+      "_Menu-efd686a8.js",
+      "_fs-359b7395.js",
+      "_TitleBar-43a93d4a.js",
       "_lodash-b0811ec1.js",
       "__commonjsHelpers-cea7ac1a.js",
-      "_index-355ed6be.js",
-      "_index-5377a032.js",
+      "_index-e9763cd9.js",
+      "_index-bc59e2a0.js",
       "_system-e72d84b7.js",
-      "_finder-f715ee8c.js",
-      "_admin-b2f51e94.js"
+      "_finder-63196e92.js",
+      "_admin-093cca4c.js"
     ],
     "dynamicImports": [
       "src/lib/components/xp/OpenModal.svelte",
@@ -1040,25 +1040,25 @@
     ]
   },
   "src/routes/xp/programs/paint.svelte": {
-    "file": "_app/immutable/pages/xp/programs/paint.svelte-6fa26029.js",
+    "file": "_app/immutable/pages/xp/programs/paint.svelte-41eb3296.js",
     "src": "src/routes/xp/programs/paint.svelte",
     "isEntry": true,
     "isDynamicEntry": true,
     "imports": [
       "_preload-helper-c28b9807.js",
-      "_index-59da92c8.js",
-      "_Window-6d40284c.js",
-      "_store-fabc0359.js",
+      "_index-7043d62e.js",
+      "_Window-b5e17ac1.js",
+      "_store-a53f3f11.js",
       "_utils-1f7a3290.js",
-      "_fs-94169c0b.js",
-      "_TitleBar-a503be9c.js",
+      "_fs-359b7395.js",
+      "_TitleBar-43a93d4a.js",
       "_lodash-b0811ec1.js",
       "__commonjsHelpers-cea7ac1a.js",
-      "_index-355ed6be.js",
-      "_index-5377a032.js",
+      "_index-e9763cd9.js",
+      "_index-bc59e2a0.js",
       "_system-e72d84b7.js",
-      "_finder-f715ee8c.js",
-      "_admin-b2f51e94.js"
+      "_finder-63196e92.js",
+      "_admin-093cca4c.js"
     ],
     "dynamicImports": [
       "src/lib/components/xp/OpenModal.svelte",
@@ -1066,27 +1066,27 @@
     ]
   },
   "src/routes/xp/programs/photon.svelte": {
-    "file": "_app/immutable/pages/xp/programs/photon.svelte-3cda6698.js",
+    "file": "_app/immutable/pages/xp/programs/photon.svelte-3fcfdeab.js",
     "src": "src/routes/xp/programs/photon.svelte",
     "isEntry": true,
     "isDynamicEntry": true,
     "imports": [
       "_preload-helper-c28b9807.js",
-      "_index-59da92c8.js",
-      "_Window-6d40284c.js",
-      "_store-fabc0359.js",
+      "_index-7043d62e.js",
+      "_Window-b5e17ac1.js",
+      "_store-a53f3f11.js",
       "_utils-1f7a3290.js",
-      "_fs-94169c0b.js",
-      "_DumbProgress-ba1b12c7.js",
-      "_TitleBar-a503be9c.js",
+      "_fs-359b7395.js",
+      "_DumbProgress-474c7fb6.js",
+      "_TitleBar-43a93d4a.js",
       "_lodash-b0811ec1.js",
       "__commonjsHelpers-cea7ac1a.js",
-      "_index-355ed6be.js",
-      "_index-5377a032.js",
+      "_index-e9763cd9.js",
+      "_index-bc59e2a0.js",
       "_system-e72d84b7.js",
-      "_finder-f715ee8c.js",
-      "_admin-b2f51e94.js",
-      "_ProgressBar-a36ef5c0.js"
+      "_finder-63196e92.js",
+      "_admin-093cca4c.js",
+      "_ProgressBar-faa0e4b3.js"
     ],
     "dynamicImports": [
       "src/lib/components/xp/OpenModal.svelte",
@@ -1094,24 +1094,24 @@
     ]
   },
   "src/routes/xp/programs/properties.svelte": {
-    "file": "_app/immutable/pages/xp/programs/properties.svelte-1a08e33e.js",
+    "file": "_app/immutable/pages/xp/programs/properties.svelte-d7c3cfe8.js",
     "src": "src/routes/xp/programs/properties.svelte",
     "isEntry": true,
     "isDynamicEntry": true,
     "imports": [
-      "_index-59da92c8.js",
-      "_Window-6d40284c.js",
-      "_Button-5a8d2150.js",
-      "_Tab-547cf6fa.js",
-      "_CheckBox-9b1524d0.js",
-      "_store-fabc0359.js",
+      "_index-7043d62e.js",
+      "_Window-b5e17ac1.js",
+      "_Button-4430907d.js",
+      "_Tab-2656ffbd.js",
+      "_CheckBox-77df900a.js",
+      "_store-a53f3f11.js",
       "_system-e72d84b7.js",
       "_utils-1f7a3290.js",
       "_lodash-b0811ec1.js",
-      "_finder-f715ee8c.js",
-      "_TitleBar-a503be9c.js",
-      "_index-355ed6be.js",
-      "_index-5377a032.js",
+      "_finder-63196e92.js",
+      "_TitleBar-43a93d4a.js",
+      "_index-e9763cd9.js",
+      "_index-bc59e2a0.js",
       "__commonjsHelpers-cea7ac1a.js"
     ],
     "css": [
@@ -1119,41 +1119,41 @@
     ]
   },
   "src/routes/xp/programs/volume_adjust.svelte": {
-    "file": "_app/immutable/pages/xp/programs/volume_adjust.svelte-2f5be724.js",
+    "file": "_app/immutable/pages/xp/programs/volume_adjust.svelte-e4ec59e4.js",
     "src": "src/routes/xp/programs/volume_adjust.svelte",
     "isEntry": true,
     "isDynamicEntry": true,
     "imports": [
-      "_index-59da92c8.js",
-      "_store-fabc0359.js",
-      "_RangeSlider-ee585cf7.js",
+      "_index-7043d62e.js",
+      "_store-a53f3f11.js",
+      "_RangeSlider-4cdba2d0.js",
       "_utils-1f7a3290.js",
-      "_index-5377a032.js",
+      "_index-bc59e2a0.js",
       "_system-e72d84b7.js"
     ]
   },
   "src/routes/xp/programs/webapp.svelte": {
-    "file": "_app/immutable/pages/xp/programs/webapp.svelte-c6001bfb.js",
+    "file": "_app/immutable/pages/xp/programs/webapp.svelte-78d325e4.js",
     "src": "src/routes/xp/programs/webapp.svelte",
     "isEntry": true,
     "isDynamicEntry": true,
     "imports": [
       "_preload-helper-c28b9807.js",
-      "_index-59da92c8.js",
-      "_Window-6d40284c.js",
-      "_store-fabc0359.js",
+      "_index-7043d62e.js",
+      "_Window-b5e17ac1.js",
+      "_store-a53f3f11.js",
       "_utils-1f7a3290.js",
-      "_fs-94169c0b.js",
-      "_finder-f715ee8c.js",
-      "_DumbProgress-ba1b12c7.js",
-      "_TitleBar-a503be9c.js",
+      "_fs-359b7395.js",
+      "_finder-63196e92.js",
+      "_DumbProgress-474c7fb6.js",
+      "_TitleBar-43a93d4a.js",
       "_lodash-b0811ec1.js",
       "__commonjsHelpers-cea7ac1a.js",
-      "_index-355ed6be.js",
-      "_index-5377a032.js",
+      "_index-e9763cd9.js",
+      "_index-bc59e2a0.js",
       "_system-e72d84b7.js",
-      "_admin-b2f51e94.js",
-      "_ProgressBar-a36ef5c0.js"
+      "_admin-093cca4c.js",
+      "_ProgressBar-faa0e4b3.js"
     ],
     "dynamicImports": [
       "src/lib/components/xp/OpenModal.svelte",
@@ -1161,101 +1161,101 @@
     ]
   },
   "src/routes/xp/programs/winrar.svelte": {
-    "file": "_app/immutable/pages/xp/programs/winrar.svelte-d588e0aa.js",
+    "file": "_app/immutable/pages/xp/programs/winrar.svelte-f9e1c248.js",
     "src": "src/routes/xp/programs/winrar.svelte",
     "isEntry": true,
     "isDynamicEntry": true,
     "imports": [
-      "_index-59da92c8.js",
-      "_Window-6d40284c.js",
-      "_Button-5a8d2150.js",
-      "_store-fabc0359.js",
+      "_index-7043d62e.js",
+      "_Window-b5e17ac1.js",
+      "_Button-4430907d.js",
+      "_store-a53f3f11.js",
       "_utils-1f7a3290.js",
-      "_fs-94169c0b.js",
-      "_DumbProgress-ba1b12c7.js",
-      "_TitleBar-a503be9c.js",
+      "_fs-359b7395.js",
+      "_DumbProgress-474c7fb6.js",
+      "_TitleBar-43a93d4a.js",
       "_lodash-b0811ec1.js",
       "__commonjsHelpers-cea7ac1a.js",
-      "_index-355ed6be.js",
-      "_index-5377a032.js",
+      "_index-e9763cd9.js",
+      "_index-bc59e2a0.js",
       "_system-e72d84b7.js",
-      "_finder-f715ee8c.js",
-      "_admin-b2f51e94.js",
-      "_ProgressBar-a36ef5c0.js"
+      "_finder-63196e92.js",
+      "_admin-093cca4c.js",
+      "_ProgressBar-faa0e4b3.js"
     ],
     "css": [
       "_app/immutable/assets/Button-bfb744c1.css"
     ]
   },
   "src/routes/xp/programs/xp_tour.svelte": {
-    "file": "_app/immutable/pages/xp/programs/xp_tour.svelte-f6e89551.js",
+    "file": "_app/immutable/pages/xp/programs/xp_tour.svelte-50a67ae4.js",
     "src": "src/routes/xp/programs/xp_tour.svelte",
     "isEntry": true,
     "isDynamicEntry": true,
     "imports": [
-      "_index-59da92c8.js",
-      "_Window-6d40284c.js",
-      "_store-fabc0359.js",
-      "_TitleBar-a503be9c.js",
+      "_index-7043d62e.js",
+      "_Window-b5e17ac1.js",
+      "_store-a53f3f11.js",
+      "_TitleBar-43a93d4a.js",
       "_utils-1f7a3290.js",
       "_lodash-b0811ec1.js",
       "__commonjsHelpers-cea7ac1a.js",
-      "_index-355ed6be.js",
-      "_index-5377a032.js",
+      "_index-e9763cd9.js",
+      "_index-bc59e2a0.js",
       "_system-e72d84b7.js"
     ]
   },
   "src/routes/xp/programs/zip.svelte": {
-    "file": "_app/immutable/pages/xp/programs/zip.svelte-394615b1.js",
+    "file": "_app/immutable/pages/xp/programs/zip.svelte-148111dd.js",
     "src": "src/routes/xp/programs/zip.svelte",
     "isEntry": true,
     "isDynamicEntry": true,
     "imports": [
-      "_index-59da92c8.js",
-      "_Window-6d40284c.js",
-      "_Button-5a8d2150.js",
-      "_store-fabc0359.js",
+      "_index-7043d62e.js",
+      "_Window-b5e17ac1.js",
+      "_Button-4430907d.js",
+      "_store-a53f3f11.js",
       "_utils-1f7a3290.js",
-      "_fs-94169c0b.js",
-      "_DumbProgress-ba1b12c7.js",
+      "_fs-359b7395.js",
+      "_DumbProgress-474c7fb6.js",
       "__commonjsHelpers-cea7ac1a.js",
-      "_TitleBar-a503be9c.js",
+      "_TitleBar-43a93d4a.js",
       "_lodash-b0811ec1.js",
-      "_index-355ed6be.js",
-      "_index-5377a032.js",
+      "_index-e9763cd9.js",
+      "_index-bc59e2a0.js",
       "_system-e72d84b7.js",
-      "_finder-f715ee8c.js",
-      "_admin-b2f51e94.js",
-      "_ProgressBar-a36ef5c0.js"
+      "_finder-63196e92.js",
+      "_admin-093cca4c.js",
+      "_ProgressBar-faa0e4b3.js"
     ],
     "css": [
       "_app/immutable/assets/Button-bfb744c1.css"
     ]
   },
   "src/routes/xp/shutdown.svelte": {
-    "file": "_app/immutable/pages/xp/shutdown.svelte-ea3e0432.js",
+    "file": "_app/immutable/pages/xp/shutdown.svelte-c8d505b9.js",
     "src": "src/routes/xp/shutdown.svelte",
     "isEntry": true,
     "isDynamicEntry": true,
     "imports": [
-      "_index-59da92c8.js",
+      "_index-7043d62e.js",
       "_utils-1f7a3290.js",
-      "_store-fabc0359.js",
-      "_index-355ed6be.js",
-      "_index-5377a032.js",
+      "_store-a53f3f11.js",
+      "_index-e9763cd9.js",
+      "_index-bc59e2a0.js",
       "_system-e72d84b7.js"
     ]
   },
   "src/routes/xp/shutdown_panel.svelte": {
-    "file": "_app/immutable/pages/xp/shutdown_panel.svelte-40d17c4d.js",
+    "file": "_app/immutable/pages/xp/shutdown_panel.svelte-e3c7399a.js",
     "src": "src/routes/xp/shutdown_panel.svelte",
     "isEntry": true,
     "isDynamicEntry": true,
     "imports": [
-      "_index-59da92c8.js",
-      "_Button-5a8d2150.js",
-      "_store-fabc0359.js",
-      "_index-5377a032.js",
+      "_index-7043d62e.js",
+      "_Button-4430907d.js",
+      "_store-a53f3f11.js",
+      "_index-bc59e2a0.js",
       "_system-e72d84b7.js"
     ],
     "css": [
@@ -1263,31 +1263,31 @@
     ]
   },
   "src/routes/xp/starting.svelte": {
-    "file": "_app/immutable/pages/xp/starting.svelte-d7de6f2b.js",
+    "file": "_app/immutable/pages/xp/starting.svelte-1b7ede0d.js",
     "src": "src/routes/xp/starting.svelte",
     "isEntry": true,
     "isDynamicEntry": true,
     "imports": [
-      "_index-59da92c8.js",
+      "_index-7043d62e.js",
       "_utils-1f7a3290.js",
-      "_index-355ed6be.js",
+      "_index-e9763cd9.js",
       "_index-5725e307.js",
-      "_store-fabc0359.js",
+      "_store-a53f3f11.js",
       "_system-e72d84b7.js",
       "__commonjsHelpers-cea7ac1a.js",
-      "_index-5377a032.js"
+      "_index-bc59e2a0.js"
     ],
     "css": [
-      "_app/immutable/assets/starting-70d0dc19.css"
+      "_app/immutable/assets/starting-7eb2c739.css"
     ]
   },
-  "_index-59da92c8.js": {
-    "file": "_app/immutable/chunks/index-59da92c8.js"
+  "_index-7043d62e.js": {
+    "file": "_app/immutable/chunks/index-7043d62e.js"
   },
-  "_index-5377a032.js": {
-    "file": "_app/immutable/chunks/index-5377a032.js",
+  "_index-bc59e2a0.js": {
+    "file": "_app/immutable/chunks/index-bc59e2a0.js",
     "imports": [
-      "_index-59da92c8.js"
+      "_index-7043d62e.js"
     ]
   },
   "_singletons-eca981c1.js": {
@@ -1296,12 +1296,12 @@
   "_preload-helper-c28b9807.js": {
     "file": "_app/immutable/chunks/preload-helper-c28b9807.js"
   },
-  "_admin-b2f51e94.js": {
-    "file": "_app/immutable/chunks/admin-b2f51e94.js",
+  "_admin-093cca4c.js": {
+    "file": "_app/immutable/chunks/admin-093cca4c.js",
     "imports": [
-      "_index-5377a032.js",
+      "_index-bc59e2a0.js",
       "_system-e72d84b7.js",
-      "_index-59da92c8.js"
+      "_index-7043d62e.js"
     ]
   },
   "_system-e72d84b7.js": {
@@ -1319,19 +1319,19 @@
   "__commonjsHelpers-cea7ac1a.js": {
     "file": "_app/immutable/chunks/_commonjsHelpers-cea7ac1a.js"
   },
-  "_status_bar-b78eb56a.js": {
-    "file": "_app/immutable/chunks/status_bar-b78eb56a.js",
+  "_status_bar-83391783.js": {
+    "file": "_app/immutable/chunks/status_bar-83391783.js",
     "imports": [
-      "_index-59da92c8.js"
+      "_index-7043d62e.js"
     ]
   },
-  "_index-b421a415.js": {
-    "file": "_app/immutable/chunks/index-b421a415.js"
+  "_index-37f0bdfd.js": {
+    "file": "_app/immutable/chunks/index-37f0bdfd.js"
   },
-  "_store-fabc0359.js": {
-    "file": "_app/immutable/chunks/store-fabc0359.js",
+  "_store-a53f3f11.js": {
+    "file": "_app/immutable/chunks/store-a53f3f11.js",
     "imports": [
-      "_index-5377a032.js",
+      "_index-bc59e2a0.js",
       "_system-e72d84b7.js"
     ]
   },
@@ -1341,120 +1341,120 @@
       "__commonjsHelpers-cea7ac1a.js"
     ]
   },
-  "_index-355ed6be.js": {
-    "file": "_app/immutable/chunks/index-355ed6be.js"
+  "_index-e9763cd9.js": {
+    "file": "_app/immutable/chunks/index-e9763cd9.js"
   },
-  "_fs-94169c0b.js": {
-    "file": "_app/immutable/chunks/fs-94169c0b.js",
+  "_fs-359b7395.js": {
+    "file": "_app/immutable/chunks/fs-359b7395.js",
     "imports": [
-      "_store-fabc0359.js",
+      "_store-a53f3f11.js",
       "_system-e72d84b7.js",
       "_utils-1f7a3290.js",
-      "_index-59da92c8.js",
+      "_index-7043d62e.js",
       "__commonjsHelpers-cea7ac1a.js",
-      "_index-355ed6be.js",
-      "_finder-f715ee8c.js",
-      "_admin-b2f51e94.js"
+      "_index-e9763cd9.js",
+      "_finder-63196e92.js",
+      "_admin-093cca4c.js"
     ]
   },
-  "_finder-f715ee8c.js": {
-    "file": "_app/immutable/chunks/finder-f715ee8c.js",
+  "_finder-63196e92.js": {
+    "file": "_app/immutable/chunks/finder-63196e92.js",
     "imports": [
-      "_store-fabc0359.js",
+      "_store-a53f3f11.js",
       "_system-e72d84b7.js",
-      "_index-59da92c8.js"
+      "_index-7043d62e.js"
     ]
   },
-  "_dir_parser-92703b79.js": {
-    "file": "_app/immutable/chunks/dir_parser-92703b79.js",
+  "_dir_parser-38186120.js": {
+    "file": "_app/immutable/chunks/dir_parser-38186120.js",
     "imports": [
       "__commonjsHelpers-cea7ac1a.js"
     ]
   },
-  "_Previewable-21087848.js": {
-    "file": "_app/immutable/chunks/Previewable-21087848.js",
+  "_Previewable-95faa8f2.js": {
+    "file": "_app/immutable/chunks/Previewable-95faa8f2.js",
     "imports": [
-      "_index-59da92c8.js",
-      "_fs-94169c0b.js"
+      "_index-7043d62e.js",
+      "_fs-359b7395.js"
     ]
   },
   "_tooltip-f551ec3c.js": {
     "file": "_app/immutable/chunks/tooltip-f551ec3c.js"
   },
-  "_Window-6d40284c.js": {
-    "file": "_app/immutable/chunks/Window-6d40284c.js",
+  "_Window-b5e17ac1.js": {
+    "file": "_app/immutable/chunks/Window-b5e17ac1.js",
     "imports": [
-      "_index-59da92c8.js",
-      "_TitleBar-a503be9c.js",
+      "_index-7043d62e.js",
+      "_TitleBar-43a93d4a.js",
       "_utils-1f7a3290.js",
       "_lodash-b0811ec1.js",
-      "_index-355ed6be.js",
-      "_store-fabc0359.js"
+      "_index-e9763cd9.js",
+      "_store-a53f3f11.js"
     ]
   },
-  "_TitleBar-a503be9c.js": {
-    "file": "_app/immutable/chunks/TitleBar-a503be9c.js",
+  "_TitleBar-43a93d4a.js": {
+    "file": "_app/immutable/chunks/TitleBar-43a93d4a.js",
     "imports": [
-      "_index-59da92c8.js"
+      "_index-7043d62e.js"
     ]
   },
-  "_Button-5a8d2150.js": {
-    "file": "_app/immutable/chunks/Button-5a8d2150.js",
+  "_Button-4430907d.js": {
+    "file": "_app/immutable/chunks/Button-4430907d.js",
     "imports": [
-      "_index-59da92c8.js"
+      "_index-7043d62e.js"
     ],
     "css": [
       "_app/immutable/assets/Button-bfb744c1.css"
     ]
   },
-  "_DumbProgress-ba1b12c7.js": {
-    "file": "_app/immutable/chunks/DumbProgress-ba1b12c7.js",
+  "_DumbProgress-474c7fb6.js": {
+    "file": "_app/immutable/chunks/DumbProgress-474c7fb6.js",
     "imports": [
-      "_index-59da92c8.js",
-      "_ProgressBar-a36ef5c0.js",
+      "_index-7043d62e.js",
+      "_ProgressBar-faa0e4b3.js",
       "_utils-1f7a3290.js"
     ]
   },
-  "_ProgressBar-a36ef5c0.js": {
-    "file": "_app/immutable/chunks/ProgressBar-a36ef5c0.js",
+  "_ProgressBar-faa0e4b3.js": {
+    "file": "_app/immutable/chunks/ProgressBar-faa0e4b3.js",
     "imports": [
-      "_index-59da92c8.js"
+      "_index-7043d62e.js"
     ]
   },
-  "_Tab-547cf6fa.js": {
-    "file": "_app/immutable/chunks/Tab-547cf6fa.js",
+  "_Tab-2656ffbd.js": {
+    "file": "_app/immutable/chunks/Tab-2656ffbd.js",
     "imports": [
-      "_index-59da92c8.js"
+      "_index-7043d62e.js"
     ],
     "css": [
       "_app/immutable/assets/Tab-1c55912b.css"
     ]
   },
-  "_CheckBox-9b1524d0.js": {
-    "file": "_app/immutable/chunks/CheckBox-9b1524d0.js",
+  "_CheckBox-77df900a.js": {
+    "file": "_app/immutable/chunks/CheckBox-77df900a.js",
     "imports": [
-      "_index-59da92c8.js"
+      "_index-7043d62e.js"
     ]
   },
-  "_Menu-cd71a071.js": {
-    "file": "_app/immutable/chunks/Menu-cd71a071.js",
+  "_Menu-efd686a8.js": {
+    "file": "_app/immutable/chunks/Menu-efd686a8.js",
     "imports": [
-      "_index-59da92c8.js",
+      "_index-7043d62e.js",
       "_utils-1f7a3290.js"
     ]
   },
-  "_RButton-01f44cac.js": {
-    "file": "_app/immutable/chunks/RButton-01f44cac.js",
+  "_RButton-10c56b49.js": {
+    "file": "_app/immutable/chunks/RButton-10c56b49.js",
     "imports": [
-      "_index-59da92c8.js",
+      "_index-7043d62e.js",
       "_tooltip-f551ec3c.js"
     ]
   },
-  "_RangeSlider-ee585cf7.js": {
-    "file": "_app/immutable/chunks/RangeSlider-ee585cf7.js",
+  "_RangeSlider-4cdba2d0.js": {
+    "file": "_app/immutable/chunks/RangeSlider-4cdba2d0.js",
     "imports": [
-      "_index-59da92c8.js",
-      "_index-5377a032.js"
+      "_index-7043d62e.js",
+      "_index-bc59e2a0.js"
     ],
     "css": [
       "_app/immutable/assets/RangeSlider-6904222f.css"
@@ -1466,183 +1466,167 @@
     "isDynamicEntry": true
   },
   "src/lib/components/xp/context_menu/CMDesktop.js": {
-    "file": "_app/immutable/chunks/CMDesktop-b73b92bc.js",
+    "file": "_app/immutable/chunks/CMDesktop-704b0008.js",
     "src": "src/lib/components/xp/context_menu/CMDesktop.js",
     "isDynamicEntry": true,
     "imports": [
-      "_store-fabc0359.js",
-      "_index-59da92c8.js",
+      "_store-a53f3f11.js",
+      "_index-7043d62e.js",
       "_system-e72d84b7.js",
-      "_fs-94169c0b.js",
-      "_index-5377a032.js",
+      "_fs-359b7395.js",
+      "_index-bc59e2a0.js",
       "_utils-1f7a3290.js",
       "__commonjsHelpers-cea7ac1a.js",
-      "_index-355ed6be.js",
-      "_finder-f715ee8c.js",
-      "_admin-b2f51e94.js"
+      "_index-e9763cd9.js",
+      "_finder-63196e92.js",
+      "_admin-093cca4c.js"
     ]
   },
   "src/lib/components/xp/context_menu/CMFSItem.js": {
-    "file": "_app/immutable/chunks/CMFSItem-f8726949.js",
+    "file": "_app/immutable/chunks/CMFSItem-242e9249.js",
     "src": "src/lib/components/xp/context_menu/CMFSItem.js",
     "isDynamicEntry": true,
     "imports": [
       "_preload-helper-c28b9807.js",
-      "_store-fabc0359.js",
+      "_store-a53f3f11.js",
       "_system-e72d84b7.js",
       "_utils-1f7a3290.js",
-      "_index-59da92c8.js",
-      "_fs-94169c0b.js",
+      "_index-7043d62e.js",
+      "_fs-359b7395.js",
       "__commonjsHelpers-cea7ac1a.js",
-      "_index-5377a032.js",
-      "_index-355ed6be.js",
-      "_finder-f715ee8c.js",
-      "_admin-b2f51e94.js"
+      "_index-bc59e2a0.js",
+      "_index-e9763cd9.js",
+      "_finder-63196e92.js",
+      "_admin-093cca4c.js"
     ],
     "dynamicImports": [
       "src/lib/components/xp/Dialog.svelte"
     ]
   },
   "src/lib/components/xp/context_menu/CMFSVoid.js": {
-    "file": "_app/immutable/chunks/CMFSVoid-19c67418.js",
+    "file": "_app/immutable/chunks/CMFSVoid-c98cbe23.js",
     "src": "src/lib/components/xp/context_menu/CMFSVoid.js",
     "isDynamicEntry": true,
     "imports": [
-      "_store-fabc0359.js",
+      "_store-a53f3f11.js",
       "_system-e72d84b7.js",
-      "_index-59da92c8.js",
-      "_fs-94169c0b.js",
-      "_index-5377a032.js",
+      "_index-7043d62e.js",
+      "_fs-359b7395.js",
+      "_index-bc59e2a0.js",
       "_utils-1f7a3290.js",
       "__commonjsHelpers-cea7ac1a.js",
-      "_index-355ed6be.js",
-      "_finder-f715ee8c.js",
-      "_admin-b2f51e94.js"
+      "_index-e9763cd9.js",
+      "_finder-63196e92.js",
+      "_admin-093cca4c.js"
     ]
   },
   "src/lib/components/xp/context_menu/RecycleBin.js": {
-    "file": "_app/immutable/chunks/RecycleBin-82e9f34a.js",
+    "file": "_app/immutable/chunks/RecycleBin-06589ac7.js",
     "src": "src/lib/components/xp/context_menu/RecycleBin.js",
     "isDynamicEntry": true,
     "imports": [
       "_preload-helper-c28b9807.js",
-      "_store-fabc0359.js",
+      "_store-a53f3f11.js",
       "_system-e72d84b7.js",
-      "_index-59da92c8.js",
-      "_fs-94169c0b.js",
-      "_index-5377a032.js",
+      "_index-7043d62e.js",
+      "_fs-359b7395.js",
+      "_index-bc59e2a0.js",
       "_utils-1f7a3290.js",
       "__commonjsHelpers-cea7ac1a.js",
-      "_index-355ed6be.js",
-      "_finder-f715ee8c.js",
-      "_admin-b2f51e94.js"
+      "_index-e9763cd9.js",
+      "_finder-63196e92.js",
+      "_admin-093cca4c.js"
     ],
     "dynamicImports": [
       "src/lib/components/xp/Dialog.svelte"
     ]
   },
   "src/lib/components/xp/OpenModal.svelte": {
-    "file": "_app/immutable/chunks/OpenModal-db57037d.js",
+    "file": "_app/immutable/chunks/OpenModal-c8aab4f0.js",
     "src": "src/lib/components/xp/OpenModal.svelte",
     "isDynamicEntry": true,
     "imports": [
-      "_index-59da92c8.js",
-      "_TitleBar-a503be9c.js",
+      "_index-7043d62e.js",
+      "_TitleBar-43a93d4a.js",
       "_lodash-b0811ec1.js",
       "_system-e72d84b7.js",
-      "_finder-f715ee8c.js",
-      "_store-fabc0359.js",
+      "_finder-63196e92.js",
+      "_store-a53f3f11.js",
       "_utils-1f7a3290.js",
-      "_fs-94169c0b.js",
-      "_Button-5a8d2150.js",
-      "_Previewable-21087848.js",
+      "_fs-359b7395.js",
+      "_Button-4430907d.js",
+      "_Previewable-95faa8f2.js",
       "__commonjsHelpers-cea7ac1a.js",
-      "_index-5377a032.js",
-      "_index-355ed6be.js",
-      "_admin-b2f51e94.js"
+      "_index-bc59e2a0.js",
+      "_index-e9763cd9.js",
+      "_admin-093cca4c.js"
     ],
     "css": [
       "_app/immutable/assets/Button-bfb744c1.css"
     ]
   },
   "src/lib/components/xp/SaveModal.svelte": {
-    "file": "_app/immutable/chunks/SaveModal-ae7d11c7.js",
+    "file": "_app/immutable/chunks/SaveModal-8f801486.js",
     "src": "src/lib/components/xp/SaveModal.svelte",
     "isDynamicEntry": true,
     "imports": [
-      "_index-59da92c8.js",
-      "_TitleBar-a503be9c.js",
+      "_index-7043d62e.js",
+      "_TitleBar-43a93d4a.js",
       "_lodash-b0811ec1.js",
       "_system-e72d84b7.js",
-      "_finder-f715ee8c.js",
-      "_store-fabc0359.js",
-      "_fs-94169c0b.js",
-      "_Button-5a8d2150.js",
+      "_finder-63196e92.js",
+      "_store-a53f3f11.js",
+      "_fs-359b7395.js",
+      "_Button-4430907d.js",
       "_utils-1f7a3290.js",
-      "_Previewable-21087848.js",
+      "_Previewable-95faa8f2.js",
       "__commonjsHelpers-cea7ac1a.js",
-      "_index-5377a032.js",
-      "_index-355ed6be.js",
-      "_admin-b2f51e94.js"
+      "_index-bc59e2a0.js",
+      "_index-e9763cd9.js",
+      "_admin-093cca4c.js"
     ],
     "css": [
       "_app/immutable/assets/Button-bfb744c1.css"
     ]
   },
   "src/lib/components/xp/Dialog.svelte": {
-    "file": "_app/immutable/chunks/Dialog-7bc9ecb9.js",
+    "file": "_app/immutable/chunks/Dialog-65840ec6.js",
     "src": "src/lib/components/xp/Dialog.svelte",
     "isDynamicEntry": true,
     "imports": [
-      "_index-59da92c8.js",
+      "_index-7043d62e.js",
       "_lodash-b0811ec1.js",
-      "_TitleBar-a503be9c.js",
-      "_Button-5a8d2150.js",
+      "_TitleBar-43a93d4a.js",
+      "_Button-4430907d.js",
       "__commonjsHelpers-cea7ac1a.js"
     ],
     "css": [
       "_app/immutable/assets/Button-bfb744c1.css"
     ]
   },
-  "src/routes/xp/screensaver.css": {
-    "file": "_app/immutable/assets/screensaver-f8f54214.css",
-    "src": "src/routes/xp/screensaver.css"
-  },
-  "src/routes/xp/starting.css": {
-    "file": "_app/immutable/assets/starting-70d0dc19.css",
-    "src": "src/routes/xp/starting.css"
-  },
-  "Tab.css": {
-    "file": "_app/immutable/assets/Tab-1c55912b.css",
-    "src": "Tab.css"
-  },
   "src/routes/xp/programs/magazine_portfolio.css": {
     "file": "_app/immutable/assets/magazine_portfolio-db7f8d86.css",
     "src": "src/routes/xp/programs/magazine_portfolio.css"
-  },
-  "src/routes/installation/95/installing.css": {
-    "file": "_app/immutable/assets/installing-a160a914.css",
-    "src": "src/routes/installation/95/installing.css"
-  },
-  "RangeSlider.css": {
-    "file": "_app/immutable/assets/RangeSlider-6904222f.css",
-    "src": "RangeSlider.css"
-  },
-  "Button.css": {
-    "file": "_app/immutable/assets/Button-bfb744c1.css",
-    "src": "Button.css"
-  },
-  "src/routes/xp/admin_login.css": {
-    "file": "_app/immutable/assets/admin_login-0385c8e6.css",
-    "src": "src/routes/xp/admin_login.css"
   },
   "src/routes/xp/programs/contact_me.css": {
     "file": "_app/immutable/assets/contact_me-82e338ed.css",
     "src": "src/routes/xp/programs/contact_me.css"
   },
+  "Tab.css": {
+    "file": "_app/immutable/assets/Tab-1c55912b.css",
+    "src": "Tab.css"
+  },
+  "src/routes/xp/starting.css": {
+    "file": "_app/immutable/assets/starting-7eb2c739.css",
+    "src": "src/routes/xp/starting.css"
+  },
   "src/routes/admin-login.css": {
-    "file": "_app/immutable/assets/admin-login-d9caad35.css",
+    "file": "_app/immutable/assets/admin-login-d53db9da.css",
     "src": "src/routes/admin-login.css"
+  },
+  "src/routes/installation/95/installing.css": {
+    "file": "_app/immutable/assets/installing-70b725d2.css",
+    "src": "src/routes/installation/95/installing.css"
   },
   "src/routes/xp/programs/about_me.css": {
     "file": "_app/immutable/assets/about_me-f53062ba.css",
@@ -1652,8 +1636,24 @@
     "file": "_app/immutable/assets/system_tray-0cb31e91.css",
     "src": "src/routes/xp/system_tray.css"
   },
+  "src/routes/xp/admin_login.css": {
+    "file": "_app/immutable/assets/admin_login-0385c8e6.css",
+    "src": "src/routes/xp/admin_login.css"
+  },
+  "Button.css": {
+    "file": "_app/immutable/assets/Button-bfb744c1.css",
+    "src": "Button.css"
+  },
+  "src/routes/xp/screensaver.css": {
+    "file": "_app/immutable/assets/screensaver-f8f54214.css",
+    "src": "src/routes/xp/screensaver.css"
+  },
+  "RangeSlider.css": {
+    "file": "_app/immutable/assets/RangeSlider-6904222f.css",
+    "src": "RangeSlider.css"
+  },
   "src/routes/__layout.css": {
-    "file": "_app/immutable/assets/__layout-4e1d1f9d.css",
+    "file": "_app/immutable/assets/__layout-468f05be.css",
     "src": "src/routes/__layout.css"
   }
 }

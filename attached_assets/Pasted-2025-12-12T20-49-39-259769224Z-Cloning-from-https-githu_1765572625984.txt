@@ -1,0 +1,43 @@
+2025-12-12T20:49:39.259769224Z ==> Cloning from https://github.com/sujayk1994/new-updated-xp-portfolio
+2025-12-12T20:49:58.271233509Z ==> Using Node.js version 22.16.0 (default)
+2025-12-12T20:49:58.305576604Z ==> Docs on specifying a Node.js version: https://render.com/docs/node-version
+2025-12-12T20:49:50.242176232Z ==> Checking out commit 2cbe1fdc645c5f85b121d4308551d3862d923e3c in branch main
+2025-12-12T20:50:01.253596085Z ==> Running build command 'npm install && npm run build'...
+2025-12-12T20:50:03.689493407Z npm error code ERESOLVE
+2025-12-12T20:50:03.689529348Z npm error ERESOLVE could not resolve
+2025-12-12T20:50:03.689546798Z npm error
+2025-12-12T20:50:03.689665191Z npm error While resolving: @sveltejs/kit@1.30.4
+2025-12-12T20:50:03.689674671Z npm error Found: svelte@3.49.0
+2025-12-12T20:50:03.689704492Z npm error node_modules/svelte
+2025-12-12T20:50:03.689713022Z npm error   dev svelte@"^3.44.0" from the root project
+2025-12-12T20:50:03.689719542Z npm error   peer svelte@"^3.19.0 || ^4.0.0" from svelte-hmr@0.15.3
+2025-12-12T20:50:03.689723822Z npm error   node_modules/svelte-hmr
+2025-12-12T20:50:03.689727302Z npm error     svelte-hmr@"^0.15.3" from @sveltejs/vite-plugin-svelte@2.5.3
+2025-12-12T20:50:03.689731302Z npm error     node_modules/@sveltejs/kit/node_modules/@sveltejs/vite-plugin-svelte
+2025-12-12T20:50:03.689734933Z npm error       @sveltejs/vite-plugin-svelte@"^2.5.0" from @sveltejs/kit@1.30.4
+2025-12-12T20:50:03.689738353Z npm error       node_modules/@sveltejs/kit
+2025-12-12T20:50:03.689741833Z npm error         dev @sveltejs/kit@"next" from the root project
+2025-12-12T20:50:03.689748153Z npm error       1 more (@sveltejs/vite-plugin-svelte-inspector)
+2025-12-12T20:50:03.689751633Z npm error   1 more (svelte-preprocess)
+2025-12-12T20:50:03.689755093Z npm error
+2025-12-12T20:50:03.689758553Z npm error Could not resolve dependency:
+2025-12-12T20:50:03.689769743Z npm error peer svelte@"^3.54.0 || ^4.0.0-next.0 || ^5.0.0-next.0" from @sveltejs/kit@1.30.4
+2025-12-12T20:50:03.689773223Z npm error node_modules/@sveltejs/kit
+2025-12-12T20:50:03.689776644Z npm error   dev @sveltejs/kit@"next" from the root project
+2025-12-12T20:50:03.689780064Z npm error
+2025-12-12T20:50:03.689783484Z npm error Conflicting peer dependency: svelte@5.45.10
+2025-12-12T20:50:03.689787424Z npm error node_modules/svelte
+2025-12-12T20:50:03.689790854Z npm error   peer svelte@"^3.54.0 || ^4.0.0-next.0 || ^5.0.0-next.0" from @sveltejs/kit@1.30.4
+2025-12-12T20:50:03.689794254Z npm error   node_modules/@sveltejs/kit
+2025-12-12T20:50:03.689797644Z npm error     dev @sveltejs/kit@"next" from the root project
+2025-12-12T20:50:03.689801034Z npm error
+2025-12-12T20:50:03.689804394Z npm error Fix the upstream dependency conflict, or retry
+2025-12-12T20:50:03.689807764Z npm error this command with --force or --legacy-peer-deps
+2025-12-12T20:50:03.689811224Z npm error to accept an incorrect (and potentially broken) dependency resolution.
+2025-12-12T20:50:03.689825595Z npm error
+2025-12-12T20:50:03.689831895Z npm error
+2025-12-12T20:50:03.689837275Z npm error For a full report see:
+2025-12-12T20:50:03.689857536Z npm error /opt/render/.cache/_logs/2025-12-12T20_50_01_438Z-eresolve-report.txt
+2025-12-12T20:50:03.690714827Z npm error A complete log of this run can be found in: /opt/render/.cache/_logs/2025-12-12T20_50_01_438Z-debug-0.log
+2025-12-12T20:50:03.839425716Z ==> Build failed 😞
+2025-12-12T20:50:03.839443416Z ==> Common ways to troubleshoot your deploy: https://render.com/docs/troubleshooting-deploys
