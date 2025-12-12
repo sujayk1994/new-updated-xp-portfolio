@@ -16,18 +16,13 @@ const config = {
         build: {
                 target: 'esnext',
                 minify: 'esbuild',
-                cssMinify: true,
-                rollupOptions: {
-                        output: {
-                                manualChunks: {
-                                        'vendor': ['svelte', 'axios', 'lodash'],
-                                        'idb': ['idb-keyval']
-                                }
-                        }
-                }
+                cssMinify: true
         },
         optimizeDeps: {
                 include: ['svelte', 'axios', 'idb-keyval', 'lodash']
+        },
+        ssr: {
+                noExternal: ['axios']
         }
 };
 

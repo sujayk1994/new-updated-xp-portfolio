@@ -1,0 +1,1225 @@
+01:50:31.883 Running build in Washington, D.C., USA (East) – iad1
+01:50:31.884 Build machine configuration: 2 cores, 8 GB
+01:50:32.061 Cloning github.com/sujayk1994/new-updated-xp-portfolio (Branch: main, Commit: 2150d75)
+01:50:32.062 Previous build caches not available.
+01:50:40.082 Cloning completed: 8.020s
+01:50:41.100 Running "vercel build"
+01:50:41.514 Vercel CLI 50.0.0
+01:50:42.467 Installing dependencies...
+01:50:44.866 npm warn deprecated querystring@0.2.0: The querystring API is considered Legacy. new code should use the URLSearchParams API instead.
+01:50:45.467 npm warn deprecated build-url@6.0.1: This package is no longer maintained
+01:50:49.768 
+01:50:49.770 added 400 packages in 7s
+01:50:49.770 
+01:50:49.771 43 packages are looking for funding
+01:50:49.771   run `npm fund` for details
+01:50:49.810 Running "npm run build"
+01:50:49.909 
+01:50:49.909 > web-svelte@0.0.1 build
+01:50:49.910 > vite build
+01:50:49.910 
+01:50:50.382 [36mvite v3.0.4 [32mbuilding for production...[36m[39m
+01:50:50.441 transforming...
+01:50:51.156 8:20:51 PM [vite-plugin-svelte] /vercel/path0/src/routes/xp/desktop_folder.svelte:257:24 A11y: Avoid using autofocus
+01:50:51.156 255:                 {#if $selectingItems.includes(item.id) && renaming}
+01:50:51.156 256:                     <textarea
+01:50:51.156 257:                         autofocus
+01:50:51.156                              ^
+01:50:51.157 258:                         on:keydown={e => e.key == 'Enter' && end_renaming(e, item)}
+01:50:51.157 259:                         on:blur={(e) => end_renaming(e, item)}
+01:50:51.497 8:20:51 PM [vite-plugin-svelte] /vercel/path0/src/routes/xp/programs/admin_videos.svelte:179:28 A11y: A form label must be associated with a control.
+01:50:51.498 177:                     <div class="p-4 space-y-3">
+01:50:51.499 178:                         <div>
+01:50:51.499 179:                             <label class="block text-xs font-medium mb-1">Title *</label>
+01:50:51.499                                  ^
+01:50:51.499 180:                             <input 
+01:50:51.500 181:                                 type="text" 
+01:50:51.500 8:20:51 PM [vite-plugin-svelte] /vercel/path0/src/routes/xp/programs/admin_videos.svelte:188:28 A11y: A form label must be associated with a control.
+01:50:51.500 186:                         </div>
+01:50:51.500 187:                         <div>
+01:50:51.501 188:                             <label class="block text-xs font-medium mb-1">YouTube URL *</label>
+01:50:51.501                                  ^
+01:50:51.501 189:                             <input 
+01:50:51.501 190:                                 type="text" 
+01:50:51.501 8:20:51 PM [vite-plugin-svelte] /vercel/path0/src/routes/xp/programs/admin_videos.svelte:198:32 A11y: A form label must be associated with a control.
+01:50:51.502 196:                         <div class="grid grid-cols-2 gap-3">
+01:50:51.502 197:                             <div>
+01:50:51.503 198:                                 <label class="block text-xs font-medium mb-1">Channel Name</label>
+01:50:51.503                                      ^
+01:50:51.503 199:                                 <input 
+01:50:51.504 200:                                     type="text" 
+01:50:51.504 8:20:51 PM [vite-plugin-svelte] /vercel/path0/src/routes/xp/programs/admin_videos.svelte:207:32 A11y: A form label must be associated with a control.
+01:50:51.504 205:                             </div>
+01:50:51.505 206:                             <div>
+01:50:51.505 207:                                 <label class="block text-xs font-medium mb-1">Duration</label>
+01:50:51.505                                      ^
+01:50:51.505 208:                                 <input 
+01:50:51.505 209:                                     type="text" 
+01:50:51.506 8:20:51 PM [vite-plugin-svelte] /vercel/path0/src/routes/xp/programs/admin_videos.svelte:218:32 A11y: A form label must be associated with a control.
+01:50:51.506 216:                         <div class="grid grid-cols-2 gap-3">
+01:50:51.508 217:                             <div>
+01:50:51.509 218:                                 <label class="block text-xs font-medium mb-1">Views Text</label>
+01:50:51.509                                      ^
+01:50:51.509 219:                                 <input 
+01:50:51.509 220:                                     type="text" 
+01:50:51.510 8:20:51 PM [vite-plugin-svelte] /vercel/path0/src/routes/xp/programs/admin_videos.svelte:227:32 A11y: A form label must be associated with a control.
+01:50:51.514 225:                             </div>
+01:50:51.514 226:                             <div>
+01:50:51.515 227:                                 <label class="block text-xs font-medium mb-1">Display Order</label>
+01:50:51.515                                      ^
+01:50:51.515 228:                                 <input 
+01:50:51.515 229:                                     type="number" 
+01:50:51.516 8:20:51 PM [vite-plugin-svelte] /vercel/path0/src/routes/xp/programs/admin_videos.svelte:237:28 A11y: A form label must be associated with a control.
+01:50:51.516 235:                         </div>
+01:50:51.516 236:                         <div>
+01:50:51.516 237:                             <label class="block text-xs font-medium mb-1">Description</label>
+01:50:51.516                                  ^
+01:50:51.517 238:                             <textarea 
+01:50:51.517 239:                                 bind:value={formData.description}
+01:50:51.527 8:20:51 PM [vite-plugin-svelte] /vercel/path0/src/routes/xp/programs/admin_videos.svelte:245:28 A11y: A form label must be associated with a control.
+01:50:51.528 243:                         </div>
+01:50:51.528 244:                         <div>
+01:50:51.528 245:                             <label class="block text-xs font-medium mb-1">Custom Thumbnail URL (optional)</label>
+01:50:51.528                                  ^
+01:50:51.528 246:                             <input 
+01:50:51.529 247:                                 type="text" 
+01:50:51.585 8:20:51 PM [vite-plugin-svelte] /vercel/path0/src/routes/xp/programs/app_installer.svelte:122:127 A11y: <a> element should have an href attribute
+01:50:51.585 120:             <div class="flex-col flex grow-0 overflow-hidden">
+01:50:51.585 121:                 <p>The Installer will help you add webapps into Windows XP. Start by entering the web url.</p>
+01:50:51.585 122:                 <p class="my-2">For developers who want their existing webapps to interact with Windows filesystem, please see <a class="text-blue-600 cursor-pointer" on:click={() => open_link('https://docs.win32.run/3rd-party-apps')}>this guide</a>. It's simple, just adding a few lines of code to your existing webapps to pick, read &amp; and write files</p>
+01:50:51.586                                                                                                                                     ^
+01:50:51.586 123:                 <div class="mt-2 flex flex-row">
+01:50:51.586 124:                     <input bind:value={webapp_url} on:input={() => {webapp = null;error = null}} placeholder="webapp url" class="grow p-1 text-slate-800 mr-2 text-sm">
+01:50:51.586 8:20:51 PM [vite-plugin-svelte] /vercel/path0/src/routes/xp/programs/app_installer.svelte:12:15 App_installer has unused export property 'parentNode'. If it is for external reference only, please consider using `export const parentNode`
+01:50:51.586 10:     export let window;
+01:50:51.586 11:     export let self;
+01:50:51.586 12:     export let parentNode;
+01:50:51.586                    ^
+01:50:51.586 13:     export let exec_path;
+01:50:51.586 14: 
+01:50:51.629 8:20:51 PM [vite-plugin-svelte] /vercel/path0/src/routes/xp/programs/copier.svelte:14:15 Copier has unused export property 'parentNode'. If it is for external reference only, please consider using `export const parentNode`
+01:50:51.630 12:     export let window;
+01:50:51.630 13:     export let self;
+01:50:51.631 14:     export let parentNode;
+01:50:51.631                    ^
+01:50:51.631 15:     export let copying_obj;
+01:50:51.633 16:     export let target_folder_id;
+01:50:51.814 8:20:51 PM [vite-plugin-svelte] /vercel/path0/src/routes/xp/programs/flash_player.svelte:104:16 A11y: <a> element should have an href attribute
+01:50:51.814 102:         <div class="my-4 p-2 font-Trebuchet">
+01:50:51.815 103:             <p >You can run flash .swf files on this version of Windows XP. Thanks to 
+01:50:51.815 104:                 <a class="text-blue-600 cursor-pointer" on:click={() => open_link('https://ruffle.rs/')}>
+01:50:51.815                      ^
+01:50:51.815 105:                     Ruffle.
+01:50:51.815 106:                 </a>
+01:50:51.853 8:20:51 PM [vite-plugin-svelte] /vercel/path0/src/routes/xp/programs/foxit_reader.svelte:160:8 A11y: <iframe> element should have a title attribute
+01:50:51.854 158:         {/if}
+01:50:51.854 159:         
+01:50:51.854 160:         <iframe src="/html/foxit_reader/web/viewer.html" bind:this={iframe} width="100%" height="100%" on:load={setup_foxit_reader}
+01:50:51.855              ^
+01:50:51.855 161:             class="inset-0 absolute bg-black {iframe_loaded ? '' : 'opacity-0'}  {window?.z_index == $zIndex ? 'pointer-events-auto' : 'pointer-events-none'}">
+01:50:51.855 162:         </iframe>
+01:50:51.855 8:20:51 PM [vite-plugin-svelte] /vercel/path0/src/routes/xp/programs/foxit_reader.svelte:13:15 Foxit_reader has unused export property 'parentNode'. If it is for external reference only, please consider using `export const parentNode`
+01:50:51.856 11:     export let window;
+01:50:51.856 12:     export let self;
+01:50:51.856 13:     export let parentNode;
+01:50:51.856                    ^
+01:50:51.857 14:     export let fs_item;
+01:50:51.857 15:     export let exec_path;
+01:50:51.885 8:20:51 PM [vite-plugin-svelte] /vercel/path0/src/routes/xp/programs/image_viewer.svelte:12:15 Image_viewer has unused export property 'parentNode'. If it is for external reference only, please consider using `export const parentNode`
+01:50:51.885 10:     export let window;
+01:50:51.886 11:     export let self;
+01:50:51.886 12:     export let parentNode;
+01:50:51.886                    ^
+01:50:51.886 13:     export let fs_item;
+01:50:51.887 14:     export let exec_path;
+01:50:52.128 8:20:52 PM [vite-plugin-svelte] /vercel/path0/src/routes/xp/programs/java.svelte:97:8 A11y: <iframe> element should have a title attribute
+01:50:52.129  95:     <div slot="content" class="absolute inset-0 flex flex-col bg-xp-yellow">
+01:50:52.129  96:         <Button title="Call Child" on_click={() => iframe.contentWindow.say_hello()}></Button>
+01:50:52.129  97:         <iframe bind:this={iframe} src="/html/ffmpeg/index.html" class="w-full h-40" allow="cross-origin-isolated"></iframe>
+01:50:52.129              ^
+01:50:52.129  98:     </div>
+01:50:52.130  99:     
+01:50:52.130 8:20:52 PM [vite-plugin-svelte] /vercel/path0/src/routes/xp/programs/java.svelte:9:15 Java has unused export property 'parentNode'. If it is for external reference only, please consider using `export const parentNode`
+01:50:52.130  7:     export let window;
+01:50:52.130  8:     export let self;
+01:50:52.131  9:     export let parentNode;
+01:50:52.131                    ^
+01:50:52.131 10:     export let fs_item;
+01:50:52.131 11:     export let exec_path;
+01:50:52.131 8:20:52 PM [vite-plugin-svelte] /vercel/path0/src/routes/xp/programs/java.svelte:10:15 Java has unused export property 'fs_item'. If it is for external reference only, please consider using `export const fs_item`
+01:50:52.132  8:     export let self;
+01:50:52.132  9:     export let parentNode;
+01:50:52.132 10:     export let fs_item;
+01:50:52.132                    ^
+01:50:52.132 11:     export let exec_path;
+01:50:52.133 12:     let iframe;
+01:50:52.169 8:20:52 PM [vite-plugin-svelte] /vercel/path0/src/routes/xp/programs/koodo.svelte:154:12 A11y: <iframe> element should have a title attribute
+01:50:52.170 152:             {/if}
+01:50:52.170 153: 
+01:50:52.170 154:             <iframe bind:this={iframe} src="/html/koodo/index.html" 
+01:50:52.171                  ^
+01:50:52.171 155:                 class="w-full h-full {!iframe_loaded ? 'opacity-0' : ''} {window?.z_index == $zIndex ? 'pointer-events-auto' : 'pointer-events-none'}" 
+01:50:52.171 156:                 on:load={setup_koodo}></iframe>
+01:50:52.171 8:20:52 PM [vite-plugin-svelte] /vercel/path0/src/routes/xp/programs/koodo.svelte:12:15 Koodo has unused export property 'parentNode'. If it is for external reference only, please consider using `export const parentNode`
+01:50:52.171 10:     export let window;
+01:50:52.172 11:     export let self;
+01:50:52.172 12:     export let parentNode;
+01:50:52.172                    ^
+01:50:52.172 13:     export let fs_item;
+01:50:52.172 14:     export let exec_path;
+01:50:52.271 8:20:52 PM [vite-plugin-svelte] /vercel/path0/src/routes/xp/programs/media_player_classic.svelte:311:12 A11y: <iframe> element should have a title attribute
+01:50:52.271 309:         {:else if player_node != null && file_type == 'audio'}
+01:50:52.272 310:         <div class="grow bg-black w-full">
+01:50:52.272 311:             <iframe class="w-full h-full pointer-events-none" src="/html/visualizers/{utils.random_int(1,12)}.html"></iframe>
+01:50:52.272                  ^
+01:50:52.272 312:         </div>
+01:50:52.273 313:         {/if}
+01:50:52.278 8:20:52 PM [vite-plugin-svelte] /vercel/path0/src/routes/xp/programs/media_player_classic.svelte:16:15 Media_player_classic has unused export property 'parentNode'. If it is for external reference only, please consider using `export const parentNode`
+01:50:52.279 14:     export let window;
+01:50:52.279 15:     export let self;
+01:50:52.279 16:     export let parentNode;
+01:50:52.279                    ^
+01:50:52.279 17:     export let fs_item;
+01:50:52.279 18:     export let exec_path;
+01:50:52.343 8:20:52 PM [vite-plugin-svelte] /vercel/path0/src/routes/xp/programs/microsoft_word.svelte:315:12 A11y: <iframe> element should have a title attribute
+01:50:52.344 313:             {/if}
+01:50:52.344 314: 
+01:50:52.344 315:             <iframe bind:this={iframe} src="/html/msword/index.html" class="w-full h-full {!iframe_loaded ? 'opacity-0' : ''}" 
+01:50:52.344                  ^
+01:50:52.345 316:             on:load={setup_word}></iframe>
+01:50:52.345 317:         </div>
+01:50:52.345 8:20:52 PM [vite-plugin-svelte] /vercel/path0/src/routes/xp/programs/microsoft_word.svelte:14:15 Microsoft_word has unused export property 'parentNode'. If it is for external reference only, please consider using `export const parentNode`
+01:50:52.345 12:     export let window;
+01:50:52.345 13:     export let self;
+01:50:52.347 14:     export let parentNode;
+01:50:52.347                    ^
+01:50:52.347 15:     export let fs_item;
+01:50:52.347 16:     export let exec_path;
+01:50:52.587 8:20:52 PM [vite-plugin-svelte] /vercel/path0/src/routes/xp/programs/notepad.svelte:21:15 Notepad has unused export property 'parentNode'. If it is for external reference only, please consider using `export const parentNode`
+01:50:52.587 19:     export let window;
+01:50:52.588 20:     export let self;
+01:50:52.588 21:     export let parentNode;
+01:50:52.588                    ^
+01:50:52.588 22:     export let fs_item;
+01:50:52.588 23:     export let exec_path;
+01:50:52.622 8:20:52 PM [vite-plugin-svelte] /vercel/path0/src/routes/xp/programs/paint.svelte:13:15 Paint has unused export property 'parentNode'. If it is for external reference only, please consider using `export const parentNode`
+01:50:52.622 11:     export let window;
+01:50:52.622 12:     export let self;
+01:50:52.622 13:     export let parentNode;
+01:50:52.622                    ^
+01:50:52.622 14:     export let fs_item;
+01:50:52.622 15:     export let exec_path;
+01:50:52.649 8:20:52 PM [vite-plugin-svelte] /vercel/path0/src/routes/xp/programs/photon.svelte:208:8 A11y: <iframe> element should have a title attribute
+01:50:52.650 206:         {/if}
+01:50:52.650 207:         
+01:50:52.650 208:         <iframe src="/html/photon/app/index.html" bind:this={iframe} width="100%" height="100%" on:load={setup_photon}
+01:50:52.651              ^
+01:50:52.651 209:             class="inset-0 absolute bg-black {iframe_loaded ? '' : 'opacity-0'}  {window?.z_index == $zIndex ? 'pointer-events-auto' : 'pointer-events-none'}">
+01:50:52.651 210:         </iframe>
+01:50:52.651 8:20:52 PM [vite-plugin-svelte] /vercel/path0/src/routes/xp/programs/photon.svelte:13:15 Photon has unused export property 'parentNode'. If it is for external reference only, please consider using `export const parentNode`
+01:50:52.652 11:     export let window;
+01:50:52.652 12:     export let self;
+01:50:52.652 13:     export let parentNode;
+01:50:52.652                    ^
+01:50:52.652 14:     export let fs_item;
+01:50:52.653 15:     export let exec_path;
+01:50:52.749 8:20:52 PM [vite-plugin-svelte] /vercel/path0/src/routes/xp/programs/webapp.svelte:15:15 Webapp has unused export property 'parentNode'. If it is for external reference only, please consider using `export const parentNode`
+01:50:52.749 13:     export let window;
+01:50:52.750 14:     export let self;
+01:50:52.750 15:     export let parentNode;
+01:50:52.750                    ^
+01:50:52.750 16:     export let webapp;
+01:50:52.750 17:     let webapp_url;
+01:50:52.796 8:20:52 PM [vite-plugin-svelte] /vercel/path0/src/routes/xp/programs/winrar.svelte:122:23 A11y: Avoid using autofocus
+01:50:52.796 120:             <div class="absolute inset-4 flex flex-col overflow-hidden justify-between">
+01:50:52.796 121:                 <p class="my-2 text-[13px]">Enter password:</p>
+01:50:52.796 122:                 <input autofocus bind:value={password} type="password" 
+01:50:52.796                             ^
+01:50:52.796 123:                     on:keydown={e => e.key == 'Enter' && decrypt()}
+01:50:52.796 124:                     class="outline-none border border-slate-800 text-[11px] p-1">
+01:50:52.796 8:20:52 PM [vite-plugin-svelte] /vercel/path0/src/routes/xp/programs/winrar.svelte:15:15 Winrar has unused export property 'parentNode'. If it is for external reference only, please consider using `export const parentNode`
+01:50:52.796 13:     export let window;
+01:50:52.796 14:     export let self;
+01:50:52.796 15:     export let parentNode;
+01:50:52.796                    ^
+01:50:52.796 16:     export let fs_item;
+01:50:52.796 17:     export let exec_path;
+01:50:52.832 8:20:52 PM [vite-plugin-svelte] /vercel/path0/src/routes/xp/programs/xp_tour.svelte:58:8 A11y: <video> elements must have a <track kind="captions">
+01:50:52.832 56:     
+01:50:52.833 57:     <div slot="content" bind:this={intro_player} class="absolute inset-1 flex flex-col bg-xp-yellow" style:background="{options.background}">
+01:50:52.833 58:         <video autoplay playsinline class="absolute inset-0 {fullScreen ? 'object-cover' : 'object-cover'} w-full h-full">
+01:50:52.833             ^
+01:50:52.833 59:             <source src="/video/xp_tour.mp4" type="video/mp4">
+01:50:52.833 60:         </video>
+01:50:52.834 8:20:52 PM [vite-plugin-svelte] /vercel/path0/src/routes/xp/programs/xp_tour.svelte:9:15 Xp_tour has unused export property 'parentNode'. If it is for external reference only, please consider using `export const parentNode`
+01:50:52.834  7:     export let window;
+01:50:52.834  8:     export let self;
+01:50:52.834  9:     export let parentNode;
+01:50:52.834                    ^
+01:50:52.834 10:     export let exec_path;
+01:50:52.835 11: 
+01:50:52.854 8:20:52 PM [vite-plugin-svelte] /vercel/path0/src/routes/xp/programs/zip.svelte:15:15 Zip has unused export property 'parentNode'. If it is for external reference only, please consider using `export const parentNode`
+01:50:52.855 13:     export let window;
+01:50:52.855 14:     export let self;
+01:50:52.855 15:     export let parentNode;
+01:50:52.855                    ^
+01:50:52.856 16:     export let fs_item;
+01:50:52.856 17:     export let exec_path;
+01:50:52.876 8:20:52 PM [vite-plugin-svelte] /vercel/path0/src/routes/xp/shutdown.svelte:37:12 A11y: <img> element should have an alt attribute
+01:50:52.877 35:     <div class="grow bg-[radial-gradient(circle_at_5%_5%,#91b1ef_0,#7698e6_6%,#5a7edc_12%)] relative overflow-hidden">
+01:50:52.877 36:         <div class="absolute top-[30%] left-[45%] flex flex-col items-end">
+01:50:52.877 37:             <img src="/images/xp_logo.png" width="200">
+01:50:52.877                 ^
+01:50:52.877 38:             <p class="mr-4 mt-8 text-right text-[24px] text-slate-50">Windows is shutting down...</p>
+01:50:52.877 39:         </div>
+01:50:52.894 8:20:52 PM [vite-plugin-svelte] /vercel/path0/src/routes/xp/shutdown_panel.svelte:19:16 A11y: <img> element should have an alt attribute
+01:50:52.894 17:             <div class="w-full h-[40px] p-2 shrink-0 flex flex-row items-center justify-between">
+01:50:52.894 18:                 <p>Turn off computer</p>
+01:50:52.895 19:                 <img class="h-full" src="/images/ms.png">
+01:50:52.895                     ^
+01:50:52.895 20:             </div>
+01:50:52.895 21:             <div class="h-[2px] bg-[linear-gradient(45deg,#466dcd,#c7ddff,#b0c9f7,#5a7edc)] shrink-0"></div>
+01:50:52.895 8:20:52 PM [vite-plugin-svelte] /vercel/path0/src/routes/xp/shutdown_panel.svelte:25:24 A11y: <img> element should have an alt attribute
+01:50:52.896 23:                 <div class="mx-[50px] h-full flex flex-row justify-between items-center text-[12px] font-bold">
+01:50:52.896 24:                     <div class="flex flex-col items-center justify-center brightness-50">
+01:50:52.896 25:                         <img class="w-8 h-8 bg-[url(/images/xp/icons/Standby.png)] bg-contain bg-no-repeat mb-1">
+01:50:52.896                             ^
+01:50:52.897 26:                         <p>Standby</p>
+01:50:52.897 27:                     </div>
+01:50:52.897 8:20:52 PM [vite-plugin-svelte] /vercel/path0/src/routes/xp/shutdown_panel.svelte:29:24 A11y: <img> element should have an alt attribute
+01:50:52.897 27:                     </div>
+01:50:52.897 28:                     <div class="flex flex-col items-center justify-center group" on:click={() => queueCommand.set('shutdown')}>
+01:50:52.897 29:                         <img class="group-hover:brightness-110 w-8 h-8 bg-[url(/images/xp/icons/Power.png)] bg-contain bg-no-repeat mb-1">
+01:50:52.898                             ^
+01:50:52.898 30:                         <p>Power</p>
+01:50:52.898 31:                     </div>
+01:50:52.898 8:20:52 PM [vite-plugin-svelte] /vercel/path0/src/routes/xp/shutdown_panel.svelte:33:24 A11y: <img> element should have an alt attribute
+01:50:52.898 31:                     </div>
+01:50:52.898 32:                     <div class="flex flex-col items-center justify-center group" on:click={() => queueCommand.set('restart')}>
+01:50:52.899 33:                         <img class="group-hover:brightness-110 w-8 h-8 bg-[url(/images/xp/icons/Restart.png)] bg-contain bg-no-repeat mb-1">
+01:50:52.899                             ^
+01:50:52.899 34:                         <p>Restart</p>
+01:50:52.899 35:                     </div>
+01:50:53.223 8:20:53 PM [vite-plugin-svelte] /vercel/path0/src/lib/components/xp/ContextMenu.svelte:119:40 A11y: <img> element should have an alt attribute
+01:50:53.223 117:                                 <div class="w-[20px] ml-1 shrink-0 flex items-center justify-center">
+01:50:53.224 118:                                     {#if item.icon}
+01:50:53.224 119:                                         <img src="{item.icon}" width="17px" height="17px">
+01:50:53.224                                              ^
+01:50:53.224 120:                                     {:else if item.check}
+01:50:53.225 121:                                         <svg class="fill-slate-800 w-1.5 h-1.5 group-sub-hover:fill-slate-50" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Pro 6.3.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M256 512c141.4 0 256-114.6 256-256S397.4 0 256 0S0 114.6 0 256S114.6 512 256 512z"/>
+01:50:53.944 8:20:53 PM [vite-plugin-svelte] /vercel/path0/src/lib/components/xp/Menu.svelte:57:44 A11y: <img> element should have an alt attribute
+01:50:53.945 55:                                     <div class="w-[20px] ml-1 shrink-0">
+01:50:53.946 56:                                         {#if item.icon}
+01:50:53.946 57:                                             <img src="{item.icon}" width="17px" height="17px">
+01:50:53.946                                                 ^
+01:50:53.946 58:                                         {/if}
+01:50:53.947 59:                                     </div>
+01:50:53.983 8:20:53 PM [vite-plugin-svelte] /vercel/path0/src/lib/components/xp/RButton.svelte:5:15 RButton has unused export property 'style'. If it is for external reference only, please consider using `export const style`
+01:50:53.984 3:     export let title = '';
+01:50:53.984 4:     export let icon = '';
+01:50:53.984 5:     export let style = '';
+01:50:53.985                   ^
+01:50:53.985 6:     export let tooltip_message = '';
+01:50:53.985 7:     export let disabled = false;
+01:50:54.202 Browserslist: caniuse-lite is outdated. Please run:
+01:50:54.206   npx update-browserslist-db@latest
+01:50:54.207   Why you should do it regularly: https://github.com/browserslist/update-db#readme
+01:50:54.463 8:20:54 PM [vite-plugin-svelte] /vercel/path0/src/routes/admin-login.svelte:154:36 A11y: A form label must be associated with a control.
+01:50:54.465 152:                             <div class="space-y-3">
+01:50:54.465 153:                                 <div class="flex items-center gap-3">
+01:50:54.465 154:                                     <label class="text-sm w-24 text-right font-medium">User name:</label>
+01:50:54.465                                          ^
+01:50:54.466 155:                                     <input 
+01:50:54.466 156:                                         type="text" 
+01:50:54.471 8:20:54 PM [vite-plugin-svelte] /vercel/path0/src/routes/admin-login.svelte:164:36 A11y: A form label must be associated with a control.
+01:50:54.472 162:                                 </div>
+01:50:54.472 163:                                 <div class="flex items-center gap-3">
+01:50:54.472 164:                                     <label class="text-sm w-24 text-right font-medium">Password:</label>
+01:50:54.473                                          ^
+01:50:54.473 165:                                     <input 
+01:50:54.473 166:                                         type="password" 
+01:50:54.814 8:20:54 PM [vite-plugin-svelte] /vercel/path0/src/routes/xp/admin_login.svelte:125:32 A11y: A form label must be associated with a control.
+01:50:54.814 123:                         <div class="space-y-2">
+01:50:54.814 124:                             <div class="flex items-center gap-2">
+01:50:54.814 125:                                 <label class="text-xs w-20 text-right">User name:</label>
+01:50:54.814                                      ^
+01:50:54.814 126:                                 <input 
+01:50:54.814 127:                                     type="text" 
+01:50:54.814 8:20:54 PM [vite-plugin-svelte] /vercel/path0/src/routes/xp/admin_login.svelte:135:32 A11y: A form label must be associated with a control.
+01:50:54.814 133:                             </div>
+01:50:54.814 134:                             <div class="flex items-center gap-2">
+01:50:54.814 135:                                 <label class="text-xs w-20 text-right">Password:</label>
+01:50:54.814                                      ^
+01:50:54.814 136:                                 <input 
+01:50:54.815 137:                                     type="password" 
+01:50:55.021 8:20:55 PM [vite-plugin-svelte] /vercel/path0/src/routes/xp/programs/about_me.svelte:183:24 A11y: A form label must be associated with a control.
+01:50:55.022 181:                     
+01:50:55.022 182:                     <div>
+01:50:55.022 183:                         <label class="block text-xs font-medium text-gray-700 mb-2">Profile Photo</label>
+01:50:55.023                              ^
+01:50:55.023 184:                         <div class="flex items-center gap-4">
+01:50:55.023 185:                             {#if editForm.profilePhoto}
+01:50:55.024 8:20:55 PM [vite-plugin-svelte] /vercel/path0/src/routes/xp/programs/about_me.svelte:205:28 A11y: A form label must be associated with a control.
+01:50:55.025 203:                     <div class="grid grid-cols-2 gap-4">
+01:50:55.025 204:                         <div>
+01:50:55.025 205:                             <label class="block text-xs font-medium text-gray-700 mb-1">Name</label>
+01:50:55.025                                  ^
+01:50:55.025 206:                             <input type="text" bind:value={editForm.name} 
+01:50:55.026 207:                                 class="w-full px-2 py-1 text-sm border border-gray-300 rounded focus:outline-none focus:border-blue-500" />
+01:50:55.026 8:20:55 PM [vite-plugin-svelte] /vercel/path0/src/routes/xp/programs/about_me.svelte:210:28 A11y: A form label must be associated with a control.
+01:50:55.026 208:                         </div>
+01:50:55.026 209:                         <div>
+01:50:55.026 210:                             <label class="block text-xs font-medium text-gray-700 mb-1">Title</label>
+01:50:55.027                                  ^
+01:50:55.027 211:                             <input type="text" bind:value={editForm.title}
+01:50:55.027 212:                                 class="w-full px-2 py-1 text-sm border border-gray-300 rounded focus:outline-none focus:border-blue-500" />
+01:50:55.027 8:20:55 PM [vite-plugin-svelte] /vercel/path0/src/routes/xp/programs/about_me.svelte:217:24 A11y: A form label must be associated with a control.
+01:50:55.027 215: 
+01:50:55.028 216:                     <div>
+01:50:55.028 217:                         <label class="block text-xs font-medium text-gray-700 mb-1">Bio</label>
+01:50:55.028                              ^
+01:50:55.028 218:                         <textarea bind:value={editForm.bio} rows="4"
+01:50:55.028 219:                             class="w-full px-2 py-1 text-sm border border-gray-300 rounded focus:outline-none focus:border-blue-500 resize-none"></textarea>
+01:50:55.028 8:20:55 PM [vite-plugin-svelte] /vercel/path0/src/routes/xp/programs/about_me.svelte:224:28 A11y: A form label must be associated with a control.
+01:50:55.028 222:                     <div class="grid grid-cols-2 gap-4">
+01:50:55.028 223:                         <div>
+01:50:55.028 224:                             <label class="block text-xs font-medium text-gray-700 mb-1">Email</label>
+01:50:55.028                                  ^
+01:50:55.028 225:                             <input type="email" bind:value={editForm.email}
+01:50:55.028 226:                                 class="w-full px-2 py-1 text-sm border border-gray-300 rounded focus:outline-none focus:border-blue-500" />
+01:50:55.028 8:20:55 PM [vite-plugin-svelte] /vercel/path0/src/routes/xp/programs/about_me.svelte:229:28 A11y: A form label must be associated with a control.
+01:50:55.028 227:                         </div>
+01:50:55.028 228:                         <div>
+01:50:55.028 229:                             <label class="block text-xs font-medium text-gray-700 mb-1">Phone</label>
+01:50:55.028                                  ^
+01:50:55.028 230:                             <input type="text" bind:value={editForm.phone}
+01:50:55.029 231:                                 class="w-full px-2 py-1 text-sm border border-gray-300 rounded focus:outline-none focus:border-blue-500" />
+01:50:55.029 8:20:55 PM [vite-plugin-svelte] /vercel/path0/src/routes/xp/programs/about_me.svelte:236:24 A11y: A form label must be associated with a control.
+01:50:55.029 234: 
+01:50:55.029 235:                     <div>
+01:50:55.029 236:                         <label class="block text-xs font-medium text-gray-700 mb-1">Location</label>
+01:50:55.029                              ^
+01:50:55.029 237:                         <input type="text" bind:value={editForm.location}
+01:50:55.029 238:                             class="w-full px-2 py-1 text-sm border border-gray-300 rounded focus:outline-none focus:border-blue-500" />
+01:50:55.029 8:20:55 PM [vite-plugin-svelte] /vercel/path0/src/routes/xp/programs/about_me.svelte:242:24 A11y: A form label must be associated with a control.
+01:50:55.029 240: 
+01:50:55.029 241:                     <div>
+01:50:55.029 242:                         <label class="block text-xs font-medium text-gray-700 mb-1">Skills</label>
+01:50:55.029                              ^
+01:50:55.035 243:                         <div class="space-y-2">
+01:50:55.035 244:                             {#each editForm.skills as skill, index}
+01:50:55.035 8:20:55 PM [vite-plugin-svelte] /vercel/path0/src/routes/xp/programs/about_me.svelte:261:32 A11y: A form label must be associated with a control.
+01:50:55.035 259:                         <div class="grid grid-cols-2 gap-4">
+01:50:55.035 260:                             <div>
+01:50:55.035 261:                                 <label class="block text-xs text-gray-600 mb-1">LinkedIn</label>
+01:50:55.035                                      ^
+01:50:55.035 262:                                 <input type="url" bind:value={editForm.socialLinks.linkedin}
+01:50:55.035 263:                                     class="w-full px-2 py-1 text-sm border border-gray-300 rounded focus:outline-none focus:border-blue-500" placeholder="https://linkedin.com/in/..." />
+01:50:55.035 8:20:55 PM [vite-plugin-svelte] /vercel/path0/src/routes/xp/programs/about_me.svelte:266:32 A11y: A form label must be associated with a control.
+01:50:55.035 264:                             </div>
+01:50:55.035 265:                             <div>
+01:50:55.035 266:                                 <label class="block text-xs text-gray-600 mb-1">GitHub</label>
+01:50:55.036                                      ^
+01:50:55.036 267:                                 <input type="url" bind:value={editForm.socialLinks.github}
+01:50:55.036 268:                                     class="w-full px-2 py-1 text-sm border border-gray-300 rounded focus:outline-none focus:border-blue-500" placeholder="https://github.com/..." />
+01:50:55.036 8:20:55 PM [vite-plugin-svelte] /vercel/path0/src/routes/xp/programs/about_me.svelte:271:32 A11y: A form label must be associated with a control.
+01:50:55.036 269:                             </div>
+01:50:55.036 270:                             <div>
+01:50:55.036 271:                                 <label class="block text-xs text-gray-600 mb-1">Twitter</label>
+01:50:55.036                                      ^
+01:50:55.036 272:                                 <input type="url" bind:value={editForm.socialLinks.twitter}
+01:50:55.036 273:                                     class="w-full px-2 py-1 text-sm border border-gray-300 rounded focus:outline-none focus:border-blue-500" placeholder="https://twitter.com/..." />
+01:50:55.036 8:20:55 PM [vite-plugin-svelte] /vercel/path0/src/routes/xp/programs/about_me.svelte:276:32 A11y: A form label must be associated with a control.
+01:50:55.036 274:                             </div>
+01:50:55.036 275:                             <div>
+01:50:55.036 276:                                 <label class="block text-xs text-gray-600 mb-1">Website</label>
+01:50:55.036                                      ^
+01:50:55.036 277:                                 <input type="url" bind:value={editForm.socialLinks.website}
+01:50:55.036 278:                                     class="w-full px-2 py-1 text-sm border border-gray-300 rounded focus:outline-none focus:border-blue-500" placeholder="https://yoursite.com" />
+01:50:55.036 8:20:55 PM [vite-plugin-svelte] /vercel/path0/src/routes/xp/programs/about_me.svelte:16:15 About_me has unused export property 'parentNode'. If it is for external reference only, please consider using `export const parentNode`
+01:50:55.036 14:     export let window;
+01:50:55.036 15:     export let self;
+01:50:55.036 16:     export let parentNode;
+01:50:55.036                    ^
+01:50:55.036 17:     export let exec_path;
+01:50:55.036 18: 
+01:50:55.102 8:20:55 PM [vite-plugin-svelte] /vercel/path0/src/routes/xp/programs/contact_me.svelte:174:16 A11y: A form label must be associated with a control.
+01:50:55.110 172:         <div class="form-area flex-1 flex flex-col p-2 gap-1.5 overflow-auto">
+01:50:55.110 173:             <div class="field flex items-center gap-2 bg-white border border-gray-400 px-2 py-1.5">
+01:50:55.110 174:                 <label class="text-xs font-bold text-gray-700 w-14 shrink-0">To:</label>
+01:50:55.110                      ^
+01:50:55.110 175:                 <input 
+01:50:55.110 176:                     type="text" 
+01:50:55.110 8:20:55 PM [vite-plugin-svelte] /vercel/path0/src/routes/xp/programs/contact_me.svelte:184:16 A11y: A form label must be associated with a control.
+01:50:55.110 182: 
+01:50:55.111 183:             <div class="field flex items-center gap-2 bg-white border border-gray-400 px-2 py-1.5">
+01:50:55.111 184:                 <label class="text-xs font-bold text-gray-700 w-14 shrink-0">From:</label>
+01:50:55.111                      ^
+01:50:55.111 185:                 <input 
+01:50:55.111 186:                     type="email" 
+01:50:55.111 8:20:55 PM [vite-plugin-svelte] /vercel/path0/src/routes/xp/programs/contact_me.svelte:194:16 A11y: A form label must be associated with a control.
+01:50:55.111 192: 
+01:50:55.111 193:             <div class="field flex items-center gap-2 bg-white border border-gray-400 px-2 py-1.5">
+01:50:55.111 194:                 <label class="text-xs font-bold text-gray-700 w-14 shrink-0">Subject:</label>
+01:50:55.111                      ^
+01:50:55.111 195:                 <input 
+01:50:55.111 196:                     type="text" 
+01:50:55.111 8:20:55 PM [vite-plugin-svelte] /vercel/path0/src/routes/xp/programs/contact_me.svelte:11:15 Contact_me has unused export property 'parentNode'. If it is for external reference only, please consider using `export const parentNode`
+01:50:55.111  9:     export let window;
+01:50:55.111 10:     export let self;
+01:50:55.111 11:     export let parentNode;
+01:50:55.111                    ^
+01:50:55.111 12:     export let exec_path;
+01:50:55.111 13: 
+01:50:55.316 8:20:55 PM [vite-plugin-svelte] /vercel/path0/src/routes/xp/programs/magazine_portfolio.svelte:232:28 A11y: A form label must be associated with a control.
+01:50:55.316 230:                     <div class="space-y-4">
+01:50:55.316 231:                         <div>
+01:50:55.316 232:                             <label class="block text-sm text-gray-300 mb-1">Title *</label>
+01:50:55.316                                  ^
+01:50:55.317 233:                             <input type="text" bind:value={editingMagazine.title}
+01:50:55.317 234:                                 class="w-full px-3 py-2 bg-white/20 text-white rounded border border-white/30 focus:outline-none focus:border-purple-400" 
+01:50:55.317 8:20:55 PM [vite-plugin-svelte] /vercel/path0/src/routes/xp/programs/magazine_portfolio.svelte:239:28 A11y: A form label must be associated with a control.
+01:50:55.317 237:                         
+01:50:55.317 238:                         <div>
+01:50:55.317 239:                             <label class="block text-sm text-gray-300 mb-1">Description</label>
+01:50:55.318                                  ^
+01:50:55.318 240:                             <textarea bind:value={editingMagazine.description} rows="2"
+01:50:55.318 241:                                 class="w-full px-3 py-2 bg-white/20 text-white rounded border border-white/30 focus:outline-none focus:border-purple-400 resize-none"
+01:50:55.318 8:20:55 PM [vite-plugin-svelte] /vercel/path0/src/routes/xp/programs/magazine_portfolio.svelte:246:28 A11y: A form label must be associated with a control.
+01:50:55.318 244:                         
+01:50:55.318 245:                         <div>
+01:50:55.318 246:                             <label class="block text-sm text-gray-300 mb-1">Cover Image</label>
+01:50:55.319                                  ^
+01:50:55.319 247:                             <div class="flex items-center gap-4">
+01:50:55.319 248:                                 {#if editingMagazine.coverUrl}
+01:50:55.319 8:20:55 PM [vite-plugin-svelte] /vercel/path0/src/routes/xp/programs/magazine_portfolio.svelte:266:28 A11y: A form label must be associated with a control.
+01:50:55.319 264:                         
+01:50:55.319 265:                         <div>
+01:50:55.319 266:                             <label class="block text-sm text-gray-300 mb-1">FlipHTML5 Embed Code</label>
+01:50:55.320                                  ^
+01:50:55.320 267:                             <textarea bind:value={editingMagazine.embedUrl} rows="4"
+01:50:55.320 268:                                 class="w-full px-3 py-2 bg-white/20 text-white rounded border border-white/30 focus:outline-none focus:border-purple-400 resize-none font-mono text-xs"
+01:50:55.320 8:20:55 PM [vite-plugin-svelte] /vercel/path0/src/routes/xp/programs/magazine_portfolio.svelte:16:15 Magazine_portfolio has unused export property 'parentNode'. If it is for external reference only, please consider using `export const parentNode`
+01:50:55.320 14:     export let window;
+01:50:55.320 15:     export let self;
+01:50:55.320 16:     export let parentNode;
+01:50:55.321                    ^
+01:50:55.321 17:     export let exec_path;
+01:50:55.321 18:     export let openMagazineId = null;
+01:50:55.477 8:20:55 PM [vite-plugin-svelte] /vercel/path0/src/routes/xp/programs/my_computer/viewer.svelte:309:28 A11y: Avoid using autofocus
+01:50:55.478 307:                     {#if $selectingItems.includes(item.id) && renaming}
+01:50:55.478 308:                         <textarea
+01:50:55.482 309:                             autofocus
+01:50:55.482                                  ^
+01:50:55.482 310:                             on:keydown={e => e.key == 'Enter' && end_renaming(e, item)}
+01:50:55.482 311:                             on:blur={(e) => end_renaming(e, item)}
+01:50:55.482 8:20:55 PM [vite-plugin-svelte] /vercel/path0/src/routes/xp/programs/my_computer/viewer.svelte:280:4 Unused CSS selector ".ds-selected"
+01:50:55.482 278: 
+01:50:55.482 279: <style>
+01:50:55.482 280:     .ds-selected {
+01:50:55.482          ^
+01:50:55.482 281:         outline: 3px solid black;
+01:50:55.482 282:         outline-offset: 3px;
+01:50:55.713 transforming...
+01:50:56.584 [32m✓[39m 3 modules transformed.
+01:50:56.885 rendering chunks...
+01:50:56.928 8:20:56 PM [vite-plugin-svelte] /vercel/path0/src/lib/components/xp/TitleBar.svelte:35:16 A11y: <img> element should have an alt attribute
+01:50:56.929 33:             <button disabled={minimize_btn_disabled} on:click={on_click_minimize}
+01:50:56.929 34:                 class="group w-5 h-5 ml-1 group">
+01:50:56.929 35:                 <img src="/images/xp/icons/Minimize.png" class="w-full h-full {minimize_btn_disabled ? 'contrast-75' : 'group-hover:brightness-110'}" >
+01:50:56.929                     ^
+01:50:56.929 36:             </button>
+01:50:56.930 37:         {/if}
+01:50:56.930 8:20:56 PM [vite-plugin-svelte] /vercel/path0/src/lib/components/xp/TitleBar.svelte:42:20 A11y: <img> element should have an alt attribute
+01:50:56.930 40:                 class="group w-5 h-5 ml-1 group" >
+01:50:56.930 41:                 {#if maximized}
+01:50:56.930 42:                     <img src="/images/xp/icons/Restore.png" class="w-full h-full {maximize_btn_disabled ? 'contrast-75' : 'group-hover:brightness-110'}" >
+01:50:56.930                         ^
+01:50:56.930 43:                 {:else}
+01:50:56.930 44:                     <img src="/images/xp/icons/Maximize.png" class="w-full h-full {maximize_btn_disabled ? 'contrast-75' : 'group-hover:brightness-110'}" >
+01:50:56.930 8:20:56 PM [vite-plugin-svelte] /vercel/path0/src/lib/components/xp/TitleBar.svelte:44:20 A11y: <img> element should have an alt attribute
+01:50:56.930 42:                     <img src="/images/xp/icons/Restore.png" class="w-full h-full {maximize_btn_disabled ? 'contrast-75' : 'group-hover:brightness-110'}" >
+01:50:56.930 43:                 {:else}
+01:50:56.930 44:                     <img src="/images/xp/icons/Maximize.png" class="w-full h-full {maximize_btn_disabled ? 'contrast-75' : 'group-hover:brightness-110'}" >
+01:50:56.930                         ^
+01:50:56.930 45:                 {/if}
+01:50:56.930 46:                 
+01:50:56.930 8:20:56 PM [vite-plugin-svelte] /vercel/path0/src/lib/components/xp/TitleBar.svelte:53:16 A11y: <img> element should have an alt attribute
+01:50:56.930 51:             <button disabled={close_btn_disabled} on:click={on_click_close}
+01:50:56.930 52:                 class="group w-5 h-5 ml-1 group">
+01:50:56.930 53:                 <img src="/images/xp/icons/Exit.png" class="w-full h-full {close_btn_disabled ? 'contrast-75' : 'group-hover:brightness-110'}" >
+01:50:56.930                     ^
+01:50:56.930 54:             </button>
+01:50:56.930 55:         {/if}
+01:50:57.158 8:20:57 PM [vite-plugin-svelte] /vercel/path0/src/lib/components/xp/TrayIcon.svelte:3:15 TrayIcon has unused export property 'style'. If it is for external reference only, please consider using `export const style`
+01:50:57.163 1: <script>
+01:50:57.163 2:     import {tooltip} from './tooltip';
+01:50:57.163 3:     export let style = '';
+01:50:57.163                   ^
+01:50:57.163 4:     export let tooltip_message;
+01:50:57.163 5:     export let icon;
+01:51:00.918 [32m✓[39m 296 modules transformed.
+01:51:01.759 rendering chunks...
+01:51:02.597 The emitted file "manifest.json" overwrites a previously emitted file of the same name.
+01:51:02.732 [90m[37m[2m.svelte-kit/output/client/[22m[90m[39m[32mmanifest.json                                                                [39m [2m47.18 KiB[22m
+01:51:02.735 [90m[37m[2m.svelte-kit/output/client/[22m[90m[39m[32massets/sort.d295dba1.js                                                      [39m [2m2.25 KiB[22m
+01:51:02.761 [90m[37m[2m.svelte-kit/output/client/[22m[90m[39m[36m_app/immutable/pages/__layout.svelte-9f27d43d.js                             [39m [2m0.53 KiB / gzip: 0.35 KiB[22m
+01:51:02.761 [90m[37m[2m.svelte-kit/output/client/[22m[90m[39m[36m_app/immutable/error.svelte-c5e3e7ed.js                                      [39m [2m1.56 KiB / gzip: 0.75 KiB[22m
+01:51:02.762 [90m[37m[2m.svelte-kit/output/client/[22m[90m[39m[36m_app/immutable/pages/admin-login.svelte-9c30d39a.js                          [39m [2m11.69 KiB / gzip: 4.27 KiB[22m
+01:51:02.762 [90m[37m[2m.svelte-kit/output/client/[22m[90m[39m[36m_app/immutable/pages/boot_manager.svelte-d5b60507.js                         [39m [2m4.87 KiB / gzip: 1.99 KiB[22m
+01:51:02.762 [90m[37m[2m.svelte-kit/output/client/[22m[90m[39m[36m_app/immutable/pages/index.svelte-3e6df54b.js                                [39m [2m11.88 KiB / gzip: 2.20 KiB[22m
+01:51:02.762 [90m[37m[2m.svelte-kit/output/client/[22m[90m[39m[36m_app/immutable/pages/installation/95/installing.svelte-fd87d56d.js           [39m [2m11.67 KiB / gzip: 4.94 KiB[22m
+01:51:02.763 [90m[37m[2m.svelte-kit/output/client/[22m[90m[39m[36m_app/immutable/pages/installation/95/product_key_windows.svelte-1eb2b312.js  [39m [2m15.52 KiB / gzip: 5.48 KiB[22m
+01:51:02.763 [90m[37m[2m.svelte-kit/output/client/[22m[90m[39m[36m_app/immutable/pages/installation/dos/copying.svelte-930c7c8c.js             [39m [2m3.84 KiB / gzip: 1.78 KiB[22m
+01:51:02.763 [90m[37m[2m.svelte-kit/output/client/[22m[90m[39m[36m_app/immutable/pages/installation/dos/eula.svelte-389f4742.js                [39m [2m2.38 KiB / gzip: 1.26 KiB[22m
+01:51:02.764 [90m[37m[2m.svelte-kit/output/client/[22m[90m[39m[36m_app/immutable/pages/installation/dos/format.svelte-202e461a.js              [39m [2m3.80 KiB / gzip: 1.73 KiB[22m
+01:51:02.764 [90m[37m[2m.svelte-kit/output/client/[22m[90m[39m[36m_app/immutable/pages/installation/dos/restart.svelte-03e960ba.js             [39m [2m4.04 KiB / gzip: 1.84 KiB[22m
+01:51:02.764 [90m[37m[2m.svelte-kit/output/client/[22m[90m[39m[36m_app/immutable/pages/installation/dos/starting.svelte-7666573c.js            [39m [2m1.95 KiB / gzip: 1.06 KiB[22m
+01:51:02.764 [90m[37m[2m.svelte-kit/output/client/[22m[90m[39m[36m_app/immutable/pages/installation/dos/partition.svelte-5cb9b9c6.js           [39m [2m4.22 KiB / gzip: 1.88 KiB[22m
+01:51:02.764 [90m[37m[2m.svelte-kit/output/client/[22m[90m[39m[36m_app/immutable/pages/installation/dos/welcome.svelte-9888128a.js             [39m [2m3.25 KiB / gzip: 1.46 KiB[22m
+01:51:02.765 [90m[37m[2m.svelte-kit/output/client/[22m[90m[39m[36m_app/immutable/pages/xp/admin_login.svelte-e23ec6aa.js                       [39m [2m8.95 KiB / gzip: 3.39 KiB[22m
+01:51:02.765 [90m[37m[2m.svelte-kit/output/client/[22m[90m[39m[36m_app/immutable/pages/xp/blackout.svelte-07672314.js                          [39m [2m0.84 KiB / gzip: 0.52 KiB[22m
+01:51:02.765 [90m[37m[2m.svelte-kit/output/client/[22m[90m[39m[36m_app/immutable/start-b28d6b0a.js                                             [39m [2m54.22 KiB / gzip: 11.24 KiB[22m
+01:51:02.765 [90m[37m[2m.svelte-kit/output/client/[22m[90m[39m[36m_app/immutable/pages/xp/desktop.svelte-cca4f2d2.js                           [39m [2m17.21 KiB / gzip: 5.42 KiB[22m
+01:51:02.766 [90m[37m[2m.svelte-kit/output/client/[22m[90m[39m[36m_app/immutable/pages/xp/task_bar.svelte-1619908e.js                          [39m [2m1.55 KiB / gzip: 0.84 KiB[22m
+01:51:02.766 [90m[37m[2m.svelte-kit/output/client/[22m[90m[39m[36m_app/immutable/pages/xp/screensaver.svelte-972cb67b.js                       [39m [2m1.95 KiB / gzip: 0.95 KiB[22m
+01:51:02.766 [90m[37m[2m.svelte-kit/output/client/[22m[90m[39m[36m_app/immutable/pages/xp/work_space.svelte-22403a20.js                        [39m [2m24.42 KiB / gzip: 2.50 KiB[22m
+01:51:02.766 [90m[37m[2m.svelte-kit/output/client/[22m[90m[39m[36m_app/immutable/pages/xp/welcome.svelte-05255894.js                           [39m [2m2.15 KiB / gzip: 1.09 KiB[22m
+01:51:02.766 [90m[37m[2m.svelte-kit/output/client/[22m[90m[39m[36m_app/immutable/pages/xp/start_menu.svelte-4b8dc1d1.js                        [39m [2m24.27 KiB / gzip: 6.21 KiB[22m
+01:51:02.767 [90m[37m[2m.svelte-kit/output/client/[22m[90m[39m[36m_app/immutable/pages/xp/system_tray.svelte-f64f8ae0.js                       [39m [2m3.57 KiB / gzip: 1.63 KiB[22m
+01:51:02.767 [90m[37m[2m.svelte-kit/output/client/[22m[90m[39m[36m_app/immutable/pages/xp/wallpaper.svelte-ed385b8b.js                         [39m [2m1.78 KiB / gzip: 0.86 KiB[22m
+01:51:02.767 [90m[37m[2m.svelte-kit/output/client/[22m[90m[39m[36m_app/immutable/pages/xp/desktop_folder.svelte-1ee9d494.js                    [39m [2m10.15 KiB / gzip: 4.29 KiB[22m
+01:51:02.767 [90m[37m[2m.svelte-kit/output/client/[22m[90m[39m[36m_app/immutable/pages/xp/programs/about_me.svelte-1adfc45e.js                 [39m [2m28.23 KiB / gzip: 8.63 KiB[22m
+01:51:02.767 [90m[37m[2m.svelte-kit/output/client/[22m[90m[39m[36m_app/immutable/pages/xp/programs/admin_bootscreen.svelte-96e78c1b.js         [39m [2m16.44 KiB / gzip: 5.67 KiB[22m
+01:51:02.768 [90m[37m[2m.svelte-kit/output/client/[22m[90m[39m[36m_app/immutable/pages/xp/programs/app_installer.svelte-2faefc86.js            [39m [2m9.55 KiB / gzip: 3.91 KiB[22m
+01:51:02.768 [90m[37m[2m.svelte-kit/output/client/[22m[90m[39m[36m_app/immutable/pages/xp/programs/admin_videos.svelte-9da2091d.js             [39m [2m20.65 KiB / gzip: 6.74 KiB[22m
+01:51:02.768 [90m[37m[2m.svelte-kit/output/client/[22m[90m[39m[36m_app/immutable/pages/xp/programs/copier.svelte-e9f17dc5.js                   [39m [2m4.97 KiB / gzip: 2.16 KiB[22m
+01:51:02.768 [90m[37m[2m.svelte-kit/output/client/[22m[90m[39m[36m_app/immutable/pages/xp/programs/contact_me.svelte-9eca6e3b.js               [39m [2m11.30 KiB / gzip: 4.35 KiB[22m
+01:51:02.768 [90m[37m[2m.svelte-kit/output/client/[22m[90m[39m[36m_app/immutable/pages/xp/programs/disk_properties.svelte-d74a736e.js          [39m [2m11.42 KiB / gzip: 4.34 KiB[22m
+01:51:02.769 [90m[37m[2m.svelte-kit/output/client/[22m[90m[39m[36m_app/immutable/pages/xp/programs/display_properties.svelte-25f97265.js       [39m [2m7.74 KiB / gzip: 3.24 KiB[22m
+01:51:02.769 [90m[37m[2m.svelte-kit/output/client/[22m[90m[39m[36m_app/immutable/pages/xp/programs/flash_player.svelte-7f17cfdf.js             [39m [2m5.73 KiB / gzip: 2.50 KiB[22m
+01:51:02.769 [90m[37m[2m.svelte-kit/output/client/[22m[90m[39m[36m_app/immutable/pages/xp/programs/foxit_reader.svelte-2d915804.js             [39m [2m7.25 KiB / gzip: 2.76 KiB[22m
+01:51:02.769 [90m[37m[2m.svelte-kit/output/client/[22m[90m[39m[36m_app/immutable/pages/xp/programs/image_viewer.svelte-f18903ed.js             [39m [2m7.28 KiB / gzip: 2.93 KiB[22m
+01:51:02.769 [90m[37m[2m.svelte-kit/output/client/[22m[90m[39m[36m_app/immutable/pages/xp/programs/java.svelte-d82ea66a.js                     [39m [2m3.18 KiB / gzip: 1.48 KiB[22m
+01:51:02.770 [90m[37m[2m.svelte-kit/output/client/[22m[90m[39m[36m_app/immutable/pages/xp/programs/koodo.svelte-7861b651.js                    [39m [2m7.21 KiB / gzip: 2.72 KiB[22m
+01:51:02.770 [90m[37m[2m.svelte-kit/output/client/[22m[90m[39m[36m_app/immutable/pages/xp/programs/internet_explorer.svelte-0d8d5ba0.js        [39m [2m40.91 KiB / gzip: 12.93 KiB[22m
+01:51:02.770 [90m[37m[2m.svelte-kit/output/client/[22m[90m[39m[36m_app/immutable/pages/xp/programs/media_player_classic.svelte-ed8bcd05.js     [39m [2m26.02 KiB / gzip: 9.20 KiB[22m
+01:51:02.770 [90m[37m[2m.svelte-kit/output/client/[22m[90m[39m[36m_app/immutable/pages/xp/programs/minesweeper.svelte-b5beb5bd.js              [39m [2m3.95 KiB / gzip: 1.77 KiB[22m
+01:51:02.770 [90m[37m[2m.svelte-kit/output/client/[22m[90m[39m[36m_app/immutable/pages/xp/programs/magazine_portfolio.svelte-e243d953.js       [39m [2m21.88 KiB / gzip: 7.38 KiB[22m
+01:51:02.771 [90m[37m[2m.svelte-kit/output/client/[22m[90m[39m[36m_app/immutable/pages/xp/programs/my_computer/sidebar.svelte-91a1cca3.js      [39m [2m6.77 KiB / gzip: 2.56 KiB[22m
+01:51:02.771 [90m[37m[2m.svelte-kit/output/client/[22m[90m[39m[36m_app/immutable/pages/xp/programs/my_computer.svelte-e016bd98.js              [39m [2m10.31 KiB / gzip: 3.88 KiB[22m
+01:51:02.771 [90m[37m[2m.svelte-kit/output/client/[22m[90m[39m[36m_app/immutable/pages/xp/programs/my_computer/viewer.svelte-b817589a.js       [39m [2m16.92 KiB / gzip: 6.23 KiB[22m
+01:51:02.771 [90m[37m[2m.svelte-kit/output/client/[22m[90m[39m[36m_app/immutable/pages/xp/programs/notepad.svelte-54eb5373.js                  [39m [2m9.15 KiB / gzip: 3.33 KiB[22m
+01:51:02.771 [90m[37m[2m.svelte-kit/output/client/[22m[90m[39m[36m_app/immutable/pages/xp/programs/paint.svelte-09ab873b.js                    [39m [2m7.37 KiB / gzip: 2.79 KiB[22m
+01:51:02.772 [90m[37m[2m.svelte-kit/output/client/[22m[90m[39m[36m_app/immutable/pages/xp/programs/photon.svelte-fec26a2b.js                   [39m [2m7.90 KiB / gzip: 2.98 KiB[22m
+01:51:02.772 [90m[37m[2m.svelte-kit/output/client/[22m[90m[39m[36m_app/immutable/pages/xp/programs/properties.svelte-a3b8ec29.js               [39m [2m7.95 KiB / gzip: 3.22 KiB[22m
+01:51:02.772 [90m[37m[2m.svelte-kit/output/client/[22m[90m[39m[36m_app/immutable/pages/xp/programs/volume_adjust.svelte-f60c4912.js            [39m [2m2.36 KiB / gzip: 1.21 KiB[22m
+01:51:02.772 [90m[37m[2m.svelte-kit/output/client/[22m[90m[39m[36m_app/immutable/pages/xp/programs/webapp.svelte-9f12299b.js                   [39m [2m7.90 KiB / gzip: 3.05 KiB[22m
+01:51:02.772 [90m[37m[2m.svelte-kit/output/client/[22m[90m[39m[36m_app/immutable/pages/xp/programs/winrar.svelte-f458f916.js                   [39m [2m10.32 KiB / gzip: 4.05 KiB[22m
+01:51:02.772 [90m[37m[2m.svelte-kit/output/client/[22m[90m[39m[36m_app/immutable/pages/xp/programs/xp_tour.svelte-1e7d1896.js                  [39m [2m3.44 KiB / gzip: 1.59 KiB[22m
+01:51:02.772 [90m[37m[2m.svelte-kit/output/client/[22m[90m[39m[36m_app/immutable/pages/xp/shutdown.svelte-4ec08d7c.js                          [39m [2m2.55 KiB / gzip: 1.28 KiB[22m
+01:51:02.773 [90m[37m[2m.svelte-kit/output/client/[22m[90m[39m[36m_app/immutable/pages/xp/shutdown_panel.svelte-2e925e01.js                    [39m [2m4.07 KiB / gzip: 1.74 KiB[22m
+01:51:02.773 [90m[37m[2m.svelte-kit/output/client/[22m[90m[39m[36m_app/immutable/pages/xp/starting.svelte-a7c2e69c.js                          [39m [2m12.76 KiB / gzip: 4.07 KiB[22m
+01:51:02.776 [90m[37m[2m.svelte-kit/output/client/[22m[90m[39m[36m_app/immutable/chunks/idb-c08871f4.js                                        [39m [2m0.49 KiB / gzip: 0.30 KiB[22m
+01:51:02.776 [90m[37m[2m.svelte-kit/output/client/[22m[90m[39m[36m_app/immutable/chunks/index-2e696540.js                                      [39m [2m0.43 KiB / gzip: 0.31 KiB[22m
+01:51:02.776 [90m[37m[2m.svelte-kit/output/client/[22m[90m[39m[36m_app/immutable/chunks/singletons-eca981c1.js                                 [39m [2m0.05 KiB / gzip: 0.07 KiB[22m
+01:51:02.776 [90m[37m[2m.svelte-kit/output/client/[22m[90m[39m[36m_app/immutable/chunks/preload-helper-c28b9807.js                             [39m [2m0.68 KiB / gzip: 0.43 KiB[22m
+01:51:02.776 [90m[37m[2m.svelte-kit/output/client/[22m[90m[39m[36m_app/immutable/chunks/admin-74fc6b4d.js                                      [39m [2m3.19 KiB / gzip: 0.82 KiB[22m
+01:51:02.776 [90m[37m[2m.svelte-kit/output/client/[22m[90m[39m[36m_app/immutable/chunks/system-e72d84b7.js                                     [39m [2m2.20 KiB / gzip: 1.03 KiB[22m
+01:51:02.776 [90m[37m[2m.svelte-kit/output/client/[22m[90m[39m[36m_app/immutable/chunks/status_bar-56078677.js                                 [39m [2m1.88 KiB / gzip: 0.91 KiB[22m
+01:51:02.777 [90m[37m[2m.svelte-kit/output/client/[22m[90m[39m[36m_app/immutable/chunks/store-d0d59cf0.js                                      [39m [2m0.27 KiB / gzip: 0.19 KiB[22m
+01:51:02.777 [90m[37m[2m.svelte-kit/output/client/[22m[90m[39m[36m_app/immutable/chunks/utils-1f7a3290.js                                      [39m [2m15.59 KiB / gzip: 6.15 KiB[22m
+01:51:02.777 [90m[37m[2m.svelte-kit/output/client/[22m[90m[39m[36m_app/immutable/chunks/fs-c1f93029.js                                         [39m [2m42.48 KiB / gzip: 14.33 KiB[22m
+01:51:02.777 [90m[37m[2m.svelte-kit/output/client/[22m[90m[39m[36m_app/immutable/chunks/finder-919d6282.js                                     [39m [2m1.41 KiB / gzip: 0.50 KiB[22m
+01:51:02.777 [90m[37m[2m.svelte-kit/output/client/[22m[90m[39m[36m_app/immutable/chunks/Previewable-b09642b9.js                                [39m [2m1.25 KiB / gzip: 0.75 KiB[22m
+01:51:02.777 [90m[37m[2m.svelte-kit/output/client/[22m[90m[39m[36m_app/immutable/chunks/tooltip-f551ec3c.js                                    [39m [2m1.09 KiB / gzip: 0.60 KiB[22m
+01:51:02.777 [90m[37m[2m.svelte-kit/output/client/[22m[90m[39m[36m_app/immutable/chunks/Window-9158fc4d.js                                     [39m [2m8.64 KiB / gzip: 3.39 KiB[22m
+01:51:02.777 [90m[37m[2m.svelte-kit/output/client/[22m[90m[39m[36m_app/immutable/chunks/dir_parser-99740928.js                                 [39m [2m53.58 KiB / gzip: 13.10 KiB[22m
+01:51:02.777 [90m[37m[2m.svelte-kit/output/client/[22m[90m[39m[36m_app/immutable/chunks/Button-04445b0a.js                                     [39m [2m1.52 KiB / gzip: 0.77 KiB[22m
+01:51:02.777 [90m[37m[2m.svelte-kit/output/client/[22m[90m[39m[36m_app/immutable/chunks/DumbProgress-2bb2921d.js                               [39m [2m1.06 KiB / gzip: 0.64 KiB[22m
+01:51:02.777 [90m[37m[2m.svelte-kit/output/client/[22m[90m[39m[36m_app/immutable/chunks/ProgressBar-1d946420.js                                [39m [2m1.15 KiB / gzip: 0.65 KiB[22m
+01:51:02.777 [90m[37m[2m.svelte-kit/output/client/[22m[90m[39m[36m_app/immutable/chunks/Tab-c8f1560e.js                                        [39m [2m2.01 KiB / gzip: 0.97 KiB[22m
+01:51:02.777 [90m[37m[2m.svelte-kit/output/client/[22m[90m[39m[36m_app/immutable/chunks/CheckBox-d6900604.js                                   [39m [2m2.48 KiB / gzip: 1.15 KiB[22m
+01:51:02.777 [90m[37m[2m.svelte-kit/output/client/[22m[90m[39m[36m_app/immutable/chunks/Menu-6601bc2c.js                                       [39m [2m5.53 KiB / gzip: 2.05 KiB[22m
+01:51:02.777 [90m[37m[2m.svelte-kit/output/client/[22m[90m[39m[36m_app/immutable/chunks/RButton-8da96f1d.js                                    [39m [2m3.02 KiB / gzip: 1.42 KiB[22m
+01:51:02.777 [90m[37m[2m.svelte-kit/output/client/[22m[90m[39m[36m_app/immutable/chunks/CMProgramTile-5fefe8e4.js                              [39m [2m0.75 KiB / gzip: 0.30 KiB[22m
+01:51:02.777 [90m[37m[2m.svelte-kit/output/client/[22m[90m[39m[36m_app/immutable/chunks/CMDesktop-2418c66e.js                                  [39m [2m1.56 KiB / gzip: 0.73 KiB[22m
+01:51:02.777 [90m[37m[2m.svelte-kit/output/client/[22m[90m[39m[36m_app/immutable/chunks/CMFSItem-f224c7c4.js                                   [39m [2m6.34 KiB / gzip: 2.66 KiB[22m
+01:51:02.777 [90m[37m[2m.svelte-kit/output/client/[22m[90m[39m[36m_app/immutable/chunks/CMFSVoid-85ec6218.js                                   [39m [2m2.12 KiB / gzip: 0.93 KiB[22m
+01:51:02.777 [90m[37m[2m.svelte-kit/output/client/[22m[90m[39m[36m_app/immutable/chunks/RecycleBin-5a5f2ce1.js                                 [39m [2m1.44 KiB / gzip: 0.77 KiB[22m
+01:51:02.777 [90m[37m[2m.svelte-kit/output/client/[22m[90m[39m[36m_app/immutable/chunks/RangeSlider-219d68a5.js                                [39m [2m22.13 KiB / gzip: 7.37 KiB[22m
+01:51:02.777 [90m[37m[2m.svelte-kit/output/client/[22m[90m[39m[36m_app/immutable/chunks/OpenModal-7412ae44.js                                  [39m [2m21.33 KiB / gzip: 7.04 KiB[22m
+01:51:02.777 [90m[37m[2m.svelte-kit/output/client/[22m[90m[39m[36m_app/immutable/chunks/SaveModal-5b82fe7a.js                                  [39m [2m25.02 KiB / gzip: 8.37 KiB[22m
+01:51:02.778 [90m[37m[2m.svelte-kit/output/client/[22m[90m[39m[36m_app/immutable/chunks/TitleBar-3bc5fa8c.js                                   [39m [2m5.32 KiB / gzip: 1.78 KiB[22m
+01:51:02.778 [90m[37m[2m.svelte-kit/output/client/[22m[90m[39m[35m_app/immutable/assets/system_tray-0cb31e91.css                               [39m [2m0.39 KiB / gzip: 0.26 KiB[22m
+01:51:02.779 [90m[37m[2m.svelte-kit/output/client/[22m[90m[39m[35m_app/immutable/assets/starting-70d0dc19.css                                  [39m [2m0.74 KiB / gzip: 0.34 KiB[22m
+01:51:02.779 [90m[37m[2m.svelte-kit/output/client/[22m[90m[39m[35m_app/immutable/assets/about_me-f53062ba.css                                  [39m [2m0.30 KiB / gzip: 0.12 KiB[22m
+01:51:02.779 [90m[37m[2m.svelte-kit/output/client/[22m[90m[39m[35m_app/immutable/assets/admin_login-0385c8e6.css                               [39m [2m1.19 KiB / gzip: 0.45 KiB[22m
+01:51:02.779 [90m[37m[2m.svelte-kit/output/client/[22m[90m[39m[35m_app/immutable/assets/contact_me-82e338ed.css                                [39m [2m0.39 KiB / gzip: 0.15 KiB[22m
+01:51:02.779 [90m[37m[2m.svelte-kit/output/client/[22m[90m[39m[35m_app/immutable/assets/screensaver-f8f54214.css                               [39m [2m0.22 KiB / gzip: 0.16 KiB[22m
+01:51:02.779 [90m[37m[2m.svelte-kit/output/client/[22m[90m[39m[35m_app/immutable/assets/magazine_portfolio-db7f8d86.css                        [39m [2m0.16 KiB / gzip: 0.14 KiB[22m
+01:51:02.779 [90m[37m[2m.svelte-kit/output/client/[22m[90m[39m[35m_app/immutable/assets/installing-a160a914.css                                [39m [2m1.01 KiB / gzip: 0.32 KiB[22m
+01:51:02.779 [90m[37m[2m.svelte-kit/output/client/[22m[90m[39m[35m_app/immutable/assets/admin-login-d9caad35.css                               [39m [2m1.07 KiB / gzip: 0.42 KiB[22m
+01:51:02.779 [90m[37m[2m.svelte-kit/output/client/[22m[90m[39m[35m_app/immutable/assets/Tab-1c55912b.css                                       [39m [2m0.48 KiB / gzip: 0.27 KiB[22m
+01:51:02.779 [90m[37m[2m.svelte-kit/output/client/[22m[90m[39m[35m_app/immutable/assets/RangeSlider-6904222f.css                               [39m [2m6.19 KiB / gzip: 1.35 KiB[22m
+01:51:02.779 [90m[37m[2m.svelte-kit/output/client/[22m[90m[39m[35m_app/immutable/assets/Button-bfb744c1.css                                    [39m [2m0.63 KiB / gzip: 0.37 KiB[22m
+01:51:02.781 [90m[37m[2m.svelte-kit/output/client/[22m[90m[39m[35m_app/immutable/assets/__layout-4e1d1f9d.css                                  [39m [2m102.98 KiB / gzip: 14.01 KiB[22m
+01:51:02.781 [90m[37m[2m.svelte-kit/output/client/[22m[90m[39m[36m_app/immutable/chunks/Dialog-eafd6e1d.js                                     [39m [2m4.45 KiB / gzip: 1.99 KiB[22m
+01:51:02.781 [90m[37m[2m.svelte-kit/output/client/[22m[90m[39m[36m_app/immutable/pages/xp/program_tray.svelte-cdacaaa1.js                      [39m [2m52.90 KiB / gzip: 18.26 KiB[22m
+01:51:02.781 [90m[37m[2m.svelte-kit/output/client/[22m[90m[39m[36m_app/immutable/pages/xp/programs/zip.svelte-4d3cafd3.js                      [39m [2m98.99 KiB / gzip: 31.28 KiB[22m
+01:51:02.781 [90m[37m[2m.svelte-kit/output/client/[22m[90m[39m[36m_app/immutable/chunks/vendor-3f42e712.js                                     [39m [2m102.36 KiB / gzip: 38.05 KiB[22m
+01:51:02.787 [90m[37m[2m.svelte-kit/output/client/[22m[90m[39m[36m_app/immutable/pages/xp/programs/microsoft_word.svelte-9785b29c.js           [39m [2m340.98 KiB / gzip: 96.22 KiB[22m
+01:51:02.954 [36mvite v3.0.4 [32mbuilding SSR bundle for production...[36m[39m
+01:51:02.969 transforming...
+01:51:03.143 8:21:03 PM [vite-plugin-svelte] /vercel/path0/src/routes/xp/desktop_folder.svelte:257:24 A11y: Avoid using autofocus
+01:51:03.154 255:                 {#if $selectingItems.includes(item.id) && renaming}
+01:51:03.154 256:                     <textarea
+01:51:03.154 257:                         autofocus
+01:51:03.154                              ^
+01:51:03.154 258:                         on:keydown={e => e.key == 'Enter' && end_renaming(e, item)}
+01:51:03.154 259:                         on:blur={(e) => end_renaming(e, item)}
+01:51:03.205 8:21:03 PM [vite-plugin-svelte] /vercel/path0/src/routes/xp/programs/admin_videos.svelte:179:28 A11y: A form label must be associated with a control.
+01:51:03.206 177:                     <div class="p-4 space-y-3">
+01:51:03.206 178:                         <div>
+01:51:03.206 179:                             <label class="block text-xs font-medium mb-1">Title *</label>
+01:51:03.206                                  ^
+01:51:03.206 180:                             <input 
+01:51:03.206 181:                                 type="text" 
+01:51:03.207 8:21:03 PM [vite-plugin-svelte] /vercel/path0/src/routes/xp/programs/admin_videos.svelte:188:28 A11y: A form label must be associated with a control.
+01:51:03.207 186:                         </div>
+01:51:03.207 187:                         <div>
+01:51:03.207 188:                             <label class="block text-xs font-medium mb-1">YouTube URL *</label>
+01:51:03.207                                  ^
+01:51:03.207 189:                             <input 
+01:51:03.207 190:                                 type="text" 
+01:51:03.208 8:21:03 PM [vite-plugin-svelte] /vercel/path0/src/routes/xp/programs/admin_videos.svelte:198:32 A11y: A form label must be associated with a control.
+01:51:03.208 196:                         <div class="grid grid-cols-2 gap-3">
+01:51:03.208 197:                             <div>
+01:51:03.208 198:                                 <label class="block text-xs font-medium mb-1">Channel Name</label>
+01:51:03.208                                      ^
+01:51:03.208 199:                                 <input 
+01:51:03.208 200:                                     type="text" 
+01:51:03.208 8:21:03 PM [vite-plugin-svelte] /vercel/path0/src/routes/xp/programs/admin_videos.svelte:207:32 A11y: A form label must be associated with a control.
+01:51:03.208 205:                             </div>
+01:51:03.209 206:                             <div>
+01:51:03.209 207:                                 <label class="block text-xs font-medium mb-1">Duration</label>
+01:51:03.209                                      ^
+01:51:03.209 208:                                 <input 
+01:51:03.209 209:                                     type="text" 
+01:51:03.209 8:21:03 PM [vite-plugin-svelte] /vercel/path0/src/routes/xp/programs/admin_videos.svelte:218:32 A11y: A form label must be associated with a control.
+01:51:03.209 216:                         <div class="grid grid-cols-2 gap-3">
+01:51:03.209 217:                             <div>
+01:51:03.209 218:                                 <label class="block text-xs font-medium mb-1">Views Text</label>
+01:51:03.209                                      ^
+01:51:03.209 219:                                 <input 
+01:51:03.209 220:                                     type="text" 
+01:51:03.209 8:21:03 PM [vite-plugin-svelte] /vercel/path0/src/routes/xp/programs/admin_videos.svelte:227:32 A11y: A form label must be associated with a control.
+01:51:03.209 225:                             </div>
+01:51:03.210 226:                             <div>
+01:51:03.210 227:                                 <label class="block text-xs font-medium mb-1">Display Order</label>
+01:51:03.210                                      ^
+01:51:03.210 228:                                 <input 
+01:51:03.210 229:                                     type="number" 
+01:51:03.210 8:21:03 PM [vite-plugin-svelte] /vercel/path0/src/routes/xp/programs/admin_videos.svelte:237:28 A11y: A form label must be associated with a control.
+01:51:03.210 235:                         </div>
+01:51:03.210 236:                         <div>
+01:51:03.210 237:                             <label class="block text-xs font-medium mb-1">Description</label>
+01:51:03.210                                  ^
+01:51:03.210 238:                             <textarea 
+01:51:03.210 239:                                 bind:value={formData.description}
+01:51:03.210 8:21:03 PM [vite-plugin-svelte] /vercel/path0/src/routes/xp/programs/admin_videos.svelte:245:28 A11y: A form label must be associated with a control.
+01:51:03.210 243:                         </div>
+01:51:03.210 244:                         <div>
+01:51:03.210 245:                             <label class="block text-xs font-medium mb-1">Custom Thumbnail URL (optional)</label>
+01:51:03.211                                  ^
+01:51:03.211 246:                             <input 
+01:51:03.211 247:                                 type="text" 
+01:51:03.230 8:21:03 PM [vite-plugin-svelte] /vercel/path0/src/routes/xp/programs/app_installer.svelte:122:127 A11y: <a> element should have an href attribute
+01:51:03.230 120:             <div class="flex-col flex grow-0 overflow-hidden">
+01:51:03.233 121:                 <p>The Installer will help you add webapps into Windows XP. Start by entering the web url.</p>
+01:51:03.233 122:                 <p class="my-2">For developers who want their existing webapps to interact with Windows filesystem, please see <a class="text-blue-600 cursor-pointer" on:click={() => open_link('https://docs.win32.run/3rd-party-apps')}>this guide</a>. It's simple, just adding a few lines of code to your existing webapps to pick, read &amp; and write files</p>
+01:51:03.233                                                                                                                                     ^
+01:51:03.233 123:                 <div class="mt-2 flex flex-row">
+01:51:03.233 124:                     <input bind:value={webapp_url} on:input={() => {webapp = null;error = null}} placeholder="webapp url" class="grow p-1 text-slate-800 mr-2 text-sm">
+01:51:03.233 8:21:03 PM [vite-plugin-svelte] /vercel/path0/src/routes/xp/programs/app_installer.svelte:12:15 App_installer has unused export property 'parentNode'. If it is for external reference only, please consider using `export const parentNode`
+01:51:03.233 10:     export let window;
+01:51:03.233 11:     export let self;
+01:51:03.233 12:     export let parentNode;
+01:51:03.233                    ^
+01:51:03.233 13:     export let exec_path;
+01:51:03.234 14: 
+01:51:03.249 8:21:03 PM [vite-plugin-svelte] /vercel/path0/src/routes/xp/programs/copier.svelte:14:15 Copier has unused export property 'parentNode'. If it is for external reference only, please consider using `export const parentNode`
+01:51:03.249 12:     export let window;
+01:51:03.249 13:     export let self;
+01:51:03.249 14:     export let parentNode;
+01:51:03.249                    ^
+01:51:03.250 15:     export let copying_obj;
+01:51:03.250 16:     export let target_folder_id;
+01:51:03.300 8:21:03 PM [vite-plugin-svelte] /vercel/path0/src/routes/xp/programs/flash_player.svelte:104:16 A11y: <a> element should have an href attribute
+01:51:03.301 102:         <div class="my-4 p-2 font-Trebuchet">
+01:51:03.301 103:             <p >You can run flash .swf files on this version of Windows XP. Thanks to 
+01:51:03.301 104:                 <a class="text-blue-600 cursor-pointer" on:click={() => open_link('https://ruffle.rs/')}>
+01:51:03.302                      ^
+01:51:03.302 105:                     Ruffle.
+01:51:03.302 106:                 </a>
+01:51:03.313 8:21:03 PM [vite-plugin-svelte] /vercel/path0/src/routes/xp/programs/foxit_reader.svelte:160:8 A11y: <iframe> element should have a title attribute
+01:51:03.313 158:         {/if}
+01:51:03.313 159:         
+01:51:03.314 160:         <iframe src="/html/foxit_reader/web/viewer.html" bind:this={iframe} width="100%" height="100%" on:load={setup_foxit_reader}
+01:51:03.314              ^
+01:51:03.314 161:             class="inset-0 absolute bg-black {iframe_loaded ? '' : 'opacity-0'}  {window?.z_index == $zIndex ? 'pointer-events-auto' : 'pointer-events-none'}">
+01:51:03.314 162:         </iframe>
+01:51:03.315 8:21:03 PM [vite-plugin-svelte] /vercel/path0/src/routes/xp/programs/foxit_reader.svelte:13:15 Foxit_reader has unused export property 'parentNode'. If it is for external reference only, please consider using `export const parentNode`
+01:51:03.315 11:     export let window;
+01:51:03.315 12:     export let self;
+01:51:03.315 13:     export let parentNode;
+01:51:03.315                    ^
+01:51:03.315 14:     export let fs_item;
+01:51:03.315 15:     export let exec_path;
+01:51:03.329 8:21:03 PM [vite-plugin-svelte] /vercel/path0/src/routes/xp/programs/image_viewer.svelte:12:15 Image_viewer has unused export property 'parentNode'. If it is for external reference only, please consider using `export const parentNode`
+01:51:03.329 10:     export let window;
+01:51:03.329 11:     export let self;
+01:51:03.330 12:     export let parentNode;
+01:51:03.330                    ^
+01:51:03.330 13:     export let fs_item;
+01:51:03.330 14:     export let exec_path;
+01:51:03.394 8:21:03 PM [vite-plugin-svelte] /vercel/path0/src/routes/xp/programs/java.svelte:97:8 A11y: <iframe> element should have a title attribute
+01:51:03.394  95:     <div slot="content" class="absolute inset-0 flex flex-col bg-xp-yellow">
+01:51:03.394  96:         <Button title="Call Child" on_click={() => iframe.contentWindow.say_hello()}></Button>
+01:51:03.394  97:         <iframe bind:this={iframe} src="/html/ffmpeg/index.html" class="w-full h-40" allow="cross-origin-isolated"></iframe>
+01:51:03.394              ^
+01:51:03.394  98:     </div>
+01:51:03.394  99:     
+01:51:03.394 8:21:03 PM [vite-plugin-svelte] /vercel/path0/src/routes/xp/programs/java.svelte:9:15 Java has unused export property 'parentNode'. If it is for external reference only, please consider using `export const parentNode`
+01:51:03.403  7:     export let window;
+01:51:03.403  8:     export let self;
+01:51:03.403  9:     export let parentNode;
+01:51:03.403                    ^
+01:51:03.403 10:     export let fs_item;
+01:51:03.403 11:     export let exec_path;
+01:51:03.403 8:21:03 PM [vite-plugin-svelte] /vercel/path0/src/routes/xp/programs/java.svelte:10:15 Java has unused export property 'fs_item'. If it is for external reference only, please consider using `export const fs_item`
+01:51:03.403  8:     export let self;
+01:51:03.403  9:     export let parentNode;
+01:51:03.403 10:     export let fs_item;
+01:51:03.403                    ^
+01:51:03.403 11:     export let exec_path;
+01:51:03.403 12:     let iframe;
+01:51:03.418 8:21:03 PM [vite-plugin-svelte] /vercel/path0/src/routes/xp/programs/koodo.svelte:154:12 A11y: <iframe> element should have a title attribute
+01:51:03.418 152:             {/if}
+01:51:03.419 153: 
+01:51:03.419 154:             <iframe bind:this={iframe} src="/html/koodo/index.html" 
+01:51:03.419                  ^
+01:51:03.419 155:                 class="w-full h-full {!iframe_loaded ? 'opacity-0' : ''} {window?.z_index == $zIndex ? 'pointer-events-auto' : 'pointer-events-none'}" 
+01:51:03.419 156:                 on:load={setup_koodo}></iframe>
+01:51:03.419 8:21:03 PM [vite-plugin-svelte] /vercel/path0/src/routes/xp/programs/koodo.svelte:12:15 Koodo has unused export property 'parentNode'. If it is for external reference only, please consider using `export const parentNode`
+01:51:03.420 10:     export let window;
+01:51:03.420 11:     export let self;
+01:51:03.420 12:     export let parentNode;
+01:51:03.420                    ^
+01:51:03.420 13:     export let fs_item;
+01:51:03.420 14:     export let exec_path;
+01:51:03.452 8:21:03 PM [vite-plugin-svelte] /vercel/path0/src/routes/xp/programs/media_player_classic.svelte:311:12 A11y: <iframe> element should have a title attribute
+01:51:03.453 309:         {:else if player_node != null && file_type == 'audio'}
+01:51:03.453 310:         <div class="grow bg-black w-full">
+01:51:03.453 311:             <iframe class="w-full h-full pointer-events-none" src="/html/visualizers/{utils.random_int(1,12)}.html"></iframe>
+01:51:03.453                  ^
+01:51:03.453 312:         </div>
+01:51:03.454 313:         {/if}
+01:51:03.454 8:21:03 PM [vite-plugin-svelte] /vercel/path0/src/routes/xp/programs/media_player_classic.svelte:16:15 Media_player_classic has unused export property 'parentNode'. If it is for external reference only, please consider using `export const parentNode`
+01:51:03.454 14:     export let window;
+01:51:03.454 15:     export let self;
+01:51:03.454 16:     export let parentNode;
+01:51:03.454                    ^
+01:51:03.455 17:     export let fs_item;
+01:51:03.455 18:     export let exec_path;
+01:51:03.474 8:21:03 PM [vite-plugin-svelte] /vercel/path0/src/routes/xp/programs/microsoft_word.svelte:315:12 A11y: <iframe> element should have a title attribute
+01:51:03.474 313:             {/if}
+01:51:03.475 314: 
+01:51:03.475 315:             <iframe bind:this={iframe} src="/html/msword/index.html" class="w-full h-full {!iframe_loaded ? 'opacity-0' : ''}" 
+01:51:03.475                  ^
+01:51:03.475 316:             on:load={setup_word}></iframe>
+01:51:03.475 317:         </div>
+01:51:03.476 8:21:03 PM [vite-plugin-svelte] /vercel/path0/src/routes/xp/programs/microsoft_word.svelte:14:15 Microsoft_word has unused export property 'parentNode'. If it is for external reference only, please consider using `export const parentNode`
+01:51:03.476 12:     export let window;
+01:51:03.476 13:     export let self;
+01:51:03.476 14:     export let parentNode;
+01:51:03.476                    ^
+01:51:03.476 15:     export let fs_item;
+01:51:03.477 16:     export let exec_path;
+01:51:03.550 8:21:03 PM [vite-plugin-svelte] /vercel/path0/src/routes/xp/programs/notepad.svelte:21:15 Notepad has unused export property 'parentNode'. If it is for external reference only, please consider using `export const parentNode`
+01:51:03.550 19:     export let window;
+01:51:03.551 20:     export let self;
+01:51:03.551 21:     export let parentNode;
+01:51:03.551                    ^
+01:51:03.551 22:     export let fs_item;
+01:51:03.551 23:     export let exec_path;
+01:51:03.565 8:21:03 PM [vite-plugin-svelte] /vercel/path0/src/routes/xp/programs/paint.svelte:13:15 Paint has unused export property 'parentNode'. If it is for external reference only, please consider using `export const parentNode`
+01:51:03.566 11:     export let window;
+01:51:03.566 12:     export let self;
+01:51:03.566 13:     export let parentNode;
+01:51:03.566                    ^
+01:51:03.567 14:     export let fs_item;
+01:51:03.567 15:     export let exec_path;
+01:51:03.584 8:21:03 PM [vite-plugin-svelte] /vercel/path0/src/routes/xp/programs/photon.svelte:208:8 A11y: <iframe> element should have a title attribute
+01:51:03.584 206:         {/if}
+01:51:03.585 207:         
+01:51:03.585 208:         <iframe src="/html/photon/app/index.html" bind:this={iframe} width="100%" height="100%" on:load={setup_photon}
+01:51:03.585              ^
+01:51:03.585 209:             class="inset-0 absolute bg-black {iframe_loaded ? '' : 'opacity-0'}  {window?.z_index == $zIndex ? 'pointer-events-auto' : 'pointer-events-none'}">
+01:51:03.585 210:         </iframe>
+01:51:03.585 8:21:03 PM [vite-plugin-svelte] /vercel/path0/src/routes/xp/programs/photon.svelte:13:15 Photon has unused export property 'parentNode'. If it is for external reference only, please consider using `export const parentNode`
+01:51:03.585 11:     export let window;
+01:51:03.585 12:     export let self;
+01:51:03.585 13:     export let parentNode;
+01:51:03.585                    ^
+01:51:03.585 14:     export let fs_item;
+01:51:03.585 15:     export let exec_path;
+01:51:03.633 8:21:03 PM [vite-plugin-svelte] /vercel/path0/src/routes/xp/programs/webapp.svelte:15:15 Webapp has unused export property 'parentNode'. If it is for external reference only, please consider using `export const parentNode`
+01:51:03.633 13:     export let window;
+01:51:03.633 14:     export let self;
+01:51:03.633 15:     export let parentNode;
+01:51:03.633                    ^
+01:51:03.633 16:     export let webapp;
+01:51:03.633 17:     let webapp_url;
+01:51:03.648 8:21:03 PM [vite-plugin-svelte] /vercel/path0/src/routes/xp/programs/winrar.svelte:122:23 A11y: Avoid using autofocus
+01:51:03.649 120:             <div class="absolute inset-4 flex flex-col overflow-hidden justify-between">
+01:51:03.649 121:                 <p class="my-2 text-[13px]">Enter password:</p>
+01:51:03.649 122:                 <input autofocus bind:value={password} type="password" 
+01:51:03.649                             ^
+01:51:03.649 123:                     on:keydown={e => e.key == 'Enter' && decrypt()}
+01:51:03.650 124:                     class="outline-none border border-slate-800 text-[11px] p-1">
+01:51:03.650 8:21:03 PM [vite-plugin-svelte] /vercel/path0/src/routes/xp/programs/winrar.svelte:15:15 Winrar has unused export property 'parentNode'. If it is for external reference only, please consider using `export const parentNode`
+01:51:03.650 13:     export let window;
+01:51:03.658 14:     export let self;
+01:51:03.658 15:     export let parentNode;
+01:51:03.658                    ^
+01:51:03.658 16:     export let fs_item;
+01:51:03.658 17:     export let exec_path;
+01:51:03.666 8:21:03 PM [vite-plugin-svelte] /vercel/path0/src/routes/xp/programs/xp_tour.svelte:58:8 A11y: <video> elements must have a <track kind="captions">
+01:51:03.666 56:     
+01:51:03.667 57:     <div slot="content" bind:this={intro_player} class="absolute inset-1 flex flex-col bg-xp-yellow" style:background="{options.background}">
+01:51:03.667 58:         <video autoplay playsinline class="absolute inset-0 {fullScreen ? 'object-cover' : 'object-cover'} w-full h-full">
+01:51:03.667             ^
+01:51:03.667 59:             <source src="/video/xp_tour.mp4" type="video/mp4">
+01:51:03.667 60:         </video>
+01:51:03.667 8:21:03 PM [vite-plugin-svelte] /vercel/path0/src/routes/xp/programs/xp_tour.svelte:9:15 Xp_tour has unused export property 'parentNode'. If it is for external reference only, please consider using `export const parentNode`
+01:51:03.667  7:     export let window;
+01:51:03.667  8:     export let self;
+01:51:03.667  9:     export let parentNode;
+01:51:03.667                    ^
+01:51:03.667 10:     export let exec_path;
+01:51:03.667 11: 
+01:51:03.675 8:21:03 PM [vite-plugin-svelte] /vercel/path0/src/routes/xp/programs/zip.svelte:15:15 Zip has unused export property 'parentNode'. If it is for external reference only, please consider using `export const parentNode`
+01:51:03.675 13:     export let window;
+01:51:03.675 14:     export let self;
+01:51:03.675 15:     export let parentNode;
+01:51:03.675                    ^
+01:51:03.675 16:     export let fs_item;
+01:51:03.675 17:     export let exec_path;
+01:51:03.682 8:21:03 PM [vite-plugin-svelte] /vercel/path0/src/routes/xp/shutdown.svelte:37:12 A11y: <img> element should have an alt attribute
+01:51:03.683 35:     <div class="grow bg-[radial-gradient(circle_at_5%_5%,#91b1ef_0,#7698e6_6%,#5a7edc_12%)] relative overflow-hidden">
+01:51:03.683 36:         <div class="absolute top-[30%] left-[45%] flex flex-col items-end">
+01:51:03.683 37:             <img src="/images/xp_logo.png" width="200">
+01:51:03.683                 ^
+01:51:03.683 38:             <p class="mr-4 mt-8 text-right text-[24px] text-slate-50">Windows is shutting down...</p>
+01:51:03.683 39:         </div>
+01:51:03.688 8:21:03 PM [vite-plugin-svelte] /vercel/path0/src/routes/xp/shutdown_panel.svelte:19:16 A11y: <img> element should have an alt attribute
+01:51:03.689 17:             <div class="w-full h-[40px] p-2 shrink-0 flex flex-row items-center justify-between">
+01:51:03.689 18:                 <p>Turn off computer</p>
+01:51:03.689 19:                 <img class="h-full" src="/images/ms.png">
+01:51:03.689                     ^
+01:51:03.690 20:             </div>
+01:51:03.690 21:             <div class="h-[2px] bg-[linear-gradient(45deg,#466dcd,#c7ddff,#b0c9f7,#5a7edc)] shrink-0"></div>
+01:51:03.690 8:21:03 PM [vite-plugin-svelte] /vercel/path0/src/routes/xp/shutdown_panel.svelte:25:24 A11y: <img> element should have an alt attribute
+01:51:03.690 23:                 <div class="mx-[50px] h-full flex flex-row justify-between items-center text-[12px] font-bold">
+01:51:03.690 24:                     <div class="flex flex-col items-center justify-center brightness-50">
+01:51:03.691 25:                         <img class="w-8 h-8 bg-[url(/images/xp/icons/Standby.png)] bg-contain bg-no-repeat mb-1">
+01:51:03.691                             ^
+01:51:03.691 26:                         <p>Standby</p>
+01:51:03.691 27:                     </div>
+01:51:03.691 8:21:03 PM [vite-plugin-svelte] /vercel/path0/src/routes/xp/shutdown_panel.svelte:29:24 A11y: <img> element should have an alt attribute
+01:51:03.692 27:                     </div>
+01:51:03.692 28:                     <div class="flex flex-col items-center justify-center group" on:click={() => queueCommand.set('shutdown')}>
+01:51:03.692 29:                         <img class="group-hover:brightness-110 w-8 h-8 bg-[url(/images/xp/icons/Power.png)] bg-contain bg-no-repeat mb-1">
+01:51:03.692                             ^
+01:51:03.692 30:                         <p>Power</p>
+01:51:03.693 31:                     </div>
+01:51:03.693 8:21:03 PM [vite-plugin-svelte] /vercel/path0/src/routes/xp/shutdown_panel.svelte:33:24 A11y: <img> element should have an alt attribute
+01:51:03.693 31:                     </div>
+01:51:03.693 32:                     <div class="flex flex-col items-center justify-center group" on:click={() => queueCommand.set('restart')}>
+01:51:03.693 33:                         <img class="group-hover:brightness-110 w-8 h-8 bg-[url(/images/xp/icons/Restart.png)] bg-contain bg-no-repeat mb-1">
+01:51:03.694                             ^
+01:51:03.694 34:                         <p>Restart</p>
+01:51:03.694 35:                     </div>
+01:51:03.878 8:21:03 PM [vite-plugin-svelte] /vercel/path0/src/lib/components/xp/ContextMenu.svelte:119:40 A11y: <img> element should have an alt attribute
+01:51:03.878 117:                                 <div class="w-[20px] ml-1 shrink-0 flex items-center justify-center">
+01:51:03.879 118:                                     {#if item.icon}
+01:51:03.879 119:                                         <img src="{item.icon}" width="17px" height="17px">
+01:51:03.879                                              ^
+01:51:03.879 120:                                     {:else if item.check}
+01:51:03.879 121:                                         <svg class="fill-slate-800 w-1.5 h-1.5 group-sub-hover:fill-slate-50" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Pro 6.3.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M256 512c141.4 0 256-114.6 256-256S397.4 0 256 0S0 114.6 0 256S114.6 512 256 512z"/>
+01:51:03.988 8:21:03 PM [vite-plugin-svelte] /vercel/path0/src/lib/components/xp/Menu.svelte:57:44 A11y: <img> element should have an alt attribute
+01:51:03.989 55:                                     <div class="w-[20px] ml-1 shrink-0">
+01:51:03.989 56:                                         {#if item.icon}
+01:51:03.989 57:                                             <img src="{item.icon}" width="17px" height="17px">
+01:51:03.989                                                 ^
+01:51:03.989 58:                                         {/if}
+01:51:03.989 59:                                     </div>
+01:51:03.996 8:21:03 PM [vite-plugin-svelte] /vercel/path0/src/lib/components/xp/RButton.svelte:5:15 RButton has unused export property 'style'. If it is for external reference only, please consider using `export const style`
+01:51:03.997 3:     export let title = '';
+01:51:03.997 4:     export let icon = '';
+01:51:03.998 5:     export let style = '';
+01:51:03.998                   ^
+01:51:03.998 6:     export let tooltip_message = '';
+01:51:03.998 7:     export let disabled = false;
+01:51:04.042 8:21:04 PM [vite-plugin-svelte] /vercel/path0/src/routes/admin-login.svelte:154:36 A11y: A form label must be associated with a control.
+01:51:04.042 152:                             <div class="space-y-3">
+01:51:04.042 153:                                 <div class="flex items-center gap-3">
+01:51:04.043 154:                                     <label class="text-sm w-24 text-right font-medium">User name:</label>
+01:51:04.043                                          ^
+01:51:04.043 155:                                     <input 
+01:51:04.043 156:                                         type="text" 
+01:51:04.043 8:21:04 PM [vite-plugin-svelte] /vercel/path0/src/routes/admin-login.svelte:164:36 A11y: A form label must be associated with a control.
+01:51:04.043 162:                                 </div>
+01:51:04.044 163:                                 <div class="flex items-center gap-3">
+01:51:04.044 164:                                     <label class="text-sm w-24 text-right font-medium">Password:</label>
+01:51:04.044                                          ^
+01:51:04.044 165:                                     <input 
+01:51:04.044 166:                                         type="password" 
+01:51:04.134 8:21:04 PM [vite-plugin-svelte] /vercel/path0/src/lib/components/xp/TitleBar.svelte:35:16 A11y: <img> element should have an alt attribute
+01:51:04.135 33:             <button disabled={minimize_btn_disabled} on:click={on_click_minimize}
+01:51:04.135 34:                 class="group w-5 h-5 ml-1 group">
+01:51:04.135 35:                 <img src="/images/xp/icons/Minimize.png" class="w-full h-full {minimize_btn_disabled ? 'contrast-75' : 'group-hover:brightness-110'}" >
+01:51:04.135                     ^
+01:51:04.136 36:             </button>
+01:51:04.136 37:         {/if}
+01:51:04.136 8:21:04 PM [vite-plugin-svelte] /vercel/path0/src/lib/components/xp/TitleBar.svelte:42:20 A11y: <img> element should have an alt attribute
+01:51:04.136 40:                 class="group w-5 h-5 ml-1 group" >
+01:51:04.137 41:                 {#if maximized}
+01:51:04.137 42:                     <img src="/images/xp/icons/Restore.png" class="w-full h-full {maximize_btn_disabled ? 'contrast-75' : 'group-hover:brightness-110'}" >
+01:51:04.137                         ^
+01:51:04.137 43:                 {:else}
+01:51:04.138 44:                     <img src="/images/xp/icons/Maximize.png" class="w-full h-full {maximize_btn_disabled ? 'contrast-75' : 'group-hover:brightness-110'}" >
+01:51:04.138 8:21:04 PM [vite-plugin-svelte] /vercel/path0/src/lib/components/xp/TitleBar.svelte:44:20 A11y: <img> element should have an alt attribute
+01:51:04.138 42:                     <img src="/images/xp/icons/Restore.png" class="w-full h-full {maximize_btn_disabled ? 'contrast-75' : 'group-hover:brightness-110'}" >
+01:51:04.138 43:                 {:else}
+01:51:04.139 44:                     <img src="/images/xp/icons/Maximize.png" class="w-full h-full {maximize_btn_disabled ? 'contrast-75' : 'group-hover:brightness-110'}" >
+01:51:04.139                         ^
+01:51:04.139 45:                 {/if}
+01:51:04.139 46:                 
+01:51:04.139 8:21:04 PM [vite-plugin-svelte] /vercel/path0/src/lib/components/xp/TitleBar.svelte:53:16 A11y: <img> element should have an alt attribute
+01:51:04.140 51:             <button disabled={close_btn_disabled} on:click={on_click_close}
+01:51:04.140 52:                 class="group w-5 h-5 ml-1 group">
+01:51:04.140 53:                 <img src="/images/xp/icons/Exit.png" class="w-full h-full {close_btn_disabled ? 'contrast-75' : 'group-hover:brightness-110'}" >
+01:51:04.140                     ^
+01:51:04.140 54:             </button>
+01:51:04.141 55:         {/if}
+01:51:04.193 8:21:04 PM [vite-plugin-svelte] /vercel/path0/src/routes/xp/admin_login.svelte:125:32 A11y: A form label must be associated with a control.
+01:51:04.193 123:                         <div class="space-y-2">
+01:51:04.194 124:                             <div class="flex items-center gap-2">
+01:51:04.194 125:                                 <label class="text-xs w-20 text-right">User name:</label>
+01:51:04.194                                      ^
+01:51:04.194 126:                                 <input 
+01:51:04.194 127:                                     type="text" 
+01:51:04.195 8:21:04 PM [vite-plugin-svelte] /vercel/path0/src/routes/xp/admin_login.svelte:135:32 A11y: A form label must be associated with a control.
+01:51:04.195 133:                             </div>
+01:51:04.195 134:                             <div class="flex items-center gap-2">
+01:51:04.195 135:                                 <label class="text-xs w-20 text-right">Password:</label>
+01:51:04.196                                      ^
+01:51:04.196 136:                                 <input 
+01:51:04.196 137:                                     type="password" 
+01:51:04.243 8:21:04 PM [vite-plugin-svelte] /vercel/path0/src/routes/xp/programs/about_me.svelte:183:24 A11y: A form label must be associated with a control.
+01:51:04.243 181:                     
+01:51:04.243 182:                     <div>
+01:51:04.253 183:                         <label class="block text-xs font-medium text-gray-700 mb-2">Profile Photo</label>
+01:51:04.253                              ^
+01:51:04.253 184:                         <div class="flex items-center gap-4">
+01:51:04.253 185:                             {#if editForm.profilePhoto}
+01:51:04.253 8:21:04 PM [vite-plugin-svelte] /vercel/path0/src/routes/xp/programs/about_me.svelte:205:28 A11y: A form label must be associated with a control.
+01:51:04.253 203:                     <div class="grid grid-cols-2 gap-4">
+01:51:04.253 204:                         <div>
+01:51:04.253 205:                             <label class="block text-xs font-medium text-gray-700 mb-1">Name</label>
+01:51:04.253                                  ^
+01:51:04.253 206:                             <input type="text" bind:value={editForm.name} 
+01:51:04.254 207:                                 class="w-full px-2 py-1 text-sm border border-gray-300 rounded focus:outline-none focus:border-blue-500" />
+01:51:04.254 8:21:04 PM [vite-plugin-svelte] /vercel/path0/src/routes/xp/programs/about_me.svelte:210:28 A11y: A form label must be associated with a control.
+01:51:04.254 208:                         </div>
+01:51:04.254 209:                         <div>
+01:51:04.254 210:                             <label class="block text-xs font-medium text-gray-700 mb-1">Title</label>
+01:51:04.254                                  ^
+01:51:04.254 211:                             <input type="text" bind:value={editForm.title}
+01:51:04.254 212:                                 class="w-full px-2 py-1 text-sm border border-gray-300 rounded focus:outline-none focus:border-blue-500" />
+01:51:04.254 8:21:04 PM [vite-plugin-svelte] /vercel/path0/src/routes/xp/programs/about_me.svelte:217:24 A11y: A form label must be associated with a control.
+01:51:04.254 215: 
+01:51:04.254 216:                     <div>
+01:51:04.254 217:                         <label class="block text-xs font-medium text-gray-700 mb-1">Bio</label>
+01:51:04.254                              ^
+01:51:04.254 218:                         <textarea bind:value={editForm.bio} rows="4"
+01:51:04.254 219:                             class="w-full px-2 py-1 text-sm border border-gray-300 rounded focus:outline-none focus:border-blue-500 resize-none"></textarea>
+01:51:04.254 8:21:04 PM [vite-plugin-svelte] /vercel/path0/src/routes/xp/programs/about_me.svelte:224:28 A11y: A form label must be associated with a control.
+01:51:04.254 222:                     <div class="grid grid-cols-2 gap-4">
+01:51:04.254 223:                         <div>
+01:51:04.254 224:                             <label class="block text-xs font-medium text-gray-700 mb-1">Email</label>
+01:51:04.254                                  ^
+01:51:04.254 225:                             <input type="email" bind:value={editForm.email}
+01:51:04.254 226:                                 class="w-full px-2 py-1 text-sm border border-gray-300 rounded focus:outline-none focus:border-blue-500" />
+01:51:04.254 8:21:04 PM [vite-plugin-svelte] /vercel/path0/src/routes/xp/programs/about_me.svelte:229:28 A11y: A form label must be associated with a control.
+01:51:04.255 227:                         </div>
+01:51:04.255 228:                         <div>
+01:51:04.255 229:                             <label class="block text-xs font-medium text-gray-700 mb-1">Phone</label>
+01:51:04.255                                  ^
+01:51:04.255 230:                             <input type="text" bind:value={editForm.phone}
+01:51:04.255 231:                                 class="w-full px-2 py-1 text-sm border border-gray-300 rounded focus:outline-none focus:border-blue-500" />
+01:51:04.255 8:21:04 PM [vite-plugin-svelte] /vercel/path0/src/routes/xp/programs/about_me.svelte:236:24 A11y: A form label must be associated with a control.
+01:51:04.255 234: 
+01:51:04.255 235:                     <div>
+01:51:04.255 236:                         <label class="block text-xs font-medium text-gray-700 mb-1">Location</label>
+01:51:04.255                              ^
+01:51:04.255 237:                         <input type="text" bind:value={editForm.location}
+01:51:04.255 238:                             class="w-full px-2 py-1 text-sm border border-gray-300 rounded focus:outline-none focus:border-blue-500" />
+01:51:04.255 8:21:04 PM [vite-plugin-svelte] /vercel/path0/src/routes/xp/programs/about_me.svelte:242:24 A11y: A form label must be associated with a control.
+01:51:04.256 240: 
+01:51:04.256 241:                     <div>
+01:51:04.256 242:                         <label class="block text-xs font-medium text-gray-700 mb-1">Skills</label>
+01:51:04.256                              ^
+01:51:04.256 243:                         <div class="space-y-2">
+01:51:04.256 244:                             {#each editForm.skills as skill, index}
+01:51:04.256 8:21:04 PM [vite-plugin-svelte] /vercel/path0/src/routes/xp/programs/about_me.svelte:261:32 A11y: A form label must be associated with a control.
+01:51:04.256 259:                         <div class="grid grid-cols-2 gap-4">
+01:51:04.256 260:                             <div>
+01:51:04.256 261:                                 <label class="block text-xs text-gray-600 mb-1">LinkedIn</label>
+01:51:04.256                                      ^
+01:51:04.256 262:                                 <input type="url" bind:value={editForm.socialLinks.linkedin}
+01:51:04.256 263:                                     class="w-full px-2 py-1 text-sm border border-gray-300 rounded focus:outline-none focus:border-blue-500" placeholder="https://linkedin.com/in/..." />
+01:51:04.256 8:21:04 PM [vite-plugin-svelte] /vercel/path0/src/routes/xp/programs/about_me.svelte:266:32 A11y: A form label must be associated with a control.
+01:51:04.256 264:                             </div>
+01:51:04.256 265:                             <div>
+01:51:04.256 266:                                 <label class="block text-xs text-gray-600 mb-1">GitHub</label>
+01:51:04.256                                      ^
+01:51:04.256 267:                                 <input type="url" bind:value={editForm.socialLinks.github}
+01:51:04.256 268:                                     class="w-full px-2 py-1 text-sm border border-gray-300 rounded focus:outline-none focus:border-blue-500" placeholder="https://github.com/..." />
+01:51:04.256 8:21:04 PM [vite-plugin-svelte] /vercel/path0/src/routes/xp/programs/about_me.svelte:271:32 A11y: A form label must be associated with a control.
+01:51:04.256 269:                             </div>
+01:51:04.256 270:                             <div>
+01:51:04.256 271:                                 <label class="block text-xs text-gray-600 mb-1">Twitter</label>
+01:51:04.256                                      ^
+01:51:04.256 272:                                 <input type="url" bind:value={editForm.socialLinks.twitter}
+01:51:04.256 273:                                     class="w-full px-2 py-1 text-sm border border-gray-300 rounded focus:outline-none focus:border-blue-500" placeholder="https://twitter.com/..." />
+01:51:04.257 8:21:04 PM [vite-plugin-svelte] /vercel/path0/src/routes/xp/programs/about_me.svelte:276:32 A11y: A form label must be associated with a control.
+01:51:04.257 274:                             </div>
+01:51:04.257 275:                             <div>
+01:51:04.257 276:                                 <label class="block text-xs text-gray-600 mb-1">Website</label>
+01:51:04.257                                      ^
+01:51:04.257 277:                                 <input type="url" bind:value={editForm.socialLinks.website}
+01:51:04.257 278:                                     class="w-full px-2 py-1 text-sm border border-gray-300 rounded focus:outline-none focus:border-blue-500" placeholder="https://yoursite.com" />
+01:51:04.257 8:21:04 PM [vite-plugin-svelte] /vercel/path0/src/routes/xp/programs/about_me.svelte:16:15 About_me has unused export property 'parentNode'. If it is for external reference only, please consider using `export const parentNode`
+01:51:04.257 14:     export let window;
+01:51:04.257 15:     export let self;
+01:51:04.257 16:     export let parentNode;
+01:51:04.257                    ^
+01:51:04.257 17:     export let exec_path;
+01:51:04.257 18: 
+01:51:04.280 8:21:04 PM [vite-plugin-svelte] /vercel/path0/src/routes/xp/programs/contact_me.svelte:174:16 A11y: A form label must be associated with a control.
+01:51:04.281 172:         <div class="form-area flex-1 flex flex-col p-2 gap-1.5 overflow-auto">
+01:51:04.281 173:             <div class="field flex items-center gap-2 bg-white border border-gray-400 px-2 py-1.5">
+01:51:04.281 174:                 <label class="text-xs font-bold text-gray-700 w-14 shrink-0">To:</label>
+01:51:04.282                      ^
+01:51:04.282 175:                 <input 
+01:51:04.282 176:                     type="text" 
+01:51:04.282 8:21:04 PM [vite-plugin-svelte] /vercel/path0/src/routes/xp/programs/contact_me.svelte:184:16 A11y: A form label must be associated with a control.
+01:51:04.282 182: 
+01:51:04.282 183:             <div class="field flex items-center gap-2 bg-white border border-gray-400 px-2 py-1.5">
+01:51:04.283 184:                 <label class="text-xs font-bold text-gray-700 w-14 shrink-0">From:</label>
+01:51:04.283                      ^
+01:51:04.283 185:                 <input 
+01:51:04.283 186:                     type="email" 
+01:51:04.283 8:21:04 PM [vite-plugin-svelte] /vercel/path0/src/routes/xp/programs/contact_me.svelte:194:16 A11y: A form label must be associated with a control.
+01:51:04.284 192: 
+01:51:04.284 193:             <div class="field flex items-center gap-2 bg-white border border-gray-400 px-2 py-1.5">
+01:51:04.284 194:                 <label class="text-xs font-bold text-gray-700 w-14 shrink-0">Subject:</label>
+01:51:04.284                      ^
+01:51:04.284 195:                 <input 
+01:51:04.284 196:                     type="text" 
+01:51:04.285 8:21:04 PM [vite-plugin-svelte] /vercel/path0/src/routes/xp/programs/contact_me.svelte:11:15 Contact_me has unused export property 'parentNode'. If it is for external reference only, please consider using `export const parentNode`
+01:51:04.285  9:     export let window;
+01:51:04.285 10:     export let self;
+01:51:04.285 11:     export let parentNode;
+01:51:04.285                    ^
+01:51:04.286 12:     export let exec_path;
+01:51:04.286 13: 
+01:51:04.295 [90m[37m[2m.svelte-kit/output/client/[22m[90m[39m[36m_app/immutable/chunks/index-b421a415.js                                      [39m [33m3686.09 KiB / gzip: 959.65 KiB[39m
+01:51:04.296 [33m
+01:51:04.296 (!) Some chunks are larger than 500 KiB after minification. Consider:
+01:51:04.296 - Using dynamic import() to code-split the application
+01:51:04.296 - Use build.rollupOptions.output.manualChunks to improve chunking: https://rollupjs.org/guide/en/#outputmanualchunks
+01:51:04.296 - Adjust chunk size limit for this warning via build.chunkSizeWarningLimit.[39m
+01:51:04.316 8:21:04 PM [vite-plugin-svelte] /vercel/path0/src/routes/xp/programs/magazine_portfolio.svelte:232:28 A11y: A form label must be associated with a control.
+01:51:04.316 230:                     <div class="space-y-4">
+01:51:04.316 231:                         <div>
+01:51:04.317 232:                             <label class="block text-sm text-gray-300 mb-1">Title *</label>
+01:51:04.317                                  ^
+01:51:04.317 233:                             <input type="text" bind:value={editingMagazine.title}
+01:51:04.317 234:                                 class="w-full px-3 py-2 bg-white/20 text-white rounded border border-white/30 focus:outline-none focus:border-purple-400" 
+01:51:04.317 8:21:04 PM [vite-plugin-svelte] /vercel/path0/src/routes/xp/programs/magazine_portfolio.svelte:239:28 A11y: A form label must be associated with a control.
+01:51:04.317 237:                         
+01:51:04.318 238:                         <div>
+01:51:04.318 239:                             <label class="block text-sm text-gray-300 mb-1">Description</label>
+01:51:04.318                                  ^
+01:51:04.318 240:                             <textarea bind:value={editingMagazine.description} rows="2"
+01:51:04.318 241:                                 class="w-full px-3 py-2 bg-white/20 text-white rounded border border-white/30 focus:outline-none focus:border-purple-400 resize-none"
+01:51:04.318 8:21:04 PM [vite-plugin-svelte] /vercel/path0/src/routes/xp/programs/magazine_portfolio.svelte:246:28 A11y: A form label must be associated with a control.
+01:51:04.318 244:                         
+01:51:04.319 245:                         <div>
+01:51:04.319 246:                             <label class="block text-sm text-gray-300 mb-1">Cover Image</label>
+01:51:04.319                                  ^
+01:51:04.319 247:                             <div class="flex items-center gap-4">
+01:51:04.319 248:                                 {#if editingMagazine.coverUrl}
+01:51:04.319 8:21:04 PM [vite-plugin-svelte] /vercel/path0/src/routes/xp/programs/magazine_portfolio.svelte:266:28 A11y: A form label must be associated with a control.
+01:51:04.319 264:                         
+01:51:04.320 265:                         <div>
+01:51:04.320 266:                             <label class="block text-sm text-gray-300 mb-1">FlipHTML5 Embed Code</label>
+01:51:04.320                                  ^
+01:51:04.320 267:                             <textarea bind:value={editingMagazine.embedUrl} rows="4"
+01:51:04.320 268:                                 class="w-full px-3 py-2 bg-white/20 text-white rounded border border-white/30 focus:outline-none focus:border-purple-400 resize-none font-mono text-xs"
+01:51:04.320 8:21:04 PM [vite-plugin-svelte] /vercel/path0/src/routes/xp/programs/magazine_portfolio.svelte:16:15 Magazine_portfolio has unused export property 'parentNode'. If it is for external reference only, please consider using `export const parentNode`
+01:51:04.320 14:     export let window;
+01:51:04.320 15:     export let self;
+01:51:04.321 16:     export let parentNode;
+01:51:04.321                    ^
+01:51:04.321 17:     export let exec_path;
+01:51:04.321 18:     export let openMagazineId = null;
+01:51:04.349 8:21:04 PM [vite-plugin-svelte] /vercel/path0/src/routes/xp/programs/my_computer/viewer.svelte:309:28 A11y: Avoid using autofocus
+01:51:04.349 307:                     {#if $selectingItems.includes(item.id) && renaming}
+01:51:04.349 308:                         <textarea
+01:51:04.349 309:                             autofocus
+01:51:04.349                                  ^
+01:51:04.350 310:                             on:keydown={e => e.key == 'Enter' && end_renaming(e, item)}
+01:51:04.350 311:                             on:blur={(e) => end_renaming(e, item)}
+01:51:04.350 8:21:04 PM [vite-plugin-svelte] /vercel/path0/src/routes/xp/programs/my_computer/viewer.svelte:280:4 Unused CSS selector ".ds-selected"
+01:51:04.350 278: 
+01:51:04.350 279: <style>
+01:51:04.350 280:     .ds-selected {
+01:51:04.351          ^
+01:51:04.351 281:         outline: 3px solid black;
+01:51:04.351 282:         outline-offset: 3px;
+01:51:04.488 8:21:04 PM [vite-plugin-svelte] /vercel/path0/src/lib/components/xp/TrayIcon.svelte:3:15 TrayIcon has unused export property 'style'. If it is for external reference only, please consider using `export const style`
+01:51:04.488 1: <script>
+01:51:04.489 2:     import {tooltip} from './tooltip';
+01:51:04.489 3:     export let style = '';
+01:51:04.489                   ^
+01:51:04.489 4:     export let tooltip_message;
+01:51:04.489 5:     export let icon;
+01:51:04.946 "getLinkPreview" is imported from external module "link-preview-js" but never used in "src/routes/api/webapp_info.js".
+01:51:04.948 "keys" is imported from external module "idb-keyval" but never used in "src/routes/xp/shutdown.svelte", "src/routes/xp/wallpaper.svelte", "src/routes/xp/programs/image_viewer.svelte", "src/routes/xp/programs/flash_player.svelte", "src/lib/fs.js", "src/routes/xp/desktop_folder.svelte", "src/lib/components/xp/Window.svelte", "src/routes/xp/programs/my_computer/viewer.svelte", "src/routes/xp/desktop.svelte", "src/lib/components/xp/Viewer2.svelte", "src/lib/components/xp/Viewer3.svelte", "src/routes/xp/programs/display_properties.svelte", "src/routes/xp/starting.svelte" and "src/routes/xp/programs/media_player_classic.svelte".
+01:51:04.948 "filter", "map", "transform", "isEqual", "find", "toLower" and "indexOf" are imported from external module "lodash" but never used in "src/lib/components/xp/ContextMenu.svelte", "src/routes/xp/work_space.svelte", "src/lib/components/95/Window.svelte", "src/routes/xp/desktop_folder.svelte", "src/lib/components/xp/Window.svelte", "src/routes/xp/programs/my_computer/viewer.svelte", "src/lib/components/xp/Dialog.svelte", "src/lib/components/xp/Viewer2.svelte", "src/lib/components/xp/Viewer3.svelte", "src/lib/components/xp/OpenModal.svelte", "src/lib/components/xp/SaveModal.svelte", "src/routes/xp/programs/display_properties.svelte", "src/routes/xp/programs/properties.svelte", "src/routes/xp/programs/disk_properties.svelte" and "src/routes/xp/programs/media_player_classic.svelte".
+01:51:04.949 "WidthType", "ConcreteNumbering" and "Numbering" are imported from external module "docx" but never used in "src/lib/docx/html2docx.js".
+01:51:04.950 [32m✓[39m 154 modules transformed.
+01:51:04.950 [31mEntry module cannot be external (axios).[39m
+01:51:04.951 [31m[vite-plugin-svelte-kit] Entry module cannot be external (axios).[39m
+01:51:04.953 [31merror during build:
+01:51:04.953 Error: Entry module cannot be external (axios).
+01:51:04.953     at error (file:///vercel/path0/node_modules/rollup/dist/es/shared/rollup.js:1858:30)
+01:51:04.953     at ModuleLoader.loadEntryModule (file:///vercel/path0/node_modules/rollup/dist/es/shared/rollup.js:22382:20)
+01:51:04.953     at async Promise.all (index 1)
+01:51:04.953     at async Promise.all (index 0)[39m
+01:51:05.010 Error: Command "npm run build" exited with 1

@@ -1,0 +1,8 @@
+import{c as m,j as n,f as r,e}from"./index-ff400fad.js";const b=m((c,a,s,u)=>{let{menu:i=[{name:"File",items:[[{name:"Open"}],[{name:"Save"},{name:"Save as"}],[{name:"Exit"}]]},{name:"Edit",items:[[{name:"Undo"},{name:"Redo"}],[{name:"Cut"},{name:"Copy"},{name:"Paste",disabled:!0},{name:"Delete"}],[{name:"Find"},{name:"Find Next"},{name:"Replace"},{name:"Goto"}]]}]}=a,{style:d=""}=a;return a.menu===void 0&&s.menu&&i!==void 0&&s.menu(i),a.style===void 0&&s.style&&d!==void 0&&s.style(d),`<div class="toolbar-menu flex flex-row items-center justify-evenly w-min font-MSSS z-10"${n("style",d,0)}>${r(i,l=>`<div class="text-[11px] text-slate-900 hover:bg-blue-600 hover:text-slate-50 relative group"><div class="px-2 py-1">${e(l.name)}</div>
+            ${l.items!=null?`<div class="${"absolute w-[150px] border-slate-500 shadow hidden "+e("inactive-class",!0)+" border border-slate-200 bg-slate-50 left-0 top-[25px]"}">${r(l.items,(o,v)=>`<div class="${"w-full border-slate-200 "+e(v==l.items.length-1?"":"border-b",!0)}">${r(o,t=>`<div class="${"py-1 w-full flex flex-row items-center "+e(t.disabled?"":"hover:bg-blue-600",!0)+" relative group-sub"}"><div class="w-[20px] ml-1 shrink-0">${t.icon?`<img${n("src",t.icon,0)} width="17px" height="17px">`:""}</div>
+                                    <div class="${"grow text-slate-900 "+e(t.font=="bold"?"font-bold":"",!0)+" "+e(t.disabled?"text-slate-400":"group-sub-hover:text-slate-50",!0)}"><p class="line-clamp-1">${e(t.name)}</p></div>
+                                    <div class="w-[10px]"></div>
+                                </div>`)}
+                        </div>`)}
+                </div>`:""}
+        </div>`)}</div>`});export{b as M};

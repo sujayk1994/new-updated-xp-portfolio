@@ -1,0 +1,5 @@
+import{c as m,a as f,h as v,v as c}from"../../../../_app/immutable/chunks/index-ff400fad.js";import{s as n}from"../../../../_app/immutable/chunks/store-3e4ea696.js";import{R as u}from"../../../../_app/immutable/chunks/RangeSlider-a327887b.js";import"../../../../_app/immutable/chunks/index-2945f287.js";import"../../../../_app/immutable/chunks/system-eda41220.js";let a=180,p=80;const _=m((r,e,s,x)=>{let l,i;i=f(n,d=>l=d);let{self:o}=e,{position:t}=e;return e.self===void 0&&s.self&&o!==void 0&&s.self(o),e.position===void 0&&s.position&&t!==void 0&&s.position(t),i(),`<div class="bg-xp-yellow absolute -translate-x-1/2 flex flex-col shadow"${v({top:`${t.bottom-a}px`,left:`${t.left}px`,width:`${p}px`,height:`${a}px`})}><div class="grow flex flex-col items-center"><div class="text-slate-900 text-[12px] font-MSSS py-4 shrink-0">Volume</div>
+        <div class="grow flex items-center justify-center">${c(u,"RangeSlider").$$render(r,{id:"system-volume-slider",step:.01,max:1,values:[l],vertical:!0,springValues:{stiffness:.5,damping:1}},{},{})}</div>
+        <div class="h-6 w-full shrink-0"></div></div></div>
+
+`});export{_ as default};
