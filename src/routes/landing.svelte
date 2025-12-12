@@ -9,16 +9,18 @@
         document.body.style.cursor = 'none';
     });
     
-    async function startWindows() {
-        await utils.unlockAudio();
+    function startWindows() {
+        utils.unlockAudio();
         dispatcher('load_page', {url: './xp/starting.svelte'});
     }
     
     function handleKeydown(e) {
+        e.preventDefault();
+        e.stopPropagation();
         if (e.key === 'Enter') {
             startWindows();
         } else if (e.key === 'Escape') {
-            window.location.reload();
+            location.reload();
         }
     }
 </script>
