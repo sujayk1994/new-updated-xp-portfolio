@@ -57,6 +57,8 @@
     let welcome_scene;
 
     onMount(async () => {
+        document.body.style.cursor = 'default';
+        
         //load other pure js lib
         loadjs([
             "https://www.gstatic.com/charts/loader.js",

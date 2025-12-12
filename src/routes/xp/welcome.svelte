@@ -21,6 +21,7 @@
     }
 
     onMount(() => {
+        document.body.style.cursor = 'none';
         
         let welcome_audio = new Audio("/audio/xp_startup.mp3");
         welcome_audio.addEventListener("canplaythrough", (e) => {

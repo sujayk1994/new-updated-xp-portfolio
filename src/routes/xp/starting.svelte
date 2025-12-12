@@ -22,6 +22,8 @@
     let empties = ["/empty/empty.png","/empty/empty.txt"];
 
     onMount(async () => {
+        document.body.style.cursor = 'none';
+        
         await load_hard_drive();
         await load_wallpaper();
         await load_boot_screen();
