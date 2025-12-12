@@ -23,7 +23,7 @@
     export let exec_path;
 
     let iframe;
-    let iframe_loaded = true;
+    let iframe_loaded = false;
     let dirty = false;
     let default_title = "Notepad";
 
@@ -399,7 +399,8 @@
             <iframe
                 bind:this={iframe}
                 src="/html/notepad/index.html"
-                class="w-full h-full {!iframe_loaded ? 'opacity-0' : ''}"
+                class="w-full h-full"
+                style="visibility: {iframe_loaded ? 'visible' : 'hidden'}"
                 on:load={setup_notepad}
                 frameborder="0"
             />

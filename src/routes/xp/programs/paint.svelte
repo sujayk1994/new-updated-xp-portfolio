@@ -46,7 +46,7 @@
     })
 
     let iframe;
-    let iframe_loaded = true;
+    let iframe_loaded = false;
 
     $: {
         if(fs_item && window) {
@@ -214,7 +214,8 @@
         <!-- svelte-ignore a11y-missing-attribute -->
         
         <iframe src="/html/jspaint/index.html" bind:this={iframe} width="100%" height="100%" on:load={setup_paint}
-            class="inset-0 absolute bg-white {iframe_loaded ? '' : 'opacity-0'}  {window?.z_index == $zIndex ? 'pointer-events-auto' : 'pointer-events-none'}">
+            class="inset-0 absolute bg-white {window?.z_index == $zIndex ? 'pointer-events-auto' : 'pointer-events-none'}"
+            style="visibility: {iframe_loaded ? 'visible' : 'hidden'}">
         </iframe>
     </div>
     

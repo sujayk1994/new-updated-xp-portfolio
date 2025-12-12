@@ -144,6 +144,10 @@
                     showCopyright: response.data.settings.showCopyright !== false,
                     backgroundColor: response.data.settings.backgroundColor || '#000000'
                 };
+                
+                if (currentBootScreen.type === 'custom' && currentBootScreen.customGif) {
+                    await preloadImage(currentBootScreen.customGif);
+                }
             } else {
                 currentBootScreen = {...default_boot_screen};
             }
@@ -154,6 +158,15 @@
         
         bootScreen.set(currentBootScreen);
         bootScreenLoaded = true;
+    }
+    
+    function preloadImage(src) {
+        return new Promise((resolve, reject) => {
+            const img = new Image();
+            img.onload = () => resolve(img);
+            img.onerror = () => resolve(null);
+            img.src = src;
+        });
     }
 
     function preload_iframes(){
