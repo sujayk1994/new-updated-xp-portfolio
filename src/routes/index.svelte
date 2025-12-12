@@ -126,7 +126,7 @@
 </script>
 
 <svelte:head>
-    <title>Microsoft Windows XP Professional</title>
+    <title>Sujay's XP-Portfolio</title>
 </svelte:head>
 
 <svelte:component this={page}  on:load_page={(e) => load_page(e.detail.url)}>
