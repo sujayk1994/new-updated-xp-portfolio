@@ -1,8 +1,19 @@
-import { initializeDatabase, getClient } from '$lib/server/db.js';
+import { initializeDatabase, query } from '$lib/server/db.js';
 import { verifyToken } from '$lib/server/auth.js';
 
 async function ensureDb() {
     await initializeDatabase();
+    
+    await query(`
+        CREATE TABLE IF NOT EXISTS magazines (
+            id TEXT PRIMARY KEY,
+            title TEXT NOT NULL,
+            description TEXT,
+            cover_url TEXT,
+            pages TEXT,
+            created_at BIGINT DEFAULT EXTRACT(EPOCH FROM NOW()) * 1000
+        )
+    `);
 }
 
 function isAuthenticated(request) {
@@ -28,20 +39,8 @@ function isAuthenticated(request) {
 export async function GET() {
     try {
         await ensureDb();
-        const client = getClient();
         
-        await client.query(`
-            CREATE TABLE IF NOT EXISTS magazines (
-                id TEXT PRIMARY KEY,
-                title TEXT NOT NULL,
-                description TEXT,
-                cover_url TEXT,
-                pages TEXT,
-                created_at BIGINT DEFAULT EXTRACT(EPOCH FROM NOW()) * 1000
-            )
-        `);
-        
-        const result = await client.query('SELECT * FROM magazines ORDER BY created_at DESC');
+        const result = await query('SELECT * FROM magazines ORDER BY created_at DESC');
         
         const magazines = result.rows.map(row => ({
             id: row.id,
@@ -75,18 +74,6 @@ export async function POST({ request }) {
         }
         
         await ensureDb();
-        const client = getClient();
-        
-        await client.query(`
-            CREATE TABLE IF NOT EXISTS magazines (
-                id TEXT PRIMARY KEY,
-                title TEXT NOT NULL,
-                description TEXT,
-                cover_url TEXT,
-                pages TEXT,
-                created_at BIGINT DEFAULT EXTRACT(EPOCH FROM NOW()) * 1000
-            )
-        `);
         
         const { magazine } = await request.json();
         
@@ -100,7 +87,7 @@ export async function POST({ request }) {
         const id = magazine.id.startsWith('new_') ? 'mag_' + Date.now() : magazine.id;
         const pagesJson = JSON.stringify(magazine.pages || []);
         
-        await client.query(`
+        await query(`
             INSERT INTO magazines (id, title, description, cover_url, pages, created_at)
             VALUES ($1, $2, $3, $4, $5, $6)
             ON CONFLICT (id) DO UPDATE SET
@@ -133,7 +120,6 @@ export async function DELETE({ request }) {
         }
         
         await ensureDb();
-        const client = getClient();
         
         const { id } = await request.json();
         
@@ -144,7 +130,7 @@ export async function DELETE({ request }) {
             });
         }
         
-        await client.query('DELETE FROM magazines WHERE id = $1', [id]);
+        await query('DELETE FROM magazines WHERE id = $1', [id]);
         
         return new Response(JSON.stringify({ success: true }), {
             headers: { 'Content-Type': 'application/json' }

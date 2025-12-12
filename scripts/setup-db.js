@@ -96,6 +96,18 @@ async function setupDatabase() {
         `);
         console.log('  - boot_screen_settings table ready (for boot screen customization)');
 
+        await pool.query(`
+            CREATE TABLE IF NOT EXISTS magazines (
+                id TEXT PRIMARY KEY,
+                title TEXT NOT NULL,
+                description TEXT,
+                cover_url TEXT,
+                pages TEXT,
+                created_at BIGINT DEFAULT EXTRACT(EPOCH FROM NOW()) * 1000
+            )
+        `);
+        console.log('  - magazines table ready (for magazine portfolio)');
+
         const adminUsername = process.env.ADMIN_USERNAME || 'admin';
         const adminPassword = process.env.ADMIN_PASSWORD;
 
