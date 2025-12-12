@@ -106,7 +106,16 @@ async function setupDatabase() {
                 created_at BIGINT DEFAULT EXTRACT(EPOCH FROM NOW()) * 1000
             )
         `);
-        console.log('  - magazines table ready (for magazine portfolio)');
+        console.log('  - magazines table ready (legacy - kept for data migration)');
+
+        await pool.query(`
+            CREATE TABLE IF NOT EXISTS site_settings (
+                key TEXT PRIMARY KEY,
+                value TEXT,
+                updated_at BIGINT DEFAULT EXTRACT(EPOCH FROM NOW()) * 1000
+            )
+        `);
+        console.log('  - site_settings table ready (for FlipHTML5 magazine embed and other settings)');
 
         const adminUsername = process.env.ADMIN_USERNAME || 'admin';
         const adminPassword = process.env.ADMIN_PASSWORD;
