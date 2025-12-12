@@ -487,7 +487,7 @@
                                             {#if subitem == null}
                                                 <div class="my-0.5 mx-auto w-5/6 h-[1px] bg-slate-200 shrink-0"></div>
                                             {:else}
-                                                <div class="flex flex-row items-center grow p-1 group-sub2 hover:bg-blue-500 relative" on:click={() => launch(subitem)}>
+                                                <div class="flex flex-row items-center grow p-1 group-sub2 hover:bg-blue-500 relative" on:click|stopPropagation={() => launch(subitem)}>
                                                     <div class="w-5 h-5 bg-contain mr-1 shrink-0"
                                                         style:background-image="url({subitem.icon})">
                                                     </div>
