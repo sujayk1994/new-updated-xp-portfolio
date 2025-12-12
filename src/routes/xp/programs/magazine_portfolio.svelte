@@ -16,8 +16,8 @@
     export let parentNode;
     export let exec_path;
 
-    let embedUrl = "";
-    let savedEmbedUrl = "";
+    let embedCode = "";
+    let savedEmbedCode = "";
     let isEditing = false;
     let loading = true;
     let saveMessage = "";
@@ -34,36 +34,55 @@
     };
 
     onMount(async () => {
-        await loadEmbedUrl();
+        await loadEmbedCode();
     });
 
-    async function loadEmbedUrl() {
+    async function loadEmbedCode() {
         loading = true;
         try {
             const response = await fetch('/api/admin/magazine-embed');
             const data = await response.json();
             if (data.success && data.embedUrl) {
-                savedEmbedUrl = data.embedUrl;
-                embedUrl = data.embedUrl;
+                savedEmbedCode = data.embedUrl;
+                embedCode = data.embedUrl;
             }
         } catch (error) {
-            console.error('Error loading embed URL:', error);
+            console.error('Error loading embed code:', error);
         }
         loading = false;
     }
 
-    async function saveEmbedUrl() {
+    function extractSrcFromEmbed(code) {
+        if (!code) return null;
+        
+        const srcMatch = code.match(/src=["']([^"']+)["']/i);
+        if (srcMatch && srcMatch[1]) {
+            return srcMatch[1];
+        }
+        
+        if (code.startsWith('http')) {
+            return code;
+        }
+        
+        return null;
+    }
+
+    function getEmbedSrc() {
+        return extractSrcFromEmbed(savedEmbedCode);
+    }
+
+    async function saveEmbedCode() {
         if (!$isAdmin) return;
         
         try {
             const response = await fetch('/api/admin/magazine-embed', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ embedUrl: embedUrl })
+                body: JSON.stringify({ embedUrl: embedCode })
             });
             const data = await response.json();
             if (data.success) {
-                savedEmbedUrl = embedUrl;
+                savedEmbedCode = embedCode;
                 isEditing = false;
                 saveMessage = "Saved successfully!";
                 setTimeout(() => saveMessage = "", 3000);
@@ -71,19 +90,19 @@
                 saveMessage = data.error || "Failed to save";
             }
         } catch (error) {
-            console.error('Error saving embed URL:', error);
+            console.error('Error saving embed code:', error);
             saveMessage = "Error saving";
         }
     }
 
     function startEdit() {
         if (!$isAdmin) return;
-        embedUrl = savedEmbedUrl;
+        embedCode = savedEmbedCode;
         isEditing = true;
     }
 
     function cancelEdit() {
-        embedUrl = savedEmbedUrl;
+        embedCode = savedEmbedCode;
         isEditing = false;
         saveMessage = "";
     }
@@ -96,6 +115,8 @@
         runningPrograms.update((programs) => programs.filter((p) => p != self));
         self.$destroy();
     }
+
+    $: embedSrc = getEmbedSrc();
 </script>
 
 <Window
@@ -109,33 +130,42 @@
                 <div class="text-white text-lg">Loading...</div>
             </div>
         {:else if isEditing}
-            <div class="flex-1 flex flex-col p-6">
+            <div class="flex-1 flex flex-col p-6 overflow-auto">
                 <div class="bg-white/10 backdrop-blur rounded-lg p-6 max-w-2xl mx-auto w-full">
                     <h2 class="text-xl font-bold text-white mb-4">Configure FlipHTML5 Embed</h2>
                     
                     <div class="space-y-4">
                         <div>
-                            <label class="block text-sm text-gray-300 mb-2">FlipHTML5 Embed URL</label>
-                            <input 
-                                type="text" 
-                                bind:value={embedUrl}
-                                class="w-full px-3 py-2 bg-white/20 text-white rounded border border-white/30 focus:outline-none focus:border-purple-400" 
-                                placeholder="https://online.fliphtml5.com/xxxxx/xxxx/"
-                            />
+                            <label for="embed-code" class="block text-sm text-gray-300 mb-2">Paste HTML Embed Code or URL</label>
+                            <textarea 
+                                id="embed-code"
+                                bind:value={embedCode}
+                                rows="6"
+                                class="w-full px-3 py-2 bg-white/20 text-white rounded border border-white/30 focus:outline-none focus:border-purple-400 font-mono text-xs resize-none" 
+                                placeholder='<iframe src="https://online.fliphtml5.com/xxxxx/xxxx/" ...></iframe>'
+                            ></textarea>
                             <p class="text-xs text-gray-400 mt-2">
-                                Paste the full URL from FlipHTML5. Example: https://online.fliphtml5.com/abcde/1234/
+                                Paste the full HTML embed code from FlipHTML5, or just the URL.
                             </p>
                         </div>
                         
                         <div class="bg-blue-900/30 border border-blue-500/30 rounded p-3 text-sm text-blue-200">
-                            <strong>How to get your embed URL:</strong>
+                            <strong>How to get the embed code:</strong>
                             <ol class="list-decimal list-inside mt-2 space-y-1 text-xs">
-                                <li>Go to <a href="https://fliphtml5.com" target="_blank" class="underline hover:text-white">fliphtml5.com</a> and create a free account</li>
-                                <li>Upload your magazine PDF</li>
-                                <li>Once published, copy the "Online Reading" URL</li>
+                                <li>Go to your FlipHTML5 dashboard</li>
+                                <li>Click "Share" on your publication</li>
+                                <li>Select "Embed" tab</li>
+                                <li>Copy the HTML embed code</li>
                                 <li>Paste it here</li>
                             </ol>
                         </div>
+
+                        {#if embedCode}
+                            <div class="bg-green-900/30 border border-green-500/30 rounded p-3">
+                                <p class="text-xs text-green-300 mb-1">Detected embed URL:</p>
+                                <code class="text-xs text-green-200 break-all">{extractSrcFromEmbed(embedCode) || 'Could not extract URL'}</code>
+                            </div>
+                        {/if}
                         
                         {#if saveMessage}
                             <p class="text-sm {saveMessage.includes('success') ? 'text-green-400' : 'text-red-400'}">
@@ -148,7 +178,7 @@
                                 class="px-4 py-2 bg-gray-600 text-white rounded hover:bg-gray-700">
                                 Cancel
                             </button>
-                            <button on:click={saveEmbedUrl}
+                            <button on:click={saveEmbedCode}
                                 class="px-4 py-2 bg-purple-600 text-white rounded hover:bg-purple-700">
                                 Save
                             </button>
@@ -156,22 +186,23 @@
                     </div>
                 </div>
             </div>
-        {:else if savedEmbedUrl}
+        {:else if savedEmbedCode && embedSrc}
             <div class="flex-1 flex flex-col">
                 {#if $isAdmin}
                     <div class="flex justify-end p-2 bg-black/20">
                         <button on:click={startEdit}
                             class="px-3 py-1 text-sm bg-purple-600/80 text-white rounded hover:bg-purple-700">
-                            Edit Embed URL
+                            Edit Embed
                         </button>
                     </div>
                 {/if}
                 <div class="flex-1 relative">
                     <iframe 
-                        src={savedEmbedUrl}
+                        src={embedSrc}
                         class="absolute inset-0 w-full h-full border-0"
                         title="Magazine Portfolio"
                         allowfullscreen
+                        allow="fullscreen"
                     ></iframe>
                 </div>
             </div>
