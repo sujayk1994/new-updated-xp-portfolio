@@ -11,9 +11,15 @@ async function ensureDb() {
             description TEXT,
             cover_url TEXT,
             pages TEXT,
+            embed_url TEXT,
             created_at BIGINT DEFAULT EXTRACT(EPOCH FROM NOW()) * 1000
         )
     `);
+    
+    try {
+        await query(`ALTER TABLE magazines ADD COLUMN IF NOT EXISTS embed_url TEXT`);
+    } catch (e) {
+    }
 }
 
 function isAuthenticated(request) {
@@ -47,6 +53,7 @@ export async function GET() {
             title: row.title,
             description: row.description,
             coverUrl: row.cover_url,
+            embedUrl: row.embed_url || '',
             pages: row.pages ? JSON.parse(row.pages) : [],
             createdAt: parseInt(row.created_at)
         }));
@@ -88,14 +95,15 @@ export async function POST({ request }) {
         const pagesJson = JSON.stringify(magazine.pages || []);
         
         await query(`
-            INSERT INTO magazines (id, title, description, cover_url, pages, created_at)
-            VALUES ($1, $2, $3, $4, $5, $6)
+            INSERT INTO magazines (id, title, description, cover_url, pages, embed_url, created_at)
+            VALUES ($1, $2, $3, $4, $5, $6, $7)
             ON CONFLICT (id) DO UPDATE SET
                 title = EXCLUDED.title,
                 description = EXCLUDED.description,
                 cover_url = EXCLUDED.cover_url,
-                pages = EXCLUDED.pages
-        `, [id, magazine.title, magazine.description || '', magazine.coverUrl || '', pagesJson, magazine.createdAt || Date.now()]);
+                pages = EXCLUDED.pages,
+                embed_url = EXCLUDED.embed_url
+        `, [id, magazine.title, magazine.description || '', magazine.coverUrl || '', pagesJson, magazine.embedUrl || '', magazine.createdAt || Date.now()]);
         
         return new Response(JSON.stringify({ success: true, id }), {
             headers: { 'Content-Type': 'application/json' }

@@ -103,10 +103,16 @@ async function setupDatabase() {
                 description TEXT,
                 cover_url TEXT,
                 pages TEXT,
+                embed_url TEXT,
                 created_at BIGINT DEFAULT EXTRACT(EPOCH FROM NOW()) * 1000
             )
         `);
-        console.log('  - magazines table ready (legacy - kept for data migration)');
+        
+        try {
+            await pool.query(`ALTER TABLE magazines ADD COLUMN IF NOT EXISTS embed_url TEXT`);
+        } catch (e) {
+        }
+        console.log('  - magazines table ready (with FlipHTML5 embed support)');
 
         await pool.query(`
             CREATE TABLE IF NOT EXISTS site_settings (
