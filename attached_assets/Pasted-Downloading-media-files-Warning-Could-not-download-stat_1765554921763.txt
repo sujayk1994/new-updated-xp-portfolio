@@ -1,0 +1,70 @@
+Downloading media files...
+  Warning: Could not download static/empty/empty.png
+  Warning: Could not download static/html/jspaint/cypress/snapshots/tool-tests.spec.js/tool tests -- brush tool.snap.png
+  Warning: Could not download static/html/jspaint/cypress/snapshots/tool-tests.spec.js/tool tests -- ellipse tool.snap.png
+  Warning: Could not download static/html/jspaint/cypress/snapshots/tool-tests.spec.js/tool tests -- eraser tool.snap.png
+  Warning: Could not download static/html/jspaint/cypress/snapshots/tool-tests.spec.js/tool tests -- line tool.snap.png
+  Warning: Could not download static/html/jspaint/cypress/snapshots/tool-tests.spec.js/tool tests -- pencil tool.snap.png
+  Warning: Could not download static/html/jspaint/cypress/snapshots/tool-tests.spec.js/tool tests -- rectangle tool.snap.png
+  Warning: Could not download static/html/jspaint/cypress/snapshots/tool-tests.spec.js/tool tests -- rounded rectangle tool.snap.png
+  Warning: Could not download static/html/jspaint/cypress/snapshots/visual-tests.spec.js/visual tests -- about window.snap.png
+  Warning: Could not download static/html/jspaint/cypress/snapshots/visual-tests.spec.js/visual tests -- airbrush selected.snap.png
+  Warning: Could not download static/html/jspaint/cypress/snapshots/visual-tests.spec.js/visual tests -- brush selected.snap.png
+  Warning: Could not download static/html/jspaint/cypress/snapshots/visual-tests.spec.js/visual tests -- classic theme edit colors dialog.snap.png
+  Warning: Could not download static/html/jspaint/cypress/snapshots/visual-tests.spec.js/visual tests -- classic theme vertical color box.snap.png
+  Warning: Could not download static/html/jspaint/cypress/snapshots/visual-tests.spec.js/visual tests -- eraser selected.snap.png
+  Warning: Could not download static/html/jspaint/cypress/snapshots/visual-tests.spec.js/visual tests -- eye gaze mode.snap.png
+  Warning: Could not download static/html/jspaint/cypress/snapshots/visual-tests.spec.js/visual tests -- flip and rotate window.snap.png
+  Warning: Could not download static/html/jspaint/cypress/snapshots/visual-tests.spec.js/visual tests -- help window.snap.png
+  Warning: Could not download static/html/jspaint/cypress/snapshots/visual-tests.spec.js/visual tests -- image attributes window.snap.png
+  Warning: Could not download static/html/jspaint/cypress/snapshots/visual-tests.spec.js/visual tests -- line selected.snap.png
+  Warning: Could not download static/html/jspaint/cypress/snapshots/visual-tests.spec.js/visual tests -- magnifier selected.snap.png
+  Progress: 20/65 files...
+  Warning: Could not download static/html/jspaint/cypress/snapshots/visual-tests.spec.js/visual tests -- main screenshot.snap.png
+  Warning: Could not download static/html/jspaint/cypress/snapshots/visual-tests.spec.js/visual tests -- modern theme edit colors dialog (expanded).snap.png
+  Warning: Could not download static/html/jspaint/cypress/snapshots/visual-tests.spec.js/visual tests -- modern theme eye gaze mode.snap.png
+  Warning: Could not download static/html/jspaint/cypress/snapshots/visual-tests.spec.js/visual tests -- modern theme vertical color box.snap.png
+  Warning: Could not download static/html/jspaint/cypress/snapshots/visual-tests.spec.js/visual tests -- modern theme.snap.png
+  Warning: Could not download static/html/jspaint/cypress/snapshots/visual-tests.spec.js/visual tests -- rectangle selected.snap.png
+  Warning: Could not download static/html/jspaint/cypress/snapshots/visual-tests.spec.js/visual tests -- select selected.snap.png
+  Warning: Could not download static/html/jspaint/cypress/snapshots/visual-tests.spec.js/visual tests -- stretch and skew window.snap.png
+  Warning: Could not download static/html/jspaint/cypress/snapshots/visual-tests.spec.js/visual tests -- winter theme edit colors dialog (expanded).snap.png
+  Warning: Could not download static/html/jspaint/cypress/snapshots/visual-tests.spec.js/visual tests -- winter theme vertical color box.snap.png
+  Warning: Could not download static/html/jspaint/cypress/snapshots/visual-tests.spec.js/visual tests -- winter theme.snap.png
+  Warning: Could not download static/html/jspaint/help/p_blank.png
+  Warning: Could not download static/html/jspaint/help/p_color.png
+  Warning: Could not download static/html/jspaint/help/p_cut.png
+  Warning: Could not download static/html/jspaint/help/p_database.png
+  Warning: Could not download static/html/jspaint/help/p_delete.png
+  Warning: Could not download static/html/jspaint/help/p_fliph.png
+  Warning: Could not download static/html/jspaint/help/p_flipv.png
+  Warning: Could not download static/html/jspaint/help/p_invert.png
+  Warning: Could not download static/html/jspaint/help/p_make_opaque.png
+  Progress: 40/65 files...
+  Warning: Could not download static/html/jspaint/help/p_monochrome.png
+  Warning: Could not download static/html/jspaint/help/p_open.png
+  Warning: Could not download static/html/jspaint/help/p_paste.png
+  Warning: Could not download static/html/jspaint/help/p_rotate_ccw.png
+  Warning: Could not download static/html/jspaint/help/p_rotate_ccw_thin.png
+  Warning: Could not download static/html/jspaint/help/p_rotate_cw.png
+  Warning: Could not download static/html/jspaint/help/p_rotate_cw_thin.png
+  Warning: Could not download static/html/jspaint/help/p_save.png
+  Warning: Could not download static/html/jspaint/help/p_skew_h.png
+  Warning: Could not download static/html/jspaint/help/p_skew_v.png
+  Warning: Could not download static/html/jspaint/help/p_stretch_both.png
+  Warning: Could not download static/html/jspaint/help/p_stretch_h.png
+  Warning: Could not download static/html/jspaint/help/p_stretch_v.png
+  Warning: Could not download static/html/jspaint/help/p_zoom.gif
+  Warning: Could not download static/html/jspaint/images/cursors/ew-resize.png
+  Warning: Could not download static/html/jspaint/images/cursors/nesw-resize.png
+  Warning: Could not download static/html/jspaint/images/cursors/ns-resize.png
+  Warning: Could not download static/html/jspaint/images/cursors/nwse-resize.png
+  Warning: Could not download static/html/jspaint/images/cursors/pencil.png
+  Warning: Could not download static/html/jspaint/images/cursors/precise-dotted.png
+  Progress: 60/65 files...
+  Warning: Could not download static/html/jspaint/images/cursors/precise.png
+  Warning: Could not download static/html/jspaint/images/cursors/precise2.png
+  Warning: Could not download static/html/jspaint/images/transforms/stretch-x.png
+  Warning: Could not download static/html/jspaint/images/transforms/stretch-y.png
+  Warning: Could not download static/html/photon/app/img/TOAST UI Component.png
+  Downloaded with 65 warnings (some files may be missing).
