@@ -10,14 +10,18 @@
         'https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.13.2/jquery-ui.min.js',
         'https://code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css'
     ], {async: false});
-    await load_page('./xp/starting.svelte');
+    await load_page('./landing.svelte');
     adjust_zoom();
    })
 
 
    async function load_page(url){
     //manually import modules cause Vite hasn't supported dynamically import with variables yet
-    if(url == './boot_manager.svelte'){
+    if(url == './landing.svelte'){
+        page = (await import('./landing.svelte')).default;
+
+    }
+    else if(url == './boot_manager.svelte'){
         page = (await import('./boot_manager.svelte')).default;
 
     }
