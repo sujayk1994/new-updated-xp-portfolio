@@ -11,9 +11,6 @@ export const COLORTERM = "truecolor";
 /** @type {import('$env/static/private').npm_config_cache} */
 export const npm_config_cache = "/home/runner/.npm";
 
-/** @type {import('$env/static/private').HISTCONTROL} */
-export const HISTCONTROL = "ignoredups";
-
 /** @type {import('$env/static/private').REPL_OWNER} */
 export const REPL_OWNER = "sujay143dollar";
 
@@ -28,9 +25,6 @@ export const NIXPKGS_ALLOW_UNFREE = "1";
 
 /** @type {import('$env/static/private').PKG_CONFIG_PATH} */
 export const PKG_CONFIG_PATH = "";
-
-/** @type {import('$env/static/private').HISTSIZE} */
-export const HISTSIZE = "10000";
 
 /** @type {import('$env/static/private').HOSTNAME} */
 export const HOSTNAME = "3282bc586da3";
@@ -80,17 +74,11 @@ export const npm_config_local_prefix = "/home/runner/workspace";
 /** @type {import('$env/static/private').REPLIT_CLI} */
 export const REPLIT_CLI = "/nix/store/259hhgvb79fbqzmj6k5ih2vi7jxdis25-replit-cli-0.0.1/bin/replit";
 
-/** @type {import('$env/static/private').GIT_CONFIG_GLOBAL} */
-export const GIT_CONFIG_GLOBAL = "/run/replit/user/51321789/.config/git/config";
-
 /** @type {import('$env/static/private').npm_config_globalconfig} */
 export const npm_config_globalconfig = "/home/runner/workspace/.config/npm/node_global/etc/npmrc";
 
 /** @type {import('$env/static/private').EDITOR} */
 export const EDITOR = "vi";
-
-/** @type {import('$env/static/private').REPLIT_USER} */
-export const REPLIT_USER = "sujay143dollar";
 
 /** @type {import('$env/static/private').REPLIT_SUBCLUSTER} */
 export const REPLIT_SUBCLUSTER = "interactive";
@@ -103,9 +91,6 @@ export const NIX_PROFILES = "/nix/var/nix/profiles/default /home/runner/.nix-pro
 
 /** @type {import('$env/static/private').REPLIT_DB_URL} */
 export const REPLIT_DB_URL = "https://kv.replit.com/v0/eyJhbGciOiJIUzUxMiIsImlzcyI6ImNvbm1hbiIsImtpZCI6InByb2Q6MSIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJjb25tYW4iLCJleHAiOjE3NjU3NzA4ODgsImlhdCI6MTc2NTY1OTI4OCwiZGF0YWJhc2VfaWQiOiJjNzYyZGQ3MC0xZTJkLTRkNTktYjljOC05MzlhYWJkYTMzOTgifQ.Fo4zVMXNxyUzUXnwN0MTBGkeS5_hdRA90hAAcFZG4t-l3557pXjuzJUranvLVUKOA8nKdfdWvobKjQv8L9bjQA";
-
-/** @type {import('$env/static/private').REPLIT_SESSION} */
-export const REPLIT_SESSION = "sujay143dollar-XGtJ";
 
 /** @type {import('$env/static/private').NIX_PATH} */
 export const NIX_PATH = "nixpkgs=/home/runner/.nix-defexpr/channels/nixpkgs-stable-25_05:/home/runner/.nix-defexpr/channels";
@@ -134,9 +119,6 @@ export const CONNECTORS_HOSTNAME = "connectors.replit.com";
 /** @type {import('$env/static/private').REPL_IDENTITY} */
 export const REPL_IDENTITY = "v2.public.Q2lSak56WXlaR1EzTUMweFpUSmtMVFJrTlRrdFlqbGpPQzA1TXpsaFlXSmtZVE16T1RnU0RuTjFhbUY1TVRRelpHOXNiR0Z5R2hodVpYY3RkWEJrWVhSbFpDMTRjQzF3YjNKMFptOXNhVzhpSkdNM05qSmtaRGN3TFRGbE1tUXROR1ExT1MxaU9XTTRMVGt6T1dGaFltUmhNek01T0RpOXQ3d1lXaFFLQlhOd2IyTnJFZ3RwYm5SbGNtRmpkR2wyWlE9PXBvWBfor_MhPERckFto2r2i1mGJTlKLsQBvpqcT3ouJxhnaJLHO-pL-QJGJdMrOOL4p132Lbn3hQkpxqzEP8gg.R0FFaUJtTnZibTFoYmhLV0NIWXlMbkIxWW14cFl5NVJNbVI2VTFkc2FGZEVUalZWVm14U1kzcGthVlZGT1c5VFZYaEVVMjF3TW1GVk1YWlNNRlpPVFdwV05tVnRPV2hSVjJodVVtdGtjRmRWZEV0U01EQjZWRzF3UzJFeGNFVlpNMlJOVmtWYWMxUlhNVkprUlRWSVZWUkdVRlY2Um5CVU1XUk9Ua1Y0VldFemNGQldNRnB2VjFjeFUyRkZNVFpVVkZaUVVXMDVVbEpYWXpGbGJWSllZMGRvYkZaRlZYZFVWRXBUWkcxS1NHVkhhR3BoUnpsSFZEQjNlVTB6V2tOYU1rWkRaVlZzUjFsNlRrTmtiR3Q1WXpKR1JWVXlPVTFaVm1NeFRVWndXVk50YUZwTk1VcDNXa2N4Vm1GVk5WaGpNMnhOWW10SmVGZFhNVFJqUm13MVRsUkdhV0p0ZUhOVk1GWnZVa1pTV0U1V1NtbFZla1kyVkZjMVQxVXlTbGhTYTA1WFZrZFNZVlJzVWtOU1YwWnlZa1YwYWxKdGFEUlplazVMVmpKV1dFNUVSbGROTVVreVYwUkdjMU4xTTJaM01sQldaR3RPVDJWM1JGSkNUVGxwZGxaUlVubElSM2RIVFdKNGJrY3RZa0ZwVUd3d1kzVm9Vbk5IYVRkYVNHTndaa2RPTjNsWVNXNVBaVWxLWVRjdE9WUTJkR2d0YVd0U01VUnNUbFZRWDBoM1p5NVNNRVpHWVZWS2RGUnVXbWxpVkVadldXMW9UVmxyUm5WWFdHeE5ZbXRKZUZkWE1UUmpSbXcxVGxaS1RtSldTVEpXVkVaclRVZFdkRk5zV2xSaWJrSlhWbTB4TkZVeFVuSlZiVVpPVm01Q1YxVXlkRTlXUmxwWllVVldWbVZyU25KVmFrRXhVMVpHY2xOc1drNVNiSEJUVm0xd1QxbFhVbGRpTTJoVFlsZG9VMVpxU205a1ZsWllaRWQwYVdKRk5WaFphMVpQVm0xS1ZXSkZWbFpoYTBwSVdrZDRjMVpzU25WU2JFcFhWbGhDU2xZeWNFTmpNV1J6VW14b2FGTkdjRk5VVldSVFVURmFSMXBGWkZKaVZWcEpWMnRWZUZVd01YUlZhM1JYVFZaYVZGVlVTa3BrTVZKeVlVWktWMkV4Y0haV1ZscHJZakpLYzFSdVNtbFRSVnBZV1cxMGQxUXhiRmRWYkdST1RWaENTRmRyVmpCaGF6RnlWMnhzVjFKdGFGaFdSRVpoWkVkV1NXTkdaRmRpVmtwSlZrWlNTMVF5VFhsVGFscFdZWHBzV0ZSWGVFdGlNVmw1VFZSU1ZFMXJXa2RVVmxaclZrZEtSbGRzV2xwV2VrVXdWMVphYzA1c1JsVlNiWEJwVWxoQ05sWkVSbGRaVjBWNVUyeHNWbFpGV2xkWmExcGhZMnh3U0dWRldteFNia0pHVmpJeGQyRkhSWGhqUnpsWFlXdGFWRlY2Ums1bFJscHpVMnhHVjFKRlNqTldNblJoVjIxT2RHTkZNVkJYUlRSNldrVldXazVXY0VWU1dGSnBZbFJXVVZRd1pHRlZiVXBZWVVSS1ZGSldjSGhXYTFaeVpFZFNSV0ZGY0dsaVZuQlJWMFJKZUZaVk1YUlplbEpxVjBoQ1JsVnJaRlpPUmxwRllrWlNhRTFXU2paWGJYaHZZbGRXY21KNlFsaFdWVEUyVjIxemQyVnNaRlpPV0VwVVZrZFNXVmRYYTNkT1ZrcHlWVzA1VDJGVVJreFVha2sxVWtWNGMxTllaRk5oTVhCdlZteFdkMDFHV2toT1YwWm9WakJ3VmxWdE1EVlhiVXBZVldwS1ZtRnJjRkJWTVZwUFpGWmtkRkpzVGxObGJXY3c";
 
-/** @type {import('$env/static/private').HISTFILE} */
-export const HISTFILE = "/run/replit/user/51321789/.bash_history";
-
 /** @type {import('$env/static/private').LS_COLORS} */
 export const LS_COLORS = "rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=00:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.7z=01;31:*.ace=01;31:*.alz=01;31:*.apk=01;31:*.arc=01;31:*.arj=01;31:*.bz=01;31:*.bz2=01;31:*.cab=01;31:*.cpio=01;31:*.crate=01;31:*.deb=01;31:*.drpm=01;31:*.dwm=01;31:*.dz=01;31:*.ear=01;31:*.egg=01;31:*.esd=01;31:*.gz=01;31:*.jar=01;31:*.lha=01;31:*.lrz=01;31:*.lz=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.lzo=01;31:*.pyz=01;31:*.rar=01;31:*.rpm=01;31:*.rz=01;31:*.sar=01;31:*.swm=01;31:*.t7z=01;31:*.tar=01;31:*.taz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tgz=01;31:*.tlz=01;31:*.txz=01;31:*.tz=01;31:*.tzo=01;31:*.tzst=01;31:*.udeb=01;31:*.war=01;31:*.whl=01;31:*.wim=01;31:*.xz=01;31:*.z=01;31:*.zip=01;31:*.zoo=01;31:*.zst=01;31:*.avif=01;35:*.jpg=01;35:*.jpeg=01;35:*.jxl=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:*~=00;90:*#=00;90:*.bak=00;90:*.crdownload=00;90:*.dpkg-dist=00;90:*.dpkg-new=00;90:*.dpkg-old=00;90:*.dpkg-tmp=00;90:*.old=00;90:*.orig=00;90:*.part=00;90:*.rej=00;90:*.rpmnew=00;90:*.rpmorig=00;90:*.rpmsave=00;90:*.swp=00;90:*.tmp=00;90:*.ucf-dist=00;90:*.ucf-new=00;90:*.ucf-old=00;90:";
 
@@ -151,9 +133,6 @@ export const GIT_ASKPASS = "replit-git-askpass";
 
 /** @type {import('$env/static/private').PGUSER} */
 export const PGUSER = "postgres";
-
-/** @type {import('$env/static/private').REPLIT_USER_RUN} */
-export const REPLIT_USER_RUN = "/run/replit/user/51321789";
 
 /** @type {import('$env/static/private').REPL_IMAGE} */
 export const REPL_IMAGE = "gcr.io/marine-cycle-160323/nix:bf8590a3e2f0a8b70b7ca175eeed9074dffbfca9";
@@ -219,7 +198,7 @@ export const DISPLAY = ":0";
 export const npm_lifecycle_event = "dev";
 
 /** @type {import('$env/static/private').SHLVL} */
-export const SHLVL = "2";
+export const SHLVL = "0";
 
 /** @type {import('$env/static/private').REPLIT_NIX_CHANNEL} */
 export const REPLIT_NIX_CHANNEL = "stable-25_05";
@@ -233,14 +212,14 @@ export const NIX_CFLAGS_COMPILE = "";
 /** @type {import('$env/static/private').PGDATABASE} */
 export const PGDATABASE = "heliumdb";
 
-/** @type {import('$env/static/private').REPLIT_USERID} */
-export const REPLIT_USERID = "51321789";
-
 /** @type {import('$env/static/private').PROMPT_DIRTRIM} */
 export const PROMPT_DIRTRIM = "2";
 
 /** @type {import('$env/static/private').LIBGL_DRIVERS_PATH} */
 export const LIBGL_DRIVERS_PATH = "/nix/store/l4myp7qn0q9bqgmkqq4vnnii22ql1r68-mesa-25.0.7/lib/dri";
+
+/** @type {import('$env/static/private').REPLIT_MODE} */
+export const REPLIT_MODE = "workflow";
 
 /** @type {import('$env/static/private').LOCALE_ARCHIVE} */
 export const LOCALE_ARCHIVE = "/usr/lib/locale/locale-archive";
@@ -256,9 +235,6 @@ export const REPLIT_CONNECTORS_HOSTNAME = "connectors.replit.com";
 
 /** @type {import('$env/static/private').npm_execpath} */
 export const npm_execpath = "/nix/store/lz7iav1hd92jbv44zf2rdd7b2mj23536-nodejs-20.19.3/lib/node_modules/npm/bin/npm-cli.js";
-
-/** @type {import('$env/static/private').REPLIT_RUN_PATH} */
-export const REPLIT_RUN_PATH = "/run/replit";
 
 /** @type {import('$env/static/private').REPLIT_PID2} */
 export const REPLIT_PID2 = "true";
@@ -295,9 +271,6 @@ export const npm_config_node_gyp = "/nix/store/lz7iav1hd92jbv44zf2rdd7b2mj23536-
 
 /** @type {import('$env/static/private').DOCKER_CONFIG} */
 export const DOCKER_CONFIG = "/home/runner/workspace/.config/docker";
-
-/** @type {import('$env/static/private').HISTFILESIZE} */
-export const HISTFILESIZE = "100000";
 
 /** @type {import('$env/static/private').CFLAGS} */
 export const CFLAGS = "";

@@ -31,9 +31,15 @@
         }
     }
 
+    import { onDestroy } from 'svelte';
+    
     onMount(() => {
         checkMobile();
         window.addEventListener('resize', checkMobile);
+    });
+    
+    onDestroy(() => {
+        window.removeEventListener('resize', checkMobile);
     });
 
     $: icon = $hardDrive[recycle_bin_id]?.children.length > 0 || $hardDrive[recycle_bin_id]?.children.length > 0 ? 

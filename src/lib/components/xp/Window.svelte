@@ -1,5 +1,5 @@
 <script>
-    import {onMount} from 'svelte';
+    import {onMount, onDestroy} from 'svelte';
     import TitleBar from './TitleBar.svelte';
     import * as utils from '../../utils';
     const {click_outside} = utils;
@@ -18,8 +18,13 @@
     let translateY = '';
     let animation_enabled = false;
 
-    // Mobile detection
-    let isMobile = false;
+    // Mobile detection - check only on mount for initial render, then listen for resize
+    let isMobile = typeof window !== 'undefined' && (
+        window.innerWidth <= 768 || 
+        ('ontouchstart' in window) || 
+        (navigator.maxTouchPoints > 0)
+    );
+    
     function checkMobile() {
         isMobile = window.innerWidth <= 768 || 
             ('ontouchstart' in window) || 
@@ -34,6 +39,7 @@
     onMount(async () => {
         checkMobile();
         window.addEventListener('resize', checkMobile);
+        
         if(options.exec_path != null){
             let rect = await get(options.exec_path);
             if(rect){
@@ -78,6 +84,10 @@
             animation_enabled = true;
         }, 500)
         
+    })
+
+    onDestroy(() => {
+        window.removeEventListener('resize', checkMobile);
     })
 
     
@@ -137,8 +147,9 @@
     }
 
     function calc_nudges({top, left, width, height}){
+        if (!$runningPrograms || !options) return {top: 0, left: 0};
         let existing_window = $runningPrograms.findLast(el => {
-            return el.options.id != options.id
+            return el && el.options && el.options.id != options.id
                 && el.options.exec_path == options.exec_path;
         });
         if(existing_window == null) return {top: 0, left: 0}

@@ -95,6 +95,8 @@
         })
     });
 
+    import { onDestroy } from 'svelte';
+    
     onMount(async () => {
         checkMobile();
         window.addEventListener('resize', checkMobile);
@@ -105,6 +107,10 @@
         })
         observer.observe(node_ref, {attributes: false, childList: true, characterData: false, subtree:true});
         
+    })
+    
+    onDestroy(() => {
+        window.removeEventListener('resize', checkMobile);
     })
     
 
