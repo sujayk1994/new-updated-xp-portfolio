@@ -15,7 +15,7 @@
     let img_node;
     let panzoom_instance;
 
-    let supported_exts = ['.bmp', '.jpg', '.jpeg', '.png', '.webp'];
+    let supported_exts = ['.bmp', '.jpg', '.jpeg', '.png', '.webp', '.gif'];
 
     $: {
         if(fs_item && window) {
@@ -102,7 +102,10 @@
         console.log($hardDrive[curr_item.parent])
         let siblings = $hardDrive[curr_item.parent]
             .children
-            .filter(id => supported_exts.includes($hardDrive[id].ext));
+            .filter(id => {
+                const item = $hardDrive[id];
+                return item && item.ext && supported_exts.includes(item.ext.toLowerCase());
+            });
         let curr_index = siblings.indexOf(curr_item.id);
 
         if(curr_index == siblings.length - 1){
@@ -115,7 +118,10 @@
     function previous_image(curr_item){
         let siblings = $hardDrive[curr_item.parent]
             .children
-            .filter(id => supported_exts.includes($hardDrive[id].ext));
+            .filter(id => {
+                const item = $hardDrive[id];
+                return item && item.ext && supported_exts.includes(item.ext.toLowerCase());
+            });
         let curr_index = siblings.indexOf(curr_item.id);
 
         if(curr_index == 0){
