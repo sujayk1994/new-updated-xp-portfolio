@@ -1,0 +1,35 @@
+# Render.com Blueprint
+# Deploy to Render: https://render.com/docs/blueprint-spec
+
+services:
+  - type: web
+    name: winxp-portfolio
+    env: node
+    region: oregon
+    plan: free
+    buildCommand: npm install && npm run build
+    startCommand: node build/index.js
+    healthCheckPath: /
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: JWT_SECRET
+        generateValue: true
+      - key: DATABASE_URL
+        fromDatabase:
+          name: winxp-db
+          property: connectionString
+      - key: ADMIN_USERNAME
+        value: admin
+      - key: ADMIN_PASSWORD
+        sync: false
+      - key: RESEND_API_KEY
+        sync: false
+      - key: RESEND_FROM_EMAIL
+        sync: false
+
+databases:
+  - name: winxp-db
+    databaseName: winxp_portfolio
+    plan: free
+    region: oregon

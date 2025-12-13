@@ -3,7 +3,18 @@ import { Resend } from 'resend';
 let connectionSettings = null;
 
 async function getCredentials() {
+    if (process.env.RESEND_API_KEY) {
+        return {
+            apiKey: process.env.RESEND_API_KEY,
+            fromEmail: process.env.RESEND_FROM_EMAIL || 'noreply@example.com'
+        };
+    }
+
     const hostname = process.env.REPLIT_CONNECTORS_HOSTNAME;
+    if (!hostname) {
+        throw new Error('Resend not configured. Set RESEND_API_KEY and RESEND_FROM_EMAIL environment variables.');
+    }
+
     const xReplitToken = process.env.REPL_IDENTITY 
         ? 'repl ' + process.env.REPL_IDENTITY 
         : process.env.WEB_REPL_RENEWAL 
@@ -77,4 +88,8 @@ export async function sendContactNotification({ toEmail, fromEmail, subject, bod
         console.error('Error sending email via Resend:', error);
         return { success: false, error: error.message };
     }
+}
+
+export function isResendConfigured() {
+    return !!(process.env.RESEND_API_KEY || process.env.REPLIT_CONNECTORS_HOSTNAME);
 }

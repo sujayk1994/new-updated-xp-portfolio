@@ -123,6 +123,34 @@ async function setupDatabase() {
         `);
         console.log('  - site_settings table ready (for FlipHTML5 magazine embed and other settings)');
 
+        await pool.query(`
+            CREATE TABLE IF NOT EXISTS contact_messages (
+                id SERIAL PRIMARY KEY,
+                to_email VARCHAR(255) NOT NULL,
+                from_email VARCHAR(255) NOT NULL,
+                subject VARCHAR(500) NOT NULL,
+                body TEXT NOT NULL,
+                created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+                read BOOLEAN DEFAULT FALSE,
+                email_sent BOOLEAN DEFAULT FALSE
+            )
+        `);
+        console.log('  - contact_messages table ready (for contact form)');
+
+        await pool.query(`
+            CREATE TABLE IF NOT EXISTS email_settings (
+                id SERIAL PRIMARY KEY,
+                provider VARCHAR(50) DEFAULT 'resend',
+                api_key TEXT,
+                from_email VARCHAR(255),
+                to_email VARCHAR(255),
+                enabled BOOLEAN DEFAULT FALSE,
+                created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+                updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+            )
+        `);
+        console.log('  - email_settings table ready (for email configuration)');
+
         const adminUsername = process.env.ADMIN_USERNAME || 'admin';
         const adminPassword = process.env.ADMIN_PASSWORD;
 
@@ -149,6 +177,14 @@ async function setupDatabase() {
 
         console.log('');
         console.log('Database setup complete!');
+        console.log('');
+        console.log('Email Configuration:');
+        console.log('  To enable contact form emails, set these environment variables:');
+        console.log('  - RESEND_API_KEY: Your Resend.com API key');
+        console.log('  - RESEND_FROM_EMAIL: Your verified sender email (requires custom domain)');
+        console.log('');
+        console.log('  Note: Resend requires a custom domain to send emails to others.');
+        console.log('  Free email addresses (Gmail, etc.) can only send to your own email.');
     } catch (error) {
         console.error('Database setup failed:', error.message);
         process.exit(1);

@@ -244,6 +244,26 @@ fly secrets set ADMIN_PASSWORD="your-password"
 | `PORT` | Server port | `5000` |
 | `NODE_ENV` | Environment mode | `development` |
 
+### Email Configuration (Contact Form)
+
+| Variable | Description | Required |
+|----------|-------------|----------|
+| `RESEND_API_KEY` | Resend.com API key | For email notifications |
+| `RESEND_FROM_EMAIL` | Verified sender email | For email notifications |
+
+**Important**: Resend requires a **custom domain** to send emails to others. Free email addresses (Gmail, etc.) can only send to your own verified email.
+
+#### Setting up Resend:
+
+1. Go to [resend.com](https://resend.com) and create an account
+2. Add and verify your custom domain (e.g., `yourdomain.com`)
+3. Create an API key
+4. Set environment variables:
+   ```bash
+   RESEND_API_KEY=re_xxxxxxxxxxxxx
+   RESEND_FROM_EMAIL=contact@yourdomain.com
+   ```
+
 ## Database Setup
 
 ### Automatic Setup

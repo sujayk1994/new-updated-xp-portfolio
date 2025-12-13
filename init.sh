@@ -8,7 +8,45 @@ echo ""
 RED='\033[0;31m'
 GREEN='\033[0;32m'
 YELLOW='\033[1;33m'
+BLUE='\033[0;34m'
 NC='\033[0m'
+
+check_env_vars() {
+    echo -e "${BLUE}Checking environment variables...${NC}"
+    
+    missing_vars=""
+    
+    if [ -z "$DATABASE_URL" ]; then
+        missing_vars="$missing_vars DATABASE_URL"
+    fi
+    
+    if [ -z "$JWT_SECRET" ]; then
+        echo -e "${YELLOW}  Warning: JWT_SECRET not set. Sessions will reset on restart.${NC}"
+        echo -e "${YELLOW}  Generate one with: openssl rand -hex 32${NC}"
+    else
+        echo -e "${GREEN}  JWT_SECRET is set.${NC}"
+    fi
+    
+    if [ -z "$RESEND_API_KEY" ]; then
+        echo -e "${YELLOW}  Note: RESEND_API_KEY not set. Contact form emails disabled.${NC}"
+        echo -e "${YELLOW}  Get your API key from https://resend.com${NC}"
+    else
+        echo -e "${GREEN}  RESEND_API_KEY is set.${NC}"
+        if [ -z "$RESEND_FROM_EMAIL" ]; then
+            echo -e "${YELLOW}  Warning: RESEND_FROM_EMAIL not set.${NC}"
+            echo -e "${YELLOW}  Set it to your verified domain email (e.g., contact@yourdomain.com)${NC}"
+        else
+            echo -e "${GREEN}  RESEND_FROM_EMAIL: $RESEND_FROM_EMAIL${NC}"
+        fi
+    fi
+    
+    if [ -n "$missing_vars" ]; then
+        echo -e "${RED}  Missing required:$missing_vars${NC}"
+    else
+        echo -e "${GREEN}  Database configured.${NC}"
+    fi
+    echo ""
+}
 
 download_lfs_files() {
     REPO="sujayk1994/new-updated-xp-portfolio"
@@ -78,6 +116,7 @@ check_lfs_files() {
 }
 
 echo "Initializing..."
+check_env_vars
 install_dependencies
 check_lfs_files
 setup_database
