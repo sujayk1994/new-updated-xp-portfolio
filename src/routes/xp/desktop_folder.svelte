@@ -196,6 +196,12 @@
             return;
         }
 
+        // Handle Delete key to delete selected items
+        if(e.key == 'Delete' && $selectingItems.length > 0) {
+            deleteSelectedItems();
+            return;
+        }
+
         if(!(e.ctrlKey || e.metaKey)) return;
         if(e.key == 'c'){
             fs.copy();
@@ -207,6 +213,67 @@
             let els = node_ref.querySelectorAll('.fs-item');
             ds.setSelection(els, true);
         }
+    }
+
+    async function deleteSelectedItems() {
+        const items = [...$selectingItems];
+        if(items.length === 0) return;
+        
+        // Filter out protected items
+        const { protected_items, recycle_bin_id } = await import('../../lib/system');
+        const deletableItems = items.filter(id => !protected_items.includes(id));
+        if(deletableItems.length === 0) return;
+        
+        const firstItem = $hardDrive[deletableItems[0]];
+        if(!firstItem) return;
+        
+        const filename = firstItem.name.length > 70 ? firstItem.name.slice(0, 70) + '...' : firstItem.name;
+        
+        let plural = '';
+        if(deletableItems.length === 2) {
+            plural = ' and 1 other item';
+        } else if(deletableItems.length > 2) {
+            plural = ` and ${deletableItems.length - 1} other items`;
+        }
+        
+        const message = `Do you want to move ${filename}${plural} to the Recycle Bin?`;
+        const icon = '/images/xp/icons/RecycleBinempty.png';
+        
+        const yes_action = () => {
+            for(let id of deletableItems) {
+                fs.clone_fs(id, recycle_bin_id, null);
+                fs.del_fs(id);
+            }
+        };
+        
+        const Dialog = (await import('../../lib/components/xp/Dialog.svelte')).default;
+        const buttons = [
+            {
+                name: 'OK',
+                action: () => {
+                    yes_action();
+                    dialog.destroy();
+                },
+                focus: true
+            },
+            {
+                name: 'Cancel',
+                action: () => {
+                    dialog.destroy();
+                },
+            }
+        ];
+        
+        let dialog = new Dialog({
+            target: document.body,
+            props: {
+                icon,
+                title: 'Confirm Delete File',
+                message,
+                buttons,
+            }
+        });
+        dialog.self = dialog;
     }
 
     function navigateSelection(key) {
