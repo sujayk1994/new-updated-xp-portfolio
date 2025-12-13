@@ -48,7 +48,8 @@
         resizable: false,
         maximize_btn_disabled: true,
         id: id,
-        centered: true
+        centered: true,
+        preserveSizeOnMobile: true
     };
 
     let menu = [
