@@ -5,6 +5,7 @@
     import * as utils from '../../../../lib/utils';
     import { doctypes, icons, my_computer, hidden_items, recycle_bin_id, previewable_exts } from '../../../../lib/system';
     import * as fs from '../../../../lib/fs';
+    import { isAdmin, updateAdminFile } from '../../../../lib/admin';
     const {click_outside} = utils;
     import { createEventDispatcher, onMount, tick } from 'svelte';
     import short from 'short-uuid';
@@ -173,7 +174,7 @@
 
 
 
-    function end_renaming(e, item){
+    async function end_renaming(e, item){
         let name = utils.sanitize_filename(e.target.value);
 
         let ext = utils.extname(name);
@@ -198,6 +199,10 @@
         $hardDrive[item.id].basename = basename;
         $hardDrive[item.id].ext = item.ext;
         $hardDrive[item.id].name = basename + item.ext;
+        
+        if ($isAdmin && ($hardDrive[item.id].is_admin || $hardDrive[item.id].storage_type === 'admin')) {
+            await updateAdminFile($hardDrive[item.id]);
+        }
         
         renaming = false;
     }

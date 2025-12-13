@@ -197,3 +197,20 @@ export async function uploadAdminFile(file, fileId) {
         return { success: false, error: error.message };
     }
 }
+
+export async function updateAdminFile(file) {
+    if (!get(isAdmin)) return { success: false, error: 'Not authenticated' };
+    
+    try {
+        const response = await fetch('/api/admin/files', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ action: 'update', file })
+        });
+        
+        return await response.json();
+    } catch (error) {
+        console.error('Error updating admin file:', error);
+        return { success: false, error: error.message };
+    }
+}

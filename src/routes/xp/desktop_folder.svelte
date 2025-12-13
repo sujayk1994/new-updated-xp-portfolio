@@ -1,5 +1,6 @@
 <script>
     import { contextMenu, selectingItems, zIndex, clipboard, hardDrive, clipboard_op, queueProgram } from '../../lib/store'
+    import { isAdmin, updateAdminFile } from '../../lib/admin'
     
     import * as utils from '../../lib/utils';
     import { doctypes, icons, desktop_folder, previewable_exts } from '../../lib/system';
@@ -142,7 +143,7 @@
 
 
     
-    function end_renaming(e, item){
+    async function end_renaming(e, item){
         let name = utils.sanitize_filename(e.target.value);
 
         let ext = utils.extname(name);
@@ -167,6 +168,10 @@
         $hardDrive[item.id].basename = basename;
         $hardDrive[item.id].ext = item.ext;
         $hardDrive[item.id].name = basename + item.ext;
+        
+        if ($isAdmin && ($hardDrive[item.id].is_admin || $hardDrive[item.id].storage_type === 'admin')) {
+            await updateAdminFile($hardDrive[item.id]);
+        }
         
         renaming = false;
     }
