@@ -50,6 +50,11 @@
         .map(el => el.getAttribute('fs-id'))
         .filter(el => $hardDrive[el] != null);
         console.log($selectingItems.map(el => $hardDrive[el]));
+        
+        // Set focus when items are selected
+        if(e.items.length > 0) {
+            is_focus = true;
+        }
     });
     const observer = new MutationObserver(mutations => {
         ds.setSettings({
@@ -178,6 +183,8 @@
     }
 
     function on_keydown(e){
+        console.log('keydown event:', e.key, 'is_focus:', is_focus, 'renaming:', renaming, 'selectingItems:', $selectingItems);
+        
         if(!is_focus) return;
         if(renaming) return;
         if(id == null) return;
@@ -197,7 +204,8 @@
         }
 
         // Handle Delete key to delete selected items
-        if(e.key == 'Delete' && $selectingItems.length > 0) {
+        if(e.key === 'Delete' && $selectingItems.length > 0) {
+            console.log('Delete key pressed, calling deleteSelectedItems');
             deleteSelectedItems();
             return;
         }
