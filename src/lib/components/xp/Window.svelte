@@ -294,7 +294,7 @@
     padding: 0px;
     -webkit-font-smoothing: antialiased;" 
     program-id="{options.id}"
-    class="window absolute flex flex-col bg-xp-yellow {animation_enabled ? 'transition duration-300' : ''}  {minimized ? `opacity-0` : ''} {isMobile && !options.preserveSizeOnMobile ? 'mobile-window' : ''} {isMobile && minimized ? 'minimized-mobile' : ''}"
+    class="window absolute flex flex-col bg-xp-yellow {animation_enabled ? 'transition duration-300' : ''}  {minimized ? `opacity-0` : ''} {isMobile && !options.preserveSizeOnMobile ? 'mobile-window' : ''} {isMobile && options.preserveSizeOnMobile ? 'mobile-centered' : ''} {isMobile && minimized ? 'minimized-mobile' : ''}"
     style:width="{options.width}px" style:height="{options.height}px" 
     style:min-width="{options.min_width}px" style:min-height="{options.min_height}px"
     style:transform="{minimized ? `${translateX} ${translateY} scale(0.1)` : 'none'}"

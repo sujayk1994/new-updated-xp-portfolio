@@ -239,8 +239,18 @@ html {
     border-radius: 8px !important;
   }
   
+  /* Windows that preserve their size on mobile - just center them */
+  .window.mobile-centered {
+    position: fixed !important;
+    top: 50% !important;
+    left: 50% !important;
+    transform: translate(-50%, -50%) !important;
+    border-radius: 8px !important;
+  }
+  
   /* When minimized, override the transform */
-  .window.mobile-window.minimized-mobile {
+  .window.mobile-window.minimized-mobile,
+  .window.mobile-centered.minimized-mobile {
     transform: translate(-50%, -50%) scale(0.1) !important;
     opacity: 0;
   }
