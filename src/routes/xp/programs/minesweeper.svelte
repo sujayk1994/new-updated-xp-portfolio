@@ -28,10 +28,9 @@
         expert: {width: 786, height: 495}
     }
     
-    // Scale down for mobile
-    let mobileScale = isMobile ? 0.85 : 1;
-    let beginnerWidth = Math.round(236 * mobileScale);
-    let beginnerHeight = Math.round(295 * mobileScale);
+    // Keep original size on mobile (no scaling)
+    let beginnerWidth = 236;
+    let beginnerHeight = 295;
 
     onMount(() => {
     })

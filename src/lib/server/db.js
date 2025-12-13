@@ -77,6 +77,7 @@ export async function initializeDatabase() {
                 id SERIAL PRIMARY KEY,
                 type VARCHAR(50) DEFAULT 'default',
                 custom_gif TEXT,
+                mobile_custom_gif TEXT,
                 show_logo BOOLEAN DEFAULT TRUE,
                 show_progress BOOLEAN DEFAULT TRUE,
                 show_copyright BOOLEAN DEFAULT TRUE,
@@ -84,6 +85,11 @@ export async function initializeDatabase() {
                 created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
                 updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
             )
+        `);
+        
+        await client.query(`
+            ALTER TABLE boot_screen_settings 
+            ADD COLUMN IF NOT EXISTS mobile_custom_gif TEXT
         `);
         
         console.log('Database initialized successfully');
