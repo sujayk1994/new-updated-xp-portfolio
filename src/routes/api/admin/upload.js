@@ -1,7 +1,5 @@
 import { verifyToken } from '$lib/server/auth.js';
 import { query, initializeDatabase } from '$lib/server/db.js';
-import fs from 'fs';
-import path from 'path';
 
 let dbInitialized = false;
 
@@ -50,23 +48,27 @@ export async function POST({ request }) {
             });
         }
         
-        const uploadDir = 'static/uploads/admin';
-        if (!fs.existsSync(uploadDir)) {
-            fs.mkdirSync(uploadDir, { recursive: true });
-        }
-        
-        const fileName = `${fileId}_${file.name.replace(/[^a-zA-Z0-9._-]/g, '_')}`;
-        const filePath = path.join(uploadDir, fileName);
-        
+        const maxSize = 2 * 1024 * 1024;
         const arrayBuffer = await file.arrayBuffer();
         const buffer = Buffer.from(arrayBuffer);
-        fs.writeFileSync(filePath, buffer);
         
-        const url = `/uploads/admin/${fileName}`;
+        if (buffer.length > maxSize) {
+            return new Response(JSON.stringify({ 
+                success: false, 
+                error: 'File too large. Maximum size is 2MB.' 
+            }), {
+                status: 400,
+                headers: { 'Content-Type': 'application/json' }
+            });
+        }
+        
+        const base64 = buffer.toString('base64');
+        const mimeType = file.type || 'image/png';
+        const dataUrl = `data:${mimeType};base64,${base64}`;
         
         return new Response(JSON.stringify({ 
             success: true, 
-            url,
+            url: dataUrl,
             size: Math.ceil(buffer.length / 1024)
         }), {
             status: 200,
