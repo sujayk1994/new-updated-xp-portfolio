@@ -8,6 +8,7 @@
     let destroyed = false;
     let isMobile = false;
     let screenReady = false;
+    let audioPlayed = false;
 
     function checkMobile() {
         isMobile = typeof window !== 'undefined' && (
@@ -43,7 +44,8 @@
             let welcome_audio = new Audio("/audio/xp_startup.mp3");
             welcome_audio.addEventListener("canplaythrough", (e) => {
                 console.log('canplaythrough');
-                if(!destroyed && screenReady){
+                if(!destroyed && screenReady && !audioPlayed){
+                    audioPlayed = true;
                     welcome_audio.play().catch(async (e) => {
                     });
                 }
