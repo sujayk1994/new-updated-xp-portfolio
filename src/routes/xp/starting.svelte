@@ -144,21 +144,37 @@
         }
     }
 
+    // Mobile detection
+    let isMobile = false;
+    function checkMobile() {
+        isMobile = window.innerWidth <= 768 || 
+            ('ontouchstart' in window) || 
+            (navigator.maxTouchPoints > 0);
+    }
+
     async function load_boot_screen(){
+        checkMobile();
+        
         try {
             const response = await axios.get('/api/admin/bootscreen');
             if (response.data && response.data.settings) {
                 currentBootScreen = {
                     type: response.data.settings.type || 'default',
                     customGif: response.data.settings.customGif || null,
+                    mobileCustomGif: response.data.settings.mobileCustomGif || null,
                     showLogo: response.data.settings.showLogo !== false,
                     showProgress: response.data.settings.showProgress !== false,
                     showCopyright: response.data.settings.showCopyright !== false,
                     backgroundColor: response.data.settings.backgroundColor || '#000000'
                 };
                 
-                if (currentBootScreen.type === 'custom' && currentBootScreen.customGif) {
-                    await preloadImage(currentBootScreen.customGif);
+                if (currentBootScreen.type === 'custom') {
+                    // On mobile, prefer mobile image if available
+                    if (isMobile && currentBootScreen.mobileCustomGif) {
+                        await preloadImage(currentBootScreen.mobileCustomGif);
+                    } else if (currentBootScreen.customGif) {
+                        await preloadImage(currentBootScreen.customGif);
+                    }
                 }
             } else {
                 currentBootScreen = {...default_boot_screen};
@@ -212,9 +228,13 @@
 <div class="absolute inset-0 overflow-hidden text-slate-100" style="background-color: {currentBootScreen?.backgroundColor || '#000000'}">
     {#if !bootScreenLoaded}
         <!-- Wait for boot screen settings to load -->
-    {:else if currentBootScreen?.type === 'custom' && currentBootScreen?.customGif}
+    {:else if currentBootScreen?.type === 'custom' && (currentBootScreen?.customGif || currentBootScreen?.mobileCustomGif)}
         <div class="absolute inset-0 flex items-center justify-center animate-fadein">
-            <img src={currentBootScreen.customGif} alt="Loading" class="max-w-full max-h-full object-contain">
+            {#if isMobile && currentBootScreen?.mobileCustomGif}
+                <img src={currentBootScreen.mobileCustomGif} alt="Loading" class="max-w-full max-h-full object-contain">
+            {:else}
+                <img src={currentBootScreen.customGif} alt="Loading" class="max-w-full max-h-full object-contain">
+            {/if}
         </div>
     {:else}
         <div class="absolute top-[50%] -translate-y-[50%] left-[50%] -translate-x-[50%] animate-fadein">

@@ -1,12 +1,25 @@
 <script>
-    import { createEventDispatcher, onMount } from 'svelte';
+    import { createEventDispatcher, onMount, onDestroy } from 'svelte';
     import * as utils from '../lib/utils';
     
     let dispatcher = createEventDispatcher();
     let showCursor = false;
+    let isMobile = false;
+    
+    function checkMobile() {
+        isMobile = window.innerWidth <= 768 || 
+            ('ontouchstart' in window) || 
+            (navigator.maxTouchPoints > 0);
+    }
     
     onMount(() => {
         document.body.style.cursor = 'none';
+        checkMobile();
+        window.addEventListener('resize', checkMobile);
+    });
+    
+    onDestroy(() => {
+        window.removeEventListener('resize', checkMobile);
     });
     
     function startWindows() {
@@ -28,7 +41,11 @@
 <svelte:window on:keydown={handleKeydown} />
 
 <div class="landing-screen" on:click={startWindows}>
-    <img src="/images/bios_splash.jpg" alt="BIOS Boot Screen" class="bios-image" />
+    {#if isMobile}
+        <img src="/images/bios_splash_mobile.jpg" alt="BIOS Boot Screen" class="bios-image" />
+    {:else}
+        <img src="/images/bios_splash.jpg" alt="BIOS Boot Screen" class="bios-image" />
+    {/if}
 </div>
 
 <style>

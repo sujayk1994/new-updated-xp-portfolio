@@ -15,6 +15,7 @@
 
     let bootScreenSettings = {...default_boot_screen};
     let bootScreenPreview = null;
+    let mobileBootScreenPreview = null;
     let saving = false;
     let message = '';
     let messageType = '';
@@ -29,6 +30,7 @@
             if (response.data.success && response.data.settings) {
                 bootScreenSettings = {...response.data.settings};
                 bootScreenPreview = response.data.settings.customGif;
+                mobileBootScreenPreview = response.data.settings.mobileCustomGif;
             }
         } catch (error) {
             console.error('Error loading boot screen settings:', error);
@@ -103,6 +105,32 @@
             }
         }
     }
+    
+    function handleMobileBootScreenFileSelect(event) {
+        const file = event.target.files[0];
+        if (file) {
+            if (file.size > MAX_FILE_SIZE) {
+                showMessage('Image too large. Maximum size is 5MB.', 'error');
+                event.target.value = '';
+                return;
+            }
+            
+            const ext = utils.extname(file.name).toLowerCase();
+            if (supported_boot_screen_filetypes.includes(ext)) {
+                const reader = new FileReader();
+                reader.onload = (e) => {
+                    mobileBootScreenPreview = e.target.result;
+                    bootScreenSettings = {
+                        ...bootScreenSettings,
+                        mobileCustomGif: e.target.result
+                    };
+                };
+                reader.readAsDataURL(file);
+            } else {
+                showMessage('Unsupported file type. Use GIF, PNG, JPG, JPEG, or WEBP.', 'error');
+            }
+        }
+    }
 
     function setBootScreenType(type) {
         bootScreenSettings = {...bootScreenSettings, type};
@@ -111,6 +139,7 @@
     function resetToDefault() {
         bootScreenSettings = {...default_boot_screen};
         bootScreenPreview = null;
+        mobileBootScreenPreview = null;
     }
 
     function removeCustomImage() {
@@ -119,6 +148,14 @@
             ...bootScreenSettings,
             customGif: null,
             type: 'default'
+        };
+    }
+    
+    function removeMobileCustomImage() {
+        mobileBootScreenPreview = null;
+        bootScreenSettings = {
+            ...bootScreenSettings,
+            mobileCustomGif: null
         };
     }
 
@@ -189,7 +226,7 @@
 
                 {#if bootScreenSettings.type === 'custom'}
                     <div class="border border-slate-400 bg-white p-3 rounded">
-                        <p class="font-bold text-sm mb-2">Custom Loading Image</p>
+                        <p class="font-bold text-sm mb-2">Custom Loading Image (Desktop)</p>
                         <p class="text-xs text-slate-600 mb-2">Supported formats: GIF, PNG, JPG, JPEG, WEBP</p>
                         <div class="flex gap-2">
                             <label class="inline-block px-3 py-1 bg-slate-200 border border-slate-400 cursor-pointer hover:bg-slate-300 text-center text-sm">
@@ -208,6 +245,34 @@
                             <p class="text-xs text-green-600 mt-2">Custom image loaded</p>
                         {:else}
                             <p class="text-xs text-slate-500 mt-2">No custom image selected</p>
+                        {/if}
+                    </div>
+                    
+                    <div class="border border-slate-400 bg-white p-3 rounded">
+                        <p class="font-bold text-sm mb-2">Mobile Loading Image (Vertical)</p>
+                        <p class="text-xs text-slate-600 mb-2">Upload a vertical image/GIF for mobile devices. If not set, the desktop image will be used.</p>
+                        <div class="flex gap-2">
+                            <label class="inline-block px-3 py-1 bg-slate-200 border border-slate-400 cursor-pointer hover:bg-slate-300 text-center text-sm">
+                                Browse...
+                                <input type="file" accept=".gif,.png,.jpg,.jpeg,.webp" 
+                                       class="hidden" on:change={handleMobileBootScreenFileSelect}>
+                            </label>
+                            {#if mobileBootScreenPreview}
+                                <button class="px-3 py-1 bg-slate-200 border border-slate-400 hover:bg-slate-300 text-sm"
+                                        on:click={removeMobileCustomImage}>
+                                    Remove
+                                </button>
+                            {/if}
+                        </div>
+                        {#if mobileBootScreenPreview}
+                            <div class="mt-2">
+                                <p class="text-xs text-green-600 mb-1">Mobile image loaded</p>
+                                <div class="w-[60px] h-[100px] bg-black rounded overflow-hidden">
+                                    <img src={mobileBootScreenPreview} alt="Mobile Preview" class="w-full h-full object-contain">
+                                </div>
+                            </div>
+                        {:else}
+                            <p class="text-xs text-slate-500 mt-2">No mobile image selected (will use desktop image)</p>
                         {/if}
                     </div>
                 {/if}

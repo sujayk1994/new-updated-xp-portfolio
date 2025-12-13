@@ -209,6 +209,7 @@ export let previewable_exts = ['.jpeg', '.jpg', '.png', '.webp', '.bmp']
 export let default_boot_screen = {
   type: 'default',
   customGif: null,
+  mobileCustomGif: null,
   showLogo: true,
   showProgress: true,
   showCopyright: true,

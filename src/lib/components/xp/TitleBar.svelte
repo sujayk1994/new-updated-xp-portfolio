@@ -31,13 +31,13 @@
     <div class="flex mr-0.5 shrink-0">
         {#if minimize_btn}
             <button disabled={minimize_btn_disabled} on:click={on_click_minimize}
-                class="group w-5 h-5 ml-1 group">
+                class="group titlebar-btn w-5 h-5 ml-1 group">
                 <img src="/images/xp/icons/Minimize.png" class="w-full h-full {minimize_btn_disabled ? 'contrast-75' : 'group-hover:brightness-110'}" >
             </button>
         {/if}
         {#if maximize_btn}
             <button disabled={maximize_btn_disabled} on:click={on_click_maximize}
-                class="group w-5 h-5 ml-1 group" >
+                class="group titlebar-btn w-5 h-5 ml-1 group" >
                 {#if maximized}
                     <img src="/images/xp/icons/Restore.png" class="w-full h-full {maximize_btn_disabled ? 'contrast-75' : 'group-hover:brightness-110'}" >
                 {:else}
@@ -49,7 +49,7 @@
         {/if}
         {#if close_btn}
             <button disabled={close_btn_disabled} on:click={on_click_close}
-                class="group w-5 h-5 ml-1 group">
+                class="group titlebar-btn w-5 h-5 ml-1 group">
                 <img src="/images/xp/icons/Exit.png" class="w-full h-full {close_btn_disabled ? 'contrast-75' : 'group-hover:brightness-110'}" >
             </button>
         {/if}

@@ -23,10 +23,53 @@
             (navigator.maxTouchPoints > 0);
     }
 
-    // Touch handling for mobile tap-to-open
+    // Touch handling for mobile tap-to-open and long press for context menu
     let lastTapTime = 0;
     let lastTapId = null;
+    let longPressTimer = null;
+    let longPressTriggered = false;
+    
+    function handleTouchStart(e, item) {
+        if (!isMobile) return;
+        
+        longPressTriggered = false;
+        const touch = e.touches[0];
+        const touchX = touch.clientX;
+        const touchY = touch.clientY;
+        
+        // Start long press timer (500ms)
+        longPressTimer = setTimeout(() => {
+            longPressTriggered = true;
+            // Trigger context menu (right-click equivalent)
+            on_rightclick({ x: touchX, y: touchY, preventDefault: () => {} }, item);
+            // Vibrate for feedback if available
+            if (navigator.vibrate) {
+                navigator.vibrate(50);
+            }
+        }, 500);
+    }
+    
+    function handleTouchMove(e) {
+        // Cancel long press if user moves finger
+        if (longPressTimer) {
+            clearTimeout(longPressTimer);
+            longPressTimer = null;
+        }
+    }
+    
     function handleTouchEnd(e, itemId) {
+        // Clear long press timer
+        if (longPressTimer) {
+            clearTimeout(longPressTimer);
+            longPressTimer = null;
+        }
+        
+        // If long press was triggered, don't process as tap
+        if (longPressTriggered) {
+            longPressTriggered = false;
+            return;
+        }
+        
         if (!isMobile) return;
         
         const currentTime = new Date().getTime();
@@ -424,6 +467,8 @@
 
             <div fs-id="{item.id}" class="relative fs-item w-[150px] flex-shrink-0 flex-grow-0 overflow-hidden m-2 inline-flex flex-col items-center font-MSSS" 
                 on:dblclick={() => open(item.id)} on:contextmenu={(e) => on_rightclick(e, item)}
+                on:touchstart={(e) => handleTouchStart(e, item)}
+                on:touchmove={handleTouchMove}
                 on:touchend={(e) => handleTouchEnd(e, item.id)}
                 style:transform="{item.desktop_css_transform}"
                 style:width="{cell_size}px"
