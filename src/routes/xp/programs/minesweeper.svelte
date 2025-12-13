@@ -21,16 +21,18 @@
         (browserWindow.navigator?.maxTouchPoints > 0)
     );
     
-    // Use smaller board size on mobile
+    // Accurate board sizes based on cell size (25px) + padding (30px) + control panel (48px)
+    // Width: cols * 25 + 30 (padding) + 6 (borders)
+    // Height: rows * 25 + 48 (control panel) + 16 (padding) + 6 (borders)
     let board_sizes = {
-        beginner: {width: 236, height: 295},
-        intermediate: {width: 436, height: 495},
-        expert: {width: 786, height: 495}
+        beginner: {width: 236, height: 270},      // 8x8 grid
+        intermediate: {width: 436, height: 470},  // 16x16 grid
+        expert: {width: 786, height: 470}         // 16x30 grid
     }
     
     // Keep original size on mobile (no scaling)
     let beginnerWidth = 236;
-    let beginnerHeight = 295;
+    let beginnerHeight = 270;
 
     onMount(() => {
     })
