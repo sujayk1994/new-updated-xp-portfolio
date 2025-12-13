@@ -24,6 +24,10 @@
     onMount(async () => {
         document.body.style.cursor = 'none';
         
+        // Ensure boot screen shows for at least 3 seconds
+        const minBootTime = 3000;
+        const bootStartTime = Date.now();
+        
         await load_hard_drive();
         await load_wallpaper();
         await load_boot_screen();
@@ -37,7 +41,7 @@
         ], () => {
             assets_loaded = true;
         });
-
+        
         let wait_count = 0;
         do {
             await utils.sleep(2000);
@@ -45,6 +49,12 @@
             wait_count++;
             if(wait_count >= 3) break;
         } while (!assets_loaded);
+        
+        // Wait remaining time if assets loaded too quickly
+        const elapsed = Date.now() - bootStartTime;
+        if (elapsed < minBootTime) {
+            await utils.sleep(minBootTime - elapsed);
+        }
         
         preload_iframes();
         preload_context_menus();

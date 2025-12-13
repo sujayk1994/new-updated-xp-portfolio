@@ -33,7 +33,8 @@
 
     const ds = new DragSelect({
         customStyles: false,
-        draggability: true
+        draggability: true,
+        keyboardDrag: false
     });
 
     ds.subscribe('callback', (e) => {
