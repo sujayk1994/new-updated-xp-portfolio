@@ -1,4 +1,4 @@
-modules = ["nodejs-20", "web", "bash"]
+modules = ["nodejs-20", "web", "bash", "postgresql-16"]
 [agent]
 expertMode = true
 integrations = ["resend:1.0.0"]
@@ -43,4 +43,3 @@ build = ["npm", "run", "build"]
 [userenv]
 
 [userenv.shared]
-JWT_SECRET = "085c993c3f782b6af71df1ff4777458eeac5c14f435aab881707bf23ad0fea5f"
