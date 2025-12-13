@@ -3,7 +3,32 @@
     import { my_pictures_id, my_music_id } from '../../lib/system';
     import { isAdmin } from '../../lib/admin';
     import * as utils from '../../lib/utils';
+    import * as idb from 'idb-keyval';
     const { click_outside } = utils;
+    
+    async function clearCacheAndStorage() {
+        if (!confirm('This will clear all browser cache and storage for this app. The page will reload after clearing. Continue?')) {
+            return;
+        }
+        
+        try {
+            await idb.clear();
+            
+            localStorage.clear();
+            sessionStorage.clear();
+            
+            if ('caches' in window) {
+                const cacheNames = await caches.keys();
+                await Promise.all(cacheNames.map(name => caches.delete(name)));
+            }
+            
+            alert('Cache and storage cleared successfully! The page will now reload.');
+            window.location.reload();
+        } catch (error) {
+            console.error('Error clearing cache:', error);
+            alert('Error clearing cache: ' + error.message);
+        }
+    }
 
     let col_1 = [
         {
@@ -369,6 +394,12 @@
                     name: 'About Me Editor',
                     icon: '/images/xp/icons/Notepad.png',
                     path: './programs/about_me.svelte'
+                },
+                null,
+                {
+                    name: 'Clear Cache & Storage',
+                    icon: '/images/xp/icons/DiskCleanup.png',
+                    action: clearCacheAndStorage
                 }
             ]
         }
@@ -385,10 +416,11 @@
 
     function launch(item){
         console.log(item);
-        let {path, fs_item, webapp, link } = item;
-        if(link){
+        let {path, fs_item, webapp, link, action } = item;
+        if(action){
+            action();
+        } else if(link){
             open_link(link);
-
         } else if(path){
             queueProgram.set({
                 path, 
