@@ -183,6 +183,19 @@
         if(id == null) return;
         console.log('keyevent in desktop_folder');
 
+        // Handle arrow key navigation
+        if(['ArrowUp', 'ArrowDown', 'ArrowLeft', 'ArrowRight'].includes(e.key)) {
+            e.preventDefault();
+            navigateSelection(e.key);
+            return;
+        }
+
+        // Handle Enter to open selected item
+        if(e.key == 'Enter' && $selectingItems.length > 0) {
+            open($selectingItems[0]);
+            return;
+        }
+
         if(!(e.ctrlKey || e.metaKey)) return;
         if(e.key == 'c'){
             fs.copy();
@@ -193,6 +206,59 @@
         } else if(e.key == 'a'){
             let els = node_ref.querySelectorAll('.fs-item');
             ds.setSelection(els, true);
+        }
+    }
+
+    function navigateSelection(key) {
+        if(items.length == 0) return;
+        
+        // Get current selection index
+        let currentIndex = -1;
+        if($selectingItems.length > 0) {
+            currentIndex = items.findIndex(item => item.id === $selectingItems[0]);
+        }
+        
+        let newIndex = currentIndex;
+        
+        // Desktop icons are arranged in columns (top to bottom, then left to right)
+        // ArrowDown = next item in column, ArrowUp = previous item in column
+        // ArrowRight = next column, ArrowLeft = previous column
+        
+        switch(key) {
+            case 'ArrowDown':
+                newIndex = currentIndex + 1;
+                if(newIndex >= items.length) newIndex = 0;
+                break;
+            case 'ArrowUp':
+                newIndex = currentIndex - 1;
+                if(newIndex < 0) newIndex = items.length - 1;
+                break;
+            case 'ArrowRight':
+                // Move to next "column" - estimate items per column based on viewport
+                const itemsPerColumn = Math.floor((window.innerHeight - 30) / (cell_size + 16));
+                newIndex = currentIndex + itemsPerColumn;
+                if(newIndex >= items.length) newIndex = items.length - 1;
+                break;
+            case 'ArrowLeft':
+                // Move to previous "column"
+                const itemsPerCol = Math.floor((window.innerHeight - 30) / (cell_size + 16));
+                newIndex = currentIndex - itemsPerCol;
+                if(newIndex < 0) newIndex = 0;
+                break;
+        }
+        
+        // If no selection, select first item
+        if(currentIndex === -1) {
+            newIndex = 0;
+        }
+        
+        // Set new selection
+        if(newIndex >= 0 && newIndex < items.length) {
+            const newItem = items[newIndex];
+            const el = node_ref.querySelector(`.fs-item[fs-id="${newItem.id}"]`);
+            if(el) {
+                ds.setSelection([el], true);
+            }
         }
     }
 
