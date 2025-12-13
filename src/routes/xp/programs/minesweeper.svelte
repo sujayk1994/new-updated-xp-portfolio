@@ -12,11 +12,26 @@
     let iframe;
     let title_bar_height = 30;
     let menu_height = 30;
+    
+    // Detect mobile - use globalThis to avoid shadowing from the window prop
+    const browserWindow = typeof globalThis !== 'undefined' ? globalThis : null;
+    let isMobile = browserWindow && (
+        browserWindow.innerWidth <= 768 || 
+        ('ontouchstart' in browserWindow) || 
+        (browserWindow.navigator?.maxTouchPoints > 0)
+    );
+    
+    // Use smaller board size on mobile
     let board_sizes = {
         beginner: {width: 236, height: 295},
         intermediate: {width: 436, height: 495},
         expert: {width: 786, height: 495}
     }
+    
+    // Scale down for mobile
+    let mobileScale = isMobile ? 0.85 : 1;
+    let beginnerWidth = Math.round(236 * mobileScale);
+    let beginnerHeight = Math.round(295 * mobileScale);
 
     onMount(() => {
     })
@@ -28,12 +43,13 @@
 
     export let options = {
         title: 'Minesweeper',
-        width: 236,
-        height: 295 + title_bar_height + menu_height,
+        width: isMobile ? beginnerWidth : 236,
+        height: (isMobile ? beginnerHeight : 295) + title_bar_height + menu_height,
         icon: '/images/xp/icons/Minesweeper.png',
         resizable: false,
         maximize_btn_disabled: true,
-        id: id
+        id: id,
+        centered: true
     };
 
     let menu = [

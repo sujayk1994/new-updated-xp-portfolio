@@ -86,6 +86,7 @@ async function setupDatabase() {
                 id SERIAL PRIMARY KEY,
                 type VARCHAR(50) DEFAULT 'default',
                 custom_gif TEXT,
+                mobile_custom_gif TEXT,
                 show_logo BOOLEAN DEFAULT TRUE,
                 show_progress BOOLEAN DEFAULT TRUE,
                 show_copyright BOOLEAN DEFAULT TRUE,
@@ -94,7 +95,14 @@ async function setupDatabase() {
                 updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
             )
         `);
-        console.log('  - boot_screen_settings table ready (for boot screen customization)');
+        
+        // Add mobile_custom_gif column if it doesn't exist (for existing databases)
+        try {
+            await pool.query(`ALTER TABLE boot_screen_settings ADD COLUMN IF NOT EXISTS mobile_custom_gif TEXT`);
+        } catch (e) {
+            // Column might already exist
+        }
+        console.log('  - boot_screen_settings table ready (for boot screen customization with mobile support)');
 
         await pool.query(`
             CREATE TABLE IF NOT EXISTS magazines (

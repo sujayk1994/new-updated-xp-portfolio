@@ -27,12 +27,29 @@
     let uploading = false;
     let saveMessage = "";
 
+    // Detect mobile and adjust window size - use globalThis to avoid shadowing from the window prop
+    const browserWindow = typeof globalThis !== 'undefined' ? globalThis : null;
+    let isMobile = browserWindow && (
+        browserWindow.innerWidth <= 768 || 
+        ('ontouchstart' in browserWindow) || 
+        (browserWindow.navigator?.maxTouchPoints > 0)
+    );
+    
+    let screenWidth = browserWindow ? browserWindow.innerWidth : 1000;
+    let screenHeight = browserWindow ? browserWindow.innerHeight : 700;
+    
+    // Calculate mobile-friendly dimensions
+    let windowWidth = isMobile ? Math.min(screenWidth - 20, 380) : 1000;
+    let windowHeight = isMobile ? Math.min(screenHeight - 80, 600) : 700;
+    let minWidth = isMobile ? 300 : 800;
+    let minHeight = isMobile ? 400 : 600;
+
     export let options = {
         title: "Magazine Portfolio",
-        min_width: 800,
-        min_height: 600,
-        width: 1000,
-        height: 700,
+        min_width: minWidth,
+        min_height: minHeight,
+        width: windowWidth,
+        height: windowHeight,
         icon: "/images/xp/icons/MagazinePortfolio.png",
         id: id,
         exec_path

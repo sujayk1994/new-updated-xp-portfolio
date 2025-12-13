@@ -40,6 +40,7 @@ export async function GET({ request }) {
                 settings: {
                     type: settings.type,
                     customGif: settings.custom_gif,
+                    mobileCustomGif: settings.mobile_custom_gif,
                     showLogo: settings.show_logo,
                     showProgress: settings.show_progress,
                     showCopyright: settings.show_copyright,
@@ -56,6 +57,7 @@ export async function GET({ request }) {
             settings: {
                 type: 'default',
                 customGif: null,
+                mobileCustomGif: null,
                 showLogo: true,
                 showProgress: true,
                 showCopyright: true,
@@ -73,6 +75,7 @@ export async function GET({ request }) {
             settings: {
                 type: 'default',
                 customGif: null,
+                mobileCustomGif: null,
                 showLogo: true,
                 showProgress: true,
                 showCopyright: true,
@@ -121,6 +124,20 @@ export async function POST({ request }) {
             }
         }
         
+        if (settings.mobileCustomGif) {
+            const maxSizeBytes = 5 * 1024 * 1024;
+            const base64Size = settings.mobileCustomGif.length * 0.75;
+            if (base64Size > maxSizeBytes) {
+                return new Response(JSON.stringify({ 
+                    success: false, 
+                    error: 'Mobile image too large. Maximum size is 5MB.' 
+                }), {
+                    status: 400,
+                    headers: { 'Content-Type': 'application/json' }
+                });
+            }
+        }
+        
         const existingResult = await query(
             'SELECT id FROM boot_screen_settings ORDER BY id DESC LIMIT 1'
         );
@@ -128,12 +145,13 @@ export async function POST({ request }) {
         if (existingResult.rows.length > 0) {
             await query(
                 `UPDATE boot_screen_settings 
-                 SET type = $1, custom_gif = $2, show_logo = $3, show_progress = $4, 
-                     show_copyright = $5, background_color = $6, updated_at = CURRENT_TIMESTAMP
-                 WHERE id = $7`,
+                 SET type = $1, custom_gif = $2, mobile_custom_gif = $3, show_logo = $4, show_progress = $5, 
+                     show_copyright = $6, background_color = $7, updated_at = CURRENT_TIMESTAMP
+                 WHERE id = $8`,
                 [
                     settings.type || 'default',
                     settings.customGif || null,
+                    settings.mobileCustomGif || null,
                     settings.showLogo !== false,
                     settings.showProgress !== false,
                     settings.showCopyright !== false,
@@ -143,11 +161,12 @@ export async function POST({ request }) {
             );
         } else {
             await query(
-                `INSERT INTO boot_screen_settings (type, custom_gif, show_logo, show_progress, show_copyright, background_color)
-                 VALUES ($1, $2, $3, $4, $5, $6)`,
+                `INSERT INTO boot_screen_settings (type, custom_gif, mobile_custom_gif, show_logo, show_progress, show_copyright, background_color)
+                 VALUES ($1, $2, $3, $4, $5, $6, $7)`,
                 [
                     settings.type || 'default',
                     settings.customGif || null,
+                    settings.mobileCustomGif || null,
                     settings.showLogo !== false,
                     settings.showProgress !== false,
                     settings.showCopyright !== false,

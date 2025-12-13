@@ -6,6 +6,16 @@
 
     let fallback_timer;
     let destroyed = false;
+    let isMobile = false;
+    let screenReady = false;
+
+    function checkMobile() {
+        isMobile = typeof window !== 'undefined' && (
+            window.innerWidth <= 768 || 
+            ('ontouchstart' in window) || 
+            (navigator.maxTouchPoints > 0)
+        );
+    }
 
     function cleanup() {
         if (destroyed) return;
@@ -22,20 +32,28 @@
 
     onMount(() => {
         document.body.style.cursor = 'none';
+        checkMobile();
         
-        let welcome_audio = new Audio("/audio/xp_startup.mp3");
-        welcome_audio.addEventListener("canplaythrough", (e) => {
-            console.log('canplaythrough');
-            if(!destroyed){
-                welcome_audio.play().catch(async (e) => {
-                });
-            }
-        });
+        // Small delay to ensure welcome screen is fully rendered before playing sound
+        // This fixes the issue where sound plays before welcome screen on mobile
+        const soundDelay = isMobile ? 300 : 100;
+        
+        setTimeout(() => {
+            screenReady = true;
+            let welcome_audio = new Audio("/audio/xp_startup.mp3");
+            welcome_audio.addEventListener("canplaythrough", (e) => {
+                console.log('canplaythrough');
+                if(!destroyed && screenReady){
+                    welcome_audio.play().catch(async (e) => {
+                    });
+                }
+            });
 
-        welcome_audio.addEventListener("ended", (e) => {
-            console.log("xp_startup audio ended");
-            cleanup();
-        });
+            welcome_audio.addEventListener("ended", (e) => {
+                console.log("xp_startup audio ended");
+                cleanup();
+            });
+        }, soundDelay);
 
         fallback_timer = setTimeout(() => {
             cleanup();
@@ -55,8 +73,8 @@
       
     </div>
     <div class="h-[2px] bg-[linear-gradient(45deg,#466dcd,#c7ddff,#b0c9f7,#5a7edc)] shrink-0"></div>
-    <div class="grow bg-[radial-gradient(circle_at_5%_5%,#91b1ef_0,#7698e6_6%,#5a7edc_12%)] relative overflow-hidden">
-        <span class="absolute top-[40%] left-[50%] text-[42px] text-slate-50 italic font-bold">Welcome</span>
+    <div class="grow bg-[radial-gradient(circle_at_5%_5%,#91b1ef_0,#7698e6_6%,#5a7edc_12%)] relative overflow-hidden flex items-center justify-center">
+        <span class="welcome-text text-[42px] text-slate-50 italic font-bold">Welcome</span>
     </div>
   
     <div class="h-[2px] bg-[linear-gradient(45deg,#003399,#f99736,#c2814d,#00309c)] shrink-0"></div>
@@ -64,5 +82,18 @@
     </div>
 
 </div>
+
+<style>
+    .welcome-text {
+        transform: translateX(-10%);
+    }
+    
+    @media (max-width: 768px) {
+        .welcome-text {
+            transform: translateX(0);
+            text-align: center;
+        }
+    }
+</style>
   
 <svelte:options accessors={true}></svelte:options>
