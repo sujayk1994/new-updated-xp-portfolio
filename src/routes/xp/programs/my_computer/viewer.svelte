@@ -17,6 +17,40 @@
     import Previewable from '../../../../lib/components/xp/Previewable.svelte';
     import hash_sum from 'hash-sum';
 
+    // Mobile detection
+    let isMobile = false;
+    function checkMobile() {
+        isMobile = window.innerWidth <= 768 || 
+            ('ontouchstart' in window) || 
+            (navigator.maxTouchPoints > 0);
+    }
+
+    // Touch handling for mobile tap-to-open
+    let lastTapTime = 0;
+    let lastTapId = null;
+    function handleTouchEnd(e, itemId) {
+        if (!isMobile) return;
+        
+        const currentTime = new Date().getTime();
+        const tapLength = currentTime - lastTapTime;
+        
+        // Double-tap detection (within 300ms)
+        if (tapLength < 300 && tapLength > 0 && lastTapId === itemId) {
+            e.preventDefault();
+            open(itemId);
+            lastTapTime = 0;
+            lastTapId = null;
+        } else {
+            // Single tap - select the item
+            lastTapTime = currentTime;
+            lastTapId = itemId;
+            let el = node_ref.querySelector(`.fs-item[fs-id="${itemId}"]`);
+            if (el) {
+                ds.setSelection([el], true);
+            }
+        }
+    }
+
     export let self;
     export let my_computer_instance;
     export let id = null;
@@ -90,6 +124,9 @@
     });
 
     onMount(async () => {
+        checkMobile();
+        window.addEventListener('resize', checkMobile);
+        
         ds.setSettings({
             selectables: node_ref.querySelectorAll('.fs-item'),
             area: node_ref
@@ -297,7 +334,8 @@
             {#each sorted_items as item (item.id)}
                 <div fs-id="{item.id}" class="fs-item w-[150px] overflow-hidden m-2 inline-flex flex-row items-center font-MSSS relative
                     {$clipboard.includes(item.id) && $clipboard_op == 'cut' ? 'opacity-70' : ''}" 
-                    on:dblclick={() => open(item.id)} on:contextmenu={(e) => on_rightclick(e, item)}>
+                    on:dblclick={() => open(item.id)} on:contextmenu={(e) => on_rightclick(e, item)}
+                    on:touchend={(e) => handleTouchEnd(e, item.id)}>
                     {#if previewable_exts.includes(item.ext)}
                         <Previewable default_icon={file_icon(item)} fs_id={item.id}></Previewable>
                     {:else}
@@ -335,7 +373,8 @@
         <div class="mb-4 w-[300px] h-[2px] bg-gradient-to-r from-blue-500 to-slate-50"></div>
         {#each computer.filter(el => el.type == 'folder') as item}
             <div class="w-[150px] ml-4 mr-8 overflow-hidden inline-flex flex-row items-center font-MSSS" 
-                on:dblclick={() => open(item.id)} on:contextmenu={(e) => on_rightclick(e, item)}>
+                on:dblclick={() => open(item.id)} on:contextmenu={(e) => on_rightclick(e, item)}
+                on:touchend={(e) => handleTouchEnd(e, item.id)}>
                 <div class="w-[50px] h-[50px] shrink-0 bg-[url(/images/xp/icons/FolderClosed.png)] bg-contain"
                     style:background-image="{item.icon == null ? '' : `url(${item.icon})`}">
                 </div>
@@ -349,7 +388,8 @@
         <div class="mb-4 w-[300px] h-[2px] bg-gradient-to-r from-blue-500 to-slate-50"></div>
         {#each computer.filter(el => el.type == 'drive') as item}
             <div class="w-[150px] ml-4 mr-8 overflow-hidden inline-flex flex-row items-center font-MSSS" 
-                on:dblclick={() => open(item.id)} on:contextmenu={(e) => on_rightclick(e, item)}>
+                on:dblclick={() => open(item.id)} on:contextmenu={(e) => on_rightclick(e, item)}
+                on:touchend={(e) => handleTouchEnd(e, item.id)}>
                 <div class="w-[50px] h-[50px] shrink-0 bg-[url(/images/xp/icons/LocalDisk.png)] bg-contain">
                 </div>
                 <div class="px-1 text-[11px] line-clamp-2 text-ellipsis leading-tight">
@@ -362,7 +402,8 @@
         <div class="mb-4 w-[300px] h-[2px] bg-gradient-to-r from-blue-500 to-slate-50"></div>
         {#each computer.filter(el => el.type == 'removable_storage') as item}
             <div class="w-[150px] ml-4 mr-8 overflow-hidden inline-flex flex-row items-center font-MSSS" 
-                on:dblclick={() => open(item.id)} on:contextmenu={(e) => on_rightclick(e, item)}>
+                on:dblclick={() => open(item.id)} on:contextmenu={(e) => on_rightclick(e, item)}
+                on:touchend={(e) => handleTouchEnd(e, item.id)}>
                 <div class="w-[50px] h-[50px] shrink-0 bg-[url(/images/xp/icons/RemovableMedia.png)] bg-contain">
                 </div>
                 <div class="px-1 text-[11px] line-clamp-2 text-ellipsis leading-tight">

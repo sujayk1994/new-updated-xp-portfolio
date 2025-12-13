@@ -15,6 +15,39 @@
     import { parse_dir } from '../../lib/dir_parser';
     import Previewable from '../../lib/components/xp/Previewable.svelte';
     
+    // Mobile detection
+    let isMobile = false;
+    function checkMobile() {
+        isMobile = window.innerWidth <= 768 || 
+            ('ontouchstart' in window) || 
+            (navigator.maxTouchPoints > 0);
+    }
+
+    // Touch handling for mobile tap-to-open
+    let lastTapTime = 0;
+    let lastTapId = null;
+    function handleTouchEnd(e, itemId) {
+        if (!isMobile) return;
+        
+        const currentTime = new Date().getTime();
+        const tapLength = currentTime - lastTapTime;
+        
+        // Double-tap detection (within 300ms)
+        if (tapLength < 300 && tapLength > 0 && lastTapId === itemId) {
+            e.preventDefault();
+            open(itemId);
+            lastTapTime = 0;
+            lastTapId = null;
+        } else {
+            // Single tap - select the item
+            lastTapTime = currentTime;
+            lastTapId = itemId;
+            let el = node_ref.querySelector(`.fs-item[fs-id="${itemId}"]`);
+            if (el) {
+                ds.setSelection([el], true);
+            }
+        }
+    }
 
     let id = desktop_folder;
     
@@ -63,6 +96,9 @@
     });
 
     onMount(async () => {
+        checkMobile();
+        window.addEventListener('resize', checkMobile);
+        
         ds.setSettings({
             selectables: node_ref.querySelectorAll('.fs-item'),
             area: node_ref
@@ -382,6 +418,7 @@
 
             <div fs-id="{item.id}" class="relative fs-item w-[150px] flex-shrink-0 flex-grow-0 overflow-hidden m-2 inline-flex flex-col items-center font-MSSS" 
                 on:dblclick={() => open(item.id)} on:contextmenu={(e) => on_rightclick(e, item)}
+                on:touchend={(e) => handleTouchEnd(e, item.id)}
                 style:transform="{item.desktop_css_transform}"
                 style:width="{cell_size}px"
                 style:height="{cell_size}px">

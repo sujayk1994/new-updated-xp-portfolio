@@ -18,12 +18,22 @@
     let translateY = '';
     let animation_enabled = false;
 
+    // Mobile detection
+    let isMobile = false;
+    function checkMobile() {
+        isMobile = window.innerWidth <= 768 || 
+            ('ontouchstart' in window) || 
+            (navigator.maxTouchPoints > 0);
+    }
+
     export let on_focused = () => {
     }
     
     export let z_index = 0;
 
     onMount(async () => {
+        checkMobile();
+        window.addEventListener('resize', checkMobile);
         if(options.exec_path != null){
             let rect = await get(options.exec_path);
             if(rect){
@@ -273,7 +283,7 @@
     padding: 0px;
     -webkit-font-smoothing: antialiased;" 
     program-id="{options.id}"
-    class="window absolute flex flex-col bg-xp-yellow {animation_enabled ? 'transition duration-300' : ''}  {minimized ? `opacity-0` : ''}"
+    class="window absolute flex flex-col bg-xp-yellow {animation_enabled ? 'transition duration-300' : ''}  {minimized ? `opacity-0` : ''} {isMobile ? 'mobile-fullscreen' : ''}"
     style:width="{options.width}px" style:height="{options.height}px" 
     style:min-width="{options.min_width}px" style:min-height="{options.min_height}px"
     style:transform="{minimized ? `${translateX} ${translateY} scale(0.1)` : 'none'}"

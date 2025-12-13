@@ -203,12 +203,19 @@
         self.$destroy();
     }
 
+    // Mobile detection for responsive sizing
+    const isMobile = typeof window !== 'undefined' && (
+        window.innerWidth <= 768 || 
+        ('ontouchstart' in window) || 
+        (navigator.maxTouchPoints > 0)
+    );
+
     export let options = {
         title:  'My Computer' ,
-        min_width: 500,
-        min_height: 400,
-        width: 700,
-        height: 500,
+        min_width: isMobile ? 300 : 500,
+        min_height: isMobile ? 300 : 400,
+        width: isMobile ? window.innerWidth : 700,
+        height: isMobile ? window.innerHeight - 30 : 500,
         icon: '/images/xp/icons/MyComputer.png',
         id: id,
         exec_path

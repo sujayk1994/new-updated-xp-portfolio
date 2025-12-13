@@ -93,11 +93,29 @@
         z-index: 999999;
         background: black;
         cursor: none;
+        /* Mobile-specific: ensure it covers iOS safe areas */
+        padding: env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);
     }
     
     .screensaver-video {
         width: 100%;
         height: 100%;
         object-fit: cover;
+    }
+
+    /* Mobile-specific adjustments */
+    @media (max-width: 768px) {
+        .screensaver-overlay {
+            /* Ensure proper sizing on mobile including notch areas */
+            width: 100%;
+            height: 100%;
+            min-height: 100vh;
+            min-height: -webkit-fill-available;
+        }
+        
+        .screensaver-video {
+            /* Better video positioning on mobile */
+            object-position: center center;
+        }
     }
 </style>
