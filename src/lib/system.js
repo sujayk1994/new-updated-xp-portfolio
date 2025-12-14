@@ -141,8 +141,8 @@ let winrar_program = {
 
 let pdf_viewer_program = {
   path: './programs/pdf_viewer.svelte',
-  icon: '/images/xp/icons/PDF.png',
-  name: 'PDF Viewer'
+  icon: '/images/xp/icons/AdobeReader.png',
+  name: 'Adobe Reader'
 }
 
 export let doctypes = {

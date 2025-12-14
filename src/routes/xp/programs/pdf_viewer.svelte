@@ -44,7 +44,7 @@
         min_height: 400,
         width: Math.min(ws_size.width - 20, (ws_size.height - 20)*1.6),
         height: Math.min(ws_size.height - 20),
-        icon: '/images/xp/icons/PDF.png',
+        icon: '/images/xp/icons/AdobeReader.png',
         id: id,
         exec_path
     };
