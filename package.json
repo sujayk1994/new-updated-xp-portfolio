@@ -52,6 +52,7 @@
     "short-uuid": "^4.2.2",
     "srt-webvtt": "^2.0.0",
     "svelte-range-slider-pips": "^2.0.3",
-    "tailwindcss-scoped-groups": "^2.0.0"
+    "tailwindcss-scoped-groups": "^2.0.0",
+    "webamp": "^2.2.0"
   }
 }
