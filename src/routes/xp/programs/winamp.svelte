@@ -47,14 +47,7 @@
                     },
                     url: "https://cdn.webampskins.org/winamp/demo.mp3"
                 }
-            ],
-            __butterchurnOptions: {
-                importButterchurn: () => import('butterchurn'),
-                getPresets: () => {
-                    return [];
-                },
-                butterchurnOpen: false
-            }
+            ]
         });
 
         await webampInstance.renderWhenReady(containerRef);
