@@ -2,7 +2,7 @@
     import Window from '../../../lib/components/xp/Window.svelte';
     import { runningPrograms, zIndex } from '../../../lib/store'
     import * as fs from '../../../lib/fs';
-    import { onMount } from 'svelte';
+    import { onMount, tick } from 'svelte';
     import * as pdfjsLib from 'pdfjs-dist';
 
     export let id;
@@ -62,6 +62,7 @@
                     pdfDoc = await pdfjsLib.getDocument({data: arrayBuffer}).promise;
                     totalPages = pdfDoc.numPages;
                     loading = false;
+                    await tick();
                     await renderPage(currentPage);
                 } else {
                     error = 'Could not load file';
