@@ -42,7 +42,6 @@ const config = {
     },
   },
   plugins: [
-    require('@tailwindcss/line-clamp'),
     require("tailwindcss-scoped-groups")({
       groups: ["item", "sub", "sub1", "sub2", "sub3"],
     }),
