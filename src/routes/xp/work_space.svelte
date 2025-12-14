@@ -350,17 +350,21 @@
                 return [...values, program];
             })
         } else if(path == './programs/winamp.svelte'){
-            const Program = (await import('./programs/winamp.svelte')).default;
-            let program = new Program({
-                target: node_ref,
-                props: {id: short.generate(), parentNode: node_ref, fs_item, exec_path: path}
-            });
-            program.self = program;
-            
-            //add to program tray
-            runningPrograms.update(values => {
-                return [...values, program];
-            })
+            try {
+                const Program = (await import('./programs/winamp.svelte')).default;
+                let program = new Program({
+                    target: node_ref,
+                    props: {id: short.generate(), parentNode: node_ref, fs_item, exec_path: path}
+                });
+                program.self = program;
+                
+                //add to program tray
+                runningPrograms.update(values => {
+                    return [...values, program];
+                })
+            } catch (error) {
+                console.error('Failed to load Winamp:', error);
+            }
         }
 
         queueProgram.set(null);

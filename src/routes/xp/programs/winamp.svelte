@@ -21,44 +21,48 @@
     onMount(async () => {
         if (!browser) return;
         
-        const Webamp = (await import('webamp')).default;
-        
-        let initialTracks = [];
-        
-        if (fs_item && supported_audio_types.includes(fs_item.ext?.toLowerCase())) {
-            let url = await getFileUrl(fs_item);
-            if (url) {
-                initialTracks.push({
-                    metaData: {
-                        artist: "Unknown Artist",
-                        title: fs_item.name.replace(fs_item.ext, '')
-                    },
-                    url: url
-                });
-            }
-        }
-
-        webampInstance = new Webamp({
-            initialTracks: initialTracks.length > 0 ? initialTracks : [
-                {
-                    metaData: {
-                        artist: "DJ Mike Llama",
-                        title: "Llama Whippin' Intro"
-                    },
-                    url: "https://cdn.webampskins.org/winamp/demo.mp3"
+        try {
+            const Webamp = (await import('webamp')).default;
+            
+            let initialTracks = [];
+            
+            if (fs_item && supported_audio_types.includes(fs_item.ext?.toLowerCase())) {
+                let url = await getFileUrl(fs_item);
+                if (url) {
+                    initialTracks.push({
+                        metaData: {
+                            artist: "Unknown Artist",
+                            title: fs_item.name.replace(fs_item.ext, '')
+                        },
+                        url: url
+                    });
                 }
-            ]
-        });
+            }
 
-        await webampInstance.renderWhenReady(containerRef);
-        
-        if (initialTracks.length > 0) {
-            webampInstance.play();
+            webampInstance = new Webamp({
+                initialTracks: initialTracks.length > 0 ? initialTracks : [
+                    {
+                        metaData: {
+                            artist: "DJ Mike Llama",
+                            title: "Llama Whippin' Intro"
+                        },
+                        url: "https://cdn.webampskins.org/winamp/demo.mp3"
+                    }
+                ]
+            });
+
+            await webampInstance.renderWhenReady(containerRef);
+            
+            if (initialTracks.length > 0) {
+                webampInstance.play();
+            }
+
+            webampInstance.onClose(() => {
+                destroy();
+            });
+        } catch (error) {
+            console.error('Winamp initialization error:', error);
         }
-
-        webampInstance.onClose(() => {
-            destroy();
-        });
     });
 
     async function getFileUrl(item) {
