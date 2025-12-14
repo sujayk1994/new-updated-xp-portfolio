@@ -141,6 +141,26 @@ Internet Explorer features "Stube" - a custom YouTube-style video portfolio inte
 - File metadata is stored in PostgreSQL database
 - Admin files are merged with base hard drive data on page load
 
+## Winamp Music Player
+
+The classic Winamp 2.9 music player is integrated into the XP experience, allowing you to play audio files with the iconic nostalgic interface.
+
+### Features:
+- **Authentic Winamp Interface**: Full recreation of the classic Winamp 2.9 player
+- **Audio File Support**: Plays MP3, WAV, OGG, FLAC, and AAC files
+- **Double-click to Play**: Click any audio file in the desktop or folders to open in Winamp
+- **Alternative Player**: Media Player Classic is also available as an alternative for audio/video files
+
+### How to Use:
+1. Double-click any audio file (.mp3, .wav, .ogg, etc.) on the desktop or in folders
+2. Winamp will open and start playing the file
+3. Use the classic Winamp controls to play, pause, adjust volume, and navigate tracks
+
+### Technical Details:
+- Uses the Webamp library (HTML5/JavaScript recreation of Winamp 2.9)
+- Supports both local files (stored in IndexedDB) and remote audio URLs
+- Program registered in `src/lib/system.js` as default handler for audio files
+
 ## Boot Screen Customization (Admin Only)
 
 Admins can customize the Windows XP boot screen that all visitors see on startup.
