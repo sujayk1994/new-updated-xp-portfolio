@@ -173,8 +173,8 @@
             runningPrograms.update(values => {
                 return [...values, program];
             })
-        } else if(path == './programs/foxit_reader.svelte'){
-            const Program = (await import('./programs/foxit_reader.svelte')).default;
+        } else if(path == './programs/pdf_viewer.svelte'){
+            const Program = (await import('./programs/pdf_viewer.svelte')).default;
             let program = new Program({
                 target: node_ref,
                 props: {id: short.generate(), parentNode: node_ref, fs_item, exec_path: path}
