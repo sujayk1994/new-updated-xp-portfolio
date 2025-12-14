@@ -184,7 +184,7 @@ export let icons = {
   '.png': 'TIFF.png',
   '.webp': 'TIFF.png',
   '.bmp': 'Bitmap.png',
-  '.pdf': 'AdobeReader.png',
+  '.pdf': 'PDF.png',
   '.docx': 'DOC.png',
   '.epub': 'BOOK.png',
   '.azw3': 'BOOK.png',
