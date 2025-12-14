@@ -145,6 +145,18 @@ let pdf_viewer_program = {
   name: 'Adobe Reader'
 }
 
+let winamp_program = {
+  path: './programs/winamp.svelte',
+  icon: '/images/xp/icons/Winamp.png',
+  name: 'Winamp'
+}
+
+let media_player_program = {
+  path: './programs/media_player_classic.svelte',
+  icon: '/images/xp/icons/MPC.png',
+  name: 'Media Player Classic'
+}
+
 export let doctypes = {
   '.webp': [image_viewer],
   '.bmp': [image_viewer, paint_program],
@@ -161,7 +173,14 @@ export let doctypes = {
   '.rar': [winrar_program],
   '.tar': [winrar_program],
   '.7z': [winrar_program],
-  '.pdf': [pdf_viewer_program]
+  '.pdf': [pdf_viewer_program],
+  '.mp3': [winamp_program, media_player_program],
+  '.wav': [winamp_program, media_player_program],
+  '.ogg': [winamp_program, media_player_program],
+  '.flac': [winamp_program, media_player_program],
+  '.aac': [winamp_program, media_player_program],
+  '.mp4': [media_player_program],
+  '.webm': [media_player_program]
 }
 
 export let icons = {

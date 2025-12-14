@@ -19,7 +19,13 @@ const config = {
                 cssMinify: true
         },
         optimizeDeps: {
-                include: ['svelte', 'axios', 'idb-keyval', 'lodash']
+                include: ['svelte', 'axios', 'idb-keyval', 'lodash', 'webamp'],
+                esbuildOptions: {
+                        target: 'esnext'
+                }
+        },
+        esbuild: {
+                target: 'esnext'
         },
         ssr: {
                 noExternal: ['axios']
