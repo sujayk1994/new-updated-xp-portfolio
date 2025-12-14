@@ -33,9 +33,9 @@
     </div>
     <div class="h-[2px] bg-[linear-gradient(45deg,#466dcd,#c7ddff,#b0c9f7,#5a7edc)] shrink-0"></div>
     <div class="grow bg-[radial-gradient(circle_at_5%_5%,#91b1ef_0,#7698e6_6%,#5a7edc_12%)] relative overflow-hidden">
-        <div class="absolute top-[30%] left-[45%] flex flex-col items-end">
+        <div class="absolute top-[30%] left-[45%] flex flex-col items-end max-md:left-1/2 max-md:-translate-x-1/2 max-md:items-center">
             <img src="/images/xp_logo.png" width="200">
-            <p class="mr-4 mt-8 text-right text-[24px] text-slate-50">Windows is shutting down...</p>
+            <p class="mr-4 mt-8 text-right text-[24px] text-slate-50 max-md:mr-0 max-md:text-center">Windows is shutting down...</p>
         </div>
     </div>
   
