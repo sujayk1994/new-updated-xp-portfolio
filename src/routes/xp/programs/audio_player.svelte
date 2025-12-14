@@ -1,19 +1,17 @@
 <script>
-    import Window from '../../../lib/components/xp/Window.svelte';
-    import RangeSlider from "svelte-range-slider-pips";
     import { onMount, onDestroy, tick } from 'svelte';
     import { runningPrograms, systemVolume, zIndex, hardDrive } from '../../../lib/store';
     import * as utils from '../../../lib/utils';
-    import { tooltip } from '$lib/components/xp/tooltip.js';
-    import { get, set } from 'idb-keyval';
+    import { get } from 'idb-keyval';
 
     export let id;
-    export let window;
     export let self;
     export let parentNode;
     export let fs_item;
     export let exec_path;
 
+    const SKIN_PATH = '/images/xp/winamp_skin';
+    
     let supported_audio_types = ['.mp3', '.wav', '.ogg', '.flac', '.aac'];
 
     let audio_node;
@@ -23,68 +21,78 @@
     let player_volume = 0.8;
     let loop = false;
     let shuffle = false;
-    let playlist = [];
-    let currentTrackIndex = 0;
-    let trackName = 'No track loaded';
+    let trackName = 'Winamp 2.91';
     let createdUrls = [];
-    let visualizerBars = Array(20).fill(0);
-    let animationFrame;
-    let audioContext;
-    let analyser;
-    let dataArray;
+    let playerNode;
+    let isDragging = false;
+    let dragOffset = { x: 0, y: 0 };
+    let position = { x: 100, y: 100 };
+    let myZIndex = 100;
+    let scrollOffset = 0;
+    let scrollInterval;
+    let seekDragging = false;
+    let volumeDragging = false;
+    let minimized = false;
+    let visible = true;
+
+    let prevPressed = false;
+    let playPressed = false;
+    let pausePressed = false;
+    let stopPressed = false;
+    let nextPressed = false;
+    let ejectPressed = false;
+
+    export let window = {
+        get z_index() { return myZIndex; },
+        get minimized() { return minimized; },
+        get maximized() { return false; },
+        on_click_minimize() {
+            minimized = true;
+            visible = false;
+        },
+        focus() {
+            bringToFront();
+            minimized = false;
+            visible = true;
+        },
+        restore() {
+            minimized = false;
+            visible = true;
+            bringToFront();
+        }
+    };
 
     $: audio_volume = player_volume * $systemVolume;
+    $: minutes = Math.floor(currentTime / 60);
+    $: seconds = Math.floor(currentTime % 60);
+    $: seekPercent = duration > 0 ? (currentTime / duration) * 100 : 0;
+    $: volumeFrame = Math.floor(player_volume * 27);
 
     onMount(async () => {
         if (fs_item && supported_audio_types.includes(fs_item.ext?.toLowerCase())) {
             await loadTrack(fs_item);
         }
-        startVisualizer();
+        startTitleScroll();
+        bringToFront();
     });
 
     onDestroy(() => {
-        if (animationFrame) {
-            cancelAnimationFrame(animationFrame);
-        }
-        if (audioContext) {
-            audioContext.close();
-        }
+        if (scrollInterval) clearInterval(scrollInterval);
         createdUrls.forEach(url => URL.revokeObjectURL(url));
     });
 
-    function startVisualizer() {
-        function animate() {
-            if (analyser && dataArray) {
-                analyser.getByteFrequencyData(dataArray);
-                const step = Math.floor(dataArray.length / 20);
-                visualizerBars = Array(20).fill(0).map((_, i) => {
-                    const value = dataArray[i * step];
-                    return (value / 255) * 100;
-                });
-            } else if (!paused) {
-                visualizerBars = visualizerBars.map(() => Math.random() * 60 + 20);
-            } else {
-                visualizerBars = visualizerBars.map(v => Math.max(0, v - 5));
-            }
-            animationFrame = requestAnimationFrame(animate);
-        }
-        animate();
+    function bringToFront() {
+        zIndex.update(z => z + 1);
+        myZIndex = $zIndex;
+        window = { ...window };
     }
 
-    async function setupAudioContext() {
-        if (!audioContext && audio_node) {
-            try {
-                audioContext = new (window.AudioContext || window.webkitAudioContext)();
-                analyser = audioContext.createAnalyser();
-                analyser.fftSize = 256;
-                const source = audioContext.createMediaElementSource(audio_node);
-                source.connect(analyser);
-                analyser.connect(audioContext.destination);
-                dataArray = new Uint8Array(analyser.frequencyBinCount);
-            } catch (e) {
-                console.log('Audio context not available');
+    function startTitleScroll() {
+        scrollInterval = setInterval(() => {
+            if (!paused && trackName.length > 20) {
+                scrollOffset = (scrollOffset + 1) % (trackName.length * 5 + 30);
             }
-        }
+        }, 150);
     }
 
     async function loadTrack(item) {
@@ -103,16 +111,14 @@
             await tick();
             audio_node.src = url;
             trackName = item.name.replace(item.ext, '');
-            window.update_title('Audio Player - ' + trackName);
             audio_node.play();
-            setupAudioContext();
         }
     }
 
     async function open_file() {
         const OpenModal = (await import('../../../lib/components/xp/OpenModal.svelte')).default;
         let modal = new OpenModal({
-            target: window.node_ref,
+            target: parentNode || document.body,
             props: { filetypes: ['.mp3', '.wav', '.ogg', '.flac', '.aac'], filetypes_desc: 'Audio Files' }
         });
         modal.self = modal;
@@ -124,12 +130,7 @@
     }
 
     export function destroy() {
-        if (animationFrame) {
-            cancelAnimationFrame(animationFrame);
-        }
-        if (audioContext) {
-            audioContext.close();
-        }
+        if (scrollInterval) clearInterval(scrollInterval);
         createdUrls.forEach(url => URL.revokeObjectURL(url));
         createdUrls = [];
         runningPrograms.update(programs => programs.filter(p => p != self));
@@ -137,11 +138,11 @@
     }
 
     export let options = {
-        title: 'Audio Player',
-        min_width: 320,
-        min_height: 280,
-        width: 380,
-        height: 320,
+        title: 'Winamp',
+        min_width: 275,
+        min_height: 116,
+        width: 275,
+        height: 116,
         icon: '/images/xp/icons/AudioPlayer.png',
         id: id,
         exec_path
@@ -150,7 +151,6 @@
     function play() {
         if (paused) {
             audio_node.play();
-            setupAudioContext();
         } else {
             audio_node.pause();
         }
@@ -162,36 +162,67 @@
         currentTime = 0;
     }
 
-    function seek(e) {
-        currentTime = e.detail.value;
+    function prevTrack() {
+        audio_node.currentTime = 0;
     }
 
-    function next5s() {
-        currentTime = Math.min(currentTime + 5, duration);
+    function nextTrack() {
+        audio_node.currentTime = duration || 0;
     }
 
-    function back5s() {
-        currentTime = Math.max(currentTime - 5, 0);
+    function onMouseDown(e) {
+        if (e.target.closest('.control-button') || e.target.closest('.seek-bar') || e.target.closest('.volume-slider')) return;
+        isDragging = true;
+        dragOffset = {
+            x: e.clientX - position.x,
+            y: e.clientY - position.y
+        };
+        bringToFront();
     }
 
-    function change_volume(e) {
-        player_volume = e.detail.value;
-    }
-
-    function on_key_pressed(e) {
-        if (window.z_index != $zIndex || isNaN(duration)) return;
-        e.preventDefault();
-        if (e.key == 'ArrowRight') {
-            next5s();
-        } else if (e.key == 'ArrowLeft') {
-            back5s();
-        } else if (e.key == 'ArrowUp') {
-            player_volume = Math.min(1, player_volume + 0.05);
-        } else if (e.key == 'ArrowDown') {
-            player_volume = Math.max(0, player_volume - 0.05);
-        } else if (e.key == ' ') {
-            play();
+    function onMouseMove(e) {
+        if (isDragging) {
+            position = {
+                x: e.clientX - dragOffset.x,
+                y: e.clientY - dragOffset.y
+            };
         }
+        if (seekDragging && duration > 0) {
+            const seekBar = playerNode.querySelector('.seek-bar');
+            const rect = seekBar.getBoundingClientRect();
+            let percent = (e.clientX - rect.left) / rect.width;
+            percent = Math.max(0, Math.min(1, percent));
+            currentTime = percent * duration;
+        }
+        if (volumeDragging) {
+            const volSlider = playerNode.querySelector('.volume-slider');
+            const rect = volSlider.getBoundingClientRect();
+            let percent = (e.clientX - rect.left) / rect.width;
+            player_volume = Math.max(0, Math.min(1, percent));
+        }
+    }
+
+    function onMouseUp() {
+        isDragging = false;
+        seekDragging = false;
+        volumeDragging = false;
+    }
+
+    function onSeekStart(e) {
+        if (duration > 0) {
+            seekDragging = true;
+            const rect = e.currentTarget.getBoundingClientRect();
+            let percent = (e.clientX - rect.left) / rect.width;
+            percent = Math.max(0, Math.min(1, percent));
+            currentTime = percent * duration;
+        }
+    }
+
+    function onVolumeStart(e) {
+        volumeDragging = true;
+        const rect = e.currentTarget.getBoundingClientRect();
+        let percent = (e.clientX - rect.left) / rect.width;
+        player_volume = Math.max(0, Math.min(1, percent));
     }
 
     async function on_drop(e) {
@@ -203,157 +234,593 @@
                 await tick();
                 audio_node.src = url;
                 trackName = file.name.replace(utils.extname(file.name), '');
-                window.update_title('Audio Player - ' + trackName);
                 audio_node.play();
-                setupAudioContext();
                 break;
             }
         }
     }
 
-    function on_drop_over(e) {
-        e.preventDefault();
+    function getDigitOffset(digit) {
+        const digitMap = {
+            '0': 0, '1': 9, '2': 18, '3': 27, '4': 36,
+            '5': 45, '6': 54, '7': 63, '8': 72, '9': 81
+        };
+        return digitMap[digit] || 90;
     }
 </script>
 
-<Window options={options} bind:this={window} on_click_close={destroy}>
-    <div slot="content" class="absolute inset-0 flex flex-col overflow-hidden" 
-         on:drop={on_drop} on:dragover={on_drop_over}
-         style="background: linear-gradient(180deg, #1a1a2e 0%, #16213e 50%, #0f0f23 100%);">
-        
-        <audio src="" bind:this={audio_node} {loop} 
-               bind:currentTime bind:duration bind:paused bind:volume={audio_volume}></audio>
+{#if visible}
+<div 
+    class="winamp-player"
+    bind:this={playerNode}
+    style="left: {position.x}px; top: {position.y}px; z-index: {myZIndex};"
+    on:mousedown={onMouseDown}
+    on:drop={on_drop}
+    on:dragover|preventDefault
+>
+    <audio 
+        src="" 
+        bind:this={audio_node} 
+        {loop} 
+        bind:currentTime 
+        bind:duration 
+        bind:paused 
+        bind:volume={audio_volume}
+    ></audio>
 
-        <div class="flex-1 flex flex-col items-center justify-center p-4">
-            <div class="w-full h-24 flex items-end justify-center gap-0.5 mb-4">
-                {#each visualizerBars as height, i}
-                    <div class="w-3 rounded-t transition-all duration-75"
-                         style="height: {height}%; background: linear-gradient(180deg, #f39c12 0%, #e74c3c 50%, #9b59b6 100%);
-                                box-shadow: 0 0 8px rgba(243, 156, 18, 0.5);">
-                    </div>
-                {/each}
-            </div>
-
-            <div class="w-full bg-black/40 rounded-lg p-3 mb-4 border border-gray-700">
-                <div class="text-center text-green-400 font-mono text-sm truncate mb-2"
-                     style="text-shadow: 0 0 10px rgba(34, 197, 94, 0.8);">
-                    {trackName}
+    <div class="titlebar">
+        <div class="clutterbar"></div>
+        <div class="title-text">
+            {#if trackName.length > 20}
+                <div class="marquee" style="transform: translateX(-{scrollOffset}px);">
+                    {trackName} *** {trackName}
                 </div>
-                <div class="text-center text-green-300 font-mono text-xs">
-                    {utils.format_time(currentTime)} / {isNaN(duration) ? '0:00' : utils.format_time(duration)}
-                </div>
-            </div>
-
-            <div class="w-full mb-4">
-                <RangeSlider max={parseInt(duration) || 100} values={[parseInt(currentTime)]} 
-                             springValues={{ stiffness: 0.3, damping: 1 }} on:change={seek}
-                             id="audio-player-slider" />
-            </div>
-
-            <div class="flex flex-row items-center justify-center gap-2 mb-4">
-                <button use:tooltip tooltip="Rewind 5s [←]" disabled={isNaN(duration)} 
-                        class="w-10 h-10 rounded-full bg-gradient-to-b from-gray-600 to-gray-800 
-                               hover:from-gray-500 hover:to-gray-700 border border-gray-500
-                               flex items-center justify-center group disabled:opacity-50"
-                        on:click={back5s}>
-                    <svg class="w-4 h-4 fill-white" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
-                        <path d="M459.5 440.6c9.5 7.9 22.8 9.7 34.1 4.4s18.4-16.6 18.4-29V96c0-12.4-7.2-23.7-18.4-29s-24.5-3.6-34.1 4.4L288 214.3V256v41.7L459.5 440.6zM256 352V256 128 96c0-12.4-7.2-23.7-18.4-29s-24.5-3.6-34.1 4.4l-192 160C4.2 237.5 0 246.5 0 256s4.2 18.5 11.5 24.6l192 160c9.5 7.9 22.8 9.7 34.1 4.4s18.4-16.6 18.4-29V352z"/>
-                    </svg>
-                </button>
-
-                <button use:tooltip tooltip="Stop" disabled={isNaN(duration)} 
-                        class="w-10 h-10 rounded-full bg-gradient-to-b from-gray-600 to-gray-800 
-                               hover:from-gray-500 hover:to-gray-700 border border-gray-500
-                               flex items-center justify-center group disabled:opacity-50"
-                        on:click={stop}>
-                    <svg class="w-4 h-4 fill-white" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512">
-                        <path d="M0 128C0 92.7 28.7 64 64 64H320c35.3 0 64 28.7 64 64V384c0 35.3-28.7 64-64 64H64c-35.3 0-64-28.7-64-64V128z"/>
-                    </svg>
-                </button>
-
-                <button use:tooltip tooltip="Play/Pause [Space]" 
-                        class="w-14 h-14 rounded-full bg-gradient-to-b from-orange-500 to-orange-700 
-                               hover:from-orange-400 hover:to-orange-600 border-2 border-orange-400
-                               flex items-center justify-center shadow-lg"
-                        style="box-shadow: 0 0 20px rgba(249, 115, 22, 0.5);"
-                        on:click={play}>
-                    {#if paused}
-                        <svg class="w-6 h-6 fill-white ml-1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512">
-                            <path d="M73 39c-14.8-9.1-33.4-9.4-48.5-.9S0 62.6 0 80V432c0 17.4 9.4 33.4 24.5 41.9s33.7 8.1 48.5-.9L361 297c14.3-8.7 23-24.2 23-41s-8.7-32.2-23-41L73 39z"/>
-                        </svg>
-                    {:else}
-                        <svg class="w-6 h-6 fill-white" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512">
-                            <path d="M48 64C21.5 64 0 85.5 0 112V400c0 26.5 21.5 48 48 48H80c26.5 0 48-21.5 48-48V112c0-26.5-21.5-48-48-48H48zm192 0c-26.5 0-48 21.5-48 48V400c0 26.5 21.5 48 48 48h32c26.5 0 48-21.5 48-48V112c0-26.5-21.5-48-48-48H240z"/>
-                        </svg>
-                    {/if}
-                </button>
-
-                <button use:tooltip tooltip="Forward 5s [→]" disabled={isNaN(duration)} 
-                        class="w-10 h-10 rounded-full bg-gradient-to-b from-gray-600 to-gray-800 
-                               hover:from-gray-500 hover:to-gray-700 border border-gray-500
-                               flex items-center justify-center group disabled:opacity-50"
-                        on:click={next5s}>
-                    <svg class="w-4 h-4 fill-white" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
-                        <path d="M52.5 440.6c-9.5 7.9-22.8 9.7-34.1 4.4S0 428.4 0 416V96C0 83.6 7.2 72.3 18.4 67s24.5-3.6 34.1 4.4L224 214.3V256v41.7L52.5 440.6zM256 352V256 128 96c0-12.4 7.2-23.7 18.4-29s24.5-3.6 34.1 4.4l192 160c7.3 6.1 11.5 15.1 11.5 24.6s-4.2 18.5-11.5 24.6l-192 160c-9.5 7.9-22.8 9.7-34.1 4.4s-18.4-16.6-18.4-29V352z"/>
-                    </svg>
-                </button>
-
-                <button use:tooltip tooltip="Loop" 
-                        class="w-10 h-10 rounded-full bg-gradient-to-b from-gray-600 to-gray-800 
-                               hover:from-gray-500 hover:to-gray-700 border border-gray-500
-                               flex items-center justify-center {loop ? 'ring-2 ring-orange-400' : ''}"
-                        on:click={() => loop = !loop}>
-                    <svg class="w-4 h-4 {loop ? 'fill-orange-400' : 'fill-white'}" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
-                        <path d="M0 224c0 17.7 14.3 32 32 32s32-14.3 32-32c0-53 43-96 96-96H320v32c0 12.9 7.8 24.6 19.8 29.6s25.7 2.2 34.9-6.9l64-64c12.5-12.5 12.5-32.8 0-45.3l-64-64c-9.2-9.2-22.9-11.9-34.9-6.9S320 19.1 320 32V64H160C71.6 64 0 135.6 0 224zm512 64c0-17.7-14.3-32-32-32s-32 14.3-32 32c0 53-43 96-96 96H192V352c0-12.9-7.8-24.6-19.8-29.6s-25.7-2.2-34.9 6.9l-64 64c-12.5 12.5-12.5 32.8 0 45.3l64 64c9.2 9.2 22.9 11.9 34.9 6.9s19.8-16.6 19.8-29.6V448H352c88.4 0 160-71.6 160-160z"/>
-                    </svg>
-                </button>
-            </div>
-
-            <div class="w-full flex items-center gap-3 px-4">
-                <svg class="w-4 h-4 fill-gray-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512">
-                    <path d="M533.6 32.5C598.5 85.3 640 165.8 640 256s-41.5 170.8-106.4 223.5c-10.3 8.4-25.4 6.8-33.8-3.5s-6.8-25.4 3.5-33.8C557.5 398.2 592 searching 592 256s-34.5-142.2-88.7-186.3c-10.3-8.4-11.8-23.5-3.5-33.8s23.5-11.8 33.8-3.5zM473.1 107c43.2 35.2 70.9 88.9 70.9 149s-27.7 113.8-70.9 149c-10.3 8.4-25.4 6.8-33.8-3.5s-6.8-25.4 3.5-33.8C475.3 341.3 496 search 496 256s-20.7-85.3-53.2-111.8c-10.3-8.4-11.8-23.5-3.5-33.8s23.5-11.8 33.8-3.5zm-60.5 74.5C434.1 199.1 448 225.9 448 256s-13.9 56.9-35.4 74.5c-10.3 8.4-25.4 6.8-33.8-3.5s-6.8-25.4 3.5-33.8C393.1 284.4 400 271 400 256s-6.9-28.4-17.7-37.3c-10.3-8.4-11.8-23.5-3.5-33.8s23.5-11.8 33.8-3.5zM301.1 34.8C312.6 40 320 51.4 320 64V448c0 12.6-7.4 24-18.9 29.2s-25 3.1-34.4-5.3L131.8 352H64c-35.3 0-64-28.7-64-64V224c0-35.3 28.7-64 64-64h67.8L266.7 40.1c9.4-8.4 22.9-10.4 34.4-5.3z"/>
-                </svg>
-                <div class="flex-1">
-                    <RangeSlider max={1} step={0.01} values={[player_volume]} 
-                                 springValues={{ stiffness: 0.9, damping: 1 }}
-                                 id="audio-player-volume" on:change={change_volume} />
-                </div>
-            </div>
+            {:else}
+                {trackName}
+            {/if}
         </div>
-
-        <div class="shrink-0 bg-gradient-to-r from-gray-800 via-gray-700 to-gray-800 
-                    border-t border-gray-600 p-2 flex justify-between items-center">
-            <button on:click={open_file}
-                    class="text-xs bg-gradient-to-b from-gray-600 to-gray-700 hover:from-gray-500 hover:to-gray-600 
-                           text-white px-3 py-1.5 rounded border border-gray-500">
-                Open File
-            </button>
-            <div class="text-xs text-gray-400">
-                {paused ? 'Paused' : 'Playing'}
-            </div>
+        <div class="title-buttons">
+            <button class="tb-btn minimize" on:click={() => window.on_click_minimize()}></button>
+            <button class="tb-btn shade" on:click={() => {}}></button>
+            <button class="tb-btn close" on:click={destroy}></button>
         </div>
     </div>
-</Window>
 
+    <div class="display-area">
+        <div class="time-display">
+            <div class="digit" style="background-position: -{getDigitOffset(String(minutes).padStart(2,'0')[0])}px 0;"></div>
+            <div class="digit" style="background-position: -{getDigitOffset(String(minutes).padStart(2,'0')[1])}px 0;"></div>
+            <div class="digit-colon"></div>
+            <div class="digit" style="background-position: -{getDigitOffset(String(seconds).padStart(2,'0')[0])}px 0;"></div>
+            <div class="digit" style="background-position: -{getDigitOffset(String(seconds).padStart(2,'0')[1])}px 0;"></div>
+        </div>
+
+        <div class="play-status">
+            <div class="status-icon {paused ? 'paused' : 'playing'}"></div>
+        </div>
+
+        <div class="stereo-mono">
+            <div class="stereo-indicator active"></div>
+            <div class="mono-indicator"></div>
+        </div>
+
+        <div class="visualizer">
+            {#each Array(19) as _, i}
+                <div class="viz-bar" style="height: {paused ? 2 : Math.random() * 15 + 2}px;"></div>
+            {/each}
+        </div>
+
+        <div class="kbps-khz">
+            <div class="kbps">128</div>
+            <div class="khz">44</div>
+        </div>
+    </div>
+
+    <div class="song-title">
+        <div class="title-scroll" style="transform: translateX(-{scrollOffset}px);">
+            {trackName.toUpperCase()} *** {trackName.toUpperCase()}
+        </div>
+    </div>
+
+    <div class="seek-bar control-button" on:mousedown={onSeekStart}>
+        <div class="seek-bg"></div>
+        <div class="seek-thumb" style="left: {seekPercent}%;"></div>
+    </div>
+
+    <div class="bottom-section">
+        <div class="controls">
+            <button 
+                class="control-button prev {prevPressed ? 'pressed' : ''}"
+                on:mousedown={() => prevPressed = true}
+                on:mouseup={() => { prevPressed = false; prevTrack(); }}
+                on:mouseleave={() => prevPressed = false}
+            ></button>
+            <button 
+                class="control-button play-btn {playPressed ? 'pressed' : ''}"
+                on:mousedown={() => playPressed = true}
+                on:mouseup={() => { playPressed = false; if(paused) play(); }}
+                on:mouseleave={() => playPressed = false}
+            ></button>
+            <button 
+                class="control-button pause-btn {pausePressed ? 'pressed' : ''}"
+                on:mousedown={() => pausePressed = true}
+                on:mouseup={() => { pausePressed = false; if(!paused) play(); }}
+                on:mouseleave={() => pausePressed = false}
+            ></button>
+            <button 
+                class="control-button stop-btn {stopPressed ? 'pressed' : ''}"
+                on:mousedown={() => stopPressed = true}
+                on:mouseup={() => { stopPressed = false; stop(); }}
+                on:mouseleave={() => stopPressed = false}
+            ></button>
+            <button 
+                class="control-button next {nextPressed ? 'pressed' : ''}"
+                on:mousedown={() => nextPressed = true}
+                on:mouseup={() => { nextPressed = false; nextTrack(); }}
+                on:mouseleave={() => nextPressed = false}
+            ></button>
+            <button 
+                class="control-button eject {ejectPressed ? 'pressed' : ''}"
+                on:mousedown={() => ejectPressed = true}
+                on:mouseup={() => { ejectPressed = false; open_file(); }}
+                on:mouseleave={() => ejectPressed = false}
+            ></button>
+        </div>
+
+        <div class="sliders">
+            <div class="volume-slider control-button" on:mousedown={onVolumeStart}>
+                <div class="vol-bg"></div>
+                <div class="vol-thumb" style="left: {player_volume * 100}%;"></div>
+            </div>
+            <div class="balance-slider">
+                <div class="bal-bg"></div>
+                <div class="bal-thumb"></div>
+            </div>
+        </div>
+
+        <div class="eq-pl-buttons">
+            <button class="eq-btn"></button>
+            <button class="pl-btn"></button>
+        </div>
+
+        <div class="shuffle-repeat">
+            <button class="shuffle-btn {shuffle ? 'active' : ''}" on:click={() => shuffle = !shuffle}></button>
+            <button class="repeat-btn {loop ? 'active' : ''}" on:click={() => loop = !loop}></button>
+        </div>
+    </div>
+</div>
+{/if}
+
+<svelte:window on:mousemove={onMouseMove} on:mouseup={onMouseUp} />
 <svelte:options accessors={true} />
 
-<svelte:window on:keydown={on_key_pressed} />
-
 <style>
-    :global(#audio-player-slider) {
-        --range-slider: #374151;
-        --range-handle-inactive: #f97316;
-        --range-handle: #f97316;
-        --range-handle-focus: #fb923c;
-        --range-float: #f97316;
-        --range-range: #f97316;
+    .winamp-player {
+        position: absolute;
+        width: 275px;
+        height: 116px;
+        background: url('/images/xp/winamp_skin/main.bmp') no-repeat;
+        background-size: 275px 116px;
+        user-select: none;
+        font-family: Arial, sans-serif;
+        image-rendering: pixelated;
+        box-shadow: 2px 2px 8px rgba(0,0,0,0.5);
     }
-    
-    :global(#audio-player-volume) {
-        --range-slider: #374151;
-        --range-handle-inactive: #9ca3af;
-        --range-handle: #d1d5db;
-        --range-handle-focus: #f3f4f6;
-        --range-range: #6b7280;
+
+    .titlebar {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 14px;
+        display: flex;
+        align-items: center;
+        cursor: move;
+        background: url('/images/xp/winamp_skin/titlebar.bmp') no-repeat;
+        background-position: 0 0;
+    }
+
+    .clutterbar {
+        width: 8px;
+        height: 43px;
+        position: absolute;
+        left: 6px;
+        top: 17px;
+    }
+
+    .title-text {
+        flex: 1;
+        color: transparent;
+        font-size: 8px;
+        text-align: center;
+        overflow: hidden;
+    }
+
+    .title-buttons {
+        position: absolute;
+        right: 0;
+        top: 3px;
+        display: flex;
+        gap: 0;
+    }
+
+    .tb-btn {
+        width: 9px;
+        height: 9px;
+        border: none;
+        cursor: pointer;
+        background: url('/images/xp/winamp_skin/titlebar.bmp') no-repeat;
+    }
+
+    .tb-btn.minimize {
+        background-position: -9px -18px;
+    }
+    .tb-btn.minimize:active {
+        background-position: 0 -18px;
+    }
+
+    .tb-btn.shade {
+        background-position: -9px -27px;
+    }
+    .tb-btn.shade:active {
+        background-position: 0 -27px;
+    }
+
+    .tb-btn.close {
+        background-position: -18px -9px;
+        margin-right: 2px;
+    }
+    .tb-btn.close:active {
+        background-position: -9px -9px;
+    }
+
+    .display-area {
+        position: absolute;
+        top: 22px;
+        left: 11px;
+        width: 93px;
+        height: 37px;
+    }
+
+    .time-display {
+        position: absolute;
+        left: 36px;
+        top: 8px;
+        display: flex;
+        gap: 0;
+    }
+
+    .digit {
+        width: 9px;
+        height: 13px;
+        background: url('/images/xp/winamp_skin/numbers.bmp') no-repeat;
+        background-size: auto 13px;
+    }
+
+    .digit-colon {
+        width: 5px;
+        height: 13px;
+        background: url('/images/xp/winamp_skin/numbers.bmp') no-repeat;
+        background-position: -99px 0;
+        background-size: auto 13px;
+    }
+
+    .play-status {
+        position: absolute;
+        left: 26px;
+        top: 28px;
+    }
+
+    .status-icon {
+        width: 9px;
+        height: 9px;
+        background: url('/images/xp/winamp_skin/playpaus.bmp') no-repeat;
+    }
+    .status-icon.playing {
+        background-position: 0 0;
+    }
+    .status-icon.paused {
+        background-position: -9px 0;
+    }
+
+    .stereo-mono {
+        position: absolute;
+        right: 8px;
+        top: 0;
+        display: flex;
+        flex-direction: column;
+        gap: 2px;
+    }
+
+    .stereo-indicator, .mono-indicator {
+        width: 29px;
+        height: 12px;
+        background: url('/images/xp/winamp_skin/monoster.bmp') no-repeat;
+    }
+    .stereo-indicator {
+        background-position: 0 0;
+    }
+    .stereo-indicator.active {
+        background-position: 0 -12px;
+    }
+    .mono-indicator {
+        background-position: -29px 0;
+    }
+    .mono-indicator.active {
+        background-position: -29px -12px;
+    }
+
+    .visualizer {
+        position: absolute;
+        left: 24px;
+        top: 43px;
+        width: 76px;
+        height: 16px;
+        display: flex;
+        gap: 1px;
+        align-items: flex-end;
+        background: #000;
+    }
+
+    .viz-bar {
+        width: 3px;
+        background: linear-gradient(to top, #00ff00, #ffff00, #ff0000);
+        transition: height 0.1s;
+    }
+
+    .kbps-khz {
+        position: absolute;
+        left: 0;
+        top: 18px;
+        display: flex;
+        flex-direction: column;
+        font-size: 6px;
+        color: #00ff00;
+    }
+
+    .song-title {
+        position: absolute;
+        top: 24px;
+        left: 111px;
+        width: 155px;
+        height: 15px;
+        overflow: hidden;
+        background: #000;
+    }
+
+    .title-scroll {
+        white-space: nowrap;
+        color: #00ff00;
+        font-size: 8px;
+        font-family: "Small Fonts", Arial, sans-serif;
+        line-height: 15px;
+    }
+
+    .seek-bar {
+        position: absolute;
+        top: 72px;
+        left: 16px;
+        width: 248px;
+        height: 10px;
+        cursor: pointer;
+    }
+
+    .seek-bg {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 10px;
+        background: url('/images/xp/winamp_skin/posbar.bmp') no-repeat;
+        background-position: 0 0;
+    }
+
+    .seek-thumb {
+        position: absolute;
+        top: 0;
+        width: 29px;
+        height: 10px;
+        background: url('/images/xp/winamp_skin/posbar.bmp') no-repeat;
+        background-position: 0 -10px;
+        transform: translateX(-50%);
+        cursor: pointer;
+    }
+
+    .bottom-section {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        height: 30px;
+    }
+
+    .controls {
+        position: absolute;
+        left: 16px;
+        bottom: 10px;
+        display: flex;
+        gap: 0;
+    }
+
+    .control-button {
+        border: none;
+        cursor: pointer;
+        background: url('/images/xp/winamp_skin/cbuttons.bmp') no-repeat;
+    }
+
+    .control-button.prev {
+        width: 23px;
+        height: 18px;
+        background-position: 0 0;
+    }
+    .control-button.prev.pressed {
+        background-position: 0 -18px;
+    }
+
+    .control-button.play-btn {
+        width: 23px;
+        height: 18px;
+        background-position: -23px 0;
+    }
+    .control-button.play-btn.pressed {
+        background-position: -23px -18px;
+    }
+
+    .control-button.pause-btn {
+        width: 23px;
+        height: 18px;
+        background-position: -46px 0;
+    }
+    .control-button.pause-btn.pressed {
+        background-position: -46px -18px;
+    }
+
+    .control-button.stop-btn {
+        width: 23px;
+        height: 18px;
+        background-position: -69px 0;
+    }
+    .control-button.stop-btn.pressed {
+        background-position: -69px -18px;
+    }
+
+    .control-button.next {
+        width: 22px;
+        height: 18px;
+        background-position: -92px 0;
+    }
+    .control-button.next.pressed {
+        background-position: -92px -18px;
+    }
+
+    .control-button.eject {
+        width: 22px;
+        height: 16px;
+        background-position: -114px 0;
+    }
+    .control-button.eject.pressed {
+        background-position: -114px -16px;
+    }
+
+    .sliders {
+        position: absolute;
+        left: 107px;
+        bottom: 7px;
+        display: flex;
+        gap: 10px;
+    }
+
+    .volume-slider {
+        width: 68px;
+        height: 14px;
+        position: relative;
+        cursor: pointer;
+    }
+
+    .vol-bg {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background: url('/images/xp/winamp_skin/volume.bmp') no-repeat;
+        background-size: 68px auto;
+    }
+
+    .vol-thumb {
+        position: absolute;
+        top: 0;
+        width: 14px;
+        height: 11px;
+        background: url('/images/xp/winamp_skin/volume.bmp') no-repeat;
+        background-position: 0 -422px;
+        transform: translateX(-50%);
+    }
+
+    .balance-slider {
+        width: 38px;
+        height: 14px;
+        position: relative;
+    }
+
+    .bal-bg {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background: url('/images/xp/winamp_skin/balance.bmp') no-repeat;
+        background-size: 38px auto;
+    }
+
+    .bal-thumb {
+        position: absolute;
+        top: 0;
+        left: 50%;
+        width: 14px;
+        height: 11px;
+        background: url('/images/xp/winamp_skin/balance.bmp') no-repeat;
+        background-position: 0 -422px;
+        transform: translateX(-50%);
+    }
+
+    .eq-pl-buttons {
+        position: absolute;
+        right: 48px;
+        bottom: 8px;
+        display: flex;
+        gap: 3px;
+    }
+
+    .eq-btn, .pl-btn {
+        width: 23px;
+        height: 12px;
+        border: none;
+        cursor: pointer;
+        background: url('/images/xp/winamp_skin/shufrep.bmp') no-repeat;
+    }
+
+    .eq-btn {
+        background-position: -0px -61px;
+    }
+    .eq-btn:active {
+        background-position: -46px -61px;
+    }
+
+    .pl-btn {
+        background-position: -23px -61px;
+    }
+    .pl-btn:active {
+        background-position: -69px -61px;
+    }
+
+    .shuffle-repeat {
+        position: absolute;
+        right: 7px;
+        bottom: 8px;
+        display: flex;
+        gap: 4px;
+    }
+
+    .shuffle-btn, .repeat-btn {
+        width: 28px;
+        height: 15px;
+        border: none;
+        cursor: pointer;
+        background: url('/images/xp/winamp_skin/shufrep.bmp') no-repeat;
+    }
+
+    .shuffle-btn {
+        background-position: -28px -0px;
+    }
+    .shuffle-btn.active {
+        background-position: -28px -15px;
+    }
+
+    .repeat-btn {
+        background-position: 0 -30px;
+    }
+    .repeat-btn.active {
+        background-position: 0 -45px;
+    }
+
+    .marquee {
+        white-space: nowrap;
     }
 </style>

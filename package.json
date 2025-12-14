@@ -49,6 +49,7 @@
     "pdfjs-dist": "^3.11.174",
     "pg": "^8.16.3",
     "resend": "^6.5.2",
+    "sharp": "^0.34.5",
     "short-uuid": "^4.2.2",
     "srt-webvtt": "^2.0.0",
     "svelte-range-slider-pips": "^2.0.3",
