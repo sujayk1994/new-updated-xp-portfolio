@@ -365,6 +365,18 @@
             } catch (error) {
                 console.error('Failed to load Winamp:', error);
             }
+        } else if(path == './programs/audio_player.svelte'){
+            const Program = (await import('./programs/audio_player.svelte')).default;
+            let program = new Program({
+                target: node_ref,
+                props: {id: short.generate(), parentNode: node_ref, fs_item, exec_path: path}
+            });
+            program.self = program;
+            
+            //add to program tray
+            runningPrograms.update(values => {
+                return [...values, program];
+            })
         }
 
         queueProgram.set(null);

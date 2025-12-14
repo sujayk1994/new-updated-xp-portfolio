@@ -151,6 +151,12 @@ let winamp_program = {
   name: 'Winamp'
 }
 
+let audio_player_program = {
+  path: './programs/audio_player.svelte',
+  icon: '/images/xp/icons/AudioPlayer.png',
+  name: 'Audio Player'
+}
+
 let media_player_program = {
   path: './programs/media_player_classic.svelte',
   icon: '/images/xp/icons/MPC.png',
@@ -174,11 +180,11 @@ export let doctypes = {
   '.tar': [winrar_program],
   '.7z': [winrar_program],
   '.pdf': [pdf_viewer_program],
-  '.mp3': [winamp_program, media_player_program],
-  '.wav': [winamp_program, media_player_program],
-  '.ogg': [winamp_program, media_player_program],
-  '.flac': [winamp_program, media_player_program],
-  '.aac': [winamp_program, media_player_program],
+  '.mp3': [audio_player_program, winamp_program, media_player_program],
+  '.wav': [audio_player_program, winamp_program, media_player_program],
+  '.ogg': [audio_player_program, winamp_program, media_player_program],
+  '.flac': [audio_player_program, winamp_program, media_player_program],
+  '.aac': [audio_player_program, winamp_program, media_player_program],
   '.mp4': [media_player_program],
   '.webm': [media_player_program]
 }

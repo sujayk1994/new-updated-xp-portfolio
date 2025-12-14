@@ -52,9 +52,14 @@ npm run prod    # Build and run production server
 
 - `src/` - Source code
   - `routes/` - SvelteKit routes and pages
+    - `xp/programs/` - XP program components (audio_player, notepad, paint, etc.)
   - `lib/` - Shared components and utilities
 - `static/` - Static assets (images, fonts, audio, video)
 - `build/` - Production build output
+
+## Recent Changes
+
+- **December 2025**: Added custom XP-style Audio Player with visualizer, play/pause/stop/seek controls, volume control, and keyboard shortcuts. Available in Start Menu and as default handler for audio files (.mp3, .wav, .ogg, .flac, .aac).
 
 ## Technology Stack
 

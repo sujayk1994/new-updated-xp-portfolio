@@ -45,6 +45,12 @@
         },
         null,
         {
+            name: 'Audio Player',
+            icon: '/images/xp/icons/AudioPlayer.png',
+            path: './programs/audio_player.svelte',
+            
+        },
+        {
             name: 'Paint',
             icon: '/images/xp/icons/Paint.png',
             path: './programs/paint.svelte',
