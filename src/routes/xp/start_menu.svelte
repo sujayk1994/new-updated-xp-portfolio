@@ -45,9 +45,9 @@
         },
         null,
         {
-            name: 'Audio Player',
-            icon: '/images/xp/icons/AudioPlayer.png',
-            path: './programs/audio_player.svelte',
+            name: 'Winamp',
+            icon: '/images/xp/icons/Winamp.png',
+            path: './programs/winamp.svelte',
             
         },
         {
