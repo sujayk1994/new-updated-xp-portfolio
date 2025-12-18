@@ -4,8 +4,6 @@
   
   let webampInstance = null;
   let containerRef;
-  let isLoaded = false;
-  let error = null;
   
   const defaultTracks = [
     {
@@ -42,14 +40,6 @@
       
       webampInstance = new Webamp({
         initialTracks: defaultTracks,
-        initialSkin: {
-          url: "https://cdn.jsdelivr.net/gh/nicmlu/public_files/base-2.91.wsz"
-        },
-        availableSkins: [
-          { url: "https://cdn.jsdelivr.net/gh/nicmlu/public_files/base-2.91.wsz", name: "Base" },
-          { url: "https://cdn.jsdelivr.net/gh/nicmlu/public_files/Green-Dimension-V2.wsz", name: "Green Dimension" },
-          { url: "https://cdn.jsdelivr.net/gh/nicmlu/public_files/MacOSXAqua1-04.wsz", name: "Mac OS X Aqua" }
-        ],
         __initialWindowLayout: {
           main: { position: { x: storeState.position.x, y: storeState.position.y } },
           playlist: { position: { x: storeState.position.x, y: storeState.position.y + 116 } },
@@ -67,12 +57,12 @@
         winampStore.minimize();
       });
       
-      await webampInstance.renderWhenReady(containerRef);
-      isLoaded = true;
+      if (containerRef) {
+        await webampInstance.renderWhenReady(containerRef);
+      }
       
     } catch (err) {
       console.error('Failed to initialize Webamp:', err);
-      error = err.message;
     }
   });
   
@@ -89,18 +79,6 @@
 
 {#if !$winampStore.isMinimized}
   <div class="winamp-overlay">
-    {#if error}
-      <div class="error-message">
-        <p>Failed to load Winamp: {error}</p>
-        <button on:click={() => winampStore.close()}>Close</button>
-      </div>
-    {:else if !isLoaded}
-      <div class="loading">
-        <div class="spinner"></div>
-        <p>Loading Winamp...</p>
-      </div>
-    {/if}
-    
     <div bind:this={containerRef} class="webamp-container"></div>
   </div>
 {/if}
@@ -131,62 +109,5 @@
   
   :global(.webamp *) {
     image-rendering: pixelated;
-  }
-  
-  .loading {
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    text-align: center;
-    color: white;
-    background: rgba(0, 0, 0, 0.8);
-    padding: 30px;
-    border-radius: 8px;
-    z-index: 2000;
-    pointer-events: auto;
-  }
-  
-  .spinner {
-    width: 40px;
-    height: 40px;
-    border: 3px solid rgba(255, 255, 255, 0.3);
-    border-top-color: #00ff00;
-    border-radius: 50%;
-    animation: spin 1s linear infinite;
-    margin: 0 auto 15px;
-  }
-  
-  @keyframes spin {
-    to { transform: rotate(360deg); }
-  }
-  
-  .error-message {
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background: rgba(0, 0, 0, 0.9);
-    border: 2px solid #ff4444;
-    padding: 20px 30px;
-    border-radius: 8px;
-    color: white;
-    text-align: center;
-    z-index: 2000;
-    pointer-events: auto;
-  }
-  
-  .error-message button {
-    margin-top: 15px;
-    padding: 8px 20px;
-    background: #0078d4;
-    color: white;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-  }
-  
-  .error-message button:hover {
-    background: #106ebe;
   }
 </style>
