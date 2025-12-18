@@ -5,6 +5,7 @@
     import * as utils from '../../lib/utils';
     import { doctypes, icons, desktop_folder, previewable_exts } from '../../lib/system';
     import * as fs from '../../lib/fs';
+    import { isAudioFile, openAudioFile } from '../../lib/utils/fileAssociations';
     const {click_outside} = utils;
     import {  onMount, tick } from 'svelte';
     import short from 'short-uuid';
@@ -201,6 +202,8 @@
                     path: fs_item.url,
                     webapp: fs_item.webapp
                 })
+            } else if(isAudioFile(fs_item.name)){
+                openAudioFile(fs_item, fs_item.url);
             } else if(doctypes[fs_item.ext] != null){
                 queueProgram.set({
                     path: doctypes[fs_item.ext][0].path,
