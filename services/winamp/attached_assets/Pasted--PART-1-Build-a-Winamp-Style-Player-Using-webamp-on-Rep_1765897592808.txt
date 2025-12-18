@@ -1,0 +1,78 @@
+🎧 PART 1 — Build a Winamp-Style Player Using webamp on Replit
+
+Use these Cursor AI prompts one after the other in your Replit project.
+
+🔹 Prompt 1 — Initialize the Project
+
+“Create a new Vite + Svelte project on Replit with npm init vite@latest, name the project winamp-clone, and set it up with Svelte. Install dependencies: webamp, @webamp/webamp. Generate a clean starter template.”
+
+🔹 Prompt 2 — Install Webamp
+
+“Add the webamp package using npm and configure the project to import it. Ensure we install:
+
+npm install webamp @webamp/webamp
+
+
+Provide the updated package.json and explain why both packages are needed.”
+
+🔹 Prompt 3 — Create the Player Component
+
+“In the Svelte src folder, create a new component WebampPlayer.svelte. Write code to:
+
+Import Webamp from @webamp/webamp
+
+Initialize Webamp on mount
+
+Provide a placeholder <div id="webamp"></div>
+
+Include a sample playlist with a couple of MP3 URLs
+
+Provide full Svelte component code and include comments explaining each part.”
+
+🔹 Prompt 4 — Include Sample Audio Files
+
+“Add 2–3 test MP3 files (or public URLs) to the project and reference them in the initial Webamp playlist. Show how to structure the playlist object so it loads automatically when Webamp starts.”
+
+🔹 Prompt 5 — Style the Player
+
+“Add CSS so the Webamp container stays fixed at bottom-left like classic Winamp. Provide both global and component styles needed.”
+
+🔹 Prompt 6 — Run and Test
+
+“Provide instructions to run the Replit server, test Webamp, and debug common issues like CORS on audio files.”
+
+🔹 Prompt 7 — Export Build
+
+“Show how to build the Vite app (npm run build) and prepare it for integration into another SvelteKit app.”
+
+🎯 PART 2 — Integrate the Winamp Player into Your XP-Themed SvelteKit App
+
+Now that the standalone player works, integrate it into your main SvelteKit portfolio.
+
+🔹 Prompt 8 — Bring Webamp into SvelteKit
+
+“In my existing SvelteKit Windows XP portfolio, add webamp and @webamp/webamp as dependencies. Update package.json and install. Write the import and usage code.”
+
+🔹 Prompt 9 — Create a SvelteKit UI Page
+
+“Add a new route /winamp in SvelteKit. Create +page.svelte with the WebampPlayer component. Provide code that lazy-loads the component when the user navigates to the /winamp page.”
+
+🔹 Prompt 10 — Persistent Player
+
+“Make the audio player persistent while navigating the site:
+
+Add the player container to +layout.svelte
+
+Ensure it doesn’t reload on route change
+Provide code changes needed.”
+
+🔹 Prompt 11 — Add Classic UI Buttons
+
+“Add custom buttons in the Windows XP UI for:
+
+Show/Hide Winamp
+
+Open Playlist
+
+Play/Pause
+Provide example Svelte button code with event handlers controlling the webamp instance.”
