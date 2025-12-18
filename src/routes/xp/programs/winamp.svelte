@@ -6,6 +6,9 @@
     export let id;
     export let window;
     export let self;
+    export let parentNode = null;
+    export let fs_item = null;
+    export let exec_path = null;
 
     export let options = {
         title: 'Winamp',
@@ -24,7 +27,7 @@
     }
 </script>
 
-<Window bind:this={window} {options} program={self} on:close={destroy}>
+<Window bind:this={window} {options} {self} on:close={destroy}>
     <div class="winamp-window-container">
         <WebampPlayer />
     </div>
