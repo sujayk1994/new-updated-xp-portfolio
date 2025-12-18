@@ -12,7 +12,7 @@ export const COLORTERM = "truecolor";
 export const npm_config_cache = "/home/runner/.npm";
 
 /** @type {import('$env/static/private').REPL_OWNER} */
-export const REPL_OWNER = "sujay123kodoor";
+export const REPL_OWNER = "devonconway327";
 
 /** @type {import('$env/static/private').DATABASE_URL} */
 export const DATABASE_URL = "postgresql://postgres:password@helium/heliumdb?sslmode=disable";
@@ -27,7 +27,7 @@ export const NIXPKGS_ALLOW_UNFREE = "1";
 export const PKG_CONFIG_PATH = "";
 
 /** @type {import('$env/static/private').HOSTNAME} */
-export const HOSTNAME = "55fff1a1d511";
+export const HOSTNAME = "57f1270b15dd";
 
 /** @type {import('$env/static/private').__EGL_VENDOR_LIBRARY_FILENAMES} */
 export const __EGL_VENDOR_LIBRARY_FILENAMES = "/nix/store/l4myp7qn0q9bqgmkqq4vnnii22ql1r68-mesa-25.0.7/share/glvnd/egl_vendor.d/50_mesa.json";
@@ -36,7 +36,7 @@ export const __EGL_VENDOR_LIBRARY_FILENAMES = "/nix/store/l4myp7qn0q9bqgmkqq4vnn
 export const NODE = "/nix/store/lz7iav1hd92jbv44zf2rdd7b2mj23536-nodejs-20.19.3/bin/node";
 
 /** @type {import('$env/static/private').REPLIT_DOMAINS} */
-export const REPLIT_DOMAINS = "6d053dee-bed0-4bac-84e4-9082434c3c32-00-3b73nwap2oeqw.kirk.replit.dev";
+export const REPLIT_DOMAINS = "cc6d4ac9-b54d-4b8d-be8a-449407136298-00-3ewcmnsakfjn9.pike.replit.dev";
 
 /** @type {import('$env/static/private').LD_AUDIT} */
 export const LD_AUDIT = "/nix/store/6y0zqxaf220r36b74hwsq9m2b2av3lw7-replit_rtld_loader-1/rtld_loader.so";
@@ -51,7 +51,7 @@ export const XDG_DATA_HOME = "/home/runner/workspace/.local/share";
 export const REPLIT_PID1_FLAG_PREEVALED_SYSPKGS = "1";
 
 /** @type {import('$env/static/private').REPL_OWNER_ID} */
-export const REPL_OWNER_ID = "51347259";
+export const REPL_OWNER_ID = "51545980";
 
 /** @type {import('$env/static/private').PGPASSWORD} */
 export const PGPASSWORD = "password";
@@ -72,7 +72,7 @@ export const PKG_CONFIG_PATH_FOR_TARGET = "";
 export const npm_config_local_prefix = "/home/runner/workspace";
 
 /** @type {import('$env/static/private').REPLIT_CLI} */
-export const REPLIT_CLI = "/nix/store/259hhgvb79fbqzmj6k5ih2vi7jxdis25-replit-cli-0.0.1/bin/replit";
+export const REPLIT_CLI = "/nix/store/9zkb78w0js4cm90dwlpbv35rxj630b2c-replit-cli-0.0.1/bin/replit";
 
 /** @type {import('$env/static/private').npm_config_globalconfig} */
 export const npm_config_globalconfig = "/home/runner/workspace/.config/npm/node_global/etc/npmrc";
@@ -90,7 +90,7 @@ export const PWD = "/home/runner/workspace";
 export const NIX_PROFILES = "/nix/var/nix/profiles/default /home/runner/.nix-profile";
 
 /** @type {import('$env/static/private').REPLIT_DB_URL} */
-export const REPLIT_DB_URL = "https://kv.replit.com/v0/eyJhbGciOiJIUzUxMiIsImlzcyI6ImNvbm1hbiIsImtpZCI6InByb2Q6MSIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJjb25tYW4iLCJleHAiOjE3NjU4MjIxMDUsImlhdCI6MTc2NTcxMDUwNSwiZGF0YWJhc2VfaWQiOiI2ZDA1M2RlZS1iZWQwLTRiYWMtODRlNC05MDgyNDM0YzNjMzIifQ.2_grFgqVy3KKvXoPxS7aTVOW5l_Ds-uEI6829-GMUOyxX3Ld4SrnZaYvOO_2lIFmNwW_ob_Yj7RyPjIQhyZCLQ";
+export const REPLIT_DB_URL = "https://kv.replit.com/v0/eyJhbGciOiJIUzUxMiIsImlzcyI6ImNvbm1hbiIsImtpZCI6InByb2Q6MSIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJjb25tYW4iLCJleHAiOjE3NjYxNTQ3NjAsImlhdCI6MTc2NjA0MzE2MCwiZGF0YWJhc2VfaWQiOiJjYzZkNGFjOS1iNTRkLTRiOGQtYmU4YS00NDk0MDcxMzYyOTgifQ.buYmrwQ2y6gTZqe8FAwbnJsoKkwm8NcS4TFilN9nswd_IC0-i0bygzcvrW8o_Qj_N-T24bqDW1o2RtB-1bPArQ";
 
 /** @type {import('$env/static/private').NIX_PATH} */
 export const NIX_PATH = "nixpkgs=/home/runner/.nix-defexpr/channels/nixpkgs-stable-25_05:/home/runner/.nix-defexpr/channels";
@@ -99,7 +99,7 @@ export const NIX_PATH = "nixpkgs=/home/runner/.nix-defexpr/channels/nixpkgs-stab
 export const npm_config_init_module = "/home/runner/.npm-init.js";
 
 /** @type {import('$env/static/private').REPL_ID} */
-export const REPL_ID = "6d053dee-bed0-4bac-84e4-9082434c3c32";
+export const REPL_ID = "cc6d4ac9-b54d-4b8d-be8a-449407136298";
 
 /** @type {import('$env/static/private').GI_TYPELIB_PATH} */
 export const GI_TYPELIB_PATH = "";
@@ -117,7 +117,7 @@ export const LANG = "en_US.UTF-8";
 export const CONNECTORS_HOSTNAME = "connectors.replit.com";
 
 /** @type {import('$env/static/private').REPL_IDENTITY} */
-export const REPL_IDENTITY = "v2.public.Q2lRMlpEQTFNMlJsWlMxaVpXUXdMVFJpWVdNdE9EUmxOQzA1TURneU5ETTBZek5qTXpJU0RuTjFhbUY1TVRJemEyOWtiMjl5R2hodVpYY3RkWEJrWVhSbFpDMTRjQzF3YjNKMFptOXNhVzhpSkRaa01EVXpaR1ZsTFdKbFpEQXROR0poWXkwNE5HVTBMVGt3T0RJME16UmpNMk16TWppNy9yMFlXaE1LQkd0cGNtc1NDMmx1ZEdWeVlXTjBhWFpsNSft2M8QY1uQSUrCK56ystBWYaFyEK_9kj_7fuqomvjXmaFs-6nRlhQL_ded0u8lJeZ6EHaesXdyEYhfkZ6fDQ.R0FFaUJtTnZibTFoYmhLYkNIWXlMbkIxWW14cFl5NVJNbVF6VTFjeGVWZEVXalZWVm14U1RWVjRlVmw2VmxKU1ZrNUZVVmRzZDB4NlVqSlRNRXB2VVRJNU1scEljSE5SVmtwMlVUQmtRbFpYUmt0YU1qbHlWRzB4VW1Rd05WVlViWFJoVmpGV01GZFhNVmRoTURGRVRVUkNXbUpWV25GVVJsSnVUVVp3VlZWWVVsQldSVVV3VkZkd1VtVnJOVWhVV0hCYVpXc3hOVkl5YUVKVk1GSjFWR3BHYUdKVldURlVWbEpLWlcxRmVVOVhkR2xOYW13MVVqSmtWazVJVlhaT2FteElVVzA1U0ZOWFpGTmpiVVpaVTI1S1NGcDZRbmhSZWtwelpGZFNTRlp1YkZwV01EUjNXVlpvWVdKRmJIRldia3BPWVZSV00xcEdaRXRqTWtaWVZGaFdhMDF0YUROVlZ6RlhZMGRGZDFKdWNGSmlSVFZFVjI1d1QxTlhVblJrUkU1clpXeGFSVlJ0Y0Vwa1JUVkhVV3h3YVZKdGVHOVdWbEpQWld4a2MxcElRbGROU0ZKNFZXdG9WMlJHUmxKUVZERnpSVlpzY1ZsMmVFOWpNblJpZGprNWNXdDZXbDlMTWpKNVNVUmtRaTFsUzAxUFJXWmtjV2xNVTBSMWFGZGtWMUJZWDNwMFNXaEdNa1ZWZEVKblRVWnFWMUpXWTFOU2VqQjFWbmg0VGs5WVpVUXlXbEZDTGxJd1JrWmhWVXAwVkc1YWFXSlVSbTlaYldoTldXdEdkVmRZYkUxaWEwbDRWMWN4TkdOR2JEVk9Wa3BPWWxaSk1sWlVSbXROUjFaMFUyeGFWR0p1UWxkV2JURTBWVEZTY2xWdFJrNVdia0pYVlRKMFQxWkdXbGxoUlZaV1pXdEtjbFZxUVRGVFZrWnlVMnhhVGxKc2NGTldiWEJQV1ZkU1YySXphRk5pVjJoVFZtcEtiMlJXVmxoa1IzUnBZa1UxV0ZsclZrOVdiVXBWWWtWV1ZtRnJTa2hhUjNoelZteEtkVkpzU2xkV1dFSktWakp3UTJNeFpITlNiR2hvVTBad1UxUlZaRk5STVZwSFdrVmtVbUpWV2tsWGExVjRWVEF4ZEZWcmRGZE5WbHBVVlZSS1NtUXhVbkpoUmtwWFlURndkbFpXV210aU1rcHpWRzVLYVZORldsaFpiWFIzVkRGc1YxVnNaRTVOV0VKSVYydFdNR0ZyTVhKWGJHeFhVbTFvV0ZaRVJtRmtSMVpKWTBaa1YySldTa2xXUmxKTFZESk5lVk5xV2xaaGVteFlWRmQ0UzJJeFdYbE5WRkpVVFd0YVIxUldWbXRXUjBwR1YyeGFXbFo2UlRCWFZscHpUbXhHVlZKdGNHbFNXRUkyVmtSR1YxbFhSWGxUYkd4V1ZrVmFWMWxyV21GamJIQklaVVZhYkZKdVFrWldNakYzWVVkRmVHTkhPVmRoYTFwVVZYcEdUbVZHV25OVGJFWlhVa1ZLTTFZeWRHRlhiVTUwWTBVeFVGZEZOSHBhUlZaYVRsWndSVkpZVW1saVZGWlJWREJrWVZWdFNsaGhSRXBVVWxad2VGWnJWbkprUjFKRllVVndhV0pXY0ZGWFJFbDRWbFV4ZEZsNlVtcFhTRUpHVld0a1ZrNUdXa1ZpUmxKb1RWWktObGR0ZUc5aVYxWnlZbnBDV0ZaVk1UWlhiWE4zWld4a1ZrNVlTbFJXUjFKWlYxZHJkMDVXU25KVmJUbFBZVlJHVEZScVNUVlNSWGh6VTFoa1UyRXhjRzlXYkZaM1RVWmFTRTVYUm1oV01IQldWVzB3TlZkdFNsaFZha3BXWVd0d1VGVXhXazlrVm1SMFVteE9VMlZ0WnpBPQ";
+export const REPL_IDENTITY = "v2.public.Q2lSall6WmtOR0ZqT1MxaU5UUmtMVFJpT0dRdFltVTRZUzAwTkRrME1EY3hNell5T1RnU0RtUmxkbTl1WTI5dWQyRjVNekkzR2hodVpYY3RkWEJrWVhSbFpDMTRjQzF3YjNKMFptOXNhVzhpSkdOak5tUTBZV001TFdJMU5HUXROR0k0WkMxaVpUaGhMVFEwT1RRd056RXpOakk1T0RqOGpzb1lXaE1LQkhCcGEyVVNDMmx1ZEdWeVlXTjBhWFpsDwNoEBcwSRs3GiHpNK_QGA-X9ZP3HfFE7dU22dOu1XHc6mQ33-TFTJpn5m3bRlyaT2QNw3EPc2psekWkbGTYCQ.R0FFaUJtTnZibTFoYmhLYkNIWXlMbkIxWW14cFl5NVJNbVF6VTFkc2EyVlZPVFZhTVd4U1RXMWFkRlpxYUZKVFZrNUZVVmRzV21OSVJrVlRNRXB2VWtWdmRsTnNhRFJSVjJoMlVUQmtRbFpYUmt0YU1qbHlWMVJLVGsxc2NFVlZiV2hhWlcxME1GZFhjRlpOUm5CRVRVUkNXbUZ0YUhKVVJtUkxZa1U1U0ZKWVVrOVNSa1V4Vkd0U1FrMHdNVlZVVkVwT1lXMXpNRkl5YUVKVk1GSjBWVzE0YTJKVWJERlhWRWsxWkZkUmVWSnFWazVsYTJ0NlVqSmtWazVET1VwT01IUklVVzA1U0ZOWFpGTmtNa1pZWkVkNFNGcDZRbmhSZWtwelpGZFNTRlp1YkZwV01EUjNXVlpvWVdKRmJIRldia3BPWVZSV00xcEdaRXRqTWtaWVZGaFdhbVZyY0VoVlZsSkxWMVpaZDJKRVJtbFNXRUpTV2tWV2IyTnNjRVpUYXpsV1lURktjbGRzYUZkV2JGcFZZa2M1VDFKNmJGaFZNVnBhWkVaa1dHUkljR3RTTVZwaFZWaHJlRTVyT1VKUVZETXdXazFQY2toVFgzcGtjVk5YYVhwck5VeHBNMVpYTTNkUWR6QmhhVVY1VkZCSmIySjBUMmhaUm1rMFMyVXdNVlU0WVZBM1dUVkdTbU5YZVY5RldFeG9iVFpFVURBelptUnVRM1JtUjFoVE1sRXpOM2RCTGxJd1JrWmhWVXAwVkc1YWFXSlVSbTlaYldoTldXdEdkVmRZYkUxaWEwbDRWMWN4TkdOR2JEVk9Wa3BPWWxaSk1sWlVSbXROUjFaMFUyeGFWR0p1UWxkV2JURTBWVEZTY2xWdFJrNVdia0pYVlRKMFQxWkdXbGxoUlZaV1pXdEtjbFZxUVRGVFZrWnlVMnhhVGxKc2NGTldiWEJQV1ZkU1YySXphRk5pVjJoVFZtcEtiMlJXVmxoa1IzUnBZa1UxV0ZsclZrOVdiVXBWWWtWV1ZtRnJTa2hhUjNoelZteEtkVkpzU2xkV1dFSktWakp3UTJNeFpITlNiR2hvVTBad1UxUlZaRk5STVZwSFdrVmtVbUpWV2tsWGExVjRWVEF4ZEZWcmRGZE5WbHBVVlZSS1NtUXhVbkpoUmtwWFlURndkbFpXV210aU1rcHpWRzVLYVZORldsaFpiWFIzVkRGc1YxVnNaRTVOV0VKSVYydFdNR0ZyTVhKWGJHeFhVbTFvV0ZaRVJtRmtSMVpKWTBaa1YySldTa2xXUmxKTFZESk5lVk5xV2xaaGVteFlWRmQ0UzJJeFdYbE5WRkpVVFd0YVIxUldWbXRXUjBwR1YyeGFXbFo2UlRCWFZscHpUbXhHVlZKdGNHbFNXRUkyVmtSR1YxbFhSWGxUYkd4V1ZrVmFWMWxyV21GamJIQklaVVZhYkZKdVFrWldNakYzWVVkRmVHTkhPVmRoYTFwVVZYcEdUbVZHV25OVGJFWlhVa1ZLTTFZeWRHRlhiVTUwWTBVeFVGZEZOSHBhUlZaYVRsWndSVkpZVW1saVZGWlJWREJrWVZWdFNsaGhSRXBVVWxad2VGWnJWbkprUjFKRllVVndhV0pXY0ZGWFJFbDRWbFV4ZEZsNlVtcFhTRUpHVld0a1ZrNUdXa1ZpUmxKb1RWWktObGR0ZUc5aVYxWnlZbnBDV0ZaVk1UWlhiWE4zWld4a1ZrNVlTbFJXUjFKWlYxZHJkMDVXU25KVmJUbFBZVlJHVEZScVNUVlNSWGh6VTFoa1UyRXhjRzlXYkZaM1RVWmFTRTVYUm1oV01IQldWVzB3TlZkdFNsaFZha3BXWVd0d1VGVXhXazlrVm1SMFVteE9VMlZ0WnpBPQ";
 
 /** @type {import('$env/static/private').LS_COLORS} */
 export const LS_COLORS = "rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=00:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.7z=01;31:*.ace=01;31:*.alz=01;31:*.apk=01;31:*.arc=01;31:*.arj=01;31:*.bz=01;31:*.bz2=01;31:*.cab=01;31:*.cpio=01;31:*.crate=01;31:*.deb=01;31:*.drpm=01;31:*.dwm=01;31:*.dz=01;31:*.ear=01;31:*.egg=01;31:*.esd=01;31:*.gz=01;31:*.jar=01;31:*.lha=01;31:*.lrz=01;31:*.lz=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.lzo=01;31:*.pyz=01;31:*.rar=01;31:*.rpm=01;31:*.rz=01;31:*.sar=01;31:*.swm=01;31:*.t7z=01;31:*.tar=01;31:*.taz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tgz=01;31:*.tlz=01;31:*.txz=01;31:*.tz=01;31:*.tzo=01;31:*.tzst=01;31:*.udeb=01;31:*.war=01;31:*.whl=01;31:*.wim=01;31:*.xz=01;31:*.z=01;31:*.zip=01;31:*.zoo=01;31:*.zst=01;31:*.avif=01;35:*.jpg=01;35:*.jpeg=01;35:*.jxl=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:*~=00;90:*#=00;90:*.bak=00;90:*.crdownload=00;90:*.dpkg-dist=00;90:*.dpkg-new=00;90:*.dpkg-old=00;90:*.dpkg-tmp=00;90:*.old=00;90:*.orig=00;90:*.part=00;90:*.rej=00;90:*.rpmnew=00;90:*.rpmorig=00;90:*.rpmsave=00;90:*.swp=00;90:*.tmp=00;90:*.ucf-dist=00;90:*.ucf-new=00;90:*.ucf-old=00;90:";
@@ -159,7 +159,7 @@ export const REPLIT_RTLD_LOADER = "1";
 export const npm_config_npm_version = "10.8.2";
 
 /** @type {import('$env/static/private').REPLIT_DEV_DOMAIN} */
-export const REPLIT_DEV_DOMAIN = "6d053dee-bed0-4bac-84e4-9082434c3c32-00-3b73nwap2oeqw.kirk.replit.dev";
+export const REPLIT_DEV_DOMAIN = "cc6d4ac9-b54d-4b8d-be8a-449407136298-00-3ewcmnsakfjn9.pike.replit.dev";
 
 /** @type {import('$env/static/private').TERM} */
 export const TERM = "xterm-256color";
@@ -168,7 +168,7 @@ export const TERM = "xterm-256color";
 export const npm_package_name = "web-svelte";
 
 /** @type {import('$env/static/private').REPLIT_CLUSTER} */
-export const REPLIT_CLUSTER = "kirk";
+export const REPLIT_CLUSTER = "pike";
 
 /** @type {import('$env/static/private').REPLIT_BASHRC} */
 export const REPLIT_BASHRC = "/nix/store/lsgsb0ar7rdwa09d1z2dnfjh4188pddk-replit-bashrc/bashrc";
@@ -183,13 +183,13 @@ export const REPL_LANGUAGE = "nix";
 export const USER = "runner";
 
 /** @type {import('$env/static/private').SESSION_SECRET} */
-export const SESSION_SECRET = "fT3kbf+R9r1OWn1HcmZ9B1v2clGk8WuMWsINiqpqq091/8Y+yfNErMWpGuqvacQlbW8dIWF4iaHWWDVwM9Fyhg==";
+export const SESSION_SECRET = "y6NuISB9k8PxSgRRg9EvsS7maz26iIsYO11R7hu27S4sYi8dpcg0SkbWkpm3in/6b+6K09hrXLqTMZSse5JqVA==";
 
 /** @type {import('$env/static/private').REPL_HOME} */
 export const REPL_HOME = "/home/runner/workspace";
 
 /** @type {import('$env/static/private').REPLIT_PID1_VERSION} */
-export const REPLIT_PID1_VERSION = "0.0.0-2e69410";
+export const REPLIT_PID1_VERSION = "0.0.0-390b7d6";
 
 /** @type {import('$env/static/private').DISPLAY} */
 export const DISPLAY = ":0";
@@ -252,10 +252,10 @@ export const npm_package_json = "/home/runner/workspace/package.json";
 export const npm_config_legacy_peer_deps = "true";
 
 /** @type {import('$env/static/private').XDG_DATA_DIRS} */
-export const XDG_DATA_DIRS = "/nix/store/n3fwf368m4bpdjkw4lm38ylkxk2vmsqi-git-lfs-3.6.1/share:/nix/store/1dyk2gadghrim582jhij2pgmnglpkcpz-replit-runtime-path/share";
+export const XDG_DATA_DIRS = "/nix/store/n3fwf368m4bpdjkw4lm38ylkxk2vmsqi-git-lfs-3.6.1/share:/nix/store/wjbnwb0f1kf5jk6zarxxpdq91qmdm4yp-replit-runtime-path/share";
 
 /** @type {import('$env/static/private').REPL_IDENTITY_KEY} */
-export const REPL_IDENTITY_KEY = "k2.secret.rlxCWVg_q9_3ADC_jTD9kWoHTka77vt2IHJyVsk5KALCGkF6KQCwFIGDce-TDDkLrb7g9iVhpDexlaJYqMO6YA";
+export const REPL_IDENTITY_KEY = "k2.secret.vdPOGZkR_6PLDnFVUS5tkjEBSIg4-HIK0LytxD0LOzazYUDZdYi6Uk-0eR0E1EN165RT2HihUhX5iSy15gL7Pw";
 
 /** @type {import('$env/static/private').REPLIT_HELIUM_ENABLED} */
 export const REPLIT_HELIUM_ENABLED = "true";
@@ -264,7 +264,7 @@ export const REPLIT_HELIUM_ENABLED = "true";
 export const npm_config_noproxy = "";
 
 /** @type {import('$env/static/private').PATH} */
-export const PATH = "/home/runner/workspace/node_modules/.bin:/home/runner/node_modules/.bin:/home/node_modules/.bin:/node_modules/.bin:/nix/store/lz7iav1hd92jbv44zf2rdd7b2mj23536-nodejs-20.19.3/lib/node_modules/npm/node_modules/@npmcli/run-script/lib/node-gyp-bin:/nix/store/n3fwf368m4bpdjkw4lm38ylkxk2vmsqi-git-lfs-3.6.1/bin:/nix/store/djy8g4cghlw19fmy6zblim1waxkr7mf2-npx/bin:/home/runner/workspace/.config/npm/node_global/bin:/home/runner/workspace/node_modules/.bin:/nix/store/8y4ls7z2sfxbq6ch3yp45l28p29qswvx-nodejs-20.19.3-wrapped/bin:/nix/store/nj22dzxzzx4m80lfa91fzqh8k9lvwigw-bun-1.2.16/bin:/nix/store/pciji08qkvcg3191yykpfipdcbbic9k5-pnpm-10.12.4/bin:/nix/store/6mzbvyzh4dfgfab6lciclji7awp9w3c4-yarn-1.22.22/bin:/nix/store/gvg9vrp821nmnyf9pxig6pss1sjywd5w-prettier-3.5.3/bin:/nix/store/i6s3f204qgqwlsw2j0ag1hvh8af32yjk-pid1/bin:/nix/store/1dyk2gadghrim582jhij2pgmnglpkcpz-replit-runtime-path/bin:/home/runner/.nix-profile/bin:/home/runner/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin";
+export const PATH = "/home/runner/workspace/node_modules/.bin:/home/runner/node_modules/.bin:/home/node_modules/.bin:/node_modules/.bin:/nix/store/lz7iav1hd92jbv44zf2rdd7b2mj23536-nodejs-20.19.3/lib/node_modules/npm/node_modules/@npmcli/run-script/lib/node-gyp-bin:/nix/store/n3fwf368m4bpdjkw4lm38ylkxk2vmsqi-git-lfs-3.6.1/bin:/nix/store/djy8g4cghlw19fmy6zblim1waxkr7mf2-npx/bin:/home/runner/workspace/.config/npm/node_global/bin:/home/runner/workspace/node_modules/.bin:/nix/store/8y4ls7z2sfxbq6ch3yp45l28p29qswvx-nodejs-20.19.3-wrapped/bin:/nix/store/nj22dzxzzx4m80lfa91fzqh8k9lvwigw-bun-1.2.16/bin:/nix/store/pciji08qkvcg3191yykpfipdcbbic9k5-pnpm-10.12.4/bin:/nix/store/6mzbvyzh4dfgfab6lciclji7awp9w3c4-yarn-1.22.22/bin:/nix/store/gvg9vrp821nmnyf9pxig6pss1sjywd5w-prettier-3.5.3/bin:/nix/store/lvjr9cjkl0nf78lwgg3x6dxi3gvhmvvl-pid1/bin:/nix/store/wjbnwb0f1kf5jk6zarxxpdq91qmdm4yp-replit-runtime-path/bin:/home/runner/.nix-profile/bin:/home/runner/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin";
 
 /** @type {import('$env/static/private').npm_config_node_gyp} */
 export const npm_config_node_gyp = "/nix/store/lz7iav1hd92jbv44zf2rdd7b2mj23536-nodejs-20.19.3/lib/node_modules/npm/node_modules/node-gyp/bin/node-gyp.js";
