@@ -107,6 +107,7 @@
         
         const desktopId = 'nt1QdU9Sws26H26UNQZcQU';
         const contactMeId = 'contactMeDesktopItem001';
+        const winampDesktopId = 'winampDesktopItem001';
         
         if (!drive[contactMeId]) {
             drive[contactMeId] = {
@@ -133,6 +134,33 @@
             }
         } else if (drive[contactMeId].icon !== '/images/xp/icons/ContactMe.webp') {
             drive[contactMeId].icon = '/images/xp/icons/ContactMe.webp';
+        }
+
+        if (!drive[winampDesktopId]) {
+            drive[winampDesktopId] = {
+                id: winampDesktopId,
+                type: 'file',
+                basename: 'Winamp',
+                name: 'Winamp.exe',
+                storage_type: 'fake',
+                url: './programs/winamp.svelte',
+                ext: '.exe',
+                parent: desktopId,
+                size: 5000,
+                executable: true,
+                icon: '/images/xp/icons/Winamp.png',
+                children: [],
+                date_created: now,
+                date_modified: now,
+                sort_option: SortOptions.NONE,
+                sort_order: SortOrders.ASCENDING
+            };
+            
+            if (drive[desktopId] && !drive[desktopId].children.includes(winampDesktopId)) {
+                drive[desktopId].children.push(winampDesktopId);
+            }
+        } else if (drive[winampDesktopId].icon !== '/images/xp/icons/Winamp.png') {
+            drive[winampDesktopId].icon = '/images/xp/icons/Winamp.png';
         }
     }
 
