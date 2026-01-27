@@ -15,8 +15,21 @@
     if (fs_item && fs_item.url) {
       openAudioFile(fs_item, fs_item.url);
     } else {
-      // Just open Winamp without a file
+      // Just open Winamp without a file - Play default intro
       winampStore.open();
+      
+      const defaultTrack = {
+        metaData: {
+          artist: "DJ Mike Llama",
+          title: "Winamp Demo"
+        },
+        url: "/audio/winamp_intro.mp3" // Assuming this exists or is the standard location
+      };
+      
+      setTimeout(() => {
+        winampStore.addTrack(defaultTrack);
+        winampStore.play();
+      }, 500);
     }
     
     // Close the program window since Winamp opens as overlay
