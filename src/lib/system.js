@@ -190,7 +190,7 @@ export let doctypes = {
 }
 
 export let icons = {
-  '.mp3': 'AudioCD.png',
+  '.mp3': 'MP3.png',
   '.wav': 'AudioCD.png',
   '.aac': 'AudioCD.png',
   '.flac': 'AudioCD.png',
