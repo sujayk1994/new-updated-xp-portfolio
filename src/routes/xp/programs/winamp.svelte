@@ -10,7 +10,7 @@
   export let fs_item = null;
   export let exec_path = null;
 
-  onMount(() => {
+  onMount(async () => {
     // If opened with an audio file
     if (fs_item && fs_item.url) {
       openAudioFile(fs_item, fs_item.url);
@@ -26,10 +26,15 @@
         url: "https://cdn.rawgit.com/captbaritone/webamp/master/mp3/llama.mp3"
       };
       
+      // Give store a moment to initialize instance
       setTimeout(() => {
-        winampStore.addTrack(defaultTrack);
-        winampStore.play();
-      }, 500);
+        try {
+          winampStore.addTrack(defaultTrack);
+          winampStore.play();
+        } catch (e) {
+          console.error('Error playing intro:', e);
+        }
+      }, 1000);
     }
     
     // Close the program window since Winamp opens as overlay
