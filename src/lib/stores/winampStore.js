@@ -44,17 +44,17 @@ function createWinampStore() {
     addTrack: (track) => {
       const state = get({ subscribe });
       if (state.webampInstance) {
-        state.webampInstance.appendTracks([track]);
+        state.webampInstance.setTracksToPlay([track]);
       }
-      update(s => ({ ...s, playlist: [...s.playlist, track] }));
+      update(s => ({ ...s, playlist: [track] }));
     },
     
     addTracks: (tracks) => {
       const state = get({ subscribe });
       if (state.webampInstance) {
-        state.webampInstance.appendTracks(tracks);
+        state.webampInstance.setTracksToPlay(tracks);
       }
-      update(s => ({ ...s, playlist: [...s.playlist, ...tracks] }));
+      update(s => ({ ...s, playlist: tracks }));
     },
     
     clearPlaylist: () => {
