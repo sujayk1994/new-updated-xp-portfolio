@@ -190,14 +190,14 @@ export let doctypes = {
 }
 
 export let icons = {
-  '.mp3': 'AudioFile.png',
-  '.wav': 'AudioFile.png',
-  '.aac': 'AudioFile.png',
-  '.flac': 'AudioFile.png',
-  '.ogg': 'AudioFile.png',
-  '.m4a': 'AudioFile.png',
-  '.wma': 'AudioFile.png',
-  '.opus': 'AudioFile.png',
+  '.mp3': 'AudioCD.png',
+  '.wav': 'AudioCD.png',
+  '.aac': 'AudioCD.png',
+  '.flac': 'AudioCD.png',
+  '.ogg': 'AudioCD.png',
+  '.m4a': 'AudioCD.png',
+  '.wma': 'AudioCD.png',
+  '.opus': 'AudioCD.png',
   '.mp4': 'MPC_video.png',
   '.webm': 'MPC_video.png',
   '.exe': 'ApplicationWindow.png',
