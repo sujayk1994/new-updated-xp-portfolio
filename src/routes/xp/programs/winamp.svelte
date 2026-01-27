@@ -23,18 +23,18 @@
           artist: "DJ Mike Llama",
           title: "Winamp Demo"
         },
-        url: "https://cdn.rawgit.com/captbaritone/webamp/master/mp3/llama.mp3"
+        url: "https://cdn.jsdelivr.net/gh/captbaritone/webamp@43434d82cfe0e37286dbbe0666072dc3190a83bc/mp3/llama-2.91.mp3"
       };
       
       // Give store a moment to initialize instance
       setTimeout(() => {
         try {
-          winampStore.addTrack(defaultTrack);
+          winampStore.setPlaylist([defaultTrack]);
           winampStore.play();
         } catch (e) {
           console.error('Error playing intro:', e);
         }
-      }, 1000);
+      }, 1500);
     }
     
     // Close the program window since Winamp opens as overlay
