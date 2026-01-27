@@ -23,7 +23,7 @@
           artist: "DJ Mike Llama",
           title: "Winamp Demo"
         },
-        url: "/audio/winamp_intro.mp3" // Assuming this exists or is the standard location
+        url: "https://cdn.rawgit.com/captbaritone/webamp/master/mp3/llama.mp3"
       };
       
       setTimeout(() => {
