@@ -69,6 +69,7 @@ declare module '$env/static/private' {
 	export const USER: string;
 	export const SESSION_SECRET: string;
 	export const REPL_HOME: string;
+	export const TZDIR: string;
 	export const REPLIT_PID1_VERSION: string;
 	export const DISPLAY: string;
 	export const npm_lifecycle_event: string;
