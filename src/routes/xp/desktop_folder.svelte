@@ -114,7 +114,7 @@
         keyboardDrag: false
     });
 
-    ds.subscribe('callback', (e) => {
+    ds.subscribe('callback', async (e) => {
         for(let node of e.items){
             let fs_id = node.getAttribute('fs-id');
             if(fs_id == null) continue;
@@ -122,6 +122,10 @@
             if(utils.is_empty(node.style.transform)) continue;
 
             $hardDrive[fs_id]['desktop_css_transform'] = node.style.transform;
+            
+            if ($isAdmin && ($hardDrive[fs_id].is_admin || $hardDrive[fs_id].storage_type === 'admin')) {
+                await updateAdminFile($hardDrive[fs_id]);
+            }
         }
         $selectingItems = e.items
         .map(el => el.getAttribute('fs-id'))
