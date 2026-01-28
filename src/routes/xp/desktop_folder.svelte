@@ -125,6 +125,10 @@
             
             if ($isAdmin && ($hardDrive[fs_id].is_admin || $hardDrive[fs_id].storage_type === 'admin')) {
                 await updateAdminFile($hardDrive[fs_id]);
+            } else {
+                let positions = await get('desktop_positions') || {};
+                positions[fs_id] = node.style.transform;
+                await set('desktop_positions', positions);
             }
         }
         $selectingItems = e.items
@@ -148,6 +152,13 @@
     onMount(async () => {
         checkMobile();
         window.addEventListener('resize', checkMobile);
+        
+        let savedPositions = await get('desktop_positions') || {};
+        for (let fs_id in savedPositions) {
+            if ($hardDrive[fs_id] && !$hardDrive[fs_id].desktop_css_transform) {
+                $hardDrive[fs_id]['desktop_css_transform'] = savedPositions[fs_id];
+            }
+        }
         
         ds.setSettings({
             selectables: node_ref.querySelectorAll('.fs-item'),
