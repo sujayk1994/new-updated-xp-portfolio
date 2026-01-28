@@ -51,6 +51,7 @@ export async function GET({ request }) {
                 sort_order: row.sort_order,
                 starting_point: row.starting_point,
                 executable: row.executable,
+                desktop_css_transform: row.desktop_css_transform,
                 is_admin: true
             };
         }
@@ -87,8 +88,8 @@ export async function POST({ request }) {
             const now = Date.now();
             
             await query(`
-                INSERT INTO admin_files (id, type, name, basename, ext, parent, icon, storage_type, url, size, children, date_created, date_modified, sort_option, sort_order, starting_point, executable)
-                VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17)
+                INSERT INTO admin_files (id, type, name, basename, ext, parent, icon, storage_type, url, size, children, date_created, date_modified, sort_option, sort_order, starting_point, executable, desktop_css_transform)
+                VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17, $18)
                 ON CONFLICT (id) DO UPDATE SET
                     type = EXCLUDED.type,
                     name = EXCLUDED.name,
@@ -104,7 +105,8 @@ export async function POST({ request }) {
                     sort_option = EXCLUDED.sort_option,
                     sort_order = EXCLUDED.sort_order,
                     starting_point = EXCLUDED.starting_point,
-                    executable = EXCLUDED.executable
+                    executable = EXCLUDED.executable,
+                    desktop_css_transform = EXCLUDED.desktop_css_transform
             `, [
                 file.id,
                 file.type,
@@ -122,7 +124,8 @@ export async function POST({ request }) {
                 file.sort_option || 0,
                 file.sort_order || 0,
                 file.starting_point || false,
-                file.executable || false
+                file.executable || false,
+                file.desktop_css_transform || null
             ]);
             
             return new Response(JSON.stringify({ success: true }), {

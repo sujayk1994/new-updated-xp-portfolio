@@ -41,9 +41,15 @@ export async function initializeDatabase() {
                 starting_point BOOLEAN DEFAULT FALSE,
                 executable BOOLEAN DEFAULT FALSE,
                 file_data BYTEA,
+                desktop_css_transform VARCHAR(255),
                 created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
                 updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
             )
+        `);
+        
+        await client.query(`
+            ALTER TABLE admin_files 
+            ADD COLUMN IF NOT EXISTS desktop_css_transform VARCHAR(255)
         `);
 
         await client.query(`
