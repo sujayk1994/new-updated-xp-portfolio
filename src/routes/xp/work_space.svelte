@@ -245,6 +245,25 @@
             runningPrograms.update(values => {
                 return [...values, program];
             })
+        } else if(path == './programs/html_game.svelte'){
+            const Program = (await import('./programs/html_game.svelte')).default;
+            let program = new Program({
+                target: node_ref,
+                props: {
+                    id: short.generate(), 
+                    parentNode: node_ref, 
+                    game_url: fs_item.game_url,
+                    game_name: fs_item.game_name,
+                    game_icon: fs_item.game_icon,
+                    exec_path: path + '::' + fs_item.game_url
+                }
+            });
+            program.self = program;
+            
+            //add to program tray
+            runningPrograms.update(values => {
+                return [...values, program];
+            })
         } else if(path == './programs/image_viewer.svelte'){
             const Program = (await import('./programs/image_viewer.svelte')).default;
             let program = new Program({
