@@ -69,14 +69,20 @@
     })
 
     async function load_hard_drive(){
-        let hard_drive = await get('hard_drive');
-        if(hard_drive == null){
-            hard_drive = (await axios({
-                method: 'get',
-                url: '/json/hard_drive.json'
-            })).data;
-            await set('hard_drive', hard_drive);
+        let hard_drive = (await axios({
+            method: 'get',
+            url: '/json/hard_drive.json'
+        })).data;
+        
+        let cached_hard_drive = await get('hard_drive');
+        if(cached_hard_drive != null){
+            for(let id in cached_hard_drive){
+                if(!hard_drive[id]){
+                    hard_drive[id] = cached_hard_drive[id];
+                }
+            }
         }
+        await set('hard_drive', hard_drive);
         migrate_files_format(hard_drive);
         console.log(hard_drive);
         hardDrive.set(hard_drive);
