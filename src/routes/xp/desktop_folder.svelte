@@ -215,7 +215,8 @@
             if(fs_item.executable){
                 queueProgram.set({
                     path: fs_item.url,
-                    webapp: fs_item.webapp
+                    webapp: fs_item.webapp,
+                    fs_item: fs_item
                 })
             } else if(isAudioFile(fs_item.name)){
                 openAudioFile(fs_item, fs_item.url);
